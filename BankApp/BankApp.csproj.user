@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ShowAllFiles>true</ShowAllFiles>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="UI\pgHistory.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\pgRefill.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\pgTransfer.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\pgWithdrawal.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\ucTransaction.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\ucTransfer.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\wndHome.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="UI\pgHistory.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\pgRefill.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\pgTransfer.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\pgWithdrawal.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\ucTransaction.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\ucTransfer.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\wndAuthorization.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\wndHome.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

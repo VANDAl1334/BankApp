@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Accounts.txt" />
+    <None Remove="Data\Accounts.txt" />
+    <None Remove="Resources\Logo.ico" />
+    <None Remove="Resources\Logo.png" />
+    <None Remove="Resources\LogoWhite.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Accounts.txt" />
+    <Resource Include="Data\Accounts.txt" />
+    <Resource Include="Resources\Assets\Logo.ico" />
+    <Resource Include="Resources\Assets\Logo.png" />
+    <Resource Include="Resources\Assets\LogoWhite.png" />
+  </ItemGroup>
+
+</Project>
