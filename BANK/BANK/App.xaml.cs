@@ -13,6 +13,6 @@ namespace BANK
     /// </summary>
     public partial class App : Application
     {
-        hui
+        
     }
 }
