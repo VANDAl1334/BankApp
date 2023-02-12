@@ -27,18 +27,16 @@ namespace UserApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Window1 window1 = new Window1();
-            window1.Show();
+            Window1 reg = new Window1();
+            reg.Show();
+            this.Close();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-
+            Window2 aut = new Window2();
+            aut.Show();
+            this.Close();
         }
     }
 }

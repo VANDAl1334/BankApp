@@ -6,14 +6,10 @@
         xmlns:local="clr-namespace:UserApp"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Регистрация" Height="400" Width="800" ShowInTaskbar="False">
+        Title="Регистрация" Height="400" Width="800" ShowInTaskbar="False" WindowStartupLocation="CenterOwner">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="257*"/>
-            <ColumnDefinition Width="143*"/>
-        </Grid.ColumnDefinitions>
         <TextBlock Text="Регистрация" HorizontalAlignment="Left" FontSize="30" FontFamily="Times New Roman" Margin="321,28,0,0"></TextBlock>
-        <Border Width="650" Margin="75,0,75,0" Background="White" VerticalAlignment="Center" Padding="40" Grid.ColumnSpan="2">
+        <Border Width="650" CornerRadius="20" Background="White" VerticalAlignment="Center" Padding="40" Grid.ColumnSpan="2">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="100" Color="LightGray" ShadowDepth="3"/>
             </Border.Effect>

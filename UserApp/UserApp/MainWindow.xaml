@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:UserApp"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Банк" Height="600" Width="1000" ShowInTaskbar="False" WindowStartupLocation="CenterScreen">
-    <Grid Background="Green">
-        <Border MinWidth="400" MaxWidth="900" MinHeight="300" MaxHeight="600" Margin="60,0,60,0" Background="White" VerticalAlignment="Center" Padding="40" Grid.ColumnSpan="2" >
+        Title="Банк" Height="450" Width="1000" ShowInTaskbar="False" WindowStartupLocation="CenterScreen">
+    <Grid Background="LightGreen">
+        <Border MinWidth="400" MaxWidth="900" MinHeight="300" MaxHeight="600" Margin="60,0,60,0" CornerRadius="20" Background="White" VerticalAlignment="Center" Padding="40" Grid.ColumnSpan="2" >
             <Border.Effect>
                 <DropShadowEffect BlurRadius="80" Color="LightGray" ShadowDepth="30"/>
             </Border.Effect>
@@ -16,10 +16,18 @@
                 <TextBlock Text="Добро пожаловать" FontFamily="Times New Roman" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Margin="0 0 0 20"/>
                 <Grid>
                     <Border Height="206" Width="330" Margin="0 0 400 0" CornerRadius="20"  BorderThickness="2" BorderBrush="red">
-                        <Button HorizontalAlignment="Center" Content="Регистрация" Width="206" VerticalAlignment="Top" Margin="0 10" Click="Button_Click"/>
+                        <StackPanel>
+                            <Button HorizontalAlignment="Center" Content="Регистрация" Width="206" VerticalAlignment="Top" Margin="0 10" Click="Button_Click"/>
+                            <StackPanel Width="290">
+                                <TextBox Text="" FontFamily="Times New Roman" FontSize="17"/>
+                                
+                                <TextBox materialDesign:HintAssist.Hint="Введите свое имя" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            </StackPanel>
+                        </StackPanel>
                     </Border>
+
                     <Border Width="330" Height="206" Margin="400 0 0 0" CornerRadius="20" BorderThickness="2" BorderBrush="red">
-                        <Button Content="Войти" Margin="0 10" Width="100" Style="{StaticResource MaterialDesignFlatButton}" Height="32" VerticalAlignment="Top"/>
+                        <Button Content="Войти" Margin="0 10" HorizontalAlignment="Center" Width="100" Style="{StaticResource MaterialDesignFlatButton}" Height="32" VerticalAlignment="Top" Click="Button_Click_1"/>
                     </Border>
                 </Grid>
             </StackPanel>
