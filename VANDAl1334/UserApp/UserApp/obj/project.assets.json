@@ -871,11 +871,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vanda\\Desktop\\С#\\UserApp\\UserApp\\UserApp.csproj",
+      "projectUniqueName": "C:\\Users\\vanda\\Desktop\\GitHub\\Plain\\VANDAl1334\\UserApp\\UserApp\\UserApp.csproj",
       "projectName": "UserApp",
-      "projectPath": "C:\\Users\\vanda\\Desktop\\С#\\UserApp\\UserApp\\UserApp.csproj",
+      "projectPath": "C:\\Users\\vanda\\Desktop\\GitHub\\Plain\\VANDAl1334\\UserApp\\UserApp\\UserApp.csproj",
       "packagesPath": "C:\\Users\\vanda\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vanda\\Desktop\\С#\\UserApp\\UserApp\\obj\\",
+      "outputPath": "C:\\Users\\vanda\\Desktop\\GitHub\\Plain\\VANDAl1334\\UserApp\\UserApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
