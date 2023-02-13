@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ShowAllFiles>false</ShowAllFiles>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="UI\Client\Pages\pgHistory.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\Client\Pages\pgHome.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\Client\Pages\pgTransmission.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\Client\Pages\pgTransmisBtwBills.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\Client\Windows\wndMain.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\Client\Windows\wndRegistration.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="UI\Client\Pages\pgHistory.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\Client\Pages\pgHome.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\Client\Pages\pgTransmission.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\Client\Pages\pgTransmisBtwBills.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\Client\Windows\wndMain.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\Client\Windows\wndRegistration.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\wndAuthorization.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>
