@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "dgSpecHash": "raPTKfdGz/zGEXkdlv7otDZ7dSqc9jzN+jclJwsNoSbHqN8uA1poVomYDZDj91m2B5GmGeyn0ermxTm2h7eU0Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\vanda\\Desktop\\GitHub\\Plain\\UserApp\\UserApp\\UserApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\vanda\\.nuget\\packages\\materialdesigncolors\\2.0.7\\materialdesigncolors.2.0.7.nupkg.sha512",
+    "C:\\Users\\vanda\\.nuget\\packages\\materialdesignthemes\\4.6.0\\materialdesignthemes.4.6.0.nupkg.sha512",
+    "C:\\Users\\vanda\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\vanda\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\vanda\\.nuget\\packages\\system.globalization\\4.3.0\\system.globalization.4.3.0.nupkg.sha512",
+    "C:\\Users\\vanda\\.nuget\\packages\\system.io\\4.3.0\\system.io.4.3.0.nupkg.sha512",
+    "C:\\Users\\vanda\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
+    "C:\\Users\\vanda\\.nuget\\packages\\system.reflection.primitives\\4.3.0\\system.reflection.primitives.4.3.0.nupkg.sha512",
+    "C:\\Users\\vanda\\.nuget\\packages\\system.resources.resourcemanager\\4.3.0\\system.resources.resourcemanager.4.3.0.nupkg.sha512",
+    "C:\\Users\\vanda\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
+    "C:\\Users\\vanda\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
+    "C:\\Users\\vanda\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512"
+  ],
+  "logs": []
+}
