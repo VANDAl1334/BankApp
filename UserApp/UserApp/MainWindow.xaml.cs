@@ -27,14 +27,14 @@ namespace UserApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Window1 reg = new Window1();
+            WndReg reg = new();
             reg.Show();
             this.Close();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Window2 aut = new Window2();
+            WndAut aut = new();
             aut.Show();
             this.Close();
         }
