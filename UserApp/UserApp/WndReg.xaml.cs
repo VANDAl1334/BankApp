@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -29,11 +30,10 @@ namespace UserApp
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow back= new();
+            WndWelc back= new();
             back.Show();
             this.Close();
         }
-
         private void checkpass_Click(object sender, RoutedEventArgs e)
         {
             
@@ -67,7 +67,7 @@ namespace UserApp
         }
         private void BtnReg_Click(object sender, RoutedEventArgs e)
         {
-            char list = '^';//, '|', '!', '#', '$', '%', '&', '/', '@', '{', '}';
+            Regex sampleRegex = new Regex(@"(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{2,})$");
             if (NmUs.Text == string.Empty)
             {
                 TipNmUs.Visibility = Visibility.Visible;
@@ -88,8 +88,7 @@ namespace UserApp
             {
                 TipPassChk.Visibility = Visibility.Visible;
             }
-            
-            else if (!pass.Password.Contains(list))
+            else if (!pass.Password.Contains(sampleRegex.ToString()))
             {
                 TipPassSpSim.Visibility = Visibility.Visible;
             }
@@ -99,9 +98,7 @@ namespace UserApp
                 wndAut.Show();
                 this.Close();
             }
-
         }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 

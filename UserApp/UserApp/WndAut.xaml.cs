@@ -26,7 +26,7 @@ namespace UserApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow back = new();
+            WndWelc back = new();
             back.Show();
             this.Close();
         }
