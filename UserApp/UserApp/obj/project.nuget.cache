@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Er5a2+RUYWLpYai1FVncAKuyVlafXX784OR5dUIlHXPgWtUSikszXX4gL2iFAFSeMfGMRa7CH/5sindZAccwuA==",
+  "dgSpecHash": "raPTKfdGz/zGEXkdlv7otDZ7dSqc9jzN+jclJwsNoSbHqN8uA1poVomYDZDj91m2B5GmGeyn0ermxTm2h7eU0Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vanda\\Desktop\\GitHub\\UserApp\\UserApp\\UserApp.csproj",
+  "projectFilePath": "C:\\Users\\vanda\\Desktop\\GitHub\\Plain\\UserApp\\UserApp\\UserApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vanda\\.nuget\\packages\\materialdesigncolors\\2.0.7\\materialdesigncolors.2.0.7.nupkg.sha512",
     "C:\\Users\\vanda\\.nuget\\packages\\materialdesignthemes\\4.6.0\\materialdesignthemes.4.6.0.nupkg.sha512",

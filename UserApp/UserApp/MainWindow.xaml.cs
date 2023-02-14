@@ -18,9 +18,9 @@ namespace UserApp
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class WndWelc : Window
+    public partial class MainWindow : Window
     {
-        public WndWelc()
+        public MainWindow()
         {
             InitializeComponent();
         }
