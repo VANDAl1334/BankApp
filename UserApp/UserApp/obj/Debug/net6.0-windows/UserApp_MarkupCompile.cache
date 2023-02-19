@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\App.xaml
-4-1598285091
+8-215719456
 
-6972728315
+10-1209584851
 1961521171924
-MainWindow.xaml;WndAut.xaml;WndMain.xaml;WndReg.xaml;
+MainWindow.xaml;WndAut.xaml;WndHystory.xaml;WndMain.xaml;WndMy.xaml;WndReg.xaml;WndSupport.xaml;WndYour.xaml;
 
 False
 

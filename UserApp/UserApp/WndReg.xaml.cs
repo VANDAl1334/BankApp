@@ -50,24 +50,9 @@ namespace UserApp
                 pass.Visibility = Visibility.Collapsed;
             }
         }
-        private void checkpass1_Click(object sender, RoutedEventArgs e)
-        {
-            if (checkpass1.IsChecked == false)
-            {
-                passpod.Password = textpod.Text;
-                textpod.Visibility = Visibility.Collapsed;
-                passpod.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                textpod.Text = passpod.Password;
-                textpod.Visibility = Visibility.Visible;
-                passpod.Visibility = Visibility.Collapsed;
-            }
-        }
         private void BtnReg_Click(object sender, RoutedEventArgs e)
         {
-            char list = '^';//, '|', '!', '#', '$', '%', '&', '/', '@', '{', '}';
+            //char[] list.IndexOf = new[]{ '^', '|', '!', '#', '$', '%', '&', '/', '@', '{', '}' };
             if (NmUs.Text == string.Empty)
             {
                 TipNmUs.Visibility = Visibility.Visible;
@@ -89,10 +74,10 @@ namespace UserApp
                 TipPassChk.Visibility = Visibility.Visible;
             }
             
-            else if (!pass.Password.Contains(list))
+            /*else if (!pass.Password.Contains(list.ToString()))
             {
                 TipPassSpSim.Visibility = Visibility.Visible;
-            }
+            }*/
             else
             {
                 WndAut wndAut = new();
@@ -104,7 +89,7 @@ namespace UserApp
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 }

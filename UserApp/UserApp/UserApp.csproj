@@ -8,17 +8,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="MainWindow.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="4.jpg" />
     <None Remove="arrow.png" />
+    <None Remove="support.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="MainWindow.xaml" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MaterialDesignThemes" Version="4.6.0" />
     <PackageReference Include="System.Resources.ResourceManager" Version="4.3.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="arrow.png" />
   </ItemGroup>
 
 </Project>

@@ -56,3 +56,11 @@ C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Wnd
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\WndReg.g.cs
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\WndAut.baml
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\WndReg.baml
+C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\WndSupport.g.cs
+C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\WndSupport.baml
+C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\WndHystory.g.cs
+C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\WndHystory.baml
+C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\WndMy.g.cs
+C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\WndMy.baml
+C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\WndYour.g.cs
+C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\WndYour.baml

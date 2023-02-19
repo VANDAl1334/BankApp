@@ -32,15 +32,13 @@
                 <TextBox Grid.Row="0" x:Name="NmUs" materialDesign:HintAssist.Hint="Введите свое имя" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <TextBlock Background="red" x:Name="TipLogIn" Grid.Row="1" TextAlignment="Center" Visibility="Collapsed">*Обязательное поле</TextBlock>
                 <TextBox Grid.Row="1" x:Name="LogIn" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <TextBox Grid.Row="2" x:Name="text" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
-                <TextBox Grid.Row="3" x:Name="textpod" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
                 <TextBlock Background="red" x:Name="TipPass" Grid.Row="2" TextAlignment="Center" Visibility="Collapsed">*Обязательное поле</TextBlock>
                 <TextBlock Background="red" x:Name="TipPassSpSim" Grid.Row="2" TextAlignment="Center" Visibility="Collapsed">Необходимо использовать специальные символы |,!,#,$,%,/,@,{,}</TextBlock>
+                <TextBox Grid.Row="2" x:Name="text" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
                 <PasswordBox Grid.Row="2" x:Name="pass" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
                 <TextBlock Background="red" x:Name="TipPassPod" Grid.Row="3" TextAlignment="Center" Visibility="Collapsed">*Обязательное поле</TextBlock>
                 <PasswordBox Grid.Row="3" x:Name="passpod" materialDesign:HintAssist.Hint="Подтвердите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
                 <CheckBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="checkpass_Click" x:Name="checkpass" />
-                <CheckBox Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Click="checkpass1_Click" x:Name="checkpass1"/>
                 <TextBlock Foreground="red" x:Name="TipPassChk" Grid.Row="4" VerticalAlignment="Center" FontSize="15" Margin="192,0,192,0" Visibility="Collapsed">*Пароли не совпадают</TextBlock>
             </Grid>
         </Border>
