@@ -1,0 +1,40 @@
+﻿<Window x:Class="UserApp.WndMain"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UserApp"
+        mc:Ignorable="d"
+        Title="Главная" Height="450" Width="710" WindowStartupLocation="CenterScreen">
+    <Grid Background="Aqua" ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Button Content="История переводов" Grid.Row="2" Width="200" Click="BtnHystory_Click"/>
+        <Button Content="Переводы" x:Name="BtnTransf" Width="150" Grid.Column="1" Grid.Row="1" Click="Button_Click"></Button>
+        <Button Content="Между своими" x:Name="BtnMy" Width="150" Margin="10 0 0 0" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Visibility="Collapsed" Click="BtnMy1"></Button>
+        <Button Content="На другой счет" x:Name="BtnYour" Width="150" Grid.Column="1" Grid.Row="1" Margin="0 0 10 0" HorizontalAlignment="Right" Visibility="Collapsed" Click="BtnYour1"></Button>
+        <Label Content="Ваш номер карты"  FontFamily="Times New Roman" FontSize="20" Grid.Column="0" Grid.Row="0"/>
+        <TextBlock Text="9999 9999 9999 9999" Margin="60 30 0 0" Grid.Column="0" FontFamily="Times New Roman" FontSize="30"/>
+        <StackPanel  Grid.Column="1">
+            <StackPanel Orientation="Horizontal" Margin="0 10">
+                <Label Content="CVV" FontFamily="Times New Roman" FontSize="25" Grid.Column="1" Grid.Row="0"/>
+                <TextBlock Text="993"  FontFamily="Times New Roman" FontSize="30"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <Label Content="ММ/ДД" FontFamily="Times New Roman" FontSize="25" Grid.Row="0"/>
+                <TextBlock Text="10/23" FontSize="25" FontFamily="Times New Roman"></TextBlock>
+            </StackPanel>
+        </StackPanel>
+        <Button Grid.Column="1" VerticalAlignment="Top" x:Name="BtSupport" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignIconButton}" Click="BtnSupport_Click">
+            <Image VerticalAlignment="Center" HorizontalAlignment="Center" Source="/support.png"/>
+        </Button>
+    </Grid>
+</Window>

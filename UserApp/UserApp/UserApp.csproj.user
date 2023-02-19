@@ -7,7 +7,25 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Window1.xaml.cs">
+    <Compile Update="WndYour.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WndMy.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WndHystory.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WndSupport.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WndMain.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WndReg.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WndAut.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -15,7 +33,25 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Window1.xaml">
+    <Page Update="WndYour.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WndMy.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WndHystory.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WndSupport.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WndMain.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WndReg.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WndAut.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

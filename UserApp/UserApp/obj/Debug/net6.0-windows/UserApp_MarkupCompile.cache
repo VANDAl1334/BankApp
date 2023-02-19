@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\vanda\Desktop\С#\UserApp\UserApp\obj\Debug\net6.0-windows\
+C:\Users\vanda\Desktop\Plain-VANDAL\UserApp\UserApp\obj\Debug\net6.0-windows\
 UserApp
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\vanda\Desktop\С#\UserApp\UserApp\App.xaml
-21940794329
+C:\Users\vanda\Desktop\Plain-VANDAL\UserApp\UserApp\App.xaml
+8-215719456
 
-4-303829845
-196-1030378075
-MainWindow.xaml;Window1.xaml;
+10-1209584851
+1961521171924
+MainWindow.xaml;WndAut.xaml;WndHystory.xaml;WndMain.xaml;WndMy.xaml;WndReg.xaml;WndSupport.xaml;WndYour.xaml;
 
 False
 

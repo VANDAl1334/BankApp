@@ -6,29 +6,27 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "MaterialDesignColors/2.1.0": {
+      "MaterialDesignColors/2.0.7": {
         "runtime": {
           "lib/net6.0/MaterialDesignColors.dll": {
-            "assemblyVersion": "1.0.1.0",
-            "fileVersion": "1.0.1.0"
+            "assemblyVersion": "2.0.7.0",
+            "fileVersion": "2.0.7.0"
           }
         }
       },
-      "MaterialDesignThemes/4.7.0": {
+      "MaterialDesignThemes/4.6.0": {
         "dependencies": {
-          "MaterialDesignColors": "2.1.0",
-          "Microsoft.Xaml.Behaviors.Wpf": "1.1.39"
+          "MaterialDesignColors": "2.0.7"
         },
         "runtime": {
           "lib/net6.0/MaterialDesignThemes.Wpf.dll": {
-            "assemblyVersion": "1.0.1.0",
-            "fileVersion": "1.0.1.0"
+            "assemblyVersion": "4.6.0.0",
+            "fileVersion": "4.6.0.0"
           }
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
-      "Microsoft.Xaml.Behaviors.Wpf/1.1.39": {},
       "System.Globalization/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -93,19 +91,19 @@
     }
   },
   "libraries": {
-    "MaterialDesignColors/2.1.0": {
+    "MaterialDesignColors/2.0.7": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-cK+ovgmFeWcXUKZizjlpwgvTiHPmoiWS7EsXlHPJPwPhl/lXozY9RiNUPaUMTDGG/GR61eohnSCcTnETSwATRA==",
-      "path": "materialdesigncolors/2.1.0",
-      "hashPath": "materialdesigncolors.2.1.0.nupkg.sha512"
+      "sha512": "sha512-o13K2jKCl0qkG9WLfHG5DGd215HYw3SQfq5iM34lnngkN04HXIzXUF9TXB83UXXfPGcZCI4N8NP/7+7SPSGd7w==",
+      "path": "materialdesigncolors/2.0.7",
+      "hashPath": "materialdesigncolors.2.0.7.nupkg.sha512"
     },
-    "MaterialDesignThemes/4.7.0": {
+    "MaterialDesignThemes/4.6.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-SktJPYTVAmvf3T8901WEXHgApCvhoYO/vy1DKelyjU92lcGjIkLMboLvPjddc61l3J6AbnFue1kMlWijNll8PA==",
-      "path": "materialdesignthemes/4.7.0",
-      "hashPath": "materialdesignthemes.4.7.0.nupkg.sha512"
+      "sha512": "sha512-ogdEZNpbG4jDXxETwcX1vT4BlmQzW8txO20PQ5diqgg17mAXCiSGZ+GCWkR49LCL80v2qmKjeDr4guqAZWt1XQ==",
+      "path": "materialdesignthemes/4.6.0",
+      "hashPath": "materialdesignthemes.4.6.0.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",
@@ -120,13 +118,6 @@
       "sha512": "sha512-aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg==",
       "path": "microsoft.netcore.targets/1.1.0",
       "hashPath": "microsoft.netcore.targets.1.1.0.nupkg.sha512"
-    },
-    "Microsoft.Xaml.Behaviors.Wpf/1.1.39": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-8PZKqw9QOcu42xk8puY4P1+EXHL9YGOR9b7qhaYx5cILHul456H073tj99vyPcCt0W0781T9RwHqkx507ZyUpQ==",
-      "path": "microsoft.xaml.behaviors.wpf/1.1.39",
-      "hashPath": "microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512"
     },
     "System.Globalization/4.3.0": {
       "type": "package",
