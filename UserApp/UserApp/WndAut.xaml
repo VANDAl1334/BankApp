@@ -6,22 +6,31 @@
         xmlns:local="clr-namespace:UserApp"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Вход" Height="359" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Title="Вход" Height="355" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
-        <TextBlock Text="Авторизация" HorizontalAlignment="Center" Margin="0 15 0 0" FontSize="30" FontFamily="Times New Roman"/>
-
+        <Rectangle>
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="Black" Offset="0." />
+                    <GradientStop Color="Blue" Offset="1" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBlock Text="Авторизация" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Margin="0 15 0 0" FontSize="30" FontFamily="Times New Roman"/>
         <Border CornerRadius="20" Background="White" Width="450" Height="150" Padding="35">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="100" Color="LightGray" ShadowDepth="3"/>
             </Border.Effect>
-            <StackPanel>
-                <TextBox materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <PasswordBox materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
-            </StackPanel>
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Top">
+                    <TextBox x:Name="LogAut" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <PasswordBox x:Name="PassAut" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                </StackPanel>
+                <Button Style="{StaticResource MaterialDesignFlatButton}" Height="28" Width="69"  Click="BtnBack_Click">
+                    <Image Source="/arrow.png" Height="18" Width="49"/>
+                </Button>
+            </DockPanel>
         </Border>
-        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFlatButton}" Height="28" Width="69" Click="Button_Click">
-            <Image Source="/arrow.png" Height="17" Width="41"/>
-        </Button>
-        <Button Content="Войти" Margin="254,251,254,31" Style="{StaticResource MaterialDesignOutlinedButton}" Click="Button_Click_1"/>
+        <Button Content="Войти" Margin="254,251,254,31" Style="{StaticResource MaterialDesignOutlinedLightButton}" Click="BtnAut_Click"/>
     </Grid>
 </Window>

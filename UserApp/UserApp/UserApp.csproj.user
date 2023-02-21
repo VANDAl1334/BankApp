@@ -30,6 +30,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="WndYour.xaml">
       <SubType>Designer</SubType>
     </Page>

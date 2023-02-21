@@ -6,44 +6,52 @@
         xmlns:local="clr-namespace:UserApp"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Регистрация" Height="438" Width="820" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
-    <Grid Background="Coral">
-        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFlatButton}" Height="28" Width="69" Click="Button_Click">
-            <Image Source="/arrow.png" Height="17" Width="41"/>
-        </Button>
-        <TextBlock Text="Регистрация" HorizontalAlignment="Center" FontSize="30" FontFamily="Times New Roman" Margin="0,15,0,291"></TextBlock>
-        <Border Width="650" CornerRadius="30" Background="White" VerticalAlignment="Top" Padding="40" Margin="75,68,75,0" Height="302">
+        Title="Регистрация" Height="449" Width="820" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid>
+        <Rectangle>
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="Black" Offset="0" />
+                    <GradientStop Color="Blue" Offset="1" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBlock Text="Регистрация" HorizontalAlignment="Center" Foreground="White" Margin="0 10" VerticalAlignment="Top" FontSize="30" FontFamily="Times New Roman"></TextBlock>
+        <Border Width="650" CornerRadius="30" Background="White" VerticalAlignment="Center" Padding="35" HorizontalAlignment="Center" Height="302">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="100" Color="LightGray" ShadowDepth="0"/>
             </Border.Effect>
-            <Grid Height="202" VerticalAlignment="Top">
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>    
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="90*"></ColumnDefinition>
-                    <ColumnDefinition Width="4*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <TextBlock Background="red" x:Name="TipNmUs" Grid.Row="0" TextAlignment="Center" Visibility="Collapsed">*Обязательное поле</TextBlock>
-                <TextBox Grid.Row="0" x:Name="NmUs" materialDesign:HintAssist.Hint="Введите свое имя" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <TextBlock Background="red" x:Name="TipLogIn" Grid.Row="1" TextAlignment="Center" Visibility="Collapsed">*Обязательное поле</TextBlock>
-                <TextBox Grid.Row="1" x:Name="LogIn" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <TextBlock Background="red" x:Name="TipPass" Grid.Row="2" TextAlignment="Center" Visibility="Collapsed">*Обязательное поле</TextBlock>
-                <TextBlock Background="red" x:Name="TipPassSpSim" Grid.Row="2" TextAlignment="Center" Visibility="Collapsed">Необходимо использовать специальные символы |,!,#,$,%,/,@,{,}</TextBlock>
-                <TextBox Grid.Row="2" x:Name="text" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
-                <PasswordBox Grid.Row="2" x:Name="pass" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
-                <TextBlock Background="red" x:Name="TipPassPod" Grid.Row="3" TextAlignment="Center" Visibility="Collapsed">*Обязательное поле</TextBlock>
-                <PasswordBox Grid.Row="3" x:Name="passpod" materialDesign:HintAssist.Hint="Подтвердите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
-                <CheckBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="checkpass_Click" x:Name="checkpass" />
-                <TextBlock Foreground="red" x:Name="TipPassChk" Grid.Row="4" VerticalAlignment="Center" FontSize="15" Margin="192,0,192,0" Visibility="Collapsed">*Пароли не совпадают</TextBlock>
-            </Grid>
+            <DockPanel>
+                <Grid DockPanel.Dock="Top" Height="202" VerticalAlignment="Top">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90*"></ColumnDefinition>
+                        <ColumnDefinition Width="4*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Background="red" x:Name="TipNmUs" Grid.Row="0" TextAlignment="Center" Visibility="Collapsed">*Обязательное поле</TextBlock>
+                    <TextBox Grid.Row="0" x:Name="NmUs" materialDesign:HintAssist.Hint="Введите свое имя" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBlock Background="red" x:Name="TipLogIn" Grid.Row="1" TextAlignment="Center" Visibility="Collapsed">*Обязательное поле</TextBlock>
+                    <TextBox Grid.Row="1" x:Name="LogIn" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBlock Background="red" x:Name="TipPass" Grid.Row="2" TextAlignment="Center" Visibility="Collapsed">*Обязательное поле</TextBlock>
+                    <TextBlock Background="red" x:Name="TipPassSpSim" Grid.Row="2" TextAlignment="Center" Visibility="Collapsed">Необходимо использовать специальные символы |,!,#,$,%,/,@,{,}</TextBlock>
+                    <TextBox Grid.Row="2" x:Name="text" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
+                    <PasswordBox Grid.Row="2" x:Name="pass" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
+                    <TextBlock Background="red" x:Name="TipPassPod" Grid.Row="3" TextAlignment="Center" Visibility="Collapsed">*Обязательное поле</TextBlock>
+                    <PasswordBox Grid.Row="3" x:Name="passpod" materialDesign:HintAssist.Hint="Подтвердите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                    <CheckBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="checkpass_Click" x:Name="checkpass" />
+                    <TextBlock Foreground="red" x:Name="TipPassChk" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Visibility="Collapsed">*Пароли не совпадают</TextBlock>
+                </Grid>
+                <Button Content="Зарегистрироваться" VerticalAlignment="Top" x:Name="BtnReg" Style="{StaticResource MaterialDesignFlatButton}" Width="200" Click="BtnReg_Click"/>
+            </DockPanel>
         </Border>
-        <Grid Margin="0,318,0,0">
-            <Button Content="Зарегистрироваться" VerticalAlignment="Top" x:Name="BtnReg" Style="{StaticResource MaterialDesignFlatButton}" Width="200" Click="BtnReg_Click" Margin="294,0,326,0"/>
-        </Grid>
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFlatButton}" Height="28" Width="79" Click="Button_Click" Margin="85,66,0,0">
+            <Image Height="23" Width="52" Source="/Sourse/arrow.png"/>
+        </Button>
     </Grid>
 </Window>

@@ -29,14 +29,14 @@ namespace UserApp
         {
             WndReg reg = new();
             reg.Show();
-            this.Close();
+            Close();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             WndAut aut = new();
             aut.Show();
-            this.Close();
+            Close();
         }
     }
 }

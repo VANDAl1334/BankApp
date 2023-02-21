@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UserApp"
         mc:Ignorable="d"
-        Title="Support" Height="450" Width="500" WindowStartupLocation="CenterScreen">
+        Title="Support" Height="450" Width="500" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <DockPanel VerticalAlignment="Bottom">
+            <TextBox Width="452" BorderBrush="Gray" BorderThickness="1.5" Height="30" FontFamily="Times New Roman" FontSize="16" Style="{StaticResource MaterialDesignTextBox}"/>
+            <Button Width="32" Height="32" Style="{StaticResource MaterialDesignIconButton}">
+                <Image Source="/Send.png"/>
+            </Button>
+        </DockPanel>
     </Grid>
 </Window>

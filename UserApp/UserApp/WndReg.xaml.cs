@@ -52,6 +52,7 @@ namespace UserApp
         }
         private void BtnReg_Click(object sender, RoutedEventArgs e)
         {
+
             //char[] list.IndexOf = new[]{ '^', '|', '!', '#', '$', '%', '&', '/', '@', '{', '}' };
             if (NmUs.Text == string.Empty)
             {

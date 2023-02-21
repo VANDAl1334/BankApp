@@ -1,5 +1,8 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.DirectoryServices.ActiveDirectory;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,19 +27,36 @@ namespace UserApp
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             MainWindow back = new();
             back.Show();
             this.Close();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void BtnAut_Click(object sender, RoutedEventArgs e)
         {
-            
+            String LogClient = LogAut.Text;
+            String PassClient = PassAut.Password;
+            DB db = new();
+            db.OpenConnection();
+            DataTable table = new();
+            MySqlDataAdapter adapter = new();
+            MySqlCommand cmd = new("SELECT * FROM `client` WHERE `login` = @cL AND `password_client` = @cP", db.GetConnection());
             WndMain main = new();
-            main.Show();
-            this.Close();
+            cmd.Parameters.Add("@cL", MySqlDbType.VarChar).Value = LogClient;
+            cmd.Parameters.Add("@cP", MySqlDbType.VarChar).Value = PassClient;
+            adapter.SelectCommand = cmd;
+            adapter.Fill(table);
+            if(table.Rows.Count > 0)
+            {
+                main.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("ебан?");
+            }
         }
     }
 }
