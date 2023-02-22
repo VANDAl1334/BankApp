@@ -34,15 +34,15 @@
                         <ColumnDefinition Width="90*"></ColumnDefinition>
                         <ColumnDefinition Width="4*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Background="red" x:Name="TipNmUs" Grid.Row="0" TextAlignment="Center" Visibility="Collapsed">*Обязательное поле</TextBlock>
+                    <TextBlock Foreground="red" x:Name="TipNmUs" Grid.Row="0" TextAlignment="Center" Visibility="Collapsed">*Пустое поле и без пробелов</TextBlock>
                     <TextBox Grid.Row="0" x:Name="NmUs" materialDesign:HintAssist.Hint="Введите свое имя" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                    <TextBlock Background="red" x:Name="TipLogIn" Grid.Row="1" TextAlignment="Center" Visibility="Collapsed">*Обязательное поле</TextBlock>
+                    <TextBlock Foreground="red" x:Name="TipLogIn" Grid.Row="1" TextAlignment="Center" Visibility="Collapsed">*Пустое поле и без пробелов</TextBlock>
                     <TextBox Grid.Row="1" x:Name="LogIn" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                    <TextBlock Background="red" x:Name="TipPass" Grid.Row="2" TextAlignment="Center" Visibility="Collapsed">*Обязательное поле</TextBlock>
-                    <TextBlock Background="red" x:Name="TipPassSpSim" Grid.Row="2" TextAlignment="Center" Visibility="Collapsed">Необходимо использовать специальные символы |,!,#,$,%,/,@,{,}</TextBlock>
+                    <TextBlock Foreground="red" x:Name="TipPass" Grid.Row="2" TextAlignment="Center" Visibility="Collapsed">*Пустое поле и без пробелов</TextBlock>
+                    <TextBlock Foreground="red" x:Name="TipPassSpSim" Grid.Row="2" TextAlignment="Center" Visibility="Collapsed">Необходимо использовать специальные символы |,!,#,$,%,/,@,{,}</TextBlock>
                     <TextBox Grid.Row="2" x:Name="text" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
                     <PasswordBox Grid.Row="2" x:Name="pass" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
-                    <TextBlock Background="red" x:Name="TipPassPod" Grid.Row="3" TextAlignment="Center" Visibility="Collapsed">*Обязательное поле</TextBlock>
+                    <TextBlock Foreground="red" x:Name="TipPassPod" Grid.Row="3" TextAlignment="Center" Visibility="Collapsed">*Пустое поле и без пробелов</TextBlock>
                     <PasswordBox Grid.Row="3" x:Name="passpod" materialDesign:HintAssist.Hint="Подтвердите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
                     <CheckBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="checkpass_Click" x:Name="checkpass" />
                     <TextBlock Foreground="red" x:Name="TipPassChk" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Visibility="Collapsed">*Пароли не совпадают</TextBlock>
@@ -51,7 +51,7 @@
             </DockPanel>
         </Border>
         <Button HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFlatButton}" Height="28" Width="79" Click="Button_Click" Margin="85,66,0,0">
-            <Image Height="23" Width="52" Source="/Sourse/arrow.png"/>
+            <Image Height="23" Width="52" Source="/arrow.png"/>
         </Button>
     </Grid>
 </Window>

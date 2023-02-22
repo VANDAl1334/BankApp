@@ -34,7 +34,7 @@
             </StackPanel>
         </StackPanel>
         <Button Grid.Column="1" VerticalAlignment="Top" x:Name="BtSupport" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignIconButton}" Click="BtnSupport_Click">
-            <Image VerticalAlignment="Center" HorizontalAlignment="Center" Source="/support1.png"/>
+            <Image VerticalAlignment="Center" HorizontalAlignment="Center" Source="/support.png"/>
         </Button>
     </Grid>
 </Window>

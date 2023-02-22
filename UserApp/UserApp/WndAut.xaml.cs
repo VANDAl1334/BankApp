@@ -38,24 +38,31 @@ namespace UserApp
         {
             String LogClient = LogAut.Text;
             String PassClient = PassAut.Password;
-            DB db = new();
-            db.OpenConnection();
+            DB.OpenConnection();
             DataTable table = new();
             MySqlDataAdapter adapter = new();
-            MySqlCommand cmd = new("SELECT * FROM `client` WHERE `login` = @cL AND `password_client` = @cP", db.GetConnection());
+            MySqlCommand cmd = new("SELECT * FROM `client` WHERE `login` = @cL AND `password_client` = @cP", DB.GetConnection());
             WndMain main = new();
             cmd.Parameters.Add("@cL", MySqlDbType.VarChar).Value = LogClient;
             cmd.Parameters.Add("@cP", MySqlDbType.VarChar).Value = PassClient;
             adapter.SelectCommand = cmd;
             adapter.Fill(table);
-            if(table.Rows.Count > 0)
+            if (LogAut.Text == String.Empty)
+            {
+                TipLog.Visibility = Visibility.Visible;
+            }
+            else if(PassAut.Password == String.Empty)
+            {
+                TipPass.Visibility = Visibility.Visible;
+            }            
+            else if(table.Rows.Count > 0)
             {
                 main.Show();
-                this.Close();
+                Environment.Exit(0);
             }
             else
             {
-                MessageBox.Show("ебан?");
+                ErrLP.Visibility = Visibility.Visible;
             }
         }
     }

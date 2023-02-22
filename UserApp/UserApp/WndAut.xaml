@@ -17,20 +17,28 @@
             </Rectangle.Fill>
         </Rectangle>
         <TextBlock Text="Авторизация" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Margin="0 15 0 0" FontSize="30" FontFamily="Times New Roman"/>
-        <Border CornerRadius="20" Background="White" Width="450" Height="150" Padding="35">
+        <Border CornerRadius="20" Background="White" Width="450" Padding="40 40 40 0" Height="200" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="100" Color="LightGray" ShadowDepth="3"/>
             </Border.Effect>
             <DockPanel>
-                <StackPanel DockPanel.Dock="Top">
-                    <TextBox x:Name="LogAut" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                    <PasswordBox x:Name="PassAut" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
-                </StackPanel>
-                <Button Style="{StaticResource MaterialDesignFlatButton}" Height="28" Width="69"  Click="BtnBack_Click">
-                    <Image Source="/arrow.png" Height="18" Width="49"/>
-                </Button>
+                <Grid DockPanel.Dock="Top" VerticalAlignment="Top" Height="119">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition ></RowDefinition>
+                        <RowDefinition Height="25"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="TipLog" Grid.Row="0" Foreground="red" Visibility="Collapsed" TextAlignment="Center">*Пустое поле</TextBlock>
+                    <TextBox x:Name="LogAut" Grid.Row="0" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBlock x:Name="TipPass" Grid.Row="1" Foreground="red" Visibility="Collapsed" TextAlignment="Center">*Пустое поле</TextBlock>
+                    <PasswordBox x:Name="PassAut" Grid.Row="1" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                    <TextBlock x:Name="ErrLP" HorizontalAlignment="Center" Grid.Row="2" Foreground="red" Margin="0 10 0 0" Visibility="Collapsed">*Логин или пароль введен неверно</TextBlock>
+                </Grid>
+                <Button Content="Войти" Width="100" Style="{StaticResource MaterialDesignOutlinedLightButton}" Click="BtnAut_Click"/>
             </DockPanel>
         </Border>
-        <Button Content="Войти" Margin="254,251,254,31" Style="{StaticResource MaterialDesignOutlinedLightButton}" Click="BtnAut_Click"/>
+        <Button Style="{StaticResource MaterialDesignFlatButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="28" Width="69"  Click="BtnBack_Click" Margin="75,70,0,0">
+            <Image Source="/arrow.png" Height="18" Width="49"/>
+        </Button>
     </Grid>
 </Window>

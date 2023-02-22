@@ -53,41 +53,53 @@ namespace UserApp
         private void BtnReg_Click(object sender, RoutedEventArgs e)
         {
 
-            //char[] list.IndexOf = new[]{ '^', '|', '!', '#', '$', '%', '&', '/', '@', '{', '}' };
-            if (NmUs.Text == string.Empty)
+            char[] list = new[] {'#', '|', '!', '#', '$', '%', '&', '/', '@', '{', '}' };
+            if (NmUs.Text == string.Empty && NmUs.Text == " ")
             {
                 TipNmUs.Visibility = Visibility.Visible;
             }
-            else if (LogIn.Text == string.Empty)
+            else if (LogIn.Text == string.Empty && LogIn.Text == " ")
             {
+                
                 TipLogIn.Visibility = Visibility.Visible;
+                return;
             }
-            else if (pass.Password == string.Empty)
+            else if (pass.Password == string.Empty && pass.Password == " ")
             {
                 TipPass.Visibility = Visibility.Visible;
+                return;
             }
-            else if (passpod.Password == string.Empty)
+            else if (passpod.Password == string.Empty && passpod.Password == " ")
             {
                 TipPassPod.Visibility = Visibility.Visible;
+                return;
             }
             else if (pass.Password != passpod.Password)
             {
                 TipPassChk.Visibility = Visibility.Visible;
+                return;
             }
-            
-            /*else if (!pass.Password.Contains(list.ToString()))
+            bool ContainChar = false;
+            foreach(char i in list)
+            {
+                if (pass.Password.Contains(i))
+                {
+                    ContainChar = true;
+                    break;
+                }
+            }
+            if(ContainChar == false)
             {
                 TipPassSpSim.Visibility = Visibility.Visible;
-            }*/
+            }
             else
             {
+                Client.SqlRequest(NmUs.Text, LogIn.Text, pass.Password);
                 WndAut wndAut = new();
                 wndAut.Show();
                 this.Close();
             }
-
         }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             
