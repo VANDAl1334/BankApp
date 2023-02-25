@@ -1,0 +1,57 @@
+﻿<Window x:Class="UserApp.WndReg"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UserApp"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Регистрация" Height="449" Width="820" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid>
+        <Rectangle>
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="Black" Offset="0" />
+                    <GradientStop Color="Blue" Offset="1" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBlock Text="Регистрация" HorizontalAlignment="Center" Foreground="White" Margin="0 10" VerticalAlignment="Top" FontSize="30" FontFamily="Times New Roman"></TextBlock>
+        <Border Width="650" CornerRadius="30" Background="White" VerticalAlignment="Center" Padding="35" HorizontalAlignment="Center" Height="302">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="100" Color="LightGray" ShadowDepth="0"/>
+            </Border.Effect>
+            <DockPanel>
+                <Grid DockPanel.Dock="Top" Height="202" VerticalAlignment="Top">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90*"></ColumnDefinition>
+                        <ColumnDefinition Width="4*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Foreground="red" x:Name="TipNmUs" Grid.Row="0" TextAlignment="Center" Visibility="Collapsed">*Пустое поле и без пробелов</TextBlock>
+                    <TextBox Grid.Row="0" x:Name="NmUs" materialDesign:HintAssist.Hint="Введите свое имя" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBlock Foreground="red" x:Name="TipLogIn" Grid.Row="1" TextAlignment="Center" Visibility="Collapsed">*Пустое поле и без пробелов</TextBlock>
+                    <TextBox Grid.Row="1" x:Name="LogIn" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBlock Foreground="red" x:Name="TipPass" Grid.Row="2" TextAlignment="Center" Visibility="Collapsed">*Пустое поле и без пробелов</TextBlock>
+                    <TextBlock Foreground="red" x:Name="TipPassSpSim" Grid.Row="2" TextAlignment="Center" Visibility="Collapsed">Необходимо использовать специальные символы |,!,#,$,%,/,@,{,}</TextBlock>
+                    <TextBox Grid.Row="2" x:Name="text" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
+                    <PasswordBox Grid.Row="2" x:Name="pass" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
+                    <TextBlock Foreground="red" x:Name="TipPassPod" Grid.Row="3" TextAlignment="Center" Visibility="Collapsed">*Пустое поле и без пробелов</TextBlock>
+                    <PasswordBox Grid.Row="3" x:Name="passpod" materialDesign:HintAssist.Hint="Подтвердите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                    <CheckBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="checkpass_Click" x:Name="checkpass" />
+                    <TextBlock Foreground="red" x:Name="TipPassChk" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Visibility="Collapsed">*Пароли не совпадают</TextBlock>
+                </Grid>
+                <Button Content="Зарегистрироваться" VerticalAlignment="Top" x:Name="BtnReg" Style="{StaticResource MaterialDesignFlatButton}" Width="200" Click="BtnReg_Click"/>
+            </DockPanel>
+        </Border>
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFlatButton}" Height="28" Width="79" Click="Button_Click" Margin="85,66,0,0">
+            <Image Height="23" Width="52" Source="/arrow.png"/>
+        </Button>
+    </Grid>
+</Window>

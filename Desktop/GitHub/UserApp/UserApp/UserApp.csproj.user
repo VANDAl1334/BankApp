@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="WndYour.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WndMy.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WndHystory.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WndSupport.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WndMain.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WndReg.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WndAut.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WndYour.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WndMy.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WndHystory.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WndSupport.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WndMain.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WndReg.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WndAut.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>
