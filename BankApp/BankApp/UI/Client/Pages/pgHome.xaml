@@ -1,0 +1,34 @@
+﻿<Page x:Class="BankApp.UI.Client.Pages.pgHome"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BankApp.UI.Client.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="pgHome">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30*"></ColumnDefinition>
+            <ColumnDefinition Width="60*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <DockPanel>
+            <TextBlock DockPanel.Dock="Top">Текущий счёт:</TextBlock>
+            <ComboBox x:Name="cmbxBills" DockPanel.Dock="Top"></ComboBox>
+            
+            <Button DockPanel.Dock="Bottom" x:Name="btnBindCard">Привязать карту</Button>
+            <Button DockPanel.Dock="Bottom" x:Name="btnCloseCard">Привязать карту</Button>
+            <Button DockPanel.Dock="Bottom" x:Name="btnReissueCard">Перевыпустить карту</Button>
+            <Label DockPanel.Dock="Bottom" x:Name="labBalance">Ваш баланс:</Label>
+        </DockPanel>
+
+        <DockPanel Grid.Column="1">
+            <Button DockPanel.Dock="Top" x:Name="btnOpenBill">Открыть счёт</Button>
+            <Button DockPanel.Dock="Top" x:Name="btnCloseBill">Закрыть счёт</Button>
+            <CheckBox DockPanel.Dock="Bottom" x:Name="chbxHistorySettings">История транзакций по выбранному счёту</CheckBox>
+            <Button DockPanel.Dock="Bottom" x:Name="History">*История*</Button>
+        </DockPanel>
+    </Grid>
+</Page>
