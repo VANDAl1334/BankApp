@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "PRm8s9taYzoXPLiydw5rkBvRuNE70Zddi4WEdwja2iGcaZCdpqI2ymqOZL8+9BCEXI4kyWe7PfsIyH2NE9UrXA==",
+  "success": true,
+  "projectFilePath": "D:\\Data\\WPF\\BanlApp_2\\BankApp\\BankApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Slava\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.25\\microsoft.netcore.app.host.win-x64.3.1.25.nupkg.sha512"
+  ],
+  "logs": []
+}
