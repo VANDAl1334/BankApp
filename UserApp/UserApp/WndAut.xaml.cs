@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.DirectoryServices.ActiveDirectory;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -33,16 +34,14 @@ namespace UserApp
             back.Show();
             this.Close();
         }
-
         private void BtnAut_Click(object sender, RoutedEventArgs e)
         {
             String LogClient = LogAut.Text;
-            String PassClient = PassAut.Password;
+            String PassClient = Client.Hash(PassAut.Password);
             DB.OpenConnection();
             DataTable table = new();
             MySqlDataAdapter adapter = new();
             MySqlCommand cmd = new("SELECT * FROM `client` WHERE `login` = @cL AND `password_client` = @cP", DB.GetConnection());
-            WndMain main = new();
             cmd.Parameters.Add("@cL", MySqlDbType.VarChar).Value = LogClient;
             cmd.Parameters.Add("@cP", MySqlDbType.VarChar).Value = PassClient;
             adapter.SelectCommand = cmd;
@@ -57,8 +56,9 @@ namespace UserApp
             }            
             else if(table.Rows.Count > 0)
             {
+                WndMain main = new();
                 main.Show();
-                Environment.Exit(0);
+                Close();
             }
             else
             {

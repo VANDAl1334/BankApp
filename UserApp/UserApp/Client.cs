@@ -11,6 +11,11 @@ namespace UserApp
 {
     class Client
     {
+        public bool Card
+        {
+            get { return Card; }
+            set { Card = value; }
+        }
         static public void SqlRequest(string NameUs, string LogClient, string PassClient)
         {
             DB.OpenConnection();
@@ -22,6 +27,13 @@ namespace UserApp
             DB.cmd.Parameters.Add("@cP", MySqlDbType.VarChar).Value = PassClient;
             adapter.SelectCommand = DB.cmd;
             adapter.Fill(table);           
+
+        }
+        static public string Hash(string input)
+        {
+            var md5 = SHA256.Create();
+            var hash = md5.ComputeHash(Encoding.UTF8.GetBytes(input));
+            return Convert.ToBase64String(hash);
         }
     }
 }

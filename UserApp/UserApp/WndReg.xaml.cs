@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -50,6 +51,7 @@ namespace UserApp
                 pass.Visibility = Visibility.Collapsed;
             }
         }
+
         private void BtnReg_Click(object sender, RoutedEventArgs e)
         {
 
@@ -94,6 +96,7 @@ namespace UserApp
             }
             else
             {
+                pass.Password = Client.Hash(pass.Password);
                 Client.SqlRequest(NmUs.Text, LogIn.Text, pass.Password);
                 WndAut wndAut = new();
                 wndAut.Show();

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vanda\\Desktop\\GitHub\\Plain\\UserApp\\UserApp\\UserApp.csproj": {}
+    "C:\\Users\\vanda\\Desktop\\Plain-VANDAL\\UserApp\\UserApp\\UserApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vanda\\Desktop\\GitHub\\Plain\\UserApp\\UserApp\\UserApp.csproj": {
+    "C:\\Users\\vanda\\Desktop\\Plain-VANDAL\\UserApp\\UserApp\\UserApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vanda\\Desktop\\GitHub\\Plain\\UserApp\\UserApp\\UserApp.csproj",
+        "projectUniqueName": "C:\\Users\\vanda\\Desktop\\Plain-VANDAL\\UserApp\\UserApp\\UserApp.csproj",
         "projectName": "UserApp",
-        "projectPath": "C:\\Users\\vanda\\Desktop\\GitHub\\Plain\\UserApp\\UserApp\\UserApp.csproj",
+        "projectPath": "C:\\Users\\vanda\\Desktop\\Plain-VANDAL\\UserApp\\UserApp\\UserApp.csproj",
         "packagesPath": "C:\\Users\\vanda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vanda\\Desktop\\GitHub\\Plain\\UserApp\\UserApp\\obj\\",
+        "outputPath": "C:\\Users\\vanda\\Desktop\\Plain-VANDAL\\UserApp\\UserApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
