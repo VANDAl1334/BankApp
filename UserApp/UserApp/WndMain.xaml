@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UserApp"
         mc:Ignorable="d"
-        Title="Главная" Height="450" Width="710" WindowStartupLocation="CenterScreen">
+        Title="Главная" Height="450" Width="710" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid Background="Aqua" ShowGridLines="True">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>

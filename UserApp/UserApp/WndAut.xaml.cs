@@ -1,6 +1,10 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.DirectoryServices.ActiveDirectory;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,19 +28,42 @@ namespace UserApp
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            WndMain back = new();
+            MainWindow back = new();
             back.Show();
             this.Close();
         }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void BtnAut_Click(object sender, RoutedEventArgs e)
         {
-            
-            WndMain main = new();
-            main.Show();
-            this.Close();
+            String LogClient = LogAut.Text;
+            String PassClient = Client.Hash(PassAut.Password);
+            DB.OpenConnection();
+            DataTable table = new();
+            MySqlDataAdapter adapter = new();
+            MySqlCommand cmd = new("SELECT * FROM `client` WHERE `login` = @cL AND `password_client` = @cP", DB.GetConnection());
+            cmd.Parameters.Add("@cL", MySqlDbType.VarChar).Value = LogClient;
+            cmd.Parameters.Add("@cP", MySqlDbType.VarChar).Value = PassClient;
+            adapter.SelectCommand = cmd;
+            adapter.Fill(table);
+            if (LogAut.Text == String.Empty)
+            {
+                TipLog.Visibility = Visibility.Visible;
+            }
+            else if(PassAut.Password == String.Empty)
+            {
+                TipPass.Visibility = Visibility.Visible;
+            }            
+            else if(table.Rows.Count > 0)
+            {
+                WndMain main = new();
+                main.Show();
+                Close();
+            }
+            else
+            {
+                ErrLP.Visibility = Visibility.Visible;
+            }
         }
     }
 }

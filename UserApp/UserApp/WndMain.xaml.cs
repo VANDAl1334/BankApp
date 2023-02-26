@@ -55,7 +55,7 @@ namespace UserApp
             WndYour wndyour = new();
             wndyour.Show();
         }
-        private void Window_GotFocus(object sender, RoutedEventArgs e)
+        /*private void Window_GotFocus(object sender, RoutedEventArgs e)
         {
             if (WndSupport != null)
             {
@@ -65,6 +65,6 @@ namespace UserApp
             {
                 BtSupport.IsEnabled = true;
             }
-        }
+        }*/
     }
 }

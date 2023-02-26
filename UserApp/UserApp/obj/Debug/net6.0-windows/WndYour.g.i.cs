@@ -53,7 +53,7 @@ namespace UserApp {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/UserApp;component/wndyour.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/UserApp;V1.0.0.0;component/wndyour.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\WndYour.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
