@@ -18,11 +18,5 @@ namespace UserApp
             get { return Balance; }
             set { Balance = value; }
         }
-        public bool Number
-        {
-            get { return Number; }
-            set { Number = value; }
-        }
-
     }
 }

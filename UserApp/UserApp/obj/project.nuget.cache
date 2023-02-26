@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "C5hlgAYdCMRon/F8iP0we+NVHlviZBD++OcLdJ3x0VSfQylYiT2oQn5R8yO2p0pr1V3aYyNA6Es99b80Gehe8g==",
+  "dgSpecHash": "GyswZ1QCjERfu4zXdjJnSWe28FTGEIFrZvWlGzzbUa0dRJLAWal6GbKpq5+JWyxCivDMnSJmyRe4bT5xPzP1qw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vanda\\Desktop\\Plain-VANDAL\\UserApp\\UserApp\\UserApp.csproj",
+  "projectFilePath": "C:\\Users\\vanda\\Desktop\\GitHub\\Plain\\UserApp\\UserApp\\UserApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vanda\\.nuget\\packages\\google.protobuf\\3.21.9\\google.protobuf.3.21.9.nupkg.sha512",
     "C:\\Users\\vanda\\.nuget\\packages\\k4os.compression.lz4\\1.2.6\\k4os.compression.lz4.1.2.6.nupkg.sha512",

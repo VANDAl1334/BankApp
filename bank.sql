@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 26 2023 г., 01:04
+-- Время создания: Фев 26 2023 г., 19:37
 -- Версия сервера: 8.0.31
 -- Версия PHP: 8.0.26
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- База данных: `bank`
 --
-CREATE DATABASE IF NOT EXISTS `bank` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `bank`;
 
 -- --------------------------------------------------------
 
@@ -34,7 +32,6 @@ CREATE TABLE IF NOT EXISTS `bill` (
   `id_Bill` int NOT NULL AUTO_INCREMENT,
   `Forzen` tinyint(1) NOT NULL,
   `Balance` int NOT NULL,
-  `Number` int NOT NULL,
   PRIMARY KEY (`id_Bill`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -47,11 +44,14 @@ CREATE TABLE IF NOT EXISTS `bill` (
 DROP TABLE IF EXISTS `card`;
 CREATE TABLE IF NOT EXISTS `card` (
   `id_card` int NOT NULL,
+  `Number` int UNSIGNED NOT NULL,
   `CVV` int UNSIGNED NOT NULL,
   `Validity` int UNSIGNED NOT NULL,
   `id_client` int NOT NULL,
+  `id_Bill` int NOT NULL,
   PRIMARY KEY (`id_card`),
-  KEY `id_client` (`id_client`)
+  KEY `id_client` (`id_client`),
+  KEY `id_Bill` (`id_Bill`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -67,16 +67,15 @@ CREATE TABLE IF NOT EXISTS `client` (
   `login` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `password_client` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id_client`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `client`
 --
 
 INSERT INTO `client` (`id_client`, `name_client`, `login`, `password_client`) VALUES
-(23, 'qwer', 'qwer123', 'rWNbLv8m/wxN+yVL+qRrpA=='),
-(24, 'qweq121e2', 'qwer1234', 'qNnkB6QHUkmj0xUqVUC7EQ=='),
-(25, '1', '1', 'wCm6tw3j7AWLqh8bWszXUA==');
+(53, 'uygweiu', 'qwer123', 'sDDhqYxziKFkA7aq/m2wJA=='),
+(54, 'qweqwrqw', 'qwe1234', 'I6UX6se5iU72gpC/HSZTiQ==');
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
@@ -86,7 +85,8 @@ INSERT INTO `client` (`id_client`, `name_client`, `login`, `password_client`) VA
 -- Ограничения внешнего ключа таблицы `card`
 --
 ALTER TABLE `card`
-  ADD CONSTRAINT `card_ibfk_1` FOREIGN KEY (`id_client`) REFERENCES `client` (`id_client`);
+  ADD CONSTRAINT `card_ibfk_1` FOREIGN KEY (`id_client`) REFERENCES `client` (`id_client`),
+  ADD CONSTRAINT `card_ibfk_2` FOREIGN KEY (`id_Bill`) REFERENCES `bill` (`id_Bill`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

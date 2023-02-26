@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -34,7 +36,22 @@ namespace UserApp
             back.Show();
             this.Close();
         }
-
+        public Boolean isUserExists(string LogClient)
+        {
+            DataTable table = new();
+            MySqlDataAdapter adapter = new();
+            DB.cmd = new("SELECT * FROM `client` WHERE `login` = @cL", DB.GetConnection());
+            DB.cmd.Parameters.Add("@cL", MySqlDbType.VarChar).Value = LogClient;
+            adapter.SelectCommand = DB.cmd;
+            adapter.Fill(table);
+            if (table.Rows.Count > 0)
+            {
+                chkLog.Visibility = Visibility.Visible;
+                return true;
+            }
+            else
+                return false;
+        }
         private void checkpass_Click(object sender, RoutedEventArgs e)
         {
             
@@ -54,19 +71,37 @@ namespace UserApp
 
         private void BtnReg_Click(object sender, RoutedEventArgs e)
         {
-
-            char[] list = new[] {'#', '|', '!', '#', '$', '%', '&', '/', '@', '{', '}' };
+            char[] number = new[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ' ' };
+            char[] Spec = new[] {'#', '|', '!', '#', '$', '%', '&', '/', '@', '{', '}' };
             if (NmUs.Text == string.Empty && NmUs.Text == " ")
             {
                 TipNmUs.Visibility = Visibility.Visible;
             }
             else if (LogIn.Text == string.Empty && LogIn.Text == " ")
             {
-                
                 TipLogIn.Visibility = Visibility.Visible;
                 return;
             }
-            else if (pass.Password == string.Empty && pass.Password == " ")
+            else if(pass.Password.Length <= 8)
+            {
+                passlen.Visibility = Visibility.Visible;
+                return;
+            }
+            bool ContainNumber = true;
+            foreach(char o in number)
+            {
+                if (NmUs.Text.Contains(o))
+                {
+                    ContainNumber = false;
+                    break;
+                }
+            }
+            if(ContainNumber == false)
+            {
+                chkNm.Visibility = Visibility.Visible;
+                return;
+            }
+            else if (pass.Password == string.Empty)
             {
                 TipPass.Visibility = Visibility.Visible;
                 return;
@@ -82,7 +117,7 @@ namespace UserApp
                 return;
             }
             bool ContainChar = false;
-            foreach(char i in list)
+            foreach(char i in Spec)
             {
                 if (pass.Password.Contains(i))
                 {
@@ -94,6 +129,8 @@ namespace UserApp
             {
                 TipPassSpSim.Visibility = Visibility.Visible;
             }
+            if (isUserExists(LogIn.Text))
+                return;
             else
             {
                 pass.Password = Client.Hash(pass.Password);

@@ -15,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace UserApp
 {
@@ -64,6 +65,23 @@ namespace UserApp
             {
                 ErrLP.Visibility = Visibility.Visible;
             }
+        }
+
+        private void ChkPass_Click(object sender, RoutedEventArgs e)
+        {
+            if (ChkPass.IsChecked == false)
+            {
+                PassAut.Password = PassText.Text;
+                PassText.Visibility = Visibility.Collapsed;
+                PassAut.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                PassText.Text = PassAut.Password;
+                PassAut.Visibility = Visibility.Collapsed;
+                PassText.Visibility = Visibility.Visible;
+            }
+           
         }
     }
 }
