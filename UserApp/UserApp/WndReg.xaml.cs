@@ -116,6 +116,8 @@ namespace UserApp
                 TipPassChk.Visibility = Visibility.Visible;
                 return;
             }
+            else if (isUserExists(LogIn.Text))
+                return;
             bool ContainChar = false;
             foreach(char i in Spec)
             {
@@ -129,8 +131,7 @@ namespace UserApp
             {
                 TipPassSpSim.Visibility = Visibility.Visible;
             }
-            if (isUserExists(LogIn.Text))
-                return;
+            
             else
             {
                 pass.Password = Client.Hash(pass.Password);

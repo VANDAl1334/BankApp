@@ -11,16 +11,16 @@ namespace UserApp
     {
         public bool Number
         {
-            /*get 
+            get 
             {
-                Random rnd = new();
-                WndMain.Nmbill.Text = rnd.Next();
+                /*Random rnd = new();
+                WndMain.Nmbill.Text = rnd.Next();*/
                 return Number;
             }
             set 
             {
                 
-            }*/
+            }
         }
         public bool CVV
         {

@@ -112,7 +112,7 @@ namespace UserApp {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/UserApp;V1.0.0.0;component/wndaut.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/UserApp;component/wndaut.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\WndAut.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
