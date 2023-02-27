@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "f1IvRt+zQn6QnhuLfjYf0i/kXEqqAWXIV7momfuGKzGGQtiAAGVIKLwJCKeXrO/5qw17xu1Y/6q1RUi0W1RYGA==",
+  "dgSpecHash": "ik6wwgOHYnZ+QkBA+yoct6Klsubjr3NFgX4JXTfe72ccWvsCHE5Mg+2umjb9lkJrZaCq3Hg10kiLpLKKMKJt7g==",
   "success": true,
-  "projectFilePath": "D:\\Data\\WPF\\BankApp\\BankApp\\BankApp\\BankApp.csproj",
+  "projectFilePath": "D:\\Data\\WPF\\GitHub\\Plain\\BankApp\\BankApp.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
