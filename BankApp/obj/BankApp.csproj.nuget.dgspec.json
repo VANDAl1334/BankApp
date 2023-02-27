@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Data\\WPF\\BankApp\\BankApp\\BankApp\\BankApp.csproj": {}
+    "D:\\Data\\WPF\\GitHub\\Plain\\BankApp\\BankApp.csproj": {}
   },
   "projects": {
-    "D:\\Data\\WPF\\BankApp\\BankApp\\BankApp\\BankApp.csproj": {
+    "D:\\Data\\WPF\\GitHub\\Plain\\BankApp\\BankApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Data\\WPF\\BankApp\\BankApp\\BankApp\\BankApp.csproj",
+        "projectUniqueName": "D:\\Data\\WPF\\GitHub\\Plain\\BankApp\\BankApp.csproj",
         "projectName": "BankApp",
-        "projectPath": "D:\\Data\\WPF\\BankApp\\BankApp\\BankApp\\BankApp.csproj",
+        "projectPath": "D:\\Data\\WPF\\GitHub\\Plain\\BankApp\\BankApp.csproj",
         "packagesPath": "C:\\Users\\Slava\\.nuget\\packages\\",
-        "outputPath": "D:\\Data\\WPF\\BankApp\\BankApp\\BankApp\\obj\\",
+        "outputPath": "D:\\Data\\WPF\\GitHub\\Plain\\BankApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Slava\\AppData\\Roaming\\NuGet\\NuGet.Config",
