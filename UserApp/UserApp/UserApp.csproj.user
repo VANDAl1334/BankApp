@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="PgRec.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="WndYour.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -31,6 +34,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PgRec.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="WndYour.xaml">

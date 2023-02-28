@@ -31,6 +31,7 @@
     <Resource Include="arrow.png" />
     <Resource Include="send.png" />
     <Resource Include="support.png" />
+    <Resource Include="support1.png" />
   </ItemGroup>
 
 </Project>

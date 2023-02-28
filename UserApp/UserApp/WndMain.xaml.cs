@@ -27,12 +27,9 @@ namespace UserApp
         WndSupport WndSupport;
         private void BtnSupport_Click(object sender, RoutedEventArgs e)
         {
-            if (WndSupport == null)
-            {
                 WndSupport support = new();
                 support.Show();
                 WndSupport = support;
-            }
         }
         private void BtnHystory_Click(object sender, RoutedEventArgs e)
         {
@@ -55,7 +52,8 @@ namespace UserApp
             WndYour wndyour = new();
             wndyour.Show();
         }
-        /*private void Window_GotFocus(object sender, RoutedEventArgs e)
+
+        private void Window_Activated(object sender, EventArgs e)
         {
             if (WndSupport != null)
             {
@@ -65,6 +63,6 @@ namespace UserApp
             {
                 BtSupport.IsEnabled = true;
             }
-        }*/
+        }
     }
 }

@@ -13,9 +13,20 @@
                 <!--ResourceDictionary Source="pack://application:,,,/SampleEventTask;component/Resources.xaml" /-->
 
             </ResourceDictionary.MergedDictionaries>
-            
+            <Style TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="Roboto"></Setter>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="Roboto"></Setter>
+            </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="FontFamily" Value="Roboto"></Setter>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="FontFamily" Value="Roboto"></Setter>
+            </Style>
         </ResourceDictionary>
-        
+
     </Application.Resources>
 
 </Application>

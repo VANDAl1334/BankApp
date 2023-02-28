@@ -42,7 +42,7 @@ namespace UserApp
             DB.OpenConnection();
             DataTable table = new();
             MySqlDataAdapter adapter = new();
-            MySqlCommand cmd = new("SELECT * FROM `client` WHERE `login` = @cL AND `password_client` = @cP", DB.GetConnection());
+            MySqlCommand cmd = new("SELECT * FROM `user` WHERE `login_user` = @cL AND `password_user` = @cP", DB.GetConnection());
             cmd.Parameters.Add("@cL", MySqlDbType.VarChar).Value = LogClient;
             cmd.Parameters.Add("@cP", MySqlDbType.VarChar).Value = PassClient;
             adapter.SelectCommand = cmd;
@@ -82,6 +82,11 @@ namespace UserApp
                 PassText.Visibility = Visibility.Visible;
             }
            
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

@@ -76,3 +76,5 @@ C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\bin\Debug\net6.0-windows\k5s
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\bin\Debug\net6.0-windows\krb5_64.dll
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\bin\Debug\net6.0-windows\krbcc64.dll
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
+C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\PgRec.g.cs
+C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\PgRec.baml

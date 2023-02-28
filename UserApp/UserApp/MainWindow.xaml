@@ -21,7 +21,7 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <TextBlock Text="Добро пожаловать" VerticalAlignment="Center" Grid.Row="0" FontFamily="Times New Roman" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Foreground="AliceBlue"/>
+            <TextBlock Text="Добро пожаловать" VerticalAlignment="Center" Grid.Row="0" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Foreground="AliceBlue"/>
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Button Content="Регистрация" Width="190" Style="{StaticResource MaterialDesignRaisedSecondaryLightButton}" Click="Button_Click" Background="#FF5C00FF"/>
                 <Button Content="Войти" Width="100" Margin="30 0 0 0" Style="{StaticResource MaterialDesignFlatLightButton}" Height="32" Click="Button_Click_1"/>

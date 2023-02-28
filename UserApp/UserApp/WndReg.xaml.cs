@@ -40,7 +40,7 @@ namespace UserApp
         {
             DataTable table = new();
             MySqlDataAdapter adapter = new();
-            DB.cmd = new("SELECT * FROM `client` WHERE `login` = @cL", DB.GetConnection());
+            DB.cmd = new("SELECT * FROM `user` WHERE `login_user` = @cL", DB.GetConnection());
             DB.cmd.Parameters.Add("@cL", MySqlDbType.VarChar).Value = LogClient;
             adapter.SelectCommand = DB.cmd;
             adapter.Fill(table);
@@ -138,7 +138,7 @@ namespace UserApp
                 Client.SqlRequest(NmUs.Text, LogIn.Text, pass.Password);
                 WndAut wndAut = new();
                 wndAut.Show();
-                this.Close();
+                Close();
             }
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
