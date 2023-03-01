@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 26 2023 г., 19:37
+-- Время создания: Мар 01 2023 г., 22:50
 -- Версия сервера: 8.0.31
 -- Версия PHP: 8.0.26
 
@@ -29,11 +29,15 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `bill`;
 CREATE TABLE IF NOT EXISTS `bill` (
-  `id_Bill` int NOT NULL AUTO_INCREMENT,
+  `Number` int NOT NULL AUTO_INCREMENT,
   `Forzen` tinyint(1) NOT NULL,
-  `Balance` int NOT NULL,
-  PRIMARY KEY (`id_Bill`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `Balance` float NOT NULL,
+  `Card_number` int UNSIGNED NOT NULL,
+  `bill_owner` int UNSIGNED NOT NULL,
+  PRIMARY KEY (`Number`),
+  KEY `bill_owner` (`bill_owner`),
+  KEY `Card_number` (`Card_number`)
+) ENGINE=InnoDB AUTO_INCREMENT=10000000000 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -43,50 +47,123 @@ CREATE TABLE IF NOT EXISTS `bill` (
 
 DROP TABLE IF EXISTS `card`;
 CREATE TABLE IF NOT EXISTS `card` (
-  `id_card` int NOT NULL,
   `Number` int UNSIGNED NOT NULL,
   `CVV` int UNSIGNED NOT NULL,
   `Validity` int UNSIGNED NOT NULL,
-  `id_client` int NOT NULL,
-  `id_Bill` int NOT NULL,
-  PRIMARY KEY (`id_card`),
-  KEY `id_client` (`id_client`),
-  KEY `id_Bill` (`id_Bill`)
+  PRIMARY KEY (`Number`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `client`
+-- Структура таблицы `role`
 --
 
-DROP TABLE IF EXISTS `client`;
-CREATE TABLE IF NOT EXISTS `client` (
-  `id_client` int NOT NULL AUTO_INCREMENT,
-  `name_client` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
-  `login` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
-  `password_client` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`id_client`)
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+DROP TABLE IF EXISTS `role`;
+CREATE TABLE IF NOT EXISTS `role` (
+  `id` tinyint UNSIGNED NOT NULL,
+  `role_user` varchar(13) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
 
 --
--- Дамп данных таблицы `client`
+-- Структура таблицы `status_transfer`
 --
 
-INSERT INTO `client` (`id_client`, `name_client`, `login`, `password_client`) VALUES
-(53, 'uygweiu', 'qwer123', 'sDDhqYxziKFkA7aq/m2wJA=='),
-(54, 'qweqwrqw', 'qwe1234', 'I6UX6se5iU72gpC/HSZTiQ==');
+DROP TABLE IF EXISTS `status_transfer`;
+CREATE TABLE IF NOT EXISTS `status_transfer` (
+  `id` tinyint(1) NOT NULL,
+  `Status` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `Status` (`Status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `transaction`
+--
+
+DROP TABLE IF EXISTS `transaction`;
+CREATE TABLE IF NOT EXISTS `transaction` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `Type_transfer` tinyint(1) NOT NULL,
+  `transfer_recipient` int NOT NULL,
+  `transfer_sender` int NOT NULL,
+  `status_id` tinyint(1) NOT NULL,
+  `amount` float UNSIGNED NOT NULL,
+  `Date` date NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `Type_transfer` (`Type_transfer`,`transfer_recipient`,`transfer_sender`,`status_id`),
+  KEY `status_id` (`status_id`),
+  KEY `transfer_my` (`transfer_recipient`),
+  KEY `transfer_your` (`transfer_sender`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `type_transfer`
+--
+
+DROP TABLE IF EXISTS `type_transfer`;
+CREATE TABLE IF NOT EXISTS `type_transfer` (
+  `id` tinyint(1) NOT NULL,
+  `Type` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `Type` (`Type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name_user` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `login_user` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `password_user` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Role_id` tinyint UNSIGNED NOT NULL,
+  `Phone` int UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_Role_id` (`Role_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
 --
 
 --
--- Ограничения внешнего ключа таблицы `card`
+-- Ограничения внешнего ключа таблицы `bill`
 --
-ALTER TABLE `card`
-  ADD CONSTRAINT `card_ibfk_1` FOREIGN KEY (`id_client`) REFERENCES `client` (`id_client`),
-  ADD CONSTRAINT `card_ibfk_2` FOREIGN KEY (`id_Bill`) REFERENCES `bill` (`id_Bill`);
+ALTER TABLE `bill`
+  ADD CONSTRAINT `bill_ibfk_1` FOREIGN KEY (`Card_number`) REFERENCES `card` (`Number`),
+  ADD CONSTRAINT `bill_ibfk_2` FOREIGN KEY (`bill_owner`) REFERENCES `user` (`id`);
+
+--
+-- Ограничения внешнего ключа таблицы `transaction`
+--
+ALTER TABLE `transaction`
+  ADD CONSTRAINT `transaction_ibfk_1` FOREIGN KEY (`status_id`) REFERENCES `status_transfer` (`id`),
+  ADD CONSTRAINT `transaction_ibfk_2` FOREIGN KEY (`transfer_recipient`) REFERENCES `bill` (`Number`),
+  ADD CONSTRAINT `transaction_ibfk_3` FOREIGN KEY (`transfer_sender`) REFERENCES `bill` (`Number`);
+
+--
+-- Ограничения внешнего ключа таблицы `type_transfer`
+--
+ALTER TABLE `type_transfer`
+  ADD CONSTRAINT `type_transfer_ibfk_1` FOREIGN KEY (`id`) REFERENCES `transaction` (`Type_transfer`);
+
+--
+-- Ограничения внешнего ключа таблицы `user`
+--
+ALTER TABLE `user`
+  ADD CONSTRAINT `fk_Role_id` FOREIGN KEY (`Role_id`) REFERENCES `role` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
