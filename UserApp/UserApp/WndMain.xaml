@@ -32,20 +32,20 @@
                 </LinearGradientBrush>
             </Border.Background>
             <Border.Effect>
-                <DropShadowEffect BlurRadius="10" Color="Red"
-             Direction="45" Opacity=".4" RenderingBias="Performance" ShadowDepth="30"/>
+                <DropShadowEffect BlurRadius="10" Color="Red" Direction="45" Opacity=".4" RenderingBias="Performance" ShadowDepth="30"/>
             </Border.Effect>
             <StackPanel  Grid.Column="0">
                 <Label Content="Ваш номер карты" Foreground="White" FontSize="20" Grid.Column="0" Grid.Row="0"/>
-                <TextBlock x:Name="NmCard" Height="37"/>
+                <TextBlock x:Name="NmCard" Text="{Binding }" Height="37"/>
                 <StackPanel Orientation="Horizontal" >
                     <Label Content="CVV" FontSize="25" Grid.Column="1" Foreground="White" Grid.Row="0"/>
-                    <TextBlock x:Name="CVV" Text="993" FontSize="30" Foreground="White"/>
+                    <TextBlock x:Name="CVV" Text="{Binding }" FontSize="30" Foreground="White"/>
                 </StackPanel>
                 <StackPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Orientation="Horizontal">
                     <Label Content="ММ/ДД" FontSize="25" Foreground="White" Grid.Row="0"/>
-                    <TextBlock x:Name="Validity" Text="10/23" FontSize="25" Foreground="White"/>
+                    <TextBlock x:Name="Validity" Text="{Binding }" FontSize="25" Foreground="White"/>
                 </StackPanel>
+                <TextBlock Text="{Binding }" FontSize="25" Foreground="White"/>
             </StackPanel>
         </Border>
         <Button Grid.Column="1" VerticalAlignment="Top" x:Name="BtSupport" HorizontalAlignment="Right" ToolTip="Служба поддержки" Style="{StaticResource MaterialDesignIconButton}" Click="BtnSupport_Click">

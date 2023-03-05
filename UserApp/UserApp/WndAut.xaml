@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UserApp"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Вход" Height="470" Width="474" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Title="Вход" Height="387" Width="474" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
         <Rectangle>
             <Rectangle.Fill>
@@ -18,7 +18,7 @@
             </Rectangle.Fill>
         </Rectangle>
         <TextBlock Text="Авторизация" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Margin="0 15 0 0" FontSize="30"/>
-        <Border CornerRadius="20" Background="White" Width="350" Padding="40 40 40 0" Height="277" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Border CornerRadius="20" Background="White" Width="350" Padding="40 40 40 0" Height="243" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="100" Color="LightGray" ShadowDepth="3"/>
             </Border.Effect>
@@ -39,11 +39,11 @@
                     <TextBlock x:Name="ErrLP"  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Foreground="red" Visibility="Collapsed">*Логин или пароль введен неверно</TextBlock>
                     <TextBlock x:Name="PassText" Grid.Row="1" Style="{StaticResource MaterialDesignBody1TextBlock}" VerticalAlignment="Bottom" Visibility="Collapsed"/>
                     <TextBlock x:Name="TipPass" Grid.Row="1" Foreground="red" Visibility="Collapsed" TextAlignment="Center">*Обязательное поле</TextBlock>
-                    <Button Grid.Row="2"  Content="Восстановление пароля"  HorizontalAlignment="Left" Foreground="blue" Background="White" BorderBrush="White" Click="Button_Click"></Button>
                     <PasswordBox x:Name="PassAut" Grid.Row="1" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                    <Button Grid.Row="2"  Content="Восстановление пароля"  HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="blue" Background="White" BorderBrush="White" Click="Button_Click"></Button>
                     <CheckBox x:Name="ChkPass" Grid.Column="1" Grid.Row="1" Click="ChkPass_Click"></CheckBox>
                 </Grid>
-                <Button Content="Войти" Width="100" Style="{StaticResource MaterialDesignOutlinedLightButton}" Click="BtnAut_Click"/>
+                <Button Content="Войти" Width="100" VerticalAlignment="Top" Style="{StaticResource MaterialDesignOutlinedLightButton}" Click="BtnAut_Click"/>
             </DockPanel>
         </Border>
         <Button Style="{StaticResource MaterialDesignFlatButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="28" Width="69"  Click="BtnBack_Click">

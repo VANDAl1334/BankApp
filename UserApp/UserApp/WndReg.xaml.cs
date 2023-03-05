@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Asn1.X509;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -36,7 +37,7 @@ namespace UserApp
             back.Show();
             this.Close();
         }
-        public Boolean isUserExists(string LogClient)
+        public Boolean IsUserExists(string LogClient)
         {
             DataTable table = new();
             MySqlDataAdapter adapter = new();
@@ -52,7 +53,7 @@ namespace UserApp
             else
                 return false;
         }
-        private void checkpass_Click(object sender, RoutedEventArgs e)
+        private void Checkpass_Click(object sender, RoutedEventArgs e)
         {
             
             if(checkpass.IsChecked == false)
@@ -69,26 +70,30 @@ namespace UserApp
             }
         }
 
-        private void BtnReg_Click(object sender, RoutedEventArgs e)
+        bool ContainNumber = true;
+        bool ContainChar = false;
+        char[] number = new[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ' ' };
+        char[] Spec = new[] { '!', '"', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~' };
+        public void BtnReg_Click(object sender, RoutedEventArgs e)
         {
-            char[] number = new[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ' ' };
-            char[] Spec = new[] {'#', '|', '!', '#', '$', '%', '&', '/', '@', '{', '}' };
-            if (NmUs.Text == string.Empty && NmUs.Text == " ")
-            {
+            
+            if (NmUs.Text == string.Empty)
                 TipNmUs.Visibility = Visibility.Visible;
-            }
-            else if (LogIn.Text == string.Empty && LogIn.Text == " ")
-            {
-                TipLogIn.Visibility = Visibility.Visible;
-                return;
-            }
-            else if(pass.Password.Length <= 8)
-            {
-                passlen.Visibility = Visibility.Visible;
-                return;
-            }
-            bool ContainNumber = true;
-            foreach(char o in number)
+            if (SrNmUs.Text == string.Empty)
+                TipNmUs.Visibility = Visibility.Visible;
+            if (PtNmUs.Text == string.Empty)
+                TipNmUs.Visibility = Visibility.Visible;
+            if (LogIn.Text == string.Empty)
+                 TipLogIn.Visibility = Visibility.Visible;
+            if (pass.Password.Length >= 8)
+                 passlen.Visibility = Visibility.Visible;
+            if (pass.Password == string.Empty)
+                TipPass.Visibility = Visibility.Visible;
+            if (passpod.Password == string.Empty)
+                TipPassPod.Visibility = Visibility.Visible;
+            if (pass.Password != passpod.Password)
+                TipPassChk.Visibility = Visibility.Visible;
+            foreach (char o in number)
             {
                 if (NmUs.Text.Contains(o))
                 {
@@ -96,30 +101,11 @@ namespace UserApp
                     break;
                 }
             }
-            if(ContainNumber == false)
-            {
+            if (ContainNumber == false)
                 chkNm.Visibility = Visibility.Visible;
+            if (IsUserExists(LogIn.Text))
                 return;
-            }
-            else if (pass.Password == string.Empty)
-            {
-                TipPass.Visibility = Visibility.Visible;
-                return;
-            }
-            else if (passpod.Password == string.Empty && passpod.Password == " ")
-            {
-                TipPassPod.Visibility = Visibility.Visible;
-                return;
-            }
-            else if (pass.Password != passpod.Password)
-            {
-                TipPassChk.Visibility = Visibility.Visible;
-                return;
-            }
-            else if (isUserExists(LogIn.Text))
-                return;
-            bool ContainChar = false;
-            foreach(char i in Spec)
+            foreach (char i in Spec)
             {
                 if (pass.Password.Contains(i))
                 {
@@ -127,23 +113,20 @@ namespace UserApp
                     break;
                 }
             }
-            if(ContainChar == false)
-            {
+            if (ContainChar == false)
                 TipPassSpSim.Visibility = Visibility.Visible;
-            }
-            
             else
             {
                 pass.Password = Client.Hash(pass.Password);
-                Client.SqlRequest(NmUs.Text, LogIn.Text, pass.Password);
+                Client.SqlRequest(NmUs.Text, SrNmUs.Text, PtNmUs.Text, LogIn.Text, pass.Password);
                 WndAut wndAut = new();
                 wndAut.Show();
                 Close();
             }
         }
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        public void Window_Activated(object sender, EventArgs a)
         {
-            
+           
         }
     }
 }

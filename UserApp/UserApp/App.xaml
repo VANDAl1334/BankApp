@@ -14,16 +14,17 @@
 
             </ResourceDictionary.MergedDictionaries>
             <Style TargetType="TextBlock">
-                <Setter Property="FontFamily" Value="Roboto"></Setter>
+                <Setter Property="FontFamily" Value="Roboto"/>
             </Style>
             <Style TargetType="Label">
-                <Setter Property="FontFamily" Value="Roboto"></Setter>
+                <Setter Property="FontFamily" Value="Roboto"/>
             </Style>
             <Style TargetType="TextBox">
-                <Setter Property="FontFamily" Value="Roboto"></Setter>
+                <Setter Property="FontFamily" Value="Roboto"/>
             </Style>
             <Style TargetType="Button">
-                <Setter Property="FontFamily" Value="Roboto"></Setter>
+                <Setter Property="FontFamily" Value="Roboto"/>
+                <Setter Property="Background" Value="Brown"/>
             </Style>
         </ResourceDictionary>
 

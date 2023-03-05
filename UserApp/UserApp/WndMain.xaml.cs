@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.ComponentModel;
+using System.Windows.Xps.Serialization;
 
 namespace UserApp
 {
@@ -52,16 +53,15 @@ namespace UserApp
             WndYour wndyour = new();
             wndyour.Show();
         }
-
         private void Window_Activated(object sender, EventArgs e)
         {
-            if (WndSupport != null)
+            if (WndSupport == null)
             {
-                BtSupport.IsEnabled = false;
+                BtSupport.IsEnabled = true;
             }
             else
             {
-                BtSupport.IsEnabled = true;
+                BtSupport.IsEnabled = false;
             }
         }
     }

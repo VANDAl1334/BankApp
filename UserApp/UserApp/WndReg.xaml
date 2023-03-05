@@ -6,18 +6,19 @@
         xmlns:local="clr-namespace:UserApp"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Регистрация" Height="449" Width="573" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Title="Регистрация" Height="449" Width="632" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Activated="Window_Activated">
     <Grid>
         <Rectangle>
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="Black" Offset="0" />
-                    <GradientStop Color="Blue" Offset="1" />
+                    <GradientStop Color="#FFB30000" Offset="0"/>
+                    <GradientStop Color="#FFFF6A6A" Offset=".9"/>
+                    <GradientStop Color="#FFFF6B5A" Offset="1"/>
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
         <TextBlock Text="Регистрация" HorizontalAlignment="Center" Foreground="White" Margin="0 10" VerticalAlignment="Top" FontSize="30"></TextBlock>
-        <Border Width="353" CornerRadius="30" Background="White" VerticalAlignment="Center" Padding="35" HorizontalAlignment="Center" Height="301">
+        <Border Width="527" CornerRadius="30" Background="White" VerticalAlignment="Center" Padding="35" HorizontalAlignment="Center" Height="296">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="100" Color="LightGray" ShadowDepth="0"/>
             </Border.Effect>
@@ -36,24 +37,28 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Foreground="red" x:Name="TipNmUs" Grid.Row="0" TextAlignment="Center" Visibility="Collapsed">*Обязательное поле и без пробелов</TextBlock>
                     <TextBlock Foreground="red" x:Name="chkNm" TextAlignment="Center" Visibility="Collapsed">Уберите пробелы и цифры</TextBlock>
-                    <TextBox Grid.Row="0" x:Name="NmUs" materialDesign:HintAssist.Hint="Введите свое имя" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                        <TextBox x:Name="NmUs" Width="140" materialDesign:HintAssist.Hint="Введите свое имя" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                        <TextBox x:Name="SrNmUs" Width="140" materialDesign:HintAssist.Hint="Введите свое Фамилию" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                        <TextBox x:Name="PtNmUs" Width="140" materialDesign:HintAssist.Hint="Введите свое Отчество" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    </StackPanel>
                     <TextBlock Foreground="red" x:Name="TipLogIn" Grid.Row="1" TextAlignment="Center" Visibility="Collapsed">*Обязательное поле и без пробелов</TextBlock>
                     <TextBlock Foreground="Red" Grid.Row="1" x:Name="chkLog" TextAlignment="Center" Visibility="Collapsed">*Такой логин уже существует</TextBlock>
                     <TextBox Grid.Row="1" x:Name="LogIn" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                     <TextBlock Foreground="red" x:Name="TipPass" Grid.Row="2" TextAlignment="Center" Visibility="Collapsed">*Обязательное поле и без пробелов</TextBlock>
-                    <TextBlock Foreground="red" x:Name="TipPassSpSim" Grid.Row="2" TextAlignment="Center" Visibility="Collapsed">Необходимо использовать специальные символы |,!,#,$,%,/,@,{,}</TextBlock>
+                    <TextBlock Foreground="red" x:Name="TipPassSpSim" Grid.Row="2" TextAlignment="Center" Visibility="Collapsed">Необходимо использовать специальные символы</TextBlock>
                     <TextBlock Foreground="Red" x:Name="passlen" Grid.Row="2" TextAlignment="Center" Visibility="Collapsed">*Пароль должен быть длинной не менее 8 символов</TextBlock>
                     <TextBlock Grid.Row="2" x:Name="text" Style="{StaticResource MaterialDesignBody1TextBlock}" VerticalAlignment="Bottom" Visibility="Collapsed"/>
                     <PasswordBox Grid.Row="2" x:Name="pass" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
                     <TextBlock Foreground="red" x:Name="TipPassPod" Grid.Row="3" TextAlignment="Center" Visibility="Collapsed">*Обязательное поле и без пробелов</TextBlock>
                     <PasswordBox Grid.Row="3" x:Name="passpod" materialDesign:HintAssist.Hint="Подтвердите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
-                    <CheckBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="checkpass_Click" x:Name="checkpass" />
+                    <CheckBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Checkpass_Click" x:Name="checkpass" />
                     <TextBlock Foreground="red" x:Name="TipPassChk" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Visibility="Collapsed">*Пароли не совпадают</TextBlock>
                 </Grid>
-                <Button Content="Зарегистрироваться" VerticalAlignment="Top" x:Name="BtnReg" Style="{StaticResource MaterialDesignFlatButton}" Width="200" Click="BtnReg_Click"/>
+                <Button Content="Зарегистрироваться" VerticalAlignment="Top" x:Name="a" Style="{StaticResource MaterialDesignFlatButton}" Width="200" Click="BtnReg_Click"/>
             </DockPanel>
         </Border>
-        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFlatButton}" Height="28" Width="79" Click="Button_Click" Margin="110,66,0,0">
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFlatButton}" Height="28" Width="79" Click="Button_Click" Margin="63,69,0,0">
             <Image Height="23" Width="52" Source="/arrow.png"/>
         </Button>
     </Grid>

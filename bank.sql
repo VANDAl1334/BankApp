@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 01 2023 г., 22:50
+-- Время создания: Мар 05 2023 г., 21:40
 -- Версия сервера: 8.0.31
 -- Версия PHP: 8.0.26
 
@@ -62,9 +62,18 @@ CREATE TABLE IF NOT EXISTS `card` (
 DROP TABLE IF EXISTS `role`;
 CREATE TABLE IF NOT EXISTS `role` (
   `id` tinyint UNSIGNED NOT NULL,
-  `role_user` varchar(13) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `name_role` varchar(13) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Дамп данных таблицы `role`
+--
+
+INSERT INTO `role` (`id`, `name_role`) VALUES
+(1, 'Клиент'),
+(2, 'Менеджер'),
+(3, 'Администратор');
 
 -- --------------------------------------------------------
 
@@ -112,9 +121,18 @@ DROP TABLE IF EXISTS `type_transfer`;
 CREATE TABLE IF NOT EXISTS `type_transfer` (
   `id` tinyint(1) NOT NULL,
   `Type` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `Type` (`Type`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Дамп данных таблицы `type_transfer`
+--
+
+INSERT INTO `type_transfer` (`id`, `Type`) VALUES
+(1, 'Перевод'),
+(2, 'Перевод между своими'),
+(3, 'Снятие со счёта'),
+(4, 'Пополнение');
 
 -- --------------------------------------------------------
 
@@ -126,13 +144,44 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `name_user` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `surname_user` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `patronymic_user` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `login_user` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `password_user` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `Role_id` tinyint UNSIGNED NOT NULL,
   `Phone` int UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_Role_id` (`Role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Дамп данных таблицы `user`
+--
+
+INSERT INTO `user` (`id`, `name_user`, `surname_user`, `patronymic_user`, `login_user`, `password_user`, `Role_id`, `Phone`) VALUES
+(2, 'qwer', 'qwer', 'qwer', 'qwer1234', 'lBlJzdDWykCtSMaD/bWy8A==', 1, 4294967295);
+
+-- --------------------------------------------------------
+
+--
+-- Дублирующая структура для представления `v_role`
+-- (См. Ниже фактическое представление)
+--
+DROP VIEW IF EXISTS `v_role`;
+CREATE TABLE IF NOT EXISTS `v_role` (
+`id` tinyint unsigned
+,`name_role` varchar(13)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Структура для представления `v_role`
+--
+DROP TABLE IF EXISTS `v_role`;
+
+DROP VIEW IF EXISTS `v_role`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_role`  AS SELECT `name_role`.`id` AS `id`, `name_role`.`name_role` AS `name_role` FROM `role` AS `name_role``name_role`  ;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
@@ -151,13 +200,8 @@ ALTER TABLE `bill`
 ALTER TABLE `transaction`
   ADD CONSTRAINT `transaction_ibfk_1` FOREIGN KEY (`status_id`) REFERENCES `status_transfer` (`id`),
   ADD CONSTRAINT `transaction_ibfk_2` FOREIGN KEY (`transfer_recipient`) REFERENCES `bill` (`Number`),
-  ADD CONSTRAINT `transaction_ibfk_3` FOREIGN KEY (`transfer_sender`) REFERENCES `bill` (`Number`);
-
---
--- Ограничения внешнего ключа таблицы `type_transfer`
---
-ALTER TABLE `type_transfer`
-  ADD CONSTRAINT `type_transfer_ibfk_1` FOREIGN KEY (`id`) REFERENCES `transaction` (`Type_transfer`);
+  ADD CONSTRAINT `transaction_ibfk_3` FOREIGN KEY (`transfer_sender`) REFERENCES `bill` (`Number`),
+  ADD CONSTRAINT `transaction_ibfk_4` FOREIGN KEY (`Type_transfer`) REFERENCES `type_transfer` (`id`);
 
 --
 -- Ограничения внешнего ключа таблицы `user`
