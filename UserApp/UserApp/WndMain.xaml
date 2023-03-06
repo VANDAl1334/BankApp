@@ -36,7 +36,7 @@
             </Border.Effect>
             <StackPanel  Grid.Column="0">
                 <Label Content="Ваш номер карты" Foreground="White" FontSize="20" Grid.Column="0" Grid.Row="0"/>
-                <TextBlock x:Name="NmCard" Text="{Binding }" Height="37"/>
+                <TextBlock x:Name="NmCard" Height="37"/>
                 <StackPanel Orientation="Horizontal" >
                     <Label Content="CVV" FontSize="25" Grid.Column="1" Foreground="White" Grid.Row="0"/>
                     <TextBlock x:Name="CVV" Text="{Binding }" FontSize="30" Foreground="White"/>
@@ -45,7 +45,7 @@
                     <Label Content="ММ/ДД" FontSize="25" Foreground="White" Grid.Row="0"/>
                     <TextBlock x:Name="Validity" Text="{Binding }" FontSize="25" Foreground="White"/>
                 </StackPanel>
-                <TextBlock Text="{Binding }" FontSize="25" Foreground="White"/>
+                <TextBlock x:Name="fullname" FontSize="25" Foreground="White"/>
             </StackPanel>
         </Border>
         <Button Grid.Column="1" VerticalAlignment="Top" x:Name="BtSupport" HorizontalAlignment="Right" ToolTip="Служба поддержки" Style="{StaticResource MaterialDesignIconButton}" Click="BtnSupport_Click">

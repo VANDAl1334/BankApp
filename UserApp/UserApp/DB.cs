@@ -23,6 +23,17 @@ namespace UserApp
                 connection.Open();
             }
         }
+        public static T ConvertFromDBVal<T>(object? obj)
+        {
+            if (obj == null || obj == DBNull.Value)
+            {
+                return default(T);
+            }
+            else
+            {
+                return (T)obj;
+            }
+        }
         static public void CloseConnection()
         {
             if (connection.State == System.Data.ConnectionState.Open)

@@ -27,8 +27,9 @@ namespace UserApp
         public WndAut()
         {
             InitializeComponent();
+            
         }
-
+        
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             MainWindow back = new();
@@ -37,16 +38,7 @@ namespace UserApp
         }
         private void BtnAut_Click(object sender, RoutedEventArgs e)
         {
-            String LogClient = LogAut.Text;
-            String PassClient = Client.Hash(PassAut.Password);
-            DB.OpenConnection();
-            DataTable table = new();
-            MySqlDataAdapter adapter = new();
-            MySqlCommand cmd = new("SELECT * FROM `user` WHERE `login_user` = @cL AND `password_user` = @cP", DB.GetConnection());
-            cmd.Parameters.Add("@cL", MySqlDbType.VarChar).Value = LogClient;
-            cmd.Parameters.Add("@cP", MySqlDbType.VarChar).Value = PassClient;
-            adapter.SelectCommand = cmd;
-            adapter.Fill(table);
+            User.CurrentUser = User.GetUserByLogIn(LogAut.Text);
             if (LogAut.Text == String.Empty)
             {
                 TipLog.Visibility = Visibility.Visible;
@@ -55,7 +47,7 @@ namespace UserApp
             {
                 TipPass.Visibility = Visibility.Visible;
             }            
-            else if(table.Rows.Count > 0)
+            else if(User.CurrentUser != null)
             {
                 WndMain main = new();
                 main.Show();

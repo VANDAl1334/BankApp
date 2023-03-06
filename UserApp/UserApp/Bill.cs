@@ -8,15 +8,26 @@ namespace UserApp
 {
     class Bill
     {
-        public bool Frozen
+
+        public bool Frozen { get; set; }
+        public string Balance { get; set; }
+        public string Numcard { get; }
+        public string NumberCard
         {
-            get { return Frozen; }
-            set { Frozen = value; }
+            get
+            {
+                Random rnd = new();
+                string num1 = rnd.Next(10000000, 99999999).ToString();
+                string num2 = rnd.Next(10000000, 99999999).ToString();
+                string numcard = num1 + num2;
+                return numcard;
+            }
         }
-        public bool Balance
+        public Bill(string numcard, bool frozen, string balance)
         {
-            get { return Balance; }
-            set { Balance = value; }
+            Numcard = numcard;
+            Frozen = frozen;
+            Balance = balance;
         }
     }
 }

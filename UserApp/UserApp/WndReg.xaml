@@ -30,6 +30,7 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="90*"></ColumnDefinition>
@@ -38,9 +39,9 @@
                     <TextBlock Foreground="red" x:Name="TipNmUs" Grid.Row="0" TextAlignment="Center" Visibility="Collapsed">*Обязательное поле и без пробелов</TextBlock>
                     <TextBlock Foreground="red" x:Name="chkNm" TextAlignment="Center" Visibility="Collapsed">Уберите пробелы и цифры</TextBlock>
                     <StackPanel Grid.Row="0" Orientation="Horizontal">
-                        <TextBox x:Name="NmUs" Width="140" materialDesign:HintAssist.Hint="Введите свое имя" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                        <TextBox x:Name="SrNmUs" Width="140" materialDesign:HintAssist.Hint="Введите свое Фамилию" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                        <TextBox x:Name="PtNmUs" Width="140" materialDesign:HintAssist.Hint="Введите свое Отчество" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                        <TextBox x:Name="NmUs" Width="135" materialDesign:HintAssist.Hint="Введите свое имя" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 0 7.5 0"/>
+                        <TextBox x:Name="SrNmUs" Width="135" materialDesign:HintAssist.Hint="Введите свое Фамилию" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                        <TextBox x:Name="PtNmUs" Width="135" materialDesign:HintAssist.Hint="Введите свое Отчество" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="7.5 0 0 0"/>
                     </StackPanel>
                     <TextBlock Foreground="red" x:Name="TipLogIn" Grid.Row="1" TextAlignment="Center" Visibility="Collapsed">*Обязательное поле и без пробелов</TextBlock>
                     <TextBlock Foreground="Red" Grid.Row="1" x:Name="chkLog" TextAlignment="Center" Visibility="Collapsed">*Такой логин уже существует</TextBlock>
@@ -52,8 +53,10 @@
                     <PasswordBox Grid.Row="2" x:Name="pass" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
                     <TextBlock Foreground="red" x:Name="TipPassPod" Grid.Row="3" TextAlignment="Center" Visibility="Collapsed">*Обязательное поле и без пробелов</TextBlock>
                     <PasswordBox Grid.Row="3" x:Name="passpod" materialDesign:HintAssist.Hint="Подтвердите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                    <TextBox Grid.Row="4" x:Name="Phone" materialDesign:HintAssist.Hint="Введите свой номер" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
                     <CheckBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Checkpass_Click" x:Name="checkpass" />
-                    <TextBlock Foreground="red" x:Name="TipPassChk" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Visibility="Collapsed">*Пароли не совпадают</TextBlock>
+                    <TextBlock Foreground="red" x:Name="TipPassChk" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Visibility="Collapsed">*Пароли не совпадают</TextBlock>
+                    
                 </Grid>
                 <Button Content="Зарегистрироваться" VerticalAlignment="Top" x:Name="a" Style="{StaticResource MaterialDesignFlatButton}" Width="200" Click="BtnReg_Click"/>
             </DockPanel>

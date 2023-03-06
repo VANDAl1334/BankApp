@@ -24,6 +24,8 @@ namespace UserApp
         public WndMain()
         {
             InitializeComponent();
+            fullname.Text = User.CurrentUser.FullName;
+            NmCard.Text = User.CurrentUser.NumberCard;
         }
         WndSupport WndSupport;
         private void BtnSupport_Click(object sender, RoutedEventArgs e)

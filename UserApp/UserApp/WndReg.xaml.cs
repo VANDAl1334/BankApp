@@ -33,9 +33,9 @@ namespace UserApp
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow back= new();
+            MainWindow back = new();
             back.Show();
-            this.Close();
+            Close();
         }
         public Boolean IsUserExists(string LogClient)
         {
@@ -55,14 +55,14 @@ namespace UserApp
         }
         private void Checkpass_Click(object sender, RoutedEventArgs e)
         {
-            
-            if(checkpass.IsChecked == false)
+
+            if (checkpass.IsChecked == false)
             {
                 pass.Password = text.Text;
                 text.Visibility = Visibility.Collapsed;
                 pass.Visibility = Visibility.Visible;
             }
-            else 
+            else
             {
                 text.Text = pass.Password;
                 text.Visibility = Visibility.Visible;
@@ -76,23 +76,38 @@ namespace UserApp
         char[] Spec = new[] { '!', '"', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~' };
         public void BtnReg_Click(object sender, RoutedEventArgs e)
         {
-            
             if (NmUs.Text == string.Empty)
+            {
                 TipNmUs.Visibility = Visibility.Visible;
+            }
             if (SrNmUs.Text == string.Empty)
+            {
                 TipNmUs.Visibility = Visibility.Visible;
+            }
             if (PtNmUs.Text == string.Empty)
+            {
                 TipNmUs.Visibility = Visibility.Visible;
+            }
             if (LogIn.Text == string.Empty)
-                 TipLogIn.Visibility = Visibility.Visible;
-            if (pass.Password.Length >= 8)
-                 passlen.Visibility = Visibility.Visible;
+            {
+                TipLogIn.Visibility = Visibility.Visible;
+            }
+            if (pass.Password.Length <= 8)
+            {
+                passlen.Visibility = Visibility.Visible;
+            }
             if (pass.Password == string.Empty)
+            {
                 TipPass.Visibility = Visibility.Visible;
+            }
             if (passpod.Password == string.Empty)
+            {
                 TipPassPod.Visibility = Visibility.Visible;
+            }
             if (pass.Password != passpod.Password)
+            {
                 TipPassChk.Visibility = Visibility.Visible;
+            }
             foreach (char o in number)
             {
                 if (NmUs.Text.Contains(o))
@@ -102,7 +117,9 @@ namespace UserApp
                 }
             }
             if (ContainNumber == false)
+            {
                 chkNm.Visibility = Visibility.Visible;
+            }
             if (IsUserExists(LogIn.Text))
                 return;
             foreach (char i in Spec)
@@ -114,11 +131,13 @@ namespace UserApp
                 }
             }
             if (ContainChar == false)
+            {
                 TipPassSpSim.Visibility = Visibility.Visible;
+            }
             else
             {
-                pass.Password = Client.Hash(pass.Password);
-                Client.SqlRequest(NmUs.Text, SrNmUs.Text, PtNmUs.Text, LogIn.Text, pass.Password);
+                pass.Password = User.Hash(pass.Password);
+                User.AddUser(NmUs.Text, SrNmUs.Text, PtNmUs.Text, LogIn.Text, pass.Password, Phone.Text);
                 WndAut wndAut = new();
                 wndAut.Show();
                 Close();
@@ -126,7 +145,7 @@ namespace UserApp
         }
         public void Window_Activated(object sender, EventArgs a)
         {
-           
+
         }
     }
 }
