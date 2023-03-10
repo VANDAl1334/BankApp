@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UserApp"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Регистрация" Height="449" Width="632" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Activated="Window_Activated">
+        Title="Регистрация" Height="449" Width="632" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" LostFocus="Window_LostFocus">
     <Grid>
         <Rectangle>
             <Rectangle.Fill>

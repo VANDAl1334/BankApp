@@ -76,37 +76,49 @@ namespace UserApp
         char[] Spec = new[] { '!', '"', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~' };
         public void BtnReg_Click(object sender, RoutedEventArgs e)
         {
+            
+        }
+        private void Window_LostFocus(object sender, RoutedEventArgs e)
+        {
             if (NmUs.Text == string.Empty)
             {
                 TipNmUs.Visibility = Visibility.Visible;
+                return;
             }
             if (SrNmUs.Text == string.Empty)
             {
                 TipNmUs.Visibility = Visibility.Visible;
+                return;
             }
             if (PtNmUs.Text == string.Empty)
             {
                 TipNmUs.Visibility = Visibility.Visible;
+                return;
             }
             if (LogIn.Text == string.Empty)
             {
                 TipLogIn.Visibility = Visibility.Visible;
+                return;
             }
             if (pass.Password.Length <= 8)
             {
                 passlen.Visibility = Visibility.Visible;
+                return;
             }
             if (pass.Password == string.Empty)
             {
                 TipPass.Visibility = Visibility.Visible;
+                return;
             }
             if (passpod.Password == string.Empty)
             {
                 TipPassPod.Visibility = Visibility.Visible;
+                return;
             }
             if (pass.Password != passpod.Password)
             {
                 TipPassChk.Visibility = Visibility.Visible;
+                return;
             }
             foreach (char o in number)
             {
@@ -119,9 +131,11 @@ namespace UserApp
             if (ContainNumber == false)
             {
                 chkNm.Visibility = Visibility.Visible;
+                return;
             }
             if (IsUserExists(LogIn.Text))
                 return;
+
             foreach (char i in Spec)
             {
                 if (pass.Password.Contains(i))
@@ -133,6 +147,7 @@ namespace UserApp
             if (ContainChar == false)
             {
                 TipPassSpSim.Visibility = Visibility.Visible;
+                return;
             }
             else
             {
@@ -142,10 +157,6 @@ namespace UserApp
                 wndAut.Show();
                 Close();
             }
-        }
-        public void Window_Activated(object sender, EventArgs a)
-        {
-
         }
     }
 }
