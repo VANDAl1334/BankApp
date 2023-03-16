@@ -76,49 +76,101 @@ namespace UserApp
         char[] Spec = new[] { '!', '"', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~' };
         public void BtnReg_Click(object sender, RoutedEventArgs e)
         {
-            
+            pass.Password = User.Hash(pass.Password);
+            User.AddUser(NmUs.Text, SrNmUs.Text, PtNmUs.Text, LogIn.Text, pass.Password, Phone.Text);
+            WndAut wndAut = new();
+            wndAut.Show();
+            Close();
         }
         private void Window_LostFocus(object sender, RoutedEventArgs e)
         {
             if (NmUs.Text == string.Empty)
             {
                 TipNmUs.Visibility = Visibility.Visible;
+                BtnReg.IsEnabled = false;
                 return;
+            }
+            else
+            {
+                BtnReg.IsEnabled = true;
+                TipNmUs.Visibility = Visibility.Collapsed;
             }
             if (SrNmUs.Text == string.Empty)
             {
                 TipNmUs.Visibility = Visibility.Visible;
+                BtnReg.IsEnabled = false;
                 return;
+            }
+            else
+            {
+                BtnReg.IsEnabled = true;
+                TipNmUs.Visibility = Visibility.Collapsed;
             }
             if (PtNmUs.Text == string.Empty)
             {
                 TipNmUs.Visibility = Visibility.Visible;
+                BtnReg.IsEnabled = false;
                 return;
+            }
+            else
+            {
+                BtnReg.IsEnabled = true;
+                TipNmUs.Visibility = Visibility.Collapsed;
             }
             if (LogIn.Text == string.Empty)
             {
                 TipLogIn.Visibility = Visibility.Visible;
+                BtnReg.IsEnabled = false;
                 return;
+            }
+            else
+            {
+                BtnReg.IsEnabled = true;
+                TipNmUs.Visibility = Visibility.Collapsed;
             }
             if (pass.Password.Length <= 8)
             {
                 passlen.Visibility = Visibility.Visible;
+                BtnReg.IsEnabled = false;
                 return;
+            }
+            else
+            {
+                BtnReg.IsEnabled = true;
+                TipNmUs.Visibility = Visibility.Collapsed;
             }
             if (pass.Password == string.Empty)
             {
                 TipPass.Visibility = Visibility.Visible;
+                BtnReg.IsEnabled = false;
                 return;
+            }
+            else
+            {
+                BtnReg.IsEnabled = true;
+                TipNmUs.Visibility = Visibility.Collapsed;
             }
             if (passpod.Password == string.Empty)
             {
                 TipPassPod.Visibility = Visibility.Visible;
+                BtnReg.IsEnabled = false;
                 return;
+            }
+            else
+            {
+                BtnReg.IsEnabled = true;
+                TipNmUs.Visibility = Visibility.Collapsed;
             }
             if (pass.Password != passpod.Password)
             {
                 TipPassChk.Visibility = Visibility.Visible;
+                BtnReg.IsEnabled = false;
                 return;
+            }
+            else
+            {
+                BtnReg.IsEnabled = true;
+                TipNmUs.Visibility = Visibility.Collapsed;
             }
             foreach (char o in number)
             {
@@ -131,11 +183,16 @@ namespace UserApp
             if (ContainNumber == false)
             {
                 chkNm.Visibility = Visibility.Visible;
+                BtnReg.IsEnabled = false;
                 return;
+            }
+            else
+            {
+                BtnReg.IsEnabled = true;
+                TipNmUs.Visibility = Visibility.Collapsed;
             }
             if (IsUserExists(LogIn.Text))
                 return;
-
             foreach (char i in Spec)
             {
                 if (pass.Password.Contains(i))
@@ -147,15 +204,13 @@ namespace UserApp
             if (ContainChar == false)
             {
                 TipPassSpSim.Visibility = Visibility.Visible;
+                BtnReg.IsEnabled = false;
                 return;
             }
             else
             {
-                pass.Password = User.Hash(pass.Password);
-                User.AddUser(NmUs.Text, SrNmUs.Text, PtNmUs.Text, LogIn.Text, pass.Password, Phone.Text);
-                WndAut wndAut = new();
-                wndAut.Show();
-                Close();
+                BtnReg.IsEnabled = true;
+                TipNmUs.Visibility = Visibility.Collapsed;
             }
         }
     }

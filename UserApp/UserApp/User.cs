@@ -6,13 +6,11 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 
 namespace UserApp
 {
     public class User
     {
-        public List<Bill> BillList;
         public static User CurrentUser = new();
         public string name_user { get; set; }
         public string surname_user { get; set; }
@@ -26,6 +24,10 @@ namespace UserApp
                 return name_user + " " + surname_user + " " + patronymic_user;
             }
         }
+        //public static string List<Bill> { get; set; }
+        
+            
+        
         public User(string name_user, string surname_user, string patronymic_user, string login_user, string password_user)
         {
             this.name_user = name_user;
@@ -35,14 +37,6 @@ namespace UserApp
             this.password_user = password_user;
         }
         public User(){}
-        public void UpdateBills()
-        {
-            DB.OpenConnection();
-            DataTable table = new();
-            MySqlDataAdapter adapter = new();
-            DB.cmd = new("SELECT ", DB.GetConnection());
-
-        }
         static public void AddUser(string NameUs, string SurNameUs, string PatronymicUs, string LogUs, string PassUs, string Phone)
         {
             string UserRole = "1";
@@ -77,7 +71,6 @@ namespace UserApp
                 DB.ConvertFromDBVal<string>(rows[0].ItemArray[5]));
             return us;
         }
-        
         static public string Hash(string input)
         {
             var md5 = MD5.Create();

@@ -25,14 +25,13 @@ namespace UserApp
         {
             InitializeComponent();
             fullname.Text = User.CurrentUser.FullName;
-            //NmCard.Text = Bill.;
+            //NmCard.Text = User.CurrentUser.NumberCard;
         }
         WndSupport WndSupport;
         private void BtnSupport_Click(object sender, RoutedEventArgs e)
         {
                 WndSupport support = new();
                 support.Show();
-                WndSupport = support;
         }
         private void BtnHystory_Click(object sender, RoutedEventArgs e)
         {
@@ -57,13 +56,13 @@ namespace UserApp
         }
         private void Window_Activated(object sender, EventArgs e)
         {
-            if (WndSupport == null)
+            if (WndSupport != null)
             {
-                BtSupport.IsEnabled = true;
+                BtSupport.IsEnabled = false;
             }
             else
             {
-                BtSupport.IsEnabled = false;
+                BtSupport.IsEnabled = true;
             }
         }
     }
