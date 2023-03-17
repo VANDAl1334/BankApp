@@ -69,24 +69,51 @@ namespace UserApp
                 pass.Visibility = Visibility.Collapsed;
             }
         }
-
         bool ContainNumber = true;
         bool ContainChar = false;
         char[] number = new[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ' ' };
         char[] Spec = new[] { '!', '"', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~' };
         public void BtnReg_Click(object sender, RoutedEventArgs e)
         {
-            pass.Password = User.Hash(pass.Password);
-            User.AddUser(NmUs.Text, SrNmUs.Text, PtNmUs.Text, LogIn.Text, pass.Password, Phone.Text);
-            WndAut wndAut = new();
-            wndAut.Show();
-            Close();
+            if (pass.Password != passpod.Password)
+            {
+                TipPassChk.Visibility = Visibility.Visible;
+                return;
+            }
+            else
+            {
+                TipNmUs.Visibility = Visibility.Collapsed;
+                pass.Password = User.Hash(pass.Password);
+                User.AddUser(NmUs.Text, SrNmUs.Text, PtNmUs.Text, LogIn.Text, pass.Password, Phone.Text);
+                WndAut wndAut = new();
+                wndAut.Show();
+                Close();
+            }            
         }
-        private void Window_LostFocus(object sender, RoutedEventArgs e)
+        private void StackPanel_LostFocus(object sender, RoutedEventArgs e)
         {
             if (NmUs.Text == string.Empty)
             {
                 TipNmUs.Visibility = Visibility.Visible;
+                BtnReg.IsEnabled = false;
+                return;
+            }
+            else
+            {
+                BtnReg.IsEnabled = true;
+                TipNmUs.Visibility = Visibility.Collapsed;
+            }
+            foreach (char o in number)
+            {
+                if (NmUs.Text.Contains(o))
+                {
+                    ContainNumber = false;
+                    break;
+                }
+            }
+            if (ContainNumber == false)
+            {
+                chkNm.Visibility = Visibility.Visible;
                 BtnReg.IsEnabled = false;
                 return;
             }
@@ -117,6 +144,9 @@ namespace UserApp
                 BtnReg.IsEnabled = true;
                 TipNmUs.Visibility = Visibility.Collapsed;
             }
+        }
+        private void LogIn_LostFocus(object sender, RoutedEventArgs e)
+        {
             if (LogIn.Text == string.Empty)
             {
                 TipLogIn.Visibility = Visibility.Visible;
@@ -126,7 +156,23 @@ namespace UserApp
             else
             {
                 BtnReg.IsEnabled = true;
-                TipNmUs.Visibility = Visibility.Collapsed;
+                TipLogIn.Visibility = Visibility.Collapsed;
+            }
+            if (IsUserExists(LogIn.Text))
+                return;
+        }
+        private void pass_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (pass.Password == string.Empty)
+            {
+                TipPass.Visibility = Visibility.Visible;
+                BtnReg.IsEnabled = false;
+                return;
+            }
+            else
+            {
+                BtnReg.IsEnabled = true;
+                TipPass.Visibility = Visibility.Collapsed;
             }
             if (pass.Password.Length <= 8)
             {
@@ -137,62 +183,8 @@ namespace UserApp
             else
             {
                 BtnReg.IsEnabled = true;
-                TipNmUs.Visibility = Visibility.Collapsed;
+                passlen.Visibility = Visibility.Collapsed;
             }
-            if (pass.Password == string.Empty)
-            {
-                TipPass.Visibility = Visibility.Visible;
-                BtnReg.IsEnabled = false;
-                return;
-            }
-            else
-            {
-                BtnReg.IsEnabled = true;
-                TipNmUs.Visibility = Visibility.Collapsed;
-            }
-            if (passpod.Password == string.Empty)
-            {
-                TipPassPod.Visibility = Visibility.Visible;
-                BtnReg.IsEnabled = false;
-                return;
-            }
-            else
-            {
-                BtnReg.IsEnabled = true;
-                TipNmUs.Visibility = Visibility.Collapsed;
-            }
-            if (pass.Password != passpod.Password)
-            {
-                TipPassChk.Visibility = Visibility.Visible;
-                BtnReg.IsEnabled = false;
-                return;
-            }
-            else
-            {
-                BtnReg.IsEnabled = true;
-                TipNmUs.Visibility = Visibility.Collapsed;
-            }
-            foreach (char o in number)
-            {
-                if (NmUs.Text.Contains(o))
-                {
-                    ContainNumber = false;
-                    break;
-                }
-            }
-            if (ContainNumber == false)
-            {
-                chkNm.Visibility = Visibility.Visible;
-                BtnReg.IsEnabled = false;
-                return;
-            }
-            else
-            {
-                BtnReg.IsEnabled = true;
-                TipNmUs.Visibility = Visibility.Collapsed;
-            }
-            if (IsUserExists(LogIn.Text))
-                return;
             foreach (char i in Spec)
             {
                 if (pass.Password.Contains(i))
@@ -210,7 +202,35 @@ namespace UserApp
             else
             {
                 BtnReg.IsEnabled = true;
-                TipNmUs.Visibility = Visibility.Collapsed;
+                TipPassSpSim.Visibility = Visibility.Collapsed;
+            }
+        }
+        private void passpod_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (passpod.Password == string.Empty)
+            {
+                TipPassPod.Visibility = Visibility.Visible;
+                BtnReg.IsEnabled = false;
+                return;
+            }
+            else
+            {
+                BtnReg.IsEnabled = true;
+                TipPassPod.Visibility = Visibility.Collapsed;
+            }
+        }
+        private void Phone_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (Phone.Text == string.Empty)
+            {
+                ChkPh.Visibility = Visibility.Visible;
+                BtnReg.IsEnabled = false;
+                return;
+            }
+            else
+            {
+                BtnReg.IsEnabled = true;
+                ChkPh.Visibility = Visibility.Collapsed;
             }
         }
     }

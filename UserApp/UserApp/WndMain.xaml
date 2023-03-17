@@ -36,7 +36,7 @@
             </Border.Effect>
             <StackPanel  Grid.Column="0">
                 <Label Content="Ваш номер карты" Foreground="White" FontSize="20" Grid.Column="0" Grid.Row="0"/>
-                <TextBlock x:Name="NmCard" Height="37"/>
+                <ComboBox x:Name="Nmbill" Height="37" Margin="0 0 0 15"/>
                 <StackPanel Orientation="Horizontal" >
                     <Label Content="CVV" FontSize="25" Grid.Column="1" Foreground="White" Grid.Row="0"/>
                     <TextBlock x:Name="CVV" Text="{Binding }" FontSize="30" Foreground="White"/>

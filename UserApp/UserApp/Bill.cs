@@ -12,6 +12,7 @@ namespace UserApp
         public bool Frozen { get; set; }
         public string Balance { get; set; }
         public string Numcard { get; }
+
         public string NumberCard
         {
             get

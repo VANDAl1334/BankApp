@@ -21,7 +21,7 @@ namespace UserApp
         {
             get
             {
-                return name_user + " " + surname_user + " " + patronymic_user;
+                return surname_user + " " + name_user + " " + patronymic_user;
             }
         }
         //public static string List<Bill> { get; set; }

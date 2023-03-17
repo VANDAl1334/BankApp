@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UserApp"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Регистрация" Height="449" Width="632" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" LostFocus="Window_LostFocus">
+        Title="Регистрация" Height="449" Width="632" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
         <Rectangle>
             <Rectangle.Fill>
@@ -38,22 +38,23 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Foreground="red" x:Name="TipNmUs" Grid.Row="0" TextAlignment="Center" Visibility="Collapsed">*Обязательное поле и без пробелов</TextBlock>
                     <TextBlock Foreground="red" x:Name="chkNm" TextAlignment="Center" Visibility="Collapsed">Уберите пробелы и цифры</TextBlock>
-                    <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Width="444">
-                        <TextBox x:Name="NmUs" Width="148" materialDesign:HintAssist.Hint="Введите свое имя" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 0 7.5 0"/>
-                        <TextBox x:Name="SrNmUs" Width="148" materialDesign:HintAssist.Hint="Введите свое Фамилию" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Width="444" LostFocus="StackPanel_LostFocus">
+                        <TextBox x:Name="SrNmUs" Width="148" materialDesign:HintAssist.Hint="Введите свое Фамилию" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 0 7.5 0"/>
+                        <TextBox x:Name="NmUs" Width="148" materialDesign:HintAssist.Hint="Введите свое имя" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                         <TextBox x:Name="PtNmUs" Width="148" materialDesign:HintAssist.Hint="Введите свое Отчество" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="7.5 0 0 0"/>
                     </StackPanel>
                     <TextBlock Foreground="red" x:Name="TipLogIn" Grid.Row="1" TextAlignment="Center" Visibility="Collapsed">*Обязательное поле и без пробелов</TextBlock>
                     <TextBlock Foreground="Red" Grid.Row="1" x:Name="chkLog" TextAlignment="Center" Visibility="Collapsed">*Такой логин уже существует</TextBlock>
-                    <TextBox Grid.Row="1" x:Name="LogIn" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox Grid.Row="1" x:Name="LogIn" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" LostFocus="LogIn_LostFocus"/>
                     <TextBlock Foreground="red" x:Name="TipPass" Grid.Row="2" TextAlignment="Center" Visibility="Collapsed">*Обязательное поле и без пробелов</TextBlock>
                     <TextBlock Foreground="red" x:Name="TipPassSpSim" Grid.Row="2" TextAlignment="Center" Visibility="Collapsed">Необходимо использовать специальные символы</TextBlock>
                     <TextBlock Foreground="Red" x:Name="passlen" Grid.Row="2" TextAlignment="Center" Visibility="Collapsed">*Пароль должен быть длинной не менее 8 символов</TextBlock>
                     <TextBlock Grid.Row="2" x:Name="text" Style="{StaticResource MaterialDesignBody1TextBlock}" VerticalAlignment="Bottom" Visibility="Collapsed"/>
-                    <PasswordBox Grid.Row="2" x:Name="pass" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
+                    <PasswordBox Grid.Row="2" x:Name="pass" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" LostFocus="pass_LostFocus"/>
                     <TextBlock Foreground="red" x:Name="TipPassPod" Grid.Row="3" TextAlignment="Center" Visibility="Collapsed">*Обязательное поле и без пробелов</TextBlock>
-                    <PasswordBox Grid.Row="3" x:Name="passpod" materialDesign:HintAssist.Hint="Подтвердите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
-                    <TextBox Grid.Row="4" x:Name="Phone" materialDesign:HintAssist.Hint="Введите свой номер" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
+                    <PasswordBox Grid.Row="3" x:Name="passpod" materialDesign:HintAssist.Hint="Подтвердите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" LostFocus="passpod_LostFocus" />
+                    <TextBlock Grid.Row="4" x:Name="ChkPh" Foreground="Red" HorizontalAlignment="Center" Visibility="Collapsed">*Обязательное поле</TextBlock>
+                    <TextBox Grid.Row="4" x:Name="Phone" materialDesign:HintAssist.Hint="Введите свой номер" Style="{StaticResource MaterialDesignFloatingHintTextBox}" LostFocus="Phone_LostFocus"></TextBox>
                     <CheckBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Checkpass_Click" x:Name="checkpass" />
                     <TextBlock Foreground="red" x:Name="TipPassChk" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Visibility="Collapsed">*Пароли не совпадают</TextBlock>
                 </Grid>
