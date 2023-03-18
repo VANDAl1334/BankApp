@@ -8,13 +8,35 @@ namespace UserApp
 {
     class Bill
     {
-
-        public bool Frozen { get; set; }
-        public string Balance { get; set; }
-        public string Numcard { get; }
-
+        public static Bill CurrentNumcard = new();
+        public bool Frozen 
+        {
+            get
+            {
+                return Frozen;
+            }
+            set
+            {
+                value = Frozen;
+            }
+        }
+        public string Balance 
+        {
+            get
+            {
+                return Balance;
+            }
+            set
+            {
+                value = Balance;
+            }
+        }               
         public string NumberCard
         {
+            set
+            {
+                value = NumberCard;
+            }
             get
             {
                 Random rnd = new();
@@ -22,13 +44,15 @@ namespace UserApp
                 string num2 = rnd.Next(10000000, 99999999).ToString();
                 string numcard = num1 + num2;
                 return numcard;
+
             }
         }
         public Bill(string numcard, bool frozen, string balance)
         {
-            Numcard = numcard;
+            NumberCard = numcard;
             Frozen = frozen;
             Balance = balance;
         }
+        Bill() { }
     }
 }

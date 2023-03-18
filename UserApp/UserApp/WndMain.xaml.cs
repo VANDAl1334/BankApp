@@ -25,13 +25,13 @@ namespace UserApp
         {
             InitializeComponent();
             fullname.Text = User.CurrentUser.FullName;
-            //NmCard.Text = User.CurrentUser.NumberCard;
+            NmCard.Text = Bill.CurrentNumcard.NumberCard;
         }
         WndSupport WndSupport;
         private void BtnSupport_Click(object sender, RoutedEventArgs e)
         {
-                WndSupport support = new();
-                support.Show();
+            WndSupport support = new();
+            support.Show();
         }
         private void BtnHystory_Click(object sender, RoutedEventArgs e)
         {

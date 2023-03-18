@@ -58,7 +58,7 @@
                     <CheckBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Checkpass_Click" x:Name="checkpass" />
                     <TextBlock Foreground="red" x:Name="TipPassChk" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Visibility="Collapsed">*Пароли не совпадают</TextBlock>
                 </Grid>
-                <Button x:Name="BtnReg" Content="Зарегистрироваться" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFlatButton}" Width="200" Click="BtnReg_Click"/>
+                <Button x:Name="BtnReg" IsEnabled="False" Content="Зарегистрироваться" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFlatButton}" Width="200" Click="BtnReg_Click"/>
             </DockPanel>
         </Border>
         <Button HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFlatButton}" Height="28" Width="79" Click="Button_Click" Margin="63,64,0,0">

@@ -72,7 +72,7 @@ namespace UserApp
         bool ContainNumber = true;
         bool ContainChar = false;
         char[] number = new[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ' ' };
-        char[] Spec = new[] { '!', '"', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~' };
+        char[] Spec = new[] { '!', '"', '#', '$', '%', '/', '&', '(', ')', '*', '+', ',', '-', '.', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~' };
         public void BtnReg_Click(object sender, RoutedEventArgs e)
         {
             if (pass.Password != passpod.Password)
@@ -159,7 +159,15 @@ namespace UserApp
                 TipLogIn.Visibility = Visibility.Collapsed;
             }
             if (IsUserExists(LogIn.Text))
+            {
+                BtnReg.IsEnabled = false;               
                 return;
+            }
+            else
+            {
+                BtnReg.IsEnabled = true;
+                chkLog.Visibility = Visibility.Collapsed;
+            }
         }
         private void pass_LostFocus(object sender, RoutedEventArgs e)
         {
