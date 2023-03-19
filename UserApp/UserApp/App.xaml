@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:UserApp"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
@@ -26,6 +27,7 @@
                 <Setter Property="FontFamily" Value="Roboto"/>
                 <Setter Property="Background" Value="Brown"/>
             </Style>
+            
         </ResourceDictionary>
 
     </Application.Resources>

@@ -22,7 +22,7 @@ namespace UserApp
     {
         public MainWindow()
         {
-            InitializeComponent();
+             InitializeComponent();
         }
         private void BtnReg_Click(object sender, RoutedEventArgs e)
         {
