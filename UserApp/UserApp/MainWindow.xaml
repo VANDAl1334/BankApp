@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:UserApp"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Банк" Height="287" Width="685" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Title="Банк" Height="308" Width="685" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" WindowStyle="None" MouseDown="Window_MouseDown" Icon="/icons8_bank_125px.png">
     <Grid>
         <Rectangle>
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#FFB30000" Offset="0"/>
-                    <GradientStop Color="#FFFF6A6A" Offset=".9"/>
+                    <GradientStop Color="#FFFF5656" Offset=".9"/>
                     <GradientStop Color="#FFFF6B5A" Offset="1"/>
                 </LinearGradientBrush>
             </Rectangle.Fill>
@@ -22,10 +22,22 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <TextBlock Text="Добро пожаловать" VerticalAlignment="Center" Grid.Row="0" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Foreground="AliceBlue"/>
-            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button Content="Регистрация" Width="190" Style="{StaticResource MaterialDesignRaisedSecondaryLightButton}" Click="Button_Click" Background="#FF5C00FF"/>
-                <Button Content="Войти" Width="100" Margin="30 0 0 0" Style="{StaticResource MaterialDesignFlatLightButton}" Height="32" Click="Button_Click_1"/>
+            <Grid Height="40" VerticalAlignment="Top">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button BorderBrush="Transparent" Background="Transparent" Height="40" Click="BtnMin_Click">
+                        <Image Source="/icons8_subtract_40px.png"/>
+                    </Button>
+                    <Button Width="40" BorderBrush="Transparent" Background="Transparent" Click="BtnClose_Click">
+                        <Image Source="/icons8_close_40px_1.png"/>
+                    </Button>
+                </StackPanel>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 0 0 0" FontSize="20"  Foreground="White">Приветствие</TextBlock>
+            </Grid>
+            <TextBlock Text="Добро пожаловать" VerticalAlignment="Top" Margin="0 45" Grid.Row="0" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Foreground="AliceBlue"/>
+            <Image Grid.RowSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center" Source="/icons8_bank_125px.png" Height="157" Width="145"/>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 15" VerticalAlignment="Bottom">
+                <Button Content="Регистрация" BorderBrush="Transparent" Width="190" Style="{StaticResource MaterialDesignFloatingActionSecondaryLightButton}" Click="BtnReg_Click" Background="Brown" FontFamily="Roboto" FontSize="14" FontWeight="Bold" Height="41"/>
+                <Button Content="Войти" Foreground="White" BorderBrush="red" BorderThickness="1" Width="100" Margin="30 0 0 0" Style="{StaticResource MaterialDesignFlatLightButton}" Height="32" Click="BtnAut_Click" FontFamily="Roboto" FontWeight="Bold"/>
             </StackPanel>
         </Grid>
     </Grid>

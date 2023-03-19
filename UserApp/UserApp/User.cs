@@ -6,6 +6,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace UserApp
 {
@@ -25,9 +26,21 @@ namespace UserApp
             }
         }
         //public static string List<Bill> { get; set; }
-        
-            
-        
+
+
+        public static Boolean IsUserExists(string LogClient)
+        {
+            DataTable table = new();
+            MySqlDataAdapter adapter = new();
+            DB.cmd = new("SELECT * FROM `user` WHERE `login_user` = @cL", DB.GetConnection());
+            DB.cmd.Parameters.Add("@cL", MySqlDbType.VarChar).Value = LogClient;
+            adapter.SelectCommand = DB.cmd;
+            adapter.Fill(table);
+            if (table.Rows.Count > 0)
+                return true;
+            else
+                return false;
+        }
         public User(string name_user, string surname_user, string patronymic_user, string login_user, string password_user)
         {
             this.name_user = name_user;

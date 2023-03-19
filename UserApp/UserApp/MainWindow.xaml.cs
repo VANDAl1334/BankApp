@@ -24,19 +24,30 @@ namespace UserApp
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtnReg_Click(object sender, RoutedEventArgs e)
         {
             WndReg reg = new();
             reg.Show();
             Close();
         }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+        private void BtnAut_Click(object sender, RoutedEventArgs e)
         {
             WndAut aut = new();
             aut.Show();
             Close();
+        }
+        private void BtnMin_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                DragMove();
         }
     }
 }

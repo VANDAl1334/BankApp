@@ -13,21 +13,60 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Windows.Xps.Serialization;
+using System.Windows.Threading;
+using Google.Protobuf.WellKnownTypes;
 
 namespace UserApp
 {
     /// <summary>
     /// Логика взаимодействия для Window1.xaml
     /// </summary>
+    
     public partial class WndMain : Window
     {
+        DispatcherTimer timer;
+        bool hidden = true;
         public WndMain()
         {
             InitializeComponent();
+            timer = new();
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 10);
+            timer.Tick += Timer_Tick;
             fullname.Text = User.CurrentUser.FullName;
+            login.Text = User.CurrentUser.login_user;
             NmCard.Text = Bill.CurrentNumcard.NumberCard;
         }
-        WndSupport WndSupport;
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            if (hidden)
+            {
+                Menu.Width += 5;
+                if (Menu.Width >= 200)
+                {
+                    timer.Stop();
+                    hidden = false;
+                }
+            }
+            else
+            {
+                Menu.Width -= 5;
+                if (Menu.Width <= 47)
+                {
+                    timer.Stop();
+                    hidden = true;
+                }
+            }
+        }
+        private void BtnPanel_Click(object sender, RoutedEventArgs e)
+        {
+            timer.Start();
+        }
+        private void background_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
+        }
+        //WndSupport WndSupport;
         private void BtnSupport_Click(object sender, RoutedEventArgs e)
         {
             WndSupport support = new();
@@ -54,16 +93,14 @@ namespace UserApp
             WndYour wndyour = new();
             wndyour.Show();
         }
-        private void Window_Activated(object sender, EventArgs e)
+        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
         {
-            if (WndSupport != null)
-            {
-                BtSupport.IsEnabled = false;
-            }
-            else
-            {
-                BtSupport.IsEnabled = true;
-            }
+
+        }
+
+        private void ListView_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

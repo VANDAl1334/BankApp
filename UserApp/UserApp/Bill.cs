@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,7 +46,6 @@ namespace UserApp
                 string num2 = rnd.Next(10000000, 99999999).ToString();
                 string numcard = num1 + num2;
                 return numcard;
-
             }
         }
         public Bill(string numcard, bool frozen, string balance)
@@ -52,6 +53,12 @@ namespace UserApp
             NumberCard = numcard;
             Frozen = frozen;
             Balance = balance;
+            DB.OpenConnection();
+            DataTable table = new();
+            MySqlDataAdapter adapter = new();
+            DB.cmd = new("INSERT INTO `bill`");
+            adapter.SelectCommand = DB.cmd;
+            adapter.Fill(table);
         }
         Bill() { }
     }

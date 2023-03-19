@@ -29,29 +29,25 @@ namespace UserApp
         public WndReg()
         {
             InitializeComponent();
-            UpdateLayout();
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             MainWindow back = new();
             back.Show();
             Close();
         }
-        public Boolean IsUserExists(string LogClient)
+        private void BtnMin_Click(object sender, RoutedEventArgs e)
         {
-            DataTable table = new();
-            MySqlDataAdapter adapter = new();
-            DB.cmd = new("SELECT * FROM `user` WHERE `login_user` = @cL", DB.GetConnection());
-            DB.cmd.Parameters.Add("@cL", MySqlDbType.VarChar).Value = LogClient;
-            adapter.SelectCommand = DB.cmd;
-            adapter.Fill(table);
-            if (table.Rows.Count > 0)
-            {
-                chkLog.Visibility = Visibility.Visible;
-                return true;
-            }
-            else
-                return false;
+            WindowState = WindowState.Minimized;
+        }
+        private void BtnClose_Click (object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                DragMove();
         }
         private void Checkpass_Click(object sender, RoutedEventArgs e)
         {
@@ -158,8 +154,9 @@ namespace UserApp
                 BtnReg.IsEnabled = true;
                 TipLogIn.Visibility = Visibility.Collapsed;
             }
-            if (IsUserExists(LogIn.Text))
+            if (User.IsUserExists(LogIn.Text))
             {
+                chkLog.Visibility = Visibility.Visible;
                 BtnReg.IsEnabled = false;               
                 return;
             }
@@ -169,7 +166,7 @@ namespace UserApp
                 chkLog.Visibility = Visibility.Collapsed;
             }
         }
-        private void pass_LostFocus(object sender, RoutedEventArgs e)
+        private void Pass_LostFocus(object sender, RoutedEventArgs e)
         {
             if (pass.Password == string.Empty)
             {
@@ -213,7 +210,7 @@ namespace UserApp
                 TipPassSpSim.Visibility = Visibility.Collapsed;
             }
         }
-        private void passpod_LostFocus(object sender, RoutedEventArgs e)
+        private void Passpod_LostFocus(object sender, RoutedEventArgs e)
         {
             if (passpod.Password == string.Empty)
             {
@@ -241,5 +238,7 @@ namespace UserApp
                 ChkPh.Visibility = Visibility.Collapsed;
             }
         }
+
+
     }
 }

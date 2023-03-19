@@ -18,36 +18,36 @@
             </Rectangle.Fill>
         </Rectangle>
         <TextBlock Text="Авторизация" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Margin="0 15 0 0" FontSize="30"/>
-        <Border CornerRadius="20" Background="White" Width="350" Padding="40 40 40 0" Height="243" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Border CornerRadius="20" Background="White" Width="380" Padding="40 40 40 0" Height="243" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="100" Color="LightGray" ShadowDepth="3"/>
             </Border.Effect>
             <DockPanel>
                 <Grid DockPanel.Dock="Top" Height="151">
                     <Grid.RowDefinitions >
-                        <RowDefinition ></RowDefinition>
-                        <RowDefinition ></RowDefinition>
-                        <RowDefinition ></RowDefinition>
-                        <RowDefinition ></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="20"></RowDefinition>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="15*"></ColumnDefinition>
                         <ColumnDefinition ></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <TextBlock x:Name="TipLog" Grid.Row="0" Foreground="red" Visibility="Collapsed" TextAlignment="Center">*Обязательное поле</TextBlock>
-                    <TextBox  x:Name="LogAut" Grid.Row="0" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                    <TextBlock x:Name="ErrLP"  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Foreground="red" Visibility="Collapsed">*Логин или пароль введен неверно</TextBlock>
+                    <TextBox x:Name="LogAut" FontFamily="Roboto" FontSize="14" Grid.Row="0" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBlock x:Name="ErrLP" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Foreground="red" Visibility="Collapsed">*Логин или пароль введен неверно</TextBlock>
                     <TextBlock x:Name="PassText" Grid.Row="1" Style="{StaticResource MaterialDesignBody1TextBlock}" VerticalAlignment="Bottom" Visibility="Collapsed"/>
                     <TextBlock x:Name="TipPass" Grid.Row="1" Foreground="red" Visibility="Collapsed" TextAlignment="Center">*Обязательное поле</TextBlock>
-                    <PasswordBox x:Name="PassAut" Grid.Row="1" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
-                    <Button Grid.Row="2"  Content="Восстановление пароля"  HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="blue" Background="White" BorderBrush="White" Click="Button_Click"></Button>
+                    <PasswordBox x:Name="PassAut" Grid.Row="1" FontFamily="Roboto" FontSize="14" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                    <Button Grid.Row="2" FontSize="12" Content="Восстановление пароля" Style="{StaticResource MaterialDesignOutlinedButton}" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="blue" Background="Transparent" BorderBrush="Transparent" Click="Button_Click" Cursor="Arrow"></Button>
                     <CheckBox x:Name="ChkPass" Grid.Column="1" Grid.Row="1" Click="ChkPass_Click"></CheckBox>
                 </Grid>
                 <Button Content="Войти" Width="100" VerticalAlignment="Top" Style="{StaticResource MaterialDesignOutlinedLightButton}" Click="BtnAut_Click"/>
             </DockPanel>
         </Border>
-        <Button Style="{StaticResource MaterialDesignFlatButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="28" Width="69"  Click="BtnBack_Click">
-            <Image Source="/arrow.png" Height="18" Width="49"/>
+        <Button Style="{StaticResource MaterialDesignIconButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="45"  Click="BtnBack_Click">
+            <Image Source="/icons8_Back_To_50px_1.png" Height="35" Width="40"/>
         </Button>
     </Grid>
 </Window>

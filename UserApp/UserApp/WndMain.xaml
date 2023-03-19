@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UserApp"
         mc:Ignorable="d"
-        Title="Главная" Height="450" Width="710" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Activated="Window_Activated">
-    <Grid Cursor="Hand">
+        Title="Главная" Height="450" Width="710" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid x:Name="background" MouseDown="background_MouseDown">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="100"></RowDefinition>
@@ -48,8 +48,66 @@
                 <TextBlock x:Name="fullname" FontSize="20" Foreground="White"/>
             </StackPanel>
         </Border>
-        <Button Grid.Column="1" VerticalAlignment="Top" x:Name="BtSupport" HorizontalAlignment="Right" ToolTip="Служба поддержки" Style="{StaticResource MaterialDesignIconButton}" Click="BtnSupport_Click">
+        <!--Button Grid.Column="1" VerticalAlignment="Top" x:Name="BtSupport" HorizontalAlignment="Right" ToolTip="Служба поддержки" Style="{StaticResource MaterialDesignIconButton}" Click="BtnSupport_Click">
             <Image VerticalAlignment="Center" HorizontalAlignment="Center" Source="/support1.png"/>
-        </Button>
+        </Button-->
+        <Button Grid.Row="0" Content="Создать платежный счет" VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="Brown" Style="{StaticResource MaterialDesignRaisedButton}"></Button>
+        <Grid x:Name="Menu" Grid.RowSpan="2" Width="47" MaxWidth="200" HorizontalAlignment="Left" Background="#FFBB0000">
+            <StackPanel>
+                <Grid Height="40" VerticalAlignment="Top">
+                    <Button Style="{StaticResource MaterialDesignIconButton}" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Center" Height="35" Width="46" Click="BtnPanel_Click">
+                        <Image Source="/icons8_list_50px.png" Cursor="Hand"/>
+                    </Button>
+                </Grid>
+                <ListView FontFamily="Roboto" FontSize="23" Grid.RowSpan="2" Foreground="White" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListViewItem Height="45" HorizontalAlignment="Left">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image Height="30" HorizontalAlignment="Left" Source="/icons8_user_50px_1.png" />
+                            <TextBlock x:Name="login" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="16" FontFamily="Roboto"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+                <ListView  FontFamily="Roboto" FontSize="23" Grid.RowSpan="2" Foreground="White" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled" MouseLeftButtonDown="ListView_MouseLeftButtonDown">
+                    <ListViewItem Height="45" HorizontalAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Height="30" VerticalAlignment="Center" Source="/icons8_home_50px.png" />
+                            <TextBlock Text="Главная" Margin="30 0 0 0" VerticalAlignment="Center" Width="130"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+                <ListView FontFamily="Roboto" FontSize="23" Grid.RowSpan="2" Foreground="White" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListViewItem Height="45" HorizontalAlignment="Left">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image Height="30" VerticalAlignment="Center" Source="/icons8_data_transfer_50px.png" />
+                            <TextBlock Text="Переводы" Margin="30 0 0 0" VerticalAlignment="Center" Width="130"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+                <ListView FontFamily="Roboto" FontSize="23" Grid.RowSpan="2" Foreground="White" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListViewItem Height="45" HorizontalAlignment="Left">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image Height="30" VerticalAlignment="Center" Source="/icons8_Medical_History_50px.png" />
+                            <TextBlock Text="История" Margin="30 0 0 0" VerticalAlignment="Center" Width="130"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+                <ListView FontFamily="Roboto" FontSize="23" Grid.RowSpan="2" Foreground="White" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListViewItem Height="45" HorizontalAlignment="Left">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image Height="30" VerticalAlignment="Center" Source="/icons8_settings_50px.png" />
+                            <TextBlock Text="Параметры" Margin="30 0 0 0" VerticalAlignment="Center" Width="130"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+                <ListView FontFamily="Roboto" FontSize="23" Grid.RowSpan="2" Foreground="White" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListViewItem Height="45" HorizontalAlignment="Left">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image Height="30" VerticalAlignment="Center" Source="/icons8_logout_50px.png" />
+                            <TextBlock Text="Выход" Margin="30 0 0 0" VerticalAlignment="Center" Width="130"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>
