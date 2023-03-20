@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UserApp.Classes;
 
 namespace UserApp
 {
@@ -36,7 +37,11 @@ namespace UserApp
         {
             MainWindow back = new();
             back.Show();
-            //this.Close();
+            //Close();
+        }
+        private void BtnRec_Click(object sender, RoutedEventArgs e)
+        {
+            ManagerPg.RecFrame.GoBack();
         }
     }
 }

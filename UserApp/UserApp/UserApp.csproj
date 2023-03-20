@@ -10,12 +10,16 @@
   <ItemGroup>
     <Compile Remove="other image\**" />
     <Compile Remove="Sourse\**" />
+    <Compile Remove="Window\Новая папка\**" />
     <EmbeddedResource Remove="other image\**" />
     <EmbeddedResource Remove="Sourse\**" />
+    <EmbeddedResource Remove="Window\Новая папка\**" />
     <None Remove="other image\**" />
     <None Remove="Sourse\**" />
+    <None Remove="Window\Новая папка\**" />
     <Page Remove="other image\**" />
     <Page Remove="Sourse\**" />
+    <Page Remove="Window\Новая папка\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -49,6 +53,9 @@
     <None Remove="Window\Authorization\bank.ico" />
     <None Remove="Window\Authorization\close.png" />
     <None Remove="Window\Authorization\hidden.png" />
+    <None Remove="Window\MainWindow\bank.png" />
+    <None Remove="Window\MainWindow\close.png" />
+    <None Remove="Window\MainWindow\hidden.png" />
     <None Remove="Window\Main\bank.ico" />
     <None Remove="Window\Main\exit.png" />
     <None Remove="Window\Main\history.png" />
@@ -85,6 +92,9 @@
     <Resource Include="Window\Authorization\bank.ico" />
     <Resource Include="Window\Authorization\close.png" />
     <Resource Include="Window\Authorization\hidden.png" />
+    <Resource Include="Window\MainWindow\bank.png" />
+    <Resource Include="Window\MainWindow\close.png" />
+    <Resource Include="Window\MainWindow\hidden.png" />
     <Resource Include="Window\Main\bank.ico" />
     <Resource Include="Window\Main\exit.png" />
     <Resource Include="Window\Main\history.png" />

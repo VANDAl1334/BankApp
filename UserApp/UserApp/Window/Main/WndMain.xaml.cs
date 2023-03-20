@@ -54,7 +54,7 @@ namespace UserApp
             if (hidden)
             {
                 Menu.Width += 5;
-                if (Menu.Width >= 200)
+                if (Menu.Width >= 225)
                 {
                     timer.Stop();
                     hidden = false;

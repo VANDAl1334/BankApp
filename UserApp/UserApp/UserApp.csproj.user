@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Window\Authorization\RecPass.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Window\Authorization\PgRec.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -24,6 +27,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Window\Authorization\RecPass.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Window\Authorization\PgRec.xaml">
       <SubType>Designer</SubType>
     </Page>

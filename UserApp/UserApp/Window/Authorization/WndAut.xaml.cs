@@ -15,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using UserApp.Classes;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace UserApp
@@ -27,7 +28,7 @@ namespace UserApp
         public WndAut()
         {
             InitializeComponent();
-            
+            ManagerPg.RecFrame = RecFrame;
         }
         private void BtnMin_Click(object sender, RoutedEventArgs e)
         {
@@ -45,17 +46,17 @@ namespace UserApp
         }
         private void BtnAut_Click(object sender, RoutedEventArgs e)
         {
-            User.CurrentUser = User.GetUserByLogIn(LogAut.Text);
-            if (LogAut.Text == String.Empty)
+            if (LogAut.Text == string.Empty)
             {
                 TipLog.Visibility = Visibility.Visible;
             }
-            else if(PassAut.Password == String.Empty)
+            else if(PassAut.Password == string.Empty)
             {
                 TipPass.Visibility = Visibility.Visible;
-            }            
+            }
             else if(User.CurrentUser != null)
             {
+                User.CurrentUser = User.GetUserByLogIn(LogAut.Text);
                 WndMain main = new();
                 main.Show();
                 Close();
@@ -82,10 +83,9 @@ namespace UserApp
             }
            
         }
-
         private void BtnRec_Click(object sender, RoutedEventArgs e)
         {
-            
+            ManagerPg.RecFrame.Navigate(new PgRec());
         }
     }
 }

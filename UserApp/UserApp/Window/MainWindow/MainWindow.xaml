@@ -24,20 +24,20 @@
             </Grid.RowDefinitions>
             <Grid Height="40" VerticalAlignment="Top">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="/bank.png"/>
+                    <Image Source="/Window/MainWindow/bank.png"/>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 0 0 0" FontSize="20"  Foreground="White">Приветствие</TextBlock>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Cursor="">
                     <Button BorderBrush="Transparent" Background="Transparent" Height="40" Click="BtnMin_Click">
-                        <Image Source="/hidden.png"/>
+                        <Image Source="/Window/MainWindow/hidden.png"/>
                     </Button>
                     <Button Width="40" BorderBrush="Transparent" Background="Transparent" Click="BtnClose_Click">
-                        <Image Source="/close.png"/>
+                        <Image Source="/Window/MainWindow/close.png"/>
                     </Button>
                 </StackPanel>
             </Grid>
             <TextBlock Text="Добро пожаловать" VerticalAlignment="Top" Margin="0 45" Grid.Row="0" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Foreground="AliceBlue"/>
-            <Image Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Source="/bank.png" Height="150" Width="145"/>
+            <Image Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Source="/Window/MainWindow/bank.png" Height="150" Width="145"/>
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 15" VerticalAlignment="Bottom">
                 <Button Content="Регистрация" BorderBrush="Transparent" Width="190" Style="{StaticResource MaterialDesignFloatingActionSecondaryLightButton}" Click="BtnReg_Click" Background="Brown" FontFamily="Roboto" FontSize="14" FontWeight="Bold" Height="41"/>
                 <Button Content="Войти" Foreground="White" BorderBrush="Brown" BorderThickness="1" Width="100" Margin="30 0 0 0" Style="{StaticResource MaterialDesignFlatLightButton}" Height="32" Click="BtnAut_Click" FontFamily="Roboto" FontWeight="Bold"/>

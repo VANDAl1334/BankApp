@@ -8,6 +8,7 @@
         mc:Ignorable="d"
         Title="Вход" Height="387" Width="474" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="CanMinimize" Icon="/Window/Authorization/bank.ico">
     <Grid>
+        <Frame Name="RecFrame"/>
         <Rectangle>
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
