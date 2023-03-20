@@ -34,7 +34,7 @@ namespace UserApp
             timer.Tick += Timer_Tick;
             fullname.Text = User.CurrentUser.FullName;
             login.Text = User.CurrentUser.login_user;
-            NmCard.Text = Bill.CurrentNumcard.NumberCard;
+            //NmCard.Text = Bill.CurrentNumcard.NumberCard;
         }
         private void BtnMin_Click(object sender, RoutedEventArgs e)
         {

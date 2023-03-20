@@ -1,0 +1,62 @@
+﻿<Page x:Class="UserApp.PgRec"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:UserApp"
+      mc:Ignorable="d" 
+      d:DesignHeight="387" d:DesignWidth="474"
+      Title="Recovery">
+
+    <Grid Background="White">
+        <Rectangle>
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#FFB30000" Offset="0"/>
+                    <GradientStop Color="#FFFF6A6A" Offset=".9"/>
+                    <GradientStop Color="#FFFF6B5A" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Grid Height="40" VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/bank.png"/>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 0 0 0" FontSize="20"  Foreground="White">Восстановление</TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Cursor="">
+                <Button BorderBrush="Transparent" Background="Transparent" Height="40" Click="BtnMin_Click">
+                    <Image Source="/Window/Authorization/hidden.png"/>
+                </Button>
+                <Button Width="40" BorderBrush="Transparent" Background="Transparent" Click="BtnClose_Click">
+                    <Image Source="/Window/Authorization/close.png"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Grid Margin="0 40 0 0">
+            <Border CornerRadius="20" Background="White" Width="380" Padding="40 40 40 0" Height="253" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="100" Color="LightGray" ShadowDepth="3"/>
+                </Border.Effect>
+                <DockPanel>
+                    <Grid DockPanel.Dock="Top" Height="165">
+                        <Grid.RowDefinitions >
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBox x:Name="Plogin" FontFamily="Roboto" FontSize="14" materialDesign:HintAssist.Hint="Введите логин" Grid.Row="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                        <TextBox x:Name="PCVV" FontFamily="Roboto" FontSize="14" materialDesign:HintAssist.Hint="Введите CVV любой своей карты" Grid.Row="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                        <TextBox x:Name="Pbill" FontFamily="Roboto" FontSize="14" materialDesign:HintAssist.Hint="Введите расчетный счет из 20 символов" Grid.Row="2" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                        <TextBlock x:Name="chkP" Text="Введены неверные значения" Margin="0 5 0 0" Grid.Row="3" HorizontalAlignment="Center" Foreground="red" Visibility="Collapsed" FontSize="14"/>
+                    </Grid>
+                    <!--Button Content="Восстановить" Width="130" VerticalAlignment="Top" Style="{StaticResource MaterialDesignOutlinedLightButton}" Click="BtnAut_Click"/-->
+                </DockPanel>
+            </Border>
+            <Button Style="{StaticResource MaterialDesignIconButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="45"  Click="BtnBack_Click">
+                <Image Source="/Window/Authorization/back.png" Height="35" Width="40"/>
+            </Button>
+        </Grid>
+    </Grid>
+</Page>

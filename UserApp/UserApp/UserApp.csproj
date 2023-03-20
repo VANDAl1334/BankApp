@@ -47,6 +47,9 @@
     <None Remove="support1.png" />
     <None Remove="Window\Authorization\back.png" />
     <None Remove="Window\Authorization\bank.ico" />
+    <None Remove="Window\Authorization\close.png" />
+    <None Remove="Window\Authorization\hidden.png" />
+    <None Remove="Window\Main\bank.ico" />
     <None Remove="Window\Main\exit.png" />
     <None Remove="Window\Main\history.png" />
     <None Remove="Window\Main\home.png" />
@@ -80,6 +83,9 @@
     <Resource Include="hidden.png" />
     <Resource Include="Window\Authorization\back.png" />
     <Resource Include="Window\Authorization\bank.ico" />
+    <Resource Include="Window\Authorization\close.png" />
+    <Resource Include="Window\Authorization\hidden.png" />
+    <Resource Include="Window\Main\bank.ico" />
     <Resource Include="Window\Main\exit.png" />
     <Resource Include="Window\Main\history.png" />
     <Resource Include="Window\Main\home.png" />

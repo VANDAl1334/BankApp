@@ -5,11 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UserApp"
         mc:Ignorable="d"
-        Title="Главная" Height="450" Width="710" WindowStartupLocation="CenterScreen" WindowStyle="None" MouseDown="Window_MouseDown" ResizeMode="CanMinimize">
+        Title="Главная" Height="450" Width="710" WindowStartupLocation="CenterScreen" WindowStyle="None" MouseDown="Window_MouseDown" ResizeMode="CanMinimize" Icon="/Window/Main/bank.ico">
     <Grid x:Name="background">
-
         <Grid>
-            <Button Content="История переводов" Grid.Row="1" Width="200" Foreground="White" Click="BtnHystory_Click" Background="Brown" Style="{StaticResource MaterialDesignRaisedButton}"/>
+            <Button Content="История переводов" Width="200" Foreground="White" Click="BtnHystory_Click" Background="Brown" Style="{StaticResource MaterialDesignRaisedButton}"/>
         </Grid>
         <Grid Height="40" Background="Brown" Margin="47 0 0 0" VerticalAlignment="Top">
             <StackPanel Orientation="Horizontal">
@@ -25,7 +24,7 @@
                 </Button>
             </StackPanel>
         </Grid>
-        <Border Padding="20" Margin="0 40 0 0" Width="450" Grid.Row="0" Height="230" CornerRadius="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Border Padding="20" Margin="0 40 0 0" Width="450" Height="230" CornerRadius="20" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                     <LinearGradientBrush.GradientStops>
@@ -38,15 +37,15 @@
             <Border.Effect>
                 <DropShadowEffect BlurRadius="10" Color="Red" Direction="45" Opacity=".4" RenderingBias="Performance" ShadowDepth="30"/>
             </Border.Effect>
-            <StackPanel  Grid.Column="0">
-                <Label Content="Ваш номер карты" Foreground="White" FontSize="20" Grid.Column="0" Grid.Row="0"/>
+            <StackPanel>
+                <Label Content="Ваш номер карты" Foreground="White" FontSize="20" Grid.Column="0"/>
                 <TextBlock x:Name="NmCard" Height="37" Foreground="White" FontFamily="Roboto" FontSize="25" Margin="0 0 0 10"/>
-                <StackPanel Orientation="Horizontal" >
-                    <Label Content="CVV" FontSize="25" Grid.Column="1" Foreground="White" Grid.Row="0"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="CVV" FontSize="25" Grid.Column="1" Foreground="White"/>
                     <TextBlock x:Name="CVV" Text="{Binding }" FontSize="30" Foreground="White"/>
                 </StackPanel>
                 <StackPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Orientation="Horizontal">
-                    <Label Content="ММ/ДД" FontSize="25" Foreground="White" Grid.Row="0"/>
+                    <Label Content="ММ/ДД" FontSize="25" Foreground="White"/>
                     <TextBlock x:Name="Validity" Text="{Binding }" FontSize="25" Foreground="White"/>
                 </StackPanel>
                 <TextBlock x:Name="fullname" FontSize="20" Foreground="White"/>
@@ -56,14 +55,14 @@
             <Image VerticalAlignment="Center" HorizontalAlignment="Center" Source="/support1.png"/>
         </Button-->
         <Button Content="Создать платежный счет" VerticalAlignment="Bottom" Margin="0 0 0 30" HorizontalAlignment="Center" Background="Brown" Style="{StaticResource MaterialDesignRaisedButton}"></Button>
-        <Grid x:Name="Menu" Grid.RowSpan="2" Width="47" MinWidth="47" MaxWidth="225" HorizontalAlignment="Left" Background="#FFBB0000">
+        <Grid x:Name="Menu" Width="47" MinWidth="47" MaxWidth="225" HorizontalAlignment="Left" Background="#FFBB0000">
             <StackPanel>
                 <Grid Height="40" VerticalAlignment="Top">
                     <Button Style="{StaticResource MaterialDesignIconButton}" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Center" Height="35" Width="46" Click="BtnPanel_Click">
                         <Image Source="/Window/Main/list.png" Cursor="Hand"/>
                     </Button>
                 </Grid>
-                <ListView FontFamily="Roboto" FontSize="23" Grid.RowSpan="2" Foreground="White" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListView FontFamily="Roboto" FontSize="23" Foreground="White" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListViewItem Height="45" HorizontalAlignment="Left">
                         <StackPanel Orientation="Horizontal" >
                             <Image Height="30" HorizontalAlignment="Left" Source="/Window/Main/user.png" />
@@ -71,7 +70,7 @@
                         </StackPanel>
                     </ListViewItem>
                 </ListView>
-                <ListView  FontFamily="Roboto" FontSize="23" Grid.RowSpan="2" Foreground="White" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled" MouseLeftButtonDown="ListView_MouseLeftButtonDown">
+                <ListView  FontFamily="Roboto" FontSize="23" Foreground="White" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled" MouseLeftButtonDown="ListView_MouseLeftButtonDown">
                     <ListViewItem Height="45" HorizontalAlignment="Left">
                         <StackPanel Orientation="Horizontal">
                             <Image Height="30" VerticalAlignment="Center" Source="/Window/Main/home.png" />
@@ -79,7 +78,7 @@
                         </StackPanel>
                     </ListViewItem>
                 </ListView>
-                <ListView FontFamily="Roboto" FontSize="23" Grid.RowSpan="2" Foreground="White" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListView FontFamily="Roboto" FontSize="23" Foreground="White" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListViewItem Height="45" HorizontalAlignment="Left">
                         <StackPanel Orientation="Horizontal" >
                             <Image Height="30" VerticalAlignment="Center" Source="/Window/Main/transfer.png" />
@@ -87,7 +86,7 @@
                         </StackPanel>
                     </ListViewItem>
                 </ListView>
-                <ListView FontFamily="Roboto" FontSize="23" Grid.RowSpan="2" Foreground="White" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListView FontFamily="Roboto" FontSize="23" Foreground="White" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListViewItem Height="45" HorizontalAlignment="Left">
                         <StackPanel Orientation="Horizontal" >
                             <Image Height="30" VerticalAlignment="Center" Source="/Window/Main/history.png" />
@@ -95,7 +94,7 @@
                         </StackPanel>
                     </ListViewItem>
                 </ListView>
-                <ListView FontFamily="Roboto" FontSize="23" Grid.RowSpan="2" Foreground="White" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListView FontFamily="Roboto" FontSize="23" Foreground="White" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListViewItem Height="45" HorizontalAlignment="Left">
                         <StackPanel Orientation="Horizontal" >
                             <Image Height="30" VerticalAlignment="Center" Source="/Window/Main/settings.png" />
@@ -103,7 +102,7 @@
                         </StackPanel>
                     </ListViewItem>
                 </ListView>
-                <ListView FontFamily="Roboto" FontSize="23" Grid.RowSpan="2" Foreground="White" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListView FontFamily="Roboto" FontSize="23" Foreground="White" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListViewItem Height="45" HorizontalAlignment="Left">
                         <StackPanel Orientation="Horizontal" >
                             <Image Height="30" VerticalAlignment="Center" Source="/Window/Main/exit.png" />

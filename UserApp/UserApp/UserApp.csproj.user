@@ -7,7 +7,7 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="PgRec.xaml.cs">
+    <Compile Update="Window\Authorization\PgRec.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="WndYour.xaml.cs">
@@ -24,7 +24,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="PgRec.xaml">
+    <Page Update="Window\Authorization\PgRec.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="WndYour.xaml">

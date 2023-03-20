@@ -81,6 +81,11 @@ namespace UserApp
                 TipNmUs.Visibility = Visibility.Collapsed;
                 pass.Password = User.Hash(pass.Password);
                 User.AddUser(NmUs.Text, SrNmUs.Text, PtNmUs.Text, LogIn.Text, pass.Password, Phone.Text);
+                /*bool frozen = false;
+                string numbill = "0";
+                string numcard = "0";
+                string balance = "0" ;
+                Bill.AddBill(numbill, numcard, frozen, balance);*/
                 WndAut wndAut = new();
                 wndAut.Show();
                 Close();
@@ -238,7 +243,5 @@ namespace UserApp
                 ChkPh.Visibility = Visibility.Collapsed;
             }
         }
-
-
     }
 }
