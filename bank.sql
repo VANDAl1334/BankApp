@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 05 2023 г., 21:40
+-- Время создания: Мар 24 2023 г., 22:26
 -- Версия сервера: 8.0.31
 -- Версия PHP: 8.0.26
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `bill`;
 CREATE TABLE IF NOT EXISTS `bill` (
-  `Number` int NOT NULL AUTO_INCREMENT,
+  `Number` int NOT NULL,
   `Forzen` tinyint(1) NOT NULL,
   `Balance` float NOT NULL,
   `Card_number` int UNSIGNED NOT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `bill` (
   PRIMARY KEY (`Number`),
   KEY `bill_owner` (`bill_owner`),
   KEY `Card_number` (`Card_number`)
-) ENGINE=InnoDB AUTO_INCREMENT=10000000000 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -107,8 +107,8 @@ CREATE TABLE IF NOT EXISTS `transaction` (
   PRIMARY KEY (`id`),
   KEY `Type_transfer` (`Type_transfer`,`transfer_recipient`,`transfer_sender`,`status_id`),
   KEY `status_id` (`status_id`),
-  KEY `transfer_my` (`transfer_recipient`),
-  KEY `transfer_your` (`transfer_sender`)
+  KEY `transfer_recipient` (`transfer_recipient`),
+  KEY `transfer_sender` (`transfer_sender`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -147,19 +147,19 @@ CREATE TABLE IF NOT EXISTS `user` (
   `surname_user` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `patronymic_user` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `login_user` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `password_user` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `password_user` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `Role_id` tinyint UNSIGNED NOT NULL,
-  `Phone` int UNSIGNED NOT NULL,
+  `Phone` char(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_Role_id` (`Role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `user`
 --
 
 INSERT INTO `user` (`id`, `name_user`, `surname_user`, `patronymic_user`, `login_user`, `password_user`, `Role_id`, `Phone`) VALUES
-(2, 'qwer', 'qwer', 'qwer', 'qwer1234', 'lBlJzdDWykCtSMaD/bWy8A==', 1, 4294967295);
+(4, 'Валерий', 'Жмышенко', 'Альбертович', 'vanda9', 'SBLydhVABemfpVP6oAC9kCKpoS2yPamN+HGGgoKLP9Q=', 1, '89674562312');
 
 -- --------------------------------------------------------
 
@@ -192,16 +192,16 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 ALTER TABLE `bill`
   ADD CONSTRAINT `bill_ibfk_1` FOREIGN KEY (`Card_number`) REFERENCES `card` (`Number`),
-  ADD CONSTRAINT `bill_ibfk_2` FOREIGN KEY (`bill_owner`) REFERENCES `user` (`id`);
+  ADD CONSTRAINT `bill_ibfk_2` FOREIGN KEY (`bill_owner`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `transaction`
 --
 ALTER TABLE `transaction`
   ADD CONSTRAINT `transaction_ibfk_1` FOREIGN KEY (`status_id`) REFERENCES `status_transfer` (`id`),
-  ADD CONSTRAINT `transaction_ibfk_2` FOREIGN KEY (`transfer_recipient`) REFERENCES `bill` (`Number`),
-  ADD CONSTRAINT `transaction_ibfk_3` FOREIGN KEY (`transfer_sender`) REFERENCES `bill` (`Number`),
-  ADD CONSTRAINT `transaction_ibfk_4` FOREIGN KEY (`Type_transfer`) REFERENCES `type_transfer` (`id`);
+  ADD CONSTRAINT `transaction_ibfk_2` FOREIGN KEY (`transfer_recipient`) REFERENCES `bill` (`Number`) ON DELETE CASCADE,
+  ADD CONSTRAINT `transaction_ibfk_3` FOREIGN KEY (`Type_transfer`) REFERENCES `type_transfer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `transaction_ibfk_4` FOREIGN KEY (`transfer_sender`) REFERENCES `bill` (`Number`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `user`

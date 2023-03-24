@@ -12,31 +12,23 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UserApp.Classes;
+using UserApp.Window.Authorization;
 
 namespace UserApp
 {
     /// <summary>
     /// Логика взаимодействия для Page1.xaml
     /// </summary>
-    public partial class Page1 : Page
+    public partial class RecPass : Page
     {
-        public Page1()
+        public RecPass()
         {
             InitializeComponent();
         }
-        private void BtnMin_Click(object sender, RoutedEventArgs e)
-        {
-            //WindowState = WindowState.Minimized;
-        }
-        private void BtnClose_Click(object sender, RoutedEventArgs e)
-        {
-            //Close();
-        }
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow back = new();
-            back.Show();
-            //Close();
+            ManagerPg.RecFrame.Navigate(new PgRec());
         }
         private void BtnRecPass_Click(object sender, RoutedEventArgs e)
         {

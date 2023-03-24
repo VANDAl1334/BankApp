@@ -22,7 +22,7 @@ namespace UserApp
     /// Логика взаимодействия для Window1.xaml
     /// </summary>
     
-    public partial class WndMain : Window
+    public partial class WndMain : System.Windows.Window
     {
         DispatcherTimer timer;
         bool hidden = true;

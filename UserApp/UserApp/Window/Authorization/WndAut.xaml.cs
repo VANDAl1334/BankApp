@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using UserApp.Classes;
+using UserApp.Window.Authorization;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace UserApp
@@ -23,12 +24,24 @@ namespace UserApp
     /// <summary>
     /// Логика взаимодействия для Window2.xaml
     /// </summary>
-    public partial class WndAut : Window
+    public partial class WndAut : System.Windows.Window
     {
         public WndAut()
         {
             InitializeComponent();
+            RecFrame.Navigate(new PgAut());
             ManagerPg.RecFrame = RecFrame;
+        }
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow back = new();
+            back.Show();
+            Close();
+        }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                DragMove();
         }
         private void BtnMin_Click(object sender, RoutedEventArgs e)
         {
@@ -37,55 +50,6 @@ namespace UserApp
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             Close();
-        }
-        private void BtnBack_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow back = new();
-            back.Show();
-            this.Close();
-        }
-        private void BtnAut_Click(object sender, RoutedEventArgs e)
-        {
-            if (LogAut.Text == string.Empty)
-            {
-                TipLog.Visibility = Visibility.Visible;
-            }
-            else if(PassAut.Password == string.Empty)
-            {
-                TipPass.Visibility = Visibility.Visible;
-            }
-            else if(User.CurrentUser != null)
-            {
-                User.CurrentUser = User.GetUserByLogIn(LogAut.Text);
-                WndMain main = new();
-                main.Show();
-                Close();
-            }
-            else
-            {
-                ErrLP.Visibility = Visibility.Visible;
-            }
-        }
-
-        private void ChkPass_Click(object sender, RoutedEventArgs e)
-        {
-            if (ChkPass.IsChecked == false)
-            {
-                PassAut.Password = PassText.Text;
-                PassText.Visibility = Visibility.Collapsed;
-                PassAut.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                PassText.Text = PassAut.Password;
-                PassAut.Visibility = Visibility.Collapsed;
-                PassText.Visibility = Visibility.Visible;
-            }
-           
-        }
-        private void BtnRec_Click(object sender, RoutedEventArgs e)
-        {
-            ManagerPg.RecFrame.Navigate(new PgRec());
         }
     }
 }

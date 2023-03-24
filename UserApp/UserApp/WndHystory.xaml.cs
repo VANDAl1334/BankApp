@@ -17,7 +17,7 @@ namespace UserApp
     /// <summary>
     /// Логика взаимодействия для Window1.xaml
     /// </summary>
-    public partial class WndHystory : Window
+    public partial class WndHystory : System.Windows.Window
     {
         public WndHystory()
         {

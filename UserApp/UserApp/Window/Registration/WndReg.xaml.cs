@@ -24,7 +24,7 @@ namespace UserApp
     /// <summary>
     /// Логика взаимодействия для Window1.xaml
     /// </summary>
-    public partial class WndReg : Window
+    public partial class WndReg : System.Windows.Window
     {
         public WndReg()
         {

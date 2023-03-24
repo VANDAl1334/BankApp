@@ -10,9 +10,8 @@ namespace UserApp.Classes
     {
         ManagerPg() 
         {
-            RecFrame.Navigate(new PgRec());
+            //RecFrame.Navigate(new PgRec());
         }
         public static Frame RecFrame { get; set; }
-
     }
 }

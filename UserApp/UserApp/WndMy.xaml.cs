@@ -17,7 +17,7 @@ namespace UserApp
     /// <summary>
     /// Логика взаимодействия для Window1.xaml
     /// </summary>
-    public partial class WndMy : Window
+    public partial class WndMy : System.Windows.Window
     {
         public WndMy()
         {

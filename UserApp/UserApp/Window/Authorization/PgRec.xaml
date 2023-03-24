@@ -10,29 +10,30 @@
       Title="Recovery">
 
     <Grid>
-
-        <Border CornerRadius="20" Background="White" Width="380" Padding="40 40 40 0" Height="253" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Border.Effect>
-                <DropShadowEffect BlurRadius="100" Color="LightGray" ShadowDepth="3"/>
-            </Border.Effect>
-            <DockPanel>
-                <Grid DockPanel.Dock="Top" Height="165">
-                    <Grid.RowDefinitions >
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition Height="30"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <TextBox x:Name="Plogin" FontFamily="Roboto" FontSize="14" materialDesign:HintAssist.Hint="Введите логин" Grid.Row="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                    <TextBox x:Name="PCVV" FontFamily="Roboto" FontSize="14" materialDesign:HintAssist.Hint="Введите CVV любой своей карты" Grid.Row="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                    <TextBox x:Name="Pbill" FontFamily="Roboto" FontSize="14" materialDesign:HintAssist.Hint="Введите расчетный счет из 20 символов" Grid.Row="2" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                    <TextBlock x:Name="chkall" Text="Введены неверные значения" Margin="0 5 0 0" Grid.Row="3" HorizontalAlignment="Center" Foreground="red" Visibility="Collapsed" FontSize="14"/>
-                </Grid>
-                <Button Content="Восстановить" Width="130" VerticalAlignment="Top" Style="{StaticResource MaterialDesignOutlinedLightButton}" Click="BtnRec_Click"/>
-            </DockPanel>
-        </Border>
-        <Button Style="{StaticResource MaterialDesignIconButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="45"  Click="BtnBack_Click">
-            <Image Source="/Window/Authorization/back.png" Height="35" Width="40"/>
-        </Button>
+        <Grid Margin="0 0 0 0">
+            <Border CornerRadius="20" Background="White" Width="380" Padding="40 40 40 0" Height="253" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="100" Color="LightGray" ShadowDepth="3"/>
+                </Border.Effect>
+                <DockPanel>
+                    <Grid DockPanel.Dock="Top" Height="165">
+                        <Grid.RowDefinitions >
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBox x:Name="Plogin" FontFamily="Roboto" FontSize="14" materialDesign:HintAssist.Hint="Введите логин" Grid.Row="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                        <TextBox x:Name="PCVV" FontFamily="Roboto" FontSize="14" materialDesign:HintAssist.Hint="Введите CVV любой своей карты" Grid.Row="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                        <TextBox x:Name="Pbill" FontFamily="Roboto" FontSize="14" materialDesign:HintAssist.Hint="Введите расчетный счет из 20 символов" Grid.Row="2" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                        <TextBlock x:Name="chkall" Text="Введены неверные значения" Margin="0 5 0 0" Grid.Row="3" HorizontalAlignment="Center" Foreground="red" Visibility="Collapsed" FontSize="14"/>
+                    </Grid>
+                    <Button Content="Восстановить" Width="130" VerticalAlignment="Top" Style="{StaticResource MaterialDesignOutlinedLightButton}" Click="BtnRec_Click"/>
+                </DockPanel>
+            </Border>
+            <Button Style="{StaticResource MaterialDesignIconButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="45"  Click="BtnBack_Click">
+                <Image Source="/Window/Authorization/back.png" Height="35" Width="40"/>
+            </Button>
+        </Grid>
     </Grid>
 </Page>

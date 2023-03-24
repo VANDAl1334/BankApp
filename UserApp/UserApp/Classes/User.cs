@@ -67,22 +67,29 @@ namespace UserApp
             adapter.SelectCommand = DB.cmd;
             adapter.Fill(table);
         }
-        public static User GetUserByLogIn(string LogIn)
+        public static User GetUserByLogIn(string LogIn, string PassWord)
         {
             DB.OpenConnection();
             DataTable table = new();
             MySqlDataAdapter adapter = new();
-            DB.cmd = new("SELECT * FROM `user` WHERE `login_user` = @uL", DB.GetConnection());
+            PassWord = Hash(PassWord);
+            DB.cmd = new("SELECT * FROM `user` WHERE `login_user` = @uL AND `password_user` = @uP", DB.GetConnection());
             DB.cmd.Parameters.Add("@uL", MySqlDbType.VarChar).Value = LogIn;
+            DB.cmd.Parameters.Add("@uP", MySqlDbType.VarChar).Value = PassWord;
             adapter.SelectCommand = DB.cmd;
             adapter.Fill(table);
             DataRow[] rows = table.Select();
-            User us = new(DB.ConvertFromDBVal<string>(rows[0].ItemArray[1]), 
+            if (table.Rows.Count > 0)
+            {
+                User us = new(DB.ConvertFromDBVal<string>(rows[0].ItemArray[1]),
                 DB.ConvertFromDBVal<string>(rows[0].ItemArray[2]),
                 DB.ConvertFromDBVal<string>(rows[0].ItemArray[3]),
                 DB.ConvertFromDBVal<string>(rows[0].ItemArray[4]),
                 DB.ConvertFromDBVal<string>(rows[0].ItemArray[5]));
-            return us;
+
+                return us;
+            }
+            return null;
         }
         static public string Hash(string input)
         {

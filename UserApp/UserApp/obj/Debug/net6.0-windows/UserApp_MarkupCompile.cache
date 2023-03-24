@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\App.xaml
-10352147798
+11887486226
 
-17-106455639
+182082704472
 2031044357695
-Window\Authorization\PgRec.xaml;Window\Authorization\RecPass.xaml;Window\Authorization\WndAut.xaml;Window\MainWindow\MainWindow.xaml;Window\Main\WndMain.xaml;Window\Registration\WndReg.xaml;WndHystory.xaml;WndMy.xaml;WndSupport.xaml;WndYour.xaml;
+Window\Authorization\PgAut.xaml;Window\Authorization\PgRec.xaml;Window\Authorization\RecPass.xaml;Window\Authorization\WndAut.xaml;Window\MainWindow\MainWindow.xaml;Window\Main\WndMain.xaml;Window\Registration\WndReg.xaml;WndHystory.xaml;WndMy.xaml;WndSupport.xaml;WndYour.xaml;
 
 False
 

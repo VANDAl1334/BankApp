@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UserApp.Classes;
+using UserApp.Window.Authorization;
 
 namespace UserApp
 {
@@ -25,23 +26,13 @@ namespace UserApp
         {
             InitializeComponent();
         }
-        private void BtnMin_Click(object sender, RoutedEventArgs e)
-        {
-            //WindowState = WindowState.Minimized;
-        }
-        private void BtnClose_Click(object sender, RoutedEventArgs e)
-        {
-            //Close();
-        }
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow back = new();
-            back.Show();
-            //Close();
+            ManagerPg.RecFrame.Navigate(new PgAut());
         }
         private void BtnRec_Click(object sender, RoutedEventArgs e)
         {
-            ManagerPg.RecFrame.GoBack();
+            ManagerPg.RecFrame.Navigate(new RecPass());
         }
     }
 }
