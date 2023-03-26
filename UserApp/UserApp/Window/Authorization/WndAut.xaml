@@ -17,16 +17,16 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Grid Height="40" VerticalAlignment="Top">
+        <Grid Height="30" VerticalAlignment="Top">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/bank.png"/>
-                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 0 0 0" FontSize="20"  Foreground="White">Авторизация</TextBlock>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15 0 0 0" FontSize="18"  Foreground="White">Авторизация</TextBlock>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Cursor="">
-                <Button BorderBrush="Transparent" Background="Transparent" Height="40" Click="BtnMin_Click">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Cursor="Hand">
+                <Button BorderBrush="Transparent" Background="Transparent" Click="BtnMin_Click">
                     <Image Source="/hidden.png"/>
                 </Button>
-                <Button Width="40" BorderBrush="Transparent" Background="Transparent" Click="BtnClose_Click">
+                <Button BorderBrush="Transparent" Background="Transparent" Click="BtnClose_Click">
                     <Image Source="/close.png"/>
                 </Button>
             </StackPanel>
@@ -38,9 +38,6 @@
         </Grid>
         <Grid  Margin="0 40 0 0">
             <Frame Name="RecFrame" NavigationUIVisibility="Hidden"/>
-            
-            <!--TextBlock Text="Авторизация" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Margin="0 15 0 0" FontSize="30"/-->
-            
         </Grid>
     </Grid>
 </Window>

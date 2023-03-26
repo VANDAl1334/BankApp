@@ -25,9 +25,6 @@ namespace UserApp
                 return surname_user + " " + name_user + " " + patronymic_user;
             }
         }
-        //public static string List<Bill> { get; set; }
-
-
         public static Boolean IsUserExists(string LogClient)
         {
             DataTable table = new();
@@ -65,7 +62,7 @@ namespace UserApp
             DB.cmd.Parameters.Add("@uR", MySqlDbType.VarChar).Value = UserRole;
             DB.cmd.Parameters.Add("@uPh", MySqlDbType.VarChar).Value = Phone;
             adapter.SelectCommand = DB.cmd;
-            adapter.Fill(table);
+            adapter.Fill(table);            
         }
         public static User GetUserByLogIn(string LogIn, string PassWord)
         {

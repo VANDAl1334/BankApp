@@ -13,71 +13,29 @@ namespace UserApp
     {
         public static Bill CurrentNumcard = new();
         Bill() { }
-        public string NumberBill
-        {
-            get
-            {
-                return NumberBill;
-            }
-            set
-            {
-                value = NumberBill;
-            }
-        }
-        public bool Frozen
-        {
-            get
-            {
-                return Frozen;
-            }
-            set
-            {
-                value = Frozen;
-            }
-        }
-        public string Balance
-        {
-            get
-            {
-                return Balance;
-            }
-            set
-            {
-                value = Balance;
-            }
-        }
-        public string NumberCard
-        {
-            set
-            {
-                value = NumberCard;
-            }
-            get
-            {
-                return NumberCard;
-            }
-        }
+        public string NumberBill { get; set; }
+        public bool Frozen { get; set; }
+        public string Balance { get; set; }
+        public string NumberCard { get; set; }
         public Bill(string numbill, string numcard, bool frozen, string balance)
-        {
-
-            
-        }
-        public void AddBill(string numbill, string numcard, bool frozen, string balance)
         {
             NumberBill = numbill;
             NumberCard = numcard;
-            Frozen = frozen = false;
-            Balance = balance = "0";
+            Frozen = frozen;
+            Balance = balance;
+        }
+        public void AddBill(string numbill, string numcard, bool frozen, string balance)
+        {
             DB.OpenConnection();
-            GenCard(numcard);
-            GenBill(numbill);
             DataTable table = new();
+            GenBill(numbill);
+            GenCard(numcard);
             MySqlDataAdapter adapter = new();
-            DB.cmd = new("INSERT INTO `bill` (`Number`, `Forzen`, `Balance`,`Card_number`) VALUES (@N, @F, @B, @Cn)", DB.GetConnection());
+            DB.cmd = new("INSERT INTO `bill` (`Number`, `Frozen`, `Balance`,`Card_number`) VALUES (@N, @F, @B, @Cn)", DB.GetConnection());
             DB.cmd.Parameters.Add("@N", MySqlDbType.VarChar).Value = numbill;
-            DB.cmd.Parameters.Add("@Cn", MySqlDbType.VarChar).Value = numcard;
             DB.cmd.Parameters.Add("@F", MySqlDbType.VarChar).Value = frozen;
             DB.cmd.Parameters.Add("@B", MySqlDbType.VarChar).Value = balance;
+            DB.cmd.Parameters.Add("@Cn", MySqlDbType.VarChar).Value = numcard;
             adapter.SelectCommand = DB.cmd;
             adapter.Fill(table);
         }

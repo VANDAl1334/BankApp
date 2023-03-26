@@ -27,7 +27,6 @@
                 <Setter Property="FontFamily" Value="Roboto"/>
                 <Setter Property="Background" Value="Brown"/>
             </Style>
-            
         </ResourceDictionary>
 
     </Application.Resources>

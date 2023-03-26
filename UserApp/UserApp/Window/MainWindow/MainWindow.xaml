@@ -22,16 +22,16 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <Grid Height="40" VerticalAlignment="Top">
+            <Grid Height="30" VerticalAlignment="Top">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Window/MainWindow/bank.png"/>
-                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 0 0 0" FontSize="20"  Foreground="White">Приветствие</TextBlock>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15 0 0 0" FontSize="18"  Foreground="White">Приветствие</TextBlock>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Cursor="">
-                    <Button BorderBrush="Transparent" Background="Transparent" Height="40" Click="BtnMin_Click">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Cursor="Hand">
+                    <Button BorderBrush="Transparent" Background="Transparent" Click="BtnMin_Click">
                         <Image Source="/Window/MainWindow/hidden.png"/>
                     </Button>
-                    <Button Width="40" BorderBrush="Transparent" Background="Transparent" Click="BtnClose_Click">
+                    <Button BorderBrush="Transparent" Background="Transparent" Click="BtnClose_Click">
                         <Image Source="/Window/MainWindow/close.png"/>
                     </Button>
                 </StackPanel>

@@ -27,11 +27,11 @@
                         <ColumnDefinition ></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <TextBlock x:Name="TipLog" Grid.Row="0" Foreground="red" Visibility="Collapsed" TextAlignment="Center">*Обязательное поле</TextBlock>
-                    <TextBox x:Name="LogAut" FontFamily="Roboto" FontSize="15" Grid.Row="0" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox x:Name="LogAut" LostFocus="LogAut_LostFocus" FontFamily="Roboto" FontSize="15" Grid.Row="0" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                     <TextBlock x:Name="ErrLP" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Foreground="red" Visibility="Collapsed">*Логин или пароль введен неверно</TextBlock>
                     <TextBlock x:Name="PassText" Grid.Row="1" Style="{StaticResource MaterialDesignBody1TextBlock}" VerticalAlignment="Bottom" Visibility="Collapsed"/>
                     <TextBlock x:Name="TipPass" Grid.Row="1" Foreground="red" Visibility="Collapsed" TextAlignment="Center">*Обязательное поле</TextBlock>
-                    <PasswordBox x:Name="PassAut" Grid.Row="1" FontFamily="Roboto" FontSize="15" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                    <PasswordBox x:Name="PassAut" LostFocus="PassAut_LostFocus" Grid.Row="1" FontFamily="Roboto" FontSize="15" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
                     <Button Grid.Row="2" FontSize="12" Content="Восстановление пароля" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="blue" Background="Transparent" BorderBrush="Transparent" Click="BtnRec_Click" Cursor="Arrow"/>
                     <CheckBox x:Name="ChkPass" Grid.Column="1" Grid.Row="1" Click="ChkPass_Click"></CheckBox>
                 </Grid>

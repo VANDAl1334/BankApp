@@ -69,28 +69,7 @@ namespace UserApp
         bool ContainChar = false;
         char[] number = new[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ' ' };
         char[] Spec = new[] { '!', '"', '#', '$', '%', '/', '&', '(', ')', '*', '+', ',', '-', '.', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~' };
-        public void BtnReg_Click(object sender, RoutedEventArgs e)
-        {
-            if (pass.Password != passpod.Password)
-            {
-                TipPassChk.Visibility = Visibility.Visible;
-                return;
-            }
-            else
-            {
-                TipNmUs.Visibility = Visibility.Collapsed;
-                pass.Password = User.Hash(pass.Password);
-                User.AddUser(NmUs.Text, SrNmUs.Text, PtNmUs.Text, LogIn.Text, pass.Password, Phone.Text);
-                /*bool frozen = false;
-                string numbill = "0";
-                string numcard = "0";
-                string balance = "0" ;
-                Bill.AddBill(numbill, numcard, frozen, balance);*/
-                WndAut wndAut = new();
-                wndAut.Show();
-                Close();
-            }            
-        }
+
         private void StackPanel_LostFocus(object sender, RoutedEventArgs e)
         {
             if (NmUs.Text == string.Empty)
@@ -241,6 +220,23 @@ namespace UserApp
             {
                 BtnReg.IsEnabled = true;
                 ChkPh.Visibility = Visibility.Collapsed;
+            }
+        }
+        public void BtnReg_Click(object sender, RoutedEventArgs e)
+        {
+            if (pass.Password != passpod.Password)
+            {
+                TipPassChk.Visibility = Visibility.Visible;
+                return;
+            }
+            else
+            {
+                TipNmUs.Visibility = Visibility.Collapsed;
+                pass.Password = User.Hash(pass.Password);
+                User.AddUser(NmUs.Text, SrNmUs.Text, PtNmUs.Text, LogIn.Text, pass.Password, Phone.Text);
+                WndAut wndAut = new();
+                wndAut.Show();
+                Close();
             }
         }
     }

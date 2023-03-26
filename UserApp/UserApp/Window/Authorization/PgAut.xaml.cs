@@ -25,34 +25,31 @@ namespace UserApp.Window.Authorization
         {
             InitializeComponent();
         }
-        private void BtnAut_Click(object sender, RoutedEventArgs e)
+        private void LogAut_LostFocus(object sender, RoutedEventArgs e)
         {
             if (LogAut.Text == string.Empty)
-            {
                 TipLog.Visibility = Visibility.Visible;
-            }
-            else if (PassAut.Password == string.Empty)
-            {
+            else
+                TipLog.Visibility = Visibility.Collapsed;
+        }
+        private void PassAut_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (PassAut.Password == string.Empty)
                 TipPass.Visibility = Visibility.Visible;
-            }
-            else if(User.CurrentUser != null)
+            else
+                TipPass.Visibility = Visibility.Collapsed;
+        }
+        private void BtnAut_Click(object sender, RoutedEventArgs e)
+        {   
+            User.CurrentUser = User.GetUserByLogIn(LogAut.Text, PassAut.Password);
+            if (User.CurrentUser != null)
             {
-                User.CurrentUser = User.GetUserByLogIn(LogAut.Text, PassAut.Password);
-                if (User.CurrentUser != null)
-                {
-                    WndMain main = new();
-                    main.Show();
-                    //closeMethod();
-                }
-                else
-                {
-                    ErrLP.Visibility = Visibility.Visible;
-                }
+                WndMain main = new();
+                main.Show();
+                
             }
             else
-            {
                 ErrLP.Visibility = Visibility.Visible;
-            }
         }
         private void ChkPass_Click(object sender, RoutedEventArgs e)
         {
