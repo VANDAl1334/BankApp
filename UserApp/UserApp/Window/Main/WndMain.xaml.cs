@@ -85,7 +85,8 @@ namespace UserApp
         }
         private void BtnCreate_Click(object sender, RoutedEventArgs e)
         {
-            //Bill.AddBill(NmBill.Text, NmCard.Text, Frozen, Balance);
+            Bill.AddBill(User.CurrentUser);
+            User.CurrentUser.UpdateBills();
         }
         private void BtnPanel_Click(object sender, RoutedEventArgs e)
         {

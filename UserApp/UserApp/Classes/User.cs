@@ -64,6 +64,17 @@ namespace UserApp
             adapter.SelectCommand = DB.cmd;
             adapter.Fill(table);            
         }
+        public List<Bill> Bills;
+        public void UpdateBills()
+        {
+            DB.OpenConnection();
+            DataTable table = new();
+            MySqlDataAdapter adapter = new();
+            DB.cmd = new("SELECT * FROM `user` INNER JOIN `bill` on user.id = bill.bill_owner WHERE user.login_user = @uL", DB.GetConnection());
+            DB.cmd.Parameters.Add("@uL", MySqlDbType.VarChar).Value = login_user;
+            adapter.SelectCommand = DB.cmd;
+            adapter.Fill(table);
+        }
         public static User GetUserByLogIn(string LogIn, string PassWord)
         {
             DB.OpenConnection();

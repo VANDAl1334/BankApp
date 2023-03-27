@@ -46,7 +46,7 @@ namespace UserApp.Window.Authorization
             {
                 WndMain main = new();
                 main.Show();
-                
+                //Close();
             }
             else
                 ErrLP.Visibility = Visibility.Visible;

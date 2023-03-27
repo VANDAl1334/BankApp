@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace UserApp
 {
-    class Bill
+    public class Bill
     {
         public static Bill CurrentNumcard = new();
         Bill() { }
@@ -24,23 +24,38 @@ namespace UserApp
             Frozen = frozen;
             Balance = balance;
         }
-        public void AddBill(string numbill, string numcard, bool frozen, string balance)
+        public static void AddBill(User user)
         {
             DB.OpenConnection();
             DataTable table = new();
-            GenBill(numbill);
-            GenCard(numcard);
+            string numbill = GenBill();
+            string numcard = GenCard();
             MySqlDataAdapter adapter = new();
-            DB.cmd = new("INSERT INTO `bill` (`Number`, `Frozen`, `Balance`,`Card_number`) VALUES (@N, @F, @B, @Cn)", DB.GetConnection());
+            DB.cmd = new("SELECT * FROM `user` INNER JOIN `bill` on user.id = bill.bill_owner WHERE user.login_user = @uL", DB.GetConnection());
+            DB.cmd.Parameters.Add("@uL", MySqlDbType.VarChar).Value = user;
             DB.cmd.Parameters.Add("@N", MySqlDbType.VarChar).Value = numbill;
-            DB.cmd.Parameters.Add("@F", MySqlDbType.VarChar).Value = frozen;
-            DB.cmd.Parameters.Add("@B", MySqlDbType.VarChar).Value = balance;
+            DB.cmd.Parameters.Add("@F", MySqlDbType.Int16).Value = 0;
+            DB.cmd.Parameters.Add("@B", MySqlDbType.Float).Value = 0.0;
             DB.cmd.Parameters.Add("@Cn", MySqlDbType.VarChar).Value = numcard;
             adapter.SelectCommand = DB.cmd;
             adapter.Fill(table);
+            DB.cmd = new("INSERT INTO `bill` (`Number`, `Frozen`, `Balance`,`Card_number`) VALUES (@N, @F, @B, @Cn)", DB.GetConnection());
+            DB.cmd.Parameters.Add("@uL", MySqlDbType.VarChar).Value = user;
+            DB.cmd.Parameters.Add("@N", MySqlDbType.VarChar).Value = numbill;
+            DB.cmd.Parameters.Add("@F", MySqlDbType.Int16).Value = 0;
+            DB.cmd.Parameters.Add("@B", MySqlDbType.Float).Value = 0.0;
+            DB.cmd.Parameters.Add("@Cn", MySqlDbType.VarChar).Value = numcard;
+            adapter.SelectCommand = DB.cmd;
+            adapter.Fill(table);
+            DataRow[] rows = table.Select();
+            if (table.Rows.Count > 0)
+            {
+                //User us = new(DB.ConvertFromDBVal<string>(rows[0].ItemArray[0]))
+            }
         }
-        public string GenCard(string numcard)
+        public static string GenCard()
         {
+            string numcard;
             Random rnd = new();
             string num1 = rnd.Next(1000, 9999).ToString();
             string num2 = rnd.Next(1000, 9999).ToString();
@@ -48,9 +63,10 @@ namespace UserApp
             string num4 = rnd.Next(1000, 9999).ToString();
             numcard = num1 + " " + num2 + " " + num3 + " " + num4;
             return numcard;
-        } 
-        public string GenBill(string numbill)
+        }
+        public static string GenBill()
         {
+            string numbill;
             Random rnd = new();
             string num1 = rnd.Next(100000, 999999).ToString();
             string num2 = rnd.Next(1000000, 9999999).ToString();
