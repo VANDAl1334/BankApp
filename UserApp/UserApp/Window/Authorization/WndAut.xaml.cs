@@ -29,8 +29,7 @@ namespace UserApp
         public WndAut()
         {
             InitializeComponent();
-            RecFrame.Navigate(new PgAut());
-            ManagerPg.RecFrame = RecFrame;
+            RecFrame.Navigate(new PgAut(this));
         }
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {

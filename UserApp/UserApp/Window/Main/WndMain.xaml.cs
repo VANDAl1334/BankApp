@@ -16,6 +16,8 @@ using System.Windows.Xps.Serialization;
 using System.Windows.Threading;
 using Google.Protobuf.WellKnownTypes;
 using System.Windows.Media.Animation;
+using UserApp.Window.Authorization;
+using UserApp.Window.Main;
 
 namespace UserApp
 {
@@ -32,13 +34,11 @@ namespace UserApp
         public WndMain()
         {
             InitializeComponent();
+            MainFrame.Navigate(new PgHome());
             timer = new();
             timer.Interval = new TimeSpan(0, 0, 0, 0, 10);
-            timer.Tick += Timer_Tick;
-            fullname.Text = User.CurrentUser.FullName;
-            login.Text = User.CurrentUser.login_user;
-            NmBill.Text = Bill.CurrentNumcard.NumberBill;
-            NmCard.Text = Bill.CurrentNumcard.NumberCard;
+            timer.Tick += Timer_Tick;            
+            login.Text = User.CurrentUser.login_user;                        
             Frozen = Bill.CurrentNumcard.Frozen;
             Balance = Bill.CurrentNumcard.Balance;
         }
@@ -75,39 +75,26 @@ namespace UserApp
                     hidden = true;
                 }
             }
-        }
-        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            DoubleAnimation da = new() { From = 360, To = 0, Duration = TimeSpan.FromSeconds(1) };
-            RotateTransform rt = new() { CenterX = 50, CenterY = 50 };
-            brdrotate.RenderTransform = rt;
-            rt.BeginAnimation(RotateTransform.AngleProperty, da);
-        }
-        private void BtnCreate_Click(object sender, RoutedEventArgs e)
-        {
-            Bill.AddBill(User.CurrentUser);
-            User.CurrentUser.UpdateBills();
-        }
+        }        
         private void BtnPanel_Click(object sender, RoutedEventArgs e)
         {
             timer.Start();
         }       
-        private void BtnHystory_Click(object sender, RoutedEventArgs e)
-        {
-            WndHystory hystory = new();
-            hystory.Show();
-        }
         private void ListView_Home(object sender, MouseButtonEventArgs e)
         {
-
+            MainFrame.Navigate(new PgHome());
         }
         private void ListView_Transfer(object sender, RoutedEventArgs e)
         {
 
         }
+        private void ListView_Support(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new PgSupport());
+        }
         private void ListView_History(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new PgHistory());
         }
         private void ListView_Settings(object sender, RoutedEventArgs e)
         {

@@ -21,9 +21,7 @@ C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Use
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Authorization\WndAut.g.cs
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Main\WndMain.g.cs
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Registration\WndReg.g.cs
-C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\WndHystory.g.cs
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\WndMy.g.cs
-C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\WndSupport.g.cs
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\WndYour.g.cs
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\UserApp_MarkupCompile.cache
@@ -32,9 +30,7 @@ C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\App
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Authorization\WndAut.baml
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Main\WndMain.baml
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Registration\WndReg.baml
-C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\WndHystory.baml
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\WndMy.baml
-C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\WndSupport.baml
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\WndYour.baml
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\UserApp.g.resources
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\UserApp.GeneratedMSBuildEditorConfig.editorconfig
@@ -55,3 +51,9 @@ C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Win
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\MainWindow\MainWindow.baml
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Authorization\PgAut.g.cs
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Authorization\PgAut.baml
+C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Main\PgHome.g.cs
+C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Main\PgHome.baml
+C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Main\PgHistory.g.cs
+C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Main\PgHistory.baml
+C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Main\PgSupport.g.cs
+C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Main\PgSupport.baml

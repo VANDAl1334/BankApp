@@ -16,16 +16,19 @@
     <Compile Update="Window\Authorization\PgRec.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Window\Main\PgSupport.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Window\Main\PgHistory.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Window\Main\PgHome.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="WndYour.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="WndMy.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="WndHystory.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="WndSupport.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -39,16 +42,19 @@
     <Page Update="Window\Authorization\PgRec.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Window\Main\PgSupport.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Window\Main\PgHistory.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Window\Main\PgHome.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="WndYour.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="WndMy.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="WndHystory.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="WndSupport.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

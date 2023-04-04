@@ -62,7 +62,9 @@
     <None Remove="Window\Main\home.png" />
     <None Remove="Window\Main\icons8_user_50px_1.png" />
     <None Remove="Window\Main\list.png" />
+    <None Remove="Window\Main\Sent.ico" />
     <None Remove="Window\Main\settings.png" />
+    <None Remove="Window\Main\support.png" />
     <None Remove="Window\Main\transfer.png" />
     <None Remove="Window\Main\user.png" />
     <None Remove="Window\Registration\back.png" />
@@ -100,7 +102,9 @@
     <Resource Include="Window\Main\history.png" />
     <Resource Include="Window\Main\home.png" />
     <Resource Include="Window\Main\list.png" />
+    <Resource Include="Window\Main\Sent.ico" />
     <Resource Include="Window\Main\settings.png" />
+    <Resource Include="Window\Main\support.png" />
     <Resource Include="Window\Main\transfer.png" />
     <Resource Include="Window\Main\user.png" />
     <Resource Include="Window\Registration\back.png" />

@@ -22,13 +22,19 @@ namespace UserApp
     /// </summary>
     public partial class PgRec : Page
     {
+        private PgRec pgRec;
+
         public PgRec()
         {
             InitializeComponent();
         }
+        public PgRec(PgRec pgRec)
+        {
+            this.pgRec = pgRec;
+        }
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            ManagerPg.RecFrame.Navigate(new PgAut());
+            ManagerPg.RecFrame.Navigate(new PgAut(this));
         }
         private void BtnRec_Click(object sender, RoutedEventArgs e)
         {

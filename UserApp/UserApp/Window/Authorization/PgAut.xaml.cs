@@ -21,9 +21,16 @@ namespace UserApp.Window.Authorization
     /// </summary>
     public partial class PgAut : Page
     {
-        public PgAut()
+        private WndAut wndAut;
+        private PgRec pgRec;
+        public PgAut(WndAut wndaut)
         {
             InitializeComponent();
+            this.wndAut = wndaut;
+        }
+        public PgAut(PgRec pgRec)
+        {
+            this.pgRec = pgRec;
         }
         private void LogAut_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -46,7 +53,7 @@ namespace UserApp.Window.Authorization
             {
                 WndMain main = new();
                 main.Show();
-                //Close();
+                wndAut.Close();
             }
             else
                 ErrLP.Visibility = Visibility.Visible;
@@ -69,7 +76,7 @@ namespace UserApp.Window.Authorization
         }
         private void BtnRec_Click(object sender, RoutedEventArgs e)
         {
-            ManagerPg.RecFrame.Navigate(new PgRec());
+            ManagerPg.RecFrame.Navigate(new PgRec(pgRec));
         }
     }
 }

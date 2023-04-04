@@ -1,0 +1,52 @@
+﻿<Page x:Class="UserApp.Window.Main.PgHome"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UserApp.Window.Main"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Page1">
+    <Grid>
+        <Grid Height="100" VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Grid.Row="0" Text="Баланс " FontSize="22" Foreground="Black" />
+                <TextBlock Grid.Row="0" Text="{Binding Balance}" FontSize="22" Foreground="Black"/>
+            </StackPanel>
+            <ComboBox Grid.Row="1" FontSize="22" x:Name="NmBill" ItemsSource="{Binding NumberBill}" HorizontalAlignment="Center" Width="400" materialDesign:HintAssist.Hint="Ваши счета" HorizontalContentAlignment="Center"/>
+        </Grid>
+        <Border Padding="20" x:Name="brdrotate" Margin="0 40 0 0" Width="450" Height="230" CornerRadius="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Color="#FFB30000" Offset="0"/>
+                        <GradientStop Color="#FFFF6A6A" Offset=".9"/>
+                        <GradientStop Color="#FFFFA095" Offset="1"/>
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10" Color="Red" Direction="45" Opacity=".4" RenderingBias="Performance" ShadowDepth="30"/>
+            </Border.Effect>
+            <StackPanel>
+                <Label Content="Ваш номер карты" Foreground="White" FontSize="20" Grid.Column="0"/>
+                <TextBlock x:Name="NmCard" Height="37" Text="{Binding NumberCard}" Foreground="White" FontFamily="Roboto" FontSize="25" Margin="0 0 0 10"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="CVV" FontSize="25" Grid.Column="1" Foreground="White"/>
+                    <TextBlock x:Name="CVV" Text="{Binding CVV}" FontSize="30" Foreground="White"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Orientation="Horizontal">
+                    <Label Content="ММ/ДД" FontSize="25" Foreground="White"/>
+                    <TextBlock x:Name="Validity" Text="{Binding Validity}" FontSize="25" Foreground="White"/>
+                </StackPanel>
+                <TextBlock x:Name="fullname" FontSize="20" Foreground="White"/>
+            </StackPanel>
+        </Border>
+        <Button Content="Создать платежный счет" Click="BtnCreate_Click" VerticalAlignment="Bottom" Margin="0 0 0 30" HorizontalAlignment="Center" Background="Brown" Style="{StaticResource MaterialDesignRaisedButton}"/>
+    </Grid>
+</Page>
