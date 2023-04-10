@@ -124,6 +124,7 @@ namespace UserApp
                 BtnReg.IsEnabled = true;
                 TipNmUs.Visibility = Visibility.Collapsed;
             }
+            string FullName = NmUs.Text + SrNmUs.Text + PtNmUs.Text;
         }
         private void LogIn_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -224,14 +225,18 @@ namespace UserApp
         }
         public void BtnReg_Click(object sender, RoutedEventArgs e)
         {
-            if (pass.Password != passpod.Password)
+            if (pass.Password == string.Empty || Phone.Text == string.Empty || LogIn.Text == string.Empty || NmUs.Text == string.Empty || SrNmUs.Text == string.Empty || PtNmUs.Text == string.Empty)
+            {
+                chkdata.Visibility = Visibility.Visible;
+                return;
+            }
+            else if (pass.Password != passpod.Password)
             {
                 TipPassChk.Visibility = Visibility.Visible;
                 return;
             }
             else
             {
-                TipNmUs.Visibility = Visibility.Collapsed;
                 pass.Password = User.Hash(pass.Password);
                 User.AddUser(NmUs.Text, SrNmUs.Text, PtNmUs.Text, LogIn.Text, pass.Password, Phone.Text);
                 WndAut wndAut = new();

@@ -26,11 +26,13 @@ namespace UserApp
     /// </summary>
     public partial class WndAut : System.Windows.Window
     {
+        private PgAut pgAut;
         public WndAut()
         {
-            InitializeComponent();
+            InitializeComponent();           
             RecFrame.Navigate(new PgAut(this));
         }
+        //public WndAut(WndAut wndAut) {}
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             MainWindow back = new();
