@@ -124,7 +124,6 @@ namespace UserApp
                 BtnReg.IsEnabled = true;
                 TipNmUs.Visibility = Visibility.Collapsed;
             }
-            string FullName = NmUs.Text + SrNmUs.Text + PtNmUs.Text;
         }
         private void LogIn_LostFocus(object sender, RoutedEventArgs e)
         {
