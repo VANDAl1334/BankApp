@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UserApp"
         mc:Ignorable="d"
-        Title="Главная" Height="450" Width="797" WindowStartupLocation="CenterScreen" WindowStyle="None" MouseDown="Window_MouseDown" ResizeMode="CanMinimize" Icon="/Window/Main/bank.ico">
+        Title="Главная" Height="450" Width="797" WindowStartupLocation="CenterOwner" WindowStyle="None" MouseDown="Window_MouseDown" ResizeMode="CanMinimize" Icon="/Window/Main/bank.ico">
     <Grid x:Name="background">
         <Grid Height="30" Background="Brown" Margin="47 0 0 0" VerticalAlignment="Top">
             <StackPanel Orientation="Horizontal" Cursor="Hand">
@@ -28,7 +28,7 @@
             </Rectangle.RenderTransform>
         </Rectangle>
         <Grid Margin="47 30 0 0">
-            <Frame Name="MainFrame" NavigationUIVisibility="Hidden"/>
+            <Frame Name="MainFrame" NavigationUIVisibility="Hidden" Navigated="MainFrame_Navigated"/>
         </Grid>
         <Grid x:Name="Menu" Width="47" MinWidth="47" MaxWidth="225" HorizontalAlignment="Left" Background="#FFBB0000">
             <StackPanel>
@@ -86,7 +86,7 @@
                     </ListViewItem>
                 </ListView>
                 <ListView FontFamily="Roboto" FontSize="23" Foreground="White" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
-                    <ListViewItem Height="45" HorizontalAlignment="Left" MouseLeftButtonUp="ListView_Exit">
+                    <ListViewItem Height="45" HorizontalAlignment="Left" MouseLeftButtonUp="ListView_Exit" Selected="ListViewItem_Selected">
                         <StackPanel Orientation="Horizontal" >
                             <Image Height="30" VerticalAlignment="Center" Source="/Window/Main/exit.png" />
                             <TextBlock Text="Выход" Margin="20 0 0 0" VerticalAlignment="Center" Width="155"/>

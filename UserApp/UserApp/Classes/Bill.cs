@@ -31,7 +31,7 @@ namespace UserApp
             string numbill = GenBill();
             string numcard = GenCard();
             MySqlDataAdapter adapter = new();
-            DB.cmd = new("SELECT * FROM `user` INNER JOIN `bill` on user.id = bill.bill_owner WHERE user.login_user = @uL", DB.GetConnection());
+            DB.cmd = new("INSERT INTO `bill` (`Number`, `Frozen`, `Balance`, `Card_number`) SELECT @N, @F, @B, @Cn FROM `user` INNER JOIN `bill` ON user.id = bill.bill_owner WHERE user.login_user = @uL", DB.GetConnection());
             DB.cmd.Parameters.Add("@uL", MySqlDbType.VarChar).Value = user;
             DB.cmd.Parameters.Add("@N", MySqlDbType.VarChar).Value = numbill;
             DB.cmd.Parameters.Add("@F", MySqlDbType.Int16).Value = 0;
@@ -39,19 +39,6 @@ namespace UserApp
             DB.cmd.Parameters.Add("@Cn", MySqlDbType.VarChar).Value = numcard;
             adapter.SelectCommand = DB.cmd;
             adapter.Fill(table);
-            DB.cmd = new("INSERT INTO `bill` (`Number`, `Frozen`, `Balance`,`Card_number`) VALUES (@N, @F, @B, @Cn)", DB.GetConnection());
-            DB.cmd.Parameters.Add("@uL", MySqlDbType.VarChar).Value = user;
-            DB.cmd.Parameters.Add("@N", MySqlDbType.VarChar).Value = numbill;
-            DB.cmd.Parameters.Add("@F", MySqlDbType.Int16).Value = 0;
-            DB.cmd.Parameters.Add("@B", MySqlDbType.Float).Value = 0.0;
-            DB.cmd.Parameters.Add("@Cn", MySqlDbType.VarChar).Value = numcard;
-            adapter.SelectCommand = DB.cmd;
-            adapter.Fill(table);
-            DataRow[] rows = table.Select();
-            if (table.Rows.Count > 0)
-            {
-                //User us = new(DB.ConvertFromDBVal<string>(rows[0].ItemArray[0]))
-            }
         }
         public static string GenCard()
         {

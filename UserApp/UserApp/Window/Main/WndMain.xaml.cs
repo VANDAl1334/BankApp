@@ -31,6 +31,7 @@ namespace UserApp
         bool hidden = true;
         private bool Frozen;
         private string Balance;
+
         public WndMain()
         {
             InitializeComponent();
@@ -59,7 +60,7 @@ namespace UserApp
         {
             if (hidden)
             {
-                Menu.Width += 5;
+                Menu.Width += 8;
                 if (Menu.Width >= 200)
                 {
                     timer.Stop();
@@ -68,7 +69,7 @@ namespace UserApp
             }
             else
             {
-                Menu.Width -= 5;
+                Menu.Width -= 8;
                 if (Menu.Width <= 47)
                 {
                     timer.Stop();
@@ -86,7 +87,7 @@ namespace UserApp
         }
         private void ListView_Transfer(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new Pgtranzact());
         }
         private void ListView_Support(object sender, RoutedEventArgs e)
         {
@@ -98,13 +99,21 @@ namespace UserApp
         }
         private void ListView_Settings(object sender, RoutedEventArgs e)
         {
+            MainFrame.Navigate(new PgOptions());
+        }
+        private void ListView_Exit(object sender, MouseButtonEventArgs e, WndMain wndMain)
+        {
+            MainFrame.Navigate(new PgExit(wndMain));
+        }
+
+        private void MainFrame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
 
         }
-        private void ListView_Exit(object sender, MouseButtonEventArgs e)
+
+        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new();
-            mainWindow.Show();
-            Close();
+
         }
     }
 }

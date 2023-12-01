@@ -243,5 +243,10 @@ namespace UserApp
                 Close();
             }
         }
+
+        private void LogIn_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

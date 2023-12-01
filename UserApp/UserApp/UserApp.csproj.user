@@ -16,6 +16,12 @@
     <Compile Update="Window\Authorization\PgRec.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Window\Main\PgExit.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Window\Main\PgOptions.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Window\Main\PgSupport.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -23,6 +29,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Window\Main\PgHome.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Window\Main\Pgtranzact.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="WndYour.xaml.cs">
@@ -42,6 +51,12 @@
     <Page Update="Window\Authorization\PgRec.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Window\Main\PgExit.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Window\Main\PgOptions.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Window\Main\PgSupport.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -49,6 +64,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Window\Main\PgHome.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Window\Main\Pgtranzact.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="WndYour.xaml">

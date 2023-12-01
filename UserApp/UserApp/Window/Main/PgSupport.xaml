@@ -5,15 +5,17 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:UserApp.Window.Main"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Page1">
-
+      d:DesignHeight="450" d:DesignWidth="750"
+      Title="PgSupport">
     <Grid>
-        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center" Orientation="Horizontal">
-            <TextBox Width="452" Margin="0 0 20 0" BorderBrush="Brown" BorderThickness="1.5" Height="30" FontFamily="Times New Roman" FontSize="16" Style="{StaticResource MaterialDesignTextBox}"/>
+        <Grid Margin="170 0 170 47" Background="Gray">
+        </Grid>
+        <StackPanel Margin="0 0 0 15" VerticalAlignment="Bottom" HorizontalAlignment="Center" Orientation="Horizontal">
+            <TextBox Width="359" Margin="0 0 19 0" BorderBrush="Brown" BorderThickness="1.5" Height="30" FontFamily="Times New Roman" FontSize="16" Style="{StaticResource MaterialDesignTextBox}"/>
             <Button Width="32" Height="32" Style="{StaticResource MaterialDesignIconButton}">
                 <Image Source="/Window/Main/Sent.ico"/>
             </Button>
         </StackPanel>
+
     </Grid>
 </Page>

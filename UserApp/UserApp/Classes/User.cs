@@ -65,7 +65,7 @@ namespace UserApp
             adapter.Fill(table);            
         }
         public List<Bill> Bills;
-        public void UpdateBills()
+        public void  UpdateBills()
         {
             DB.OpenConnection();
             DataTable table = new();

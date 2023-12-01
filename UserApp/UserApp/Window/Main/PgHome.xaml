@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:UserApp.Window.Main"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="750"
       Title="Page1">
     <Grid>
         <Grid Height="100" VerticalAlignment="Top">
@@ -18,7 +18,7 @@
                 <TextBlock Grid.Row="0" Text="Баланс " FontSize="22" Foreground="Black" />
                 <TextBlock Grid.Row="0" Text="{Binding Balance}" FontSize="22" Foreground="Black"/>
             </StackPanel>
-            <ComboBox Grid.Row="1" FontSize="22" x:Name="NmBill" ItemsSource="{Binding NumberBill}" HorizontalAlignment="Center" Width="400" materialDesign:HintAssist.Hint="Ваши счета" HorizontalContentAlignment="Center"/>
+            <ComboBox Grid.Row="1" FontSize="22" x:Name="NmBill" ItemsSource="{Binding NumberBill}" HorizontalAlignment="Center" Width="400" materialDesign:HintAssist.Hint="Ваши счета" HorizontalContentAlignment="Center" SelectionChanged="NmBill_SelectionChanged"/>
         </Grid>
         <Border Padding="20" x:Name="brdrotate" Margin="0 40 0 0" Width="450" Height="230" CornerRadius="20" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Border.Background>
@@ -34,7 +34,7 @@
                 <DropShadowEffect BlurRadius="10" Color="Red" Direction="45" Opacity=".4" RenderingBias="Performance" ShadowDepth="30"/>
             </Border.Effect>
             <StackPanel>
-                <Label Content="Ваш номер карты" Foreground="White" FontSize="20" Grid.Column="0"/>
+                <Label Content="Ваш номер карты"  Foreground="White" FontFamily="Roboto" FontSize="20" Grid.Column="0"/>
                 <TextBlock x:Name="NmCard" Height="37" Text="{Binding NumberCard}" Foreground="White" FontFamily="Roboto" FontSize="25" Margin="0 0 0 10"/>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="CVV" FontSize="25" Grid.Column="1" Foreground="White"/>
@@ -44,7 +44,7 @@
                     <Label Content="ММ/ДД" FontSize="25" Foreground="White"/>
                     <TextBlock x:Name="Validity" Text="{Binding Validity}" FontSize="25" Foreground="White"/>
                 </StackPanel>
-                <TextBlock x:Name="fullname" FontSize="20" Foreground="White"/>
+                <TextBlock x:Name="fullname" FontSize="20" Foreground="White"><Run Language="ru-ru" Text="пукеквриыа"/></TextBlock>
             </StackPanel>
         </Border>
         <Button Content="Создать платежный счет" Click="BtnCreate_Click" VerticalAlignment="Bottom" Margin="0 0 0 30" HorizontalAlignment="Center" Background="Brown" Style="{StaticResource MaterialDesignRaisedButton}"/>

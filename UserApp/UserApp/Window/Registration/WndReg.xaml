@@ -65,7 +65,7 @@
                         </StackPanel>
                         <TextBlock Foreground="red" x:Name="TipLogIn" Grid.Row="2" TextAlignment="Center" Visibility="Collapsed">*Обязательное поле и без пробелов</TextBlock>
                         <TextBlock Foreground="Red" Grid.Row="2" x:Name="chkLog" TextAlignment="Center" Visibility="Collapsed">*Такой логин уже существует</TextBlock>
-                        <TextBox Grid.Row="2" x:Name="LogIn" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" LostFocus="LogIn_LostFocus"/>
+                        <TextBox Grid.Row="2" x:Name="LogIn" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" LostFocus="LogIn_LostFocus" TextChanged="LogIn_TextChanged"/>
                         <TextBlock Foreground="red" x:Name="TipPass" Grid.Row="3" TextAlignment="Center" Visibility="Collapsed">*Обязательное поле и без пробелов</TextBlock>
                         <TextBlock Foreground="red" x:Name="TipPassSpSim" Grid.Row="3" TextAlignment="Center" Visibility="Collapsed">Необходимо использовать специальные символы</TextBlock>
                         <TextBlock Foreground="Red" x:Name="passlen" Grid.Row="3" TextAlignment="Center" Visibility="Collapsed">*Пароль должен быть длинной не менее 8 символов</TextBlock>

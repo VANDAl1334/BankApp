@@ -38,9 +38,9 @@
             </Grid>
             <TextBlock Text="Добро пожаловать" VerticalAlignment="Top" Margin="0 45" Grid.Row="0" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Foreground="AliceBlue"/>
             <Image Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Source="/Window/MainWindow/bank.png" Height="150" Width="145"/>
-            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 15" VerticalAlignment="Bottom">
-                <Button Content="Регистрация" BorderBrush="Transparent" Width="190" Style="{StaticResource MaterialDesignFloatingActionSecondaryLightButton}" Click="BtnReg_Click" Background="Brown" FontFamily="Roboto" FontSize="14" FontWeight="Bold" Height="41"/>
-                <Button Content="Войти" Foreground="White" BorderBrush="Brown" BorderThickness="1" Width="100" Margin="30 0 0 0" Style="{StaticResource MaterialDesignFlatLightButton}" Height="32" Click="BtnAut_Click" FontFamily="Roboto" FontWeight="Bold"/>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 20" VerticalAlignment="Bottom">
+                <Button Content="Регистрация" BorderBrush="Transparent" Width="120" Style="{StaticResource MaterialDesignFlatLightButton}" Click="BtnReg_Click" Background="Brown" Foreground="White" FontFamily="Roboto" FontSize="14" FontWeight="Bold" Height="32"/>
+                <Button Content="Войти" Foreground="White" BorderBrush="Brown"  Width="100" Margin="35 0 0 0" Style="{StaticResource MaterialDesignFlatLightButton}" Height="32" Click="BtnAut_Click" FontFamily="Roboto" FontWeight="Bold"/>
             </StackPanel>
         </Grid>
     </Grid>

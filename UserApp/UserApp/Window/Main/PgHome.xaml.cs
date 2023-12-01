@@ -29,8 +29,14 @@ namespace UserApp.Window.Main
         }
         private void BtnCreate_Click(object sender, RoutedEventArgs e)
         {
+            //создать page для создания платежного
             Bill.AddBill(User.CurrentUser);
-            User.CurrentUser.UpdateBills();
+            User.CurrentUser.UpdateBills();            
+        }
+
+        private void NmBill_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

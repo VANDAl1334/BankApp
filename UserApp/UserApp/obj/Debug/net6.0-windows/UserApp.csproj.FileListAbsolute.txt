@@ -57,3 +57,9 @@ C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Win
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Main\PgHistory.baml
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Main\PgSupport.g.cs
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Main\PgSupport.baml
+C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Main\Pgtranzact.g.cs
+C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Main\Pgtranzact.baml
+C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Main\PgOptions.g.cs
+C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Main\PgOptions.baml
+C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Main\PgExit.g.cs
+C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Main\PgExit.baml
