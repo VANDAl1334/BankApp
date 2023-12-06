@@ -31,6 +31,7 @@ namespace UserApp
         bool hidden = true;
         private bool Frozen;
         private string Balance;
+        private WndMain wndMain;
 
         public WndMain()
         {
@@ -43,14 +44,8 @@ namespace UserApp
             Frozen = Bill.CurrentNumcard.Frozen;
             Balance = Bill.CurrentNumcard.Balance;
         }
-        private void BtnMin_Click(object sender, RoutedEventArgs e)
-        {
-            WindowState = WindowState.Minimized;
-        }
-        private void BtnClose_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
+        private void BtnMin_Click(object sender, RoutedEventArgs e) => WindowState = WindowState.Minimized;
+        private void BtnClose_Click(object sender, RoutedEventArgs e) => Close();
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
@@ -77,41 +72,16 @@ namespace UserApp
                 }
             }
         }        
-        private void BtnPanel_Click(object sender, RoutedEventArgs e)
-        {
-            timer.Start();
-        }       
-        private void ListView_Home(object sender, MouseButtonEventArgs e)
-        {
-            MainFrame.Navigate(new PgHome());
-        }
-        private void ListView_Transfer(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new Pgtranzact());
-        }
-        private void ListView_Support(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new PgSupport());
-        }
-        private void ListView_History(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new PgHistory());
-        }
-        private void ListView_Settings(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new PgOptions());
-        }
-        private void ListView_Exit(object sender, MouseButtonEventArgs e, WndMain wndMain)
-        {
-            MainFrame.Navigate(new PgExit(wndMain));
-        }
+        private void BtnPanel_Click(object sender, RoutedEventArgs e) => timer.Start();       
+        private void ListView_Home(object sender, MouseButtonEventArgs e) => MainFrame.Navigate(new PgHome());
+        private void ListView_Transfer(object sender, RoutedEventArgs e) => MainFrame.Navigate(new Pgtranzact());
+        private void ListView_Support(object sender, RoutedEventArgs e) => MainFrame.Navigate(new PgSupport());
+        private void ListView_History(object sender, RoutedEventArgs e) => MainFrame.Navigate(new PgHistory());
+        private void ListView_Settings(object sender, RoutedEventArgs e) => MainFrame.Navigate(new PgOptions());
+        private void ListView_Exit(object sender, MouseButtonEventArgs e)
+        => MainFrame.Navigate(new PgExit(this));
 
         private void MainFrame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
-        {
-
-        }
-
-        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
         {
 
         }

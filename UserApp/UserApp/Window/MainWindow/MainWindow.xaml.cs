@@ -22,8 +22,7 @@ namespace UserApp
     {
         public MainWindow()
         {
-             InitializeComponent();
-            
+            InitializeComponent();
         }
         private void BtnReg_Click(object sender, RoutedEventArgs e)
         {
@@ -31,20 +30,14 @@ namespace UserApp
             reg.Show();
             Close();
         }
-        private void BtnClose_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
+        private void BtnClose_Click(object sender, RoutedEventArgs e) => Close();
         private void BtnAut_Click(object sender, RoutedEventArgs e)
         {
             WndAut aut = new();
             aut.Show();
             Close();
         }
-        private void BtnMin_Click(object sender, RoutedEventArgs e)
-        {
-            WindowState = WindowState.Minimized;
-        }
+        private void BtnMin_Click(object sender, RoutedEventArgs e) => WindowState = WindowState.Minimized;
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
