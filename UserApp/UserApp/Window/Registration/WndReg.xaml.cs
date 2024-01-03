@@ -40,7 +40,7 @@ namespace UserApp
         {
             WindowState = WindowState.Minimized;
         }
-        private void BtnClose_Click (object sender, RoutedEventArgs e)
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
@@ -141,7 +141,7 @@ namespace UserApp
             if (User.IsUserExists(LogIn.Text))
             {
                 chkLog.Visibility = Visibility.Visible;
-                BtnReg.IsEnabled = false;               
+                BtnReg.IsEnabled = false;
                 return;
             }
             else
@@ -237,7 +237,16 @@ namespace UserApp
             else
             {
                 pass.Password = User.Hash(pass.Password);
-                User.AddUser(NmUs.Text, SrNmUs.Text, PtNmUs.Text, LogIn.Text, pass.Password, Phone.Text);
+                User user = new User {
+                    name_user = NmUs.Text,
+                    surname_user = SrNmUs.Text,
+                    patronymic_user = PtNmUs.Text,
+                    login_user = LogIn.Text,
+                    password_user = pass.Password,
+                    Role_id = "1",
+                    Phone = Phone.Text
+                };
+                User.AddUser(user);
                 WndAut wndAut = new();
                 wndAut.Show();
                 Close();

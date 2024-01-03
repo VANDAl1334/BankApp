@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UserApp.Classes;
+using UserApp.Models;
 
 namespace UserApp.Window.Authorization
 {
@@ -43,7 +44,7 @@ namespace UserApp.Window.Authorization
         }
         private void BtnAut_Click(object sender, RoutedEventArgs e)
         {   
-            User.CurrentUser = User.GetUserByLogIn(LogAut.Text, PassAut.Password);
+            User.CurrentUser = LibUser.GetUserByLogIn();
             if (User.CurrentUser != null)
             {
                 WndMain main = new();
@@ -71,6 +72,38 @@ namespace UserApp.Window.Authorization
         private void BtnRec_Click(object sender, RoutedEventArgs e)
         {
             ManagerPg.RecFrame.Navigate(new PgRec());
+        }
+
+        private void PassAut_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key.ToString() == "Return")
+            {
+                User.CurrentUser = User.GetUserByLogIn(LogAut.Text, PassAut.Password);
+                if (User.CurrentUser != null)
+                {
+                    WndMain main = new();
+                    main.Show();
+                    wndAut.Close();
+                }
+                else
+                    ErrLP.Visibility = Visibility.Visible;
+            }           
+        }
+
+        private void LogAut_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.Key.ToString() == "Return")
+            {
+                User.CurrentUser = User.GetUserByLogIn(LogAut.Text, PassAut.Password);
+                if (User.CurrentUser != null)
+                {
+                    WndMain main = new();
+                    main.Show();
+                    wndAut.Close();
+                }
+                else
+                    ErrLP.Visibility = Visibility.Visible;
+            }            
         }
     }
 }
