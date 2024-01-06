@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UserApp"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Регистрация" Height="420" Width="632" ShowInTaskbar="False" ResizeMode="CanMinimize" WindowStyle="None" MouseDown="Window_MouseDown" WindowStartupLocation="CenterOwner" Icon="/bank.ico">
+        Title="Регистрация" Height="420" Width="632"  ResizeMode="CanMinimize" WindowStyle="None" MouseDown="Window_MouseDown" WindowStartupLocation="CenterOwner" Icon="/bank.ico">
     <Grid>
         <Rectangle>
             <Rectangle.Fill>

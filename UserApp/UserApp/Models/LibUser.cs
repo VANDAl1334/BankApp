@@ -6,10 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
+using UserApp.Window.Authorization;
 namespace UserApp.Models
 {
     public class LibUser
     {
+        public User user;
         static public void AddUser(User user)
         {
             DB.OpenConnection();
@@ -27,7 +29,7 @@ namespace UserApp.Models
             adapter.Fill(table);
 
         }
-        public void UpdateBills(User user)
+        public static void UpdateBills(User user)
         {
             DB.OpenConnection();
             DataTable table = new();
@@ -80,6 +82,35 @@ namespace UserApp.Models
             var sha256 = SHA256.Create();
             var hash = sha256.ComputeHash(Encoding.UTF8.GetBytes(input));
             return Convert.ToBase64String(hash);
+        }
+
+        public static User GetUserByLogIn(string login, string password)
+        {
+            DB.OpenConnection();
+            DataTable table = new();
+            MySqlDataAdapter adapter = new();
+            password = Hash(password);
+            DB.cmd = new("SELECT * FROM `user` WHERE `login_user` = @uL AND `password_user` = @uP", DB.GetConnection());
+            DB.cmd.Parameters.Add("@uL", MySqlDbType.VarChar).Value = login;
+            DB.cmd.Parameters.Add("@uP", MySqlDbType.VarChar).Value = password;
+            adapter.SelectCommand = DB.cmd;
+            adapter.Fill(table);
+            DataRow[] rows = table.Select();
+             if (table.Rows.Count > 0)
+            {
+                User us = new()
+                {
+                    name_user = DB.ConvertFromDBVal<string>(rows[0].ItemArray[1]),
+                    surname_user = DB.ConvertFromDBVal<string>(rows[0].ItemArray[2]),
+                    patronymic_user = DB.ConvertFromDBVal<string>(rows[0].ItemArray[3]),
+                    login_user = DB.ConvertFromDBVal<string>(rows[0].ItemArray[4]),
+                    password_user = DB.ConvertFromDBVal<string>(rows[0].ItemArray[5]),
+                    Role_id = DB.ConvertFromDBVal<string>(rows[0].ItemArray[6]),
+                    Phone = DB.ConvertFromDBVal<string>(rows[0].ItemArray[7])
+                };
+                return us;
+            }
+            return null;
         }
     }
 }

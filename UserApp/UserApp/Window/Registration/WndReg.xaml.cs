@@ -18,6 +18,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using UserApp.Models;
 
 namespace UserApp
 {
@@ -138,7 +139,7 @@ namespace UserApp
                 BtnReg.IsEnabled = true;
                 TipLogIn.Visibility = Visibility.Collapsed;
             }
-            if (User.IsUserExists(LogIn.Text))
+            if (LibUser.IsUserExists(LogIn.Text))
             {
                 chkLog.Visibility = Visibility.Visible;
                 BtnReg.IsEnabled = false;
@@ -236,7 +237,7 @@ namespace UserApp
             }
             else
             {
-                pass.Password = User.Hash(pass.Password);
+                pass.Password = LibUser.Hash(pass.Password);
                 User user = new User {
                     name_user = NmUs.Text,
                     surname_user = SrNmUs.Text,
@@ -246,7 +247,7 @@ namespace UserApp
                     Role_id = "1",
                     Phone = Phone.Text
                 };
-                User.AddUser(user);
+                LibUser.AddUser(user);
                 WndAut wndAut = new();
                 wndAut.Show();
                 Close();

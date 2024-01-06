@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using UserApp.Models;
 namespace UserApp.Window.Main
 {
     /// <summary>
@@ -31,7 +31,7 @@ namespace UserApp.Window.Main
         {
             //создать page для создания платежного
             Bill.AddBill(User.CurrentUser);
-            User.CurrentUser.UpdateBills();            
+            LibUser.UpdateBills(User.CurrentUser);            
         }
 
         private void NmBill_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -16,8 +16,8 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" Width="100" Content="Да" FontSize="18" FontFamily="Roboto" Click="Button_ClickYes"></Button>
-            <Button Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" Width="100" Content="Отмена" FontSize="18" FontFamily="Roboto" Click="Button_ClickCancel"></Button>
+            <Button VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" Width="100" Content="Да" Foreground="White" FontSize="18" FontFamily="Roboto" Click="Button_ClickYes"></Button>
+            <Button Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" Width="100" Foreground="White" Content="Отмена" FontSize="18" FontFamily="Roboto" Click="Button_ClickCancel"></Button>
         </Grid>
     </Grid>
 </Page>

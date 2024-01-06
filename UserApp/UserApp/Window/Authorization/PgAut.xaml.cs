@@ -43,10 +43,13 @@ namespace UserApp.Window.Authorization
                 TipPass.Visibility = Visibility.Collapsed;
         }
         private void BtnAut_Click(object sender, RoutedEventArgs e)
-        {   
-            User.CurrentUser = LibUser.GetUserByLogIn();
-            if (User.CurrentUser != null)
+        {
+            string log = LogAut.Text;
+            string pass = PassAut.Password;
+            User user = LibUser.GetUserByLogIn(log, pass);   
+            if (user != null)
             {
+                User.CurrentUser = user;
                 WndMain main = new();
                 main.Show();
                 wndAut.Close();
@@ -73,12 +76,13 @@ namespace UserApp.Window.Authorization
         {
             ManagerPg.RecFrame.Navigate(new PgRec());
         }
-
-        private void PassAut_KeyUp(object sender, KeyEventArgs e)
+        private void Border_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key.ToString() == "Return")
             {
-                User.CurrentUser = User.GetUserByLogIn(LogAut.Text, PassAut.Password);
+                string log = LogAut.Text;
+                string pass = PassAut.Password;
+                LibUser.GetUserByLogIn(log, pass);
                 if (User.CurrentUser != null)
                 {
                     WndMain main = new();
@@ -87,23 +91,7 @@ namespace UserApp.Window.Authorization
                 }
                 else
                     ErrLP.Visibility = Visibility.Visible;
-            }           
-        }
-
-        private void LogAut_KeyUp(object sender, KeyEventArgs e)
-        {
-            if(e.Key.ToString() == "Return")
-            {
-                User.CurrentUser = User.GetUserByLogIn(LogAut.Text, PassAut.Password);
-                if (User.CurrentUser != null)
-                {
-                    WndMain main = new();
-                    main.Show();
-                    wndAut.Close();
-                }
-                else
-                    ErrLP.Visibility = Visibility.Visible;
-            }            
+            }
         }
     }
 }

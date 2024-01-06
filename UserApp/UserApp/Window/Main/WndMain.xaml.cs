@@ -78,10 +78,14 @@ namespace UserApp
         private void ListView_Support(object sender, RoutedEventArgs e) => MainFrame.Navigate(new PgSupport());
         private void ListView_History(object sender, RoutedEventArgs e) => MainFrame.Navigate(new PgHistory());
         private void ListView_Settings(object sender, RoutedEventArgs e) => MainFrame.Navigate(new PgOptions());
-        private void ListView_Exit(object sender, MouseButtonEventArgs e)
-        => MainFrame.Navigate(new PgExit(this));
+        private void ListView_Exit(object sender, MouseButtonEventArgs e) => MainFrame.Navigate(new PgExit(this));
 
         private void MainFrame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+
+        }
+
+        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
         {
 
         }

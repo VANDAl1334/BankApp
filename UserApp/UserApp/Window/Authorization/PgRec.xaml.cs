@@ -18,7 +18,7 @@ using UserApp.Window.Authorization;
 namespace UserApp
 {
     /// <summary>
-    /// Логика взаимодействия для Page1.xaml
+    /// Логика взаимодействия для PgRec.xaml
     /// </summary>
     public partial class PgRec : Page
     {

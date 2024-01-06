@@ -12,7 +12,7 @@ namespace UserApp
 {
     static class DB
     {
-        static MySqlConnection connection = new("server=localhost;port=3306;username=root;password=789456123;database=bank");
+        static MySqlConnection connection = new("server=localhost;port=3306;username=root;password=;database=bank");
         static public DataTable table = new();
         static public MySqlDataAdapter adapter = new();
         static public MySqlCommand cmd = new();

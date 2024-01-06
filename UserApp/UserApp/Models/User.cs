@@ -13,7 +13,7 @@ namespace UserApp
 {
     public class User
     {
-        public static User CurrentUser = new();
+        public static User CurrentUser;
         public string name_user { get; set; }
         public string surname_user { get; set; }
         public string patronymic_user { get; set; }
@@ -37,7 +37,7 @@ namespace UserApp
             this.login_user = login_user;
             this.password_user = password_user;
         }*/
-        public User() { }
+        //public User() { }
         
         public List<Bill> Bills;
         
