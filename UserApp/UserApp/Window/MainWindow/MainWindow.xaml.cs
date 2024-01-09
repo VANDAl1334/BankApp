@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UserApp.Window.Registration;
 
 namespace UserApp
 {
@@ -27,13 +28,13 @@ namespace UserApp
         private void BtnReg_Click(object sender, RoutedEventArgs e)
         {
             WndReg reg = new();
-            reg.Show();
-            Close();
+            reg.Show();        
+            Close();            
         }
         private void BtnClose_Click(object sender, RoutedEventArgs e) => Close();
         private void BtnAut_Click(object sender, RoutedEventArgs e)
         {
-            WndAut aut = new();
+            WndAut aut = new();            
             aut.Show();
             Close();
         }

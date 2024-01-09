@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mysqlx.Connection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,13 +27,7 @@ namespace UserApp
         {
             InitializeComponent();
         }
-        private void BtnBack_Click(object sender, RoutedEventArgs e)
-        {
-            ManagerPg.RecFrame.Navigate(new PgRec());
-        }
-        private void BtnRecPass_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        private void BtnBack_Click(object sender, RoutedEventArgs e) => NavigationService.GoBack();
+        private void BtnRecPass_Click(object sender, RoutedEventArgs e) => NavigationService.GoBack();
     }
 }

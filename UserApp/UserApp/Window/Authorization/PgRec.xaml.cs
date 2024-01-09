@@ -21,18 +21,12 @@ namespace UserApp
     /// Логика взаимодействия для PgRec.xaml
     /// </summary>
     public partial class PgRec : Page
-    {
+    {        
         public PgRec()
         {
             InitializeComponent();
         }        
-        private void BtnBack_Click(object sender, RoutedEventArgs e)
-        {
-            //ManagerPg.RecFrame.Navigate(new PgAut());
-        }
-        private void BtnRec_Click(object sender, RoutedEventArgs e)
-        {
-            ManagerPg.RecFrame.Navigate(new RecPass());
-        }
+        private void BtnBack_Click(object sender, RoutedEventArgs e) => NavigationService.GoBack();
+        private void BtnRec_Click(object sender, RoutedEventArgs e) => NavigationService.Navigate(new PgCodeRec());
     }
 }

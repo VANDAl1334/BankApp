@@ -26,7 +26,7 @@ namespace UserApp.Window.Authorization
         public PgAut(WndAut wndaut)
         {
             InitializeComponent();
-            this.wndAut = wndaut;
+            wndAut = wndaut;
         }
         private void LogAut_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -74,7 +74,7 @@ namespace UserApp.Window.Authorization
         }
         private void BtnRec_Click(object sender, RoutedEventArgs e)
         {
-            ManagerPg.RecFrame.Navigate(new PgRec());
+            NavigationService.Navigate(new PgRec());
         }
         private void Border_KeyUp(object sender, KeyEventArgs e)
         {

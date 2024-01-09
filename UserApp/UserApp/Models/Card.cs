@@ -9,28 +9,8 @@ namespace UserApp
 {
     internal class Card
     {
-        public bool Number
-        {
-            get 
-            {
-                /*Random rnd = new();
-                WndMain.Nmbill.Text = rnd.Next();*/
-                return Number;
-            }
-            set 
-            {
-                
-            }
-        }
-        public bool CVV
-        {
-            get { return CVV; }
-            set { value = CVV; }
-        }
-        public bool Validity
-        {
-            get { return Validity; }
-            set { value = Validity; }
-        }
+        public string Number { get; set; }
+        public int CVV { get; set; }
+        public string Validity { get; set; }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.DirectoryServices.ActiveDirectory;
 using System.Linq;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,13 +27,11 @@ namespace UserApp
     /// </summary>
     public partial class WndAut : System.Windows.Window
     {
-        private PgAut pgAut;
         public WndAut()
         {
             InitializeComponent();           
-            RecFrame.Navigate(new PgAut(this));
-        }
-        //public WndAut(WndAut wndAut) {}
+            RecFrame.Navigate(new PgAut(this));            
+        }        
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             MainWindow back = new();

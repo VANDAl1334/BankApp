@@ -17,7 +17,7 @@
             <DockPanel>
                 <Grid DockPanel.Dock="Top" Height="151">
                     <Grid.RowDefinitions >
-                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="43.667"></RowDefinition>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                         <RowDefinition Height="20"></RowDefinition>
@@ -35,7 +35,7 @@
                     <Button Grid.Row="2" FontSize="12" Content="Восстановление пароля" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="blue" Background="Transparent" BorderBrush="Transparent" Click="BtnRec_Click" Cursor="Arrow"/>
                     <CheckBox x:Name="ChkPass" Grid.Column="1" Grid.Row="1" Click="ChkPass_Click"></CheckBox>
                 </Grid>
-                <Button Content="Войти" Width="100" VerticalAlignment="Top" Style="{StaticResource MaterialDesignOutlinedLightButton}" Click="BtnAut_Click"/>
+                <Button Content="Войти" Width="100" VerticalAlignment="Top" Foreground="Black" Style="{StaticResource MaterialDesignOutlinedLightButton}" Click="BtnAut_Click"/>
             </DockPanel>
         </Border>
     </Grid>

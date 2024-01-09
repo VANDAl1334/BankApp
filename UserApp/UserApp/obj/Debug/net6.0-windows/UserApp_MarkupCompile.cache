@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\App.xaml
-15499272841
+18-1591072346
 
-23-1213785987
+281409041740
 203-1778267942
-Window\Authorization\PgAut.xaml;Window\Authorization\PgRec.xaml;Window\Authorization\RecPass.xaml;Window\Authorization\WndAut.xaml;Window\MainWindow\MainWindow.xaml;Window\Main\PgExit.xaml;Window\Main\PgHistory.xaml;Window\Main\PgHome.xaml;Window\Main\PgOptions.xaml;Window\Main\PgSupport.xaml;Window\Main\Pgtranzact.xaml;Window\Main\WndMain.xaml;Window\Registration\WndReg.xaml;WndMy.xaml;WndYour.xaml;
+Window\Authorization\PgAut.xaml;Window\Authorization\PgCodeRec.xaml;Window\Authorization\PgRec.xaml;Window\Authorization\RecPass.xaml;Window\Authorization\WndAut.xaml;Window\MainWindow\MainWindow.xaml;Window\Main\PgExit.xaml;Window\Main\PgHistory.xaml;Window\Main\PgHome.xaml;Window\Main\PgOptions.xaml;Window\Main\PgSupport.xaml;Window\Main\Pgtranzact.xaml;Window\Main\WndMain.xaml;Window\Registration\PgFNm.xaml;Window\Registration\PgLogPass.xaml;Window\Registration\WndReg.xaml;WndMy.xaml;WndYour.xaml;
 
 False
 

@@ -11,7 +11,7 @@
         <Grid Margin="170 0 170 47" Background="Gray">
         </Grid>
         <StackPanel Margin="0 0 0 15" VerticalAlignment="Bottom" HorizontalAlignment="Center" Orientation="Horizontal">
-            <TextBox Width="359" Margin="0 0 19 0" BorderBrush="Brown" BorderThickness="1.5" Height="30" FontFamily="Times New Roman" FontSize="16" Style="{StaticResource MaterialDesignTextBox}"/>
+            <TextBox Width="359" Margin="0 0 19 0" TextWrapping="WrapWithOverflow" BorderBrush="Brown" BorderThickness="1.5" Height="30" FontFamily="Times New Roman" FontSize="16" Style="{StaticResource MaterialDesignTextBox}"/>
             <Button Width="32" Height="32" Style="{StaticResource MaterialDesignIconButton}">
                 <Image Source="/Window/Main/Sent.ico"/>
             </Button>

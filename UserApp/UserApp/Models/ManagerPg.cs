@@ -8,10 +8,8 @@ namespace UserApp.Classes
 {
     public class ManagerPg
     {
-        ManagerPg() 
-        {
-            //RecFrame.Navigate(new PgRec());
-        }
         public static Frame RecFrame { get; set; }
+        public static Frame RegFrame { get; set; }
+        public static WndReg WndReg { get; set; }
     }
 }

@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UserApp"
         mc:Ignorable="d"
-        Title="Главная" Height="450" Width="797" WindowStartupLocation="CenterOwner" WindowStyle="None" MouseDown="Window_MouseDown" ResizeMode="CanMinimize" Icon="/Window/Main/bank.ico">
+        Title="Главная" Height="450" Width="797" WindowStartupLocation="CenterScreen" WindowStyle="None" MouseDown="Window_MouseDown" ResizeMode="CanMinimize" Icon="/Window/Main/bank.ico">
     <Grid x:Name="background">
         <Grid Height="30" Background="Brown" Margin="47 0 0 0" VerticalAlignment="Top">
             <StackPanel Orientation="Horizontal" Cursor="Hand">

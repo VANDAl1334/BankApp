@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UserApp.Libs;
 using UserApp.Models;
 namespace UserApp.Window.Main
 {
@@ -30,7 +31,7 @@ namespace UserApp.Window.Main
         private void BtnCreate_Click(object sender, RoutedEventArgs e)
         {
             //создать page для создания платежного
-            Bill.AddBill(User.CurrentUser);
+            LibBill.AddBill(User.CurrentUser);
             LibUser.UpdateBills(User.CurrentUser);            
         }
 

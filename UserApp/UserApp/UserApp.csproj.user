@@ -10,6 +10,9 @@
     <Compile Update="Window\Authorization\PgAut.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Window\Authorization\PgCodeRec.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Window\Authorization\RecPass.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -34,6 +37,12 @@
     <Compile Update="Window\Main\Pgtranzact.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Window\Registration\PgFNm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Window\Registration\PgLogPass.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="WndYour.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -43,6 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Window\Authorization\PgAut.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Window\Authorization\PgCodeRec.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Window\Authorization\RecPass.xaml">
@@ -67,6 +79,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Window\Main\Pgtranzact.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Window\Registration\PgFNm.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Window\Registration\PgLogPass.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="WndYour.xaml">
