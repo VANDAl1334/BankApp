@@ -28,7 +28,7 @@
             </Rectangle.RenderTransform>
         </Rectangle>
         <Grid Margin="47 30 0 0">
-            <Frame Name="MainFrame" NavigationUIVisibility="Hidden" Navigated="MainFrame_Navigated"/>
+            <Frame Name="MainFrame" NavigationUIVisibility="Hidden"/>
         </Grid>
         <Grid x:Name="Menu" Width="47" MinWidth="47" MaxWidth="225" HorizontalAlignment="Left" Background="#FFBB0000">
             <StackPanel>

@@ -11,12 +11,12 @@ namespace UserApp
 {
     public class Bill
     {
-        public static Bill CurrentNumcard = new();
+        public static Bill CurrentBill = new();
         public string NumberBill { get; set; }
-        public bool Frozen { get; set; }
-        public string Balance { get; set; }
+        public string Frozen { get; set; }
+        public float Balance { get; set; }
         public string NumberCard { get; set; }
-
+        public uint bill_owner { get; set; }
         
     }
 }

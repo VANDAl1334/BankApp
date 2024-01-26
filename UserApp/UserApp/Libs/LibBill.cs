@@ -24,6 +24,44 @@ namespace UserApp.Libs
             adapter.SelectCommand = DB.cmd;
             adapter.Fill(table);
         }
+        public static Bill GetBill(User user)
+        {
+            DB.OpenConnection();
+            DataTable table = new();
+            MySqlDataAdapter adapter = new();
+            DB.cmd = new("SELECT * FROM `bill` inner join `user` on user.id = bill.bill_owner WHERE `bill_owner` = @bo", DB.GetConnection());
+            DB.cmd.Parameters.Add("@bo", MySqlDbType.VarChar).Value = user.id;
+            adapter.SelectCommand = DB.cmd;
+            adapter.Fill(table);
+            DataRow[] rows = table.Select();
+            if (table.Rows.Count > 0)
+            {
+                Bill bill = new()
+                {
+                    NumberBill = DB.ConvertFromDBVal<string>(rows[0].ItemArray[0]),
+                    Frozen = DB.ConvertFromDBVal<string>(rows[0].ItemArray[1]),
+                    Balance = DB.ConvertFromDBVal<float>(rows[0].ItemArray[2]),
+                    NumberCard = DB.ConvertFromDBVal<string>(rows[0].ItemArray[3]),
+                    bill_owner = DB.ConvertFromDBVal<uint>(rows[0].ItemArray[4])
+                };
+                Bill.CurrentBill = bill;
+                return bill;
+            }
+            return null;
+
+        }
+        public static Bill UpdateBills()
+        {
+            Bill bill = new();
+            DB.OpenConnection();
+            DataTable table = new();
+            MySqlDataAdapter adapter = new();
+            DB.cmd = new("SELECT * FROM `bill` inner join `user` on user.id = bill.bill_owner WHERE `bill_owner` = @bo", DB.GetConnection());
+            DB.cmd.Parameters.Add("@uL", MySqlDbType.VarChar).Value = bill.bill_owner;
+            adapter.SelectCommand = DB.cmd;
+            adapter.Fill(table);
+            return bill;
+        }
         public static void GetBillByUser(string numbill)
         {
             DB.OpenConnection();
@@ -37,16 +75,6 @@ namespace UserApp.Libs
             if (table.Rows.Count > 0)
             {
                 GenBill();
-            }
-            else
-            {
-                Bill bill = new()
-                {
-                    NumberBill = DB.ConvertFromDBVal<string>(rows[0].ItemArray[0]),
-                    Frozen = DB.ConvertFromDBVal<bool>(rows[0].ItemArray[1]),
-                    Balance = DB.ConvertFromDBVal<string>(rows[0].ItemArray[2]),
-                    NumberCard = DB.ConvertFromDBVal<string>(rows[0].ItemArray[3])
-                };
             }
         }
         public static string GenBill()

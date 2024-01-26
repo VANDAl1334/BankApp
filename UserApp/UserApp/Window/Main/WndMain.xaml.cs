@@ -29,8 +29,8 @@ namespace UserApp
     {
         DispatcherTimer timer;
         bool hidden = true;
-        private bool Frozen;
-        private string Balance;
+        private string Frozen;
+        private float Balance;
         private WndMain wndMain;
 
         public WndMain()
@@ -39,10 +39,10 @@ namespace UserApp
             MainFrame.Navigate(new PgHome());
             timer = new();
             timer.Interval = new TimeSpan(0, 0, 0, 0, 10);
-            timer.Tick += Timer_Tick;            
+            timer.Tick += Timer_Tick;
             login.Text = User.CurrentUser.login_user;                        
-            Frozen = Bill.CurrentNumcard.Frozen;
-            Balance = Bill.CurrentNumcard.Balance;
+            Frozen = Bill.CurrentBill.Frozen;
+            Balance = Bill.CurrentBill.Balance;
         }
         private void BtnMin_Click(object sender, RoutedEventArgs e) => WindowState = WindowState.Minimized;
         private void BtnClose_Click(object sender, RoutedEventArgs e) => Close();
@@ -55,7 +55,7 @@ namespace UserApp
         {
             if (hidden)
             {
-                Menu.Width += 8;
+                Menu.Width += 20;
                 if (Menu.Width >= 200)
                 {
                     timer.Stop();
@@ -64,7 +64,7 @@ namespace UserApp
             }
             else
             {
-                Menu.Width -= 8;
+                Menu.Width -= 20;
                 if (Menu.Width <= 47)
                 {
                     timer.Stop();
@@ -79,15 +79,5 @@ namespace UserApp
         private void ListView_History(object sender, RoutedEventArgs e) => MainFrame.Navigate(new PgHistory());
         private void ListView_Settings(object sender, RoutedEventArgs e) => MainFrame.Navigate(new PgOptions());
         private void ListView_Exit(object sender, MouseButtonEventArgs e) => MainFrame.Navigate(new PgExit(this));
-
-        private void MainFrame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
-        {
-
-        }
-
-        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

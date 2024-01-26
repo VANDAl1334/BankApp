@@ -30,16 +30,7 @@ namespace UserApp.Models
             adapter.SelectCommand = DB.cmd;
             adapter.Fill(table);
         }
-        public static void UpdateBills(User user)
-        {
-            DB.OpenConnection();
-            DataTable table = new();
-            MySqlDataAdapter adapter = new();
-            DB.cmd = new("SELECT * FROM `user` INNER JOIN `bill` on user.id = bill.bill_owner WHERE user.login_user = @uL", DB.GetConnection());
-            DB.cmd.Parameters.Add("@uL", MySqlDbType.VarChar).Value = user.login_user;
-            adapter.SelectCommand = DB.cmd;
-            adapter.Fill(table);
-        }
+
         public static Boolean IsUserExistsEmail(string Email)
         {
             DataTable table = new();
@@ -53,6 +44,35 @@ namespace UserApp.Models
             else
                 return false;
         } 
+        public static List<Bill> GetBillsByUser(User user)
+        {
+            List<Bill> bills = new();
+            DB.OpenConnection();
+            DataTable table = new();
+            MySqlDataAdapter adapter = new();
+            DB.cmd = new("SELECT * FROM `bill` inner join `user` on user.id = bill.bill_owner WHERE `bill_owner` = @bo", DB.GetConnection());
+            DB.cmd.Parameters.Add("@bo", MySqlDbType.VarChar).Value = user.id;
+            adapter.SelectCommand = DB.cmd;
+            adapter.Fill(table);
+            DataRow[] rows = table.Select();
+            if (table.Rows.Count > 0)
+            {
+                foreach(DataRow row in rows) 
+                {
+                    Bill bill = new()
+                    {
+                        NumberBill = DB.ConvertFromDBVal<string>(row.ItemArray[0]),
+                        Frozen = DB.ConvertFromDBVal<string>(row.ItemArray[1]),
+                        Balance = DB.ConvertFromDBVal<float>(row.ItemArray[2]),
+                        NumberCard = DB.ConvertFromDBVal<string>(row.ItemArray[3]),
+                        bill_owner = DB.ConvertFromDBVal<uint>(row.ItemArray[4])
+                    };
+                    bills.Add(bill);
+                }
+                return bills;
+            }
+            return null;
+        }
         public static Boolean IsUserExistsLogin(string Login)
         {
             DataTable table = new();
@@ -123,7 +143,7 @@ namespace UserApp.Models
                 };
                 return us;
              }
-            return null;
+             return null;
         }
     }
 }

@@ -22,6 +22,7 @@ namespace UserApp
         public string password_user { get; set; }
         public string Role_id { get; set; }
         public string Email { get; set; }
+        public List<Bill> Bills;
         public string FullName
         {
             get
@@ -29,6 +30,6 @@ namespace UserApp
                 return surname_user + " " + name_user + " " + patronymic_user;
             }
         }        
-        public List<Bill> Bills;         
+                 
     }
 }

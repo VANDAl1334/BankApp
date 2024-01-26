@@ -8,7 +8,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="750"
       Title="Page1">
-    <Grid>
+    <Grid >
         <Grid Height="100" VerticalAlignment="Top">
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
@@ -18,8 +18,9 @@
                 <TextBlock Grid.Row="0" Text="Баланс " FontSize="22" Foreground="Black" />
                 <TextBlock Grid.Row="0" x:Name="Balance" FontSize="22" Foreground="Black"/>
             </StackPanel>
-            <ComboBox Grid.Row="1" FontSize="22" x:Name="NmBill" HorizontalAlignment="Center" Width="400" materialDesign:HintAssist.Hint="Ваши счета" HorizontalContentAlignment="Center" SelectionChanged="NmBill_SelectionChanged"/>
+            <ComboBox Grid.Row="1" FontSize="22" x:Name="NmBill" DisplayMemberPath="NumberBill" SelectedItem="0" Foreground="Black" HorizontalAlignment="Center" Width="400" materialDesign:HintAssist.Hint="Ваши счета" HorizontalContentAlignment="Center" SelectionChanged="NmBill_SelectionChanged"/>
         </Grid>
+        <Button HorizontalAlignment="Right" VerticalAlignment="Top"></Button>
         <Border Padding="20" x:Name="brdrotate" Margin="0 40 0 0" Width="450" Height="230" CornerRadius="20" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">

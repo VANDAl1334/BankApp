@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UserApp.Libs;
 using UserApp.Models;
+using static System.Net.Mime.MediaTypeNames;
 namespace UserApp.Window.Main
 {
     /// <summary>
@@ -21,21 +22,50 @@ namespace UserApp.Window.Main
     /// </summary>
     public partial class PgHome : Page
     {
+        int AntiReckuriyanahuy = 0;
+        int Count;
         public PgHome()
         {
             InitializeComponent();
+            LibBill.GetBill(User.CurrentUser);            
+            NmBill.Items.Add(Bill.CurrentBill);
+            NmBill.SelectedIndex = 0;
             fullname.Text = User.CurrentUser.FullName;
-            NmBill.Text = Bill.CurrentNumcard.NumberBill;
-            NmCard.Text = Bill.CurrentNumcard.NumberCard;
+        }
+        public void UpdateBills()
+        {
+           /* if (NmBill.SelectedIndex >= 0)
+            {                
+                foreach (Bill bill in LibUser.GetBillsByUser(User.CurrentUser))
+                {
+                    NmBill.Items.Add(bill);
+                    Count = NmBill.Items.Count;
+                    for (int i = 0; i < Count; i++)
+                    {
+                        
+                    }                    
+                }
+                Balance.Text = (NmBill.SelectedItem as Bill).Balance.ToString();
+            }*/
         }
         private void BtnCreate_Click(object sender, RoutedEventArgs e)
         {
-            //создать page для создания платежного
             LibBill.AddBill(User.CurrentUser);
-            LibUser.UpdateBills(User.CurrentUser);            
+            LibBill.GetBill(User.CurrentUser);
+            NmCard.Text = Bill.CurrentBill.NumberCard;
+        }
+        private void NmBill_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (AntiReckuriyanahuy == 0)
+            {
+                AntiReckuriyanahuy = 1;
+                UpdateBills();
+            }
+            else
+                AntiReckuriyanahuy--;
         }
 
-        private void NmBill_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Grid_KeyUp(object sender, KeyEventArgs e)
         {
 
         }
