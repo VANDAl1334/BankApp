@@ -41,8 +41,6 @@ namespace UserApp
             timer.Interval = new TimeSpan(0, 0, 0, 0, 10);
             timer.Tick += Timer_Tick;
             login.Text = User.CurrentUser.login_user;                        
-            Frozen = Bill.CurrentBill.Frozen;
-            Balance = Bill.CurrentBill.Balance;
         }
         private void BtnMin_Click(object sender, RoutedEventArgs e) => WindowState = WindowState.Minimized;
         private void BtnClose_Click(object sender, RoutedEventArgs e) => Close();

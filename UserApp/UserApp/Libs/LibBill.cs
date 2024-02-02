@@ -24,6 +24,7 @@ namespace UserApp.Libs
             adapter.SelectCommand = DB.cmd;
             adapter.Fill(table);
         }
+
         public static Bill GetBill(User user)
         {
             DB.OpenConnection();
@@ -48,11 +49,9 @@ namespace UserApp.Libs
                 return bill;
             }
             return null;
-
         }
-        public static Bill UpdateBills()
+        public static Bill UpdateBills(Bill bill)
         {
-            Bill bill = new();
             DB.OpenConnection();
             DataTable table = new();
             MySqlDataAdapter adapter = new();
@@ -62,6 +61,16 @@ namespace UserApp.Libs
             adapter.Fill(table);
             return bill;
         }
+        /*public static void UpdateBillsByCard()
+        {
+            DB.OpenConnection();
+            DataTable table = new();
+            MySqlDataAdapter adapter = new();
+            DB.cmd = new("SELECT * FROM `bill` inner join `user` on user.id = bill.bill_owner WHERE `bill_owner` = @bo", DB.GetConnection());
+            DB.cmd.Parameters.Add("@uL", MySqlDbType.VarChar).Value = bill.bill_owner;
+            adapter.SelectCommand = DB.cmd;
+            adapter.Fill(table);
+        }*/
         public static void GetBillByUser(string numbill)
         {
             DB.OpenConnection();
@@ -72,10 +81,8 @@ namespace UserApp.Libs
             adapter.SelectCommand = DB.cmd;
             adapter.Fill(table);
             DataRow[] rows = table.Select();
-            if (table.Rows.Count > 0)
-            {
+            if (table.Rows.Count > 0)            
                 GenBill();
-            }
         }
         public static string GenBill()
         {

@@ -15,7 +15,7 @@ namespace UserApp
         public string NumberBill { get; set; }
         public string Frozen { get; set; }
         public float Balance { get; set; }
-        public string NumberCard { get; set; }
+        public string? NumberCard { get; set; }
         public uint bill_owner { get; set; }
         
     }

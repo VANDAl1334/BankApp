@@ -67,7 +67,7 @@ namespace UserApp.Models
                         NumberCard = DB.ConvertFromDBVal<string>(row.ItemArray[3]),
                         bill_owner = DB.ConvertFromDBVal<uint>(row.ItemArray[4])
                     };
-                    bills.Add(bill);
+                   bills.Add(bill);
                 }
                 return bills;
             }

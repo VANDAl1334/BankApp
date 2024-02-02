@@ -22,52 +22,76 @@ namespace UserApp.Window.Main
     /// </summary>
     public partial class PgHome : Page
     {
-        int AntiReckuriyanahuy = 0;
-        int Count;
         public PgHome()
         {
             InitializeComponent();
-            LibBill.GetBill(User.CurrentUser);            
-            NmBill.Items.Add(Bill.CurrentBill);
-            NmBill.SelectedIndex = 0;
-            fullname.Text = User.CurrentUser.FullName;
+            Updates();
         }
-        public void UpdateBills()
+        public void Updates()
         {
-           /* if (NmBill.SelectedIndex >= 0)
-            {                
-                foreach (Bill bill in LibUser.GetBillsByUser(User.CurrentUser))
+            if (LibBill.GetBill(User.CurrentUser) != null)
+            {
+                BtnLinkCard.IsEnabled = true;
+                if (Bill.CurrentBill.NumberCard != null)
                 {
-                    NmBill.Items.Add(bill);
-                    Count = NmBill.Items.Count;
-                    for (int i = 0; i < Count; i++)
-                    {
-                        
-                    }                    
+                    DataCard.Visibility = Visibility.Visible;
+                    NoDataCard.Visibility = Visibility.Collapsed;
+                    LibCard.GetCard();
+                    fullname.Text = User.CurrentUser.FullName;
                 }
-                Balance.Text = (NmBill.SelectedItem as Bill).Balance.ToString();
-            }*/
+                else
+                {
+                    DataCard.Visibility = Visibility.Collapsed;
+                    NoDataCard.Visibility = Visibility.Visible;
+                }
+                if (Bill.CurrentBill.NumberBill != null)
+                {
+                    NmBill.SelectedIndex = 0;
+                    foreach (Bill bill in LibUser.GetBillsByUser(User.CurrentUser))
+                    {
+                        NmBill.Items.Add(bill);
+                        if (Card.CurrentCard?.Number != null && bill.NumberCard?.ToString() == Card.CurrentCard?.Number)
+                        {
+                            NmCard.Text = Card.CurrentCard.Number;
+                            CVV.Text = Card.CurrentCard.CVV.ToString();
+                            Validity.Text = Card.CurrentCard.Validity;
+                            BtnLinkCard.IsEnabled = false;
+                        }
+                    }
+                    Balance.Text = (NmBill.SelectedItem as Bill).Balance.ToString();
+                }
+            }
+            else
+            {
+                BtnLinkCard.IsEnabled = false;
+                DataCard.Visibility = Visibility.Collapsed;
+                NoDataCard.Visibility = Visibility.Visible;
+            }
         }
-        private void BtnCreate_Click(object sender, RoutedEventArgs e)
+        private void BtnCreateBill_Click(object sender, RoutedEventArgs e)
         {
             LibBill.AddBill(User.CurrentUser);
-            LibBill.GetBill(User.CurrentUser);
-            NmCard.Text = Bill.CurrentBill.NumberCard;
+            NmBill.Items.Clear();
+            Updates();
+        }
+        private void BtnCreateCard_Click(object sender, RoutedEventArgs e)
+        {
+            LibCard.AddCard();
+            LibCard.GetCard();
+            Bill.CurrentBill.NumberCard = Card.CurrentCard.Number;
+            LibUser.GetBillsByUser(User.CurrentUser);
+            NmBill.Items.Clear();
+            Updates();
         }
         private void NmBill_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (AntiReckuriyanahuy == 0)
-            {
-                AntiReckuriyanahuy = 1;
-                UpdateBills();
-            }
-            else
-                AntiReckuriyanahuy--;
+            if (NmBill.SelectedIndex > 0)
+                Balance.Text = (NmBill.SelectedItem as Bill).Balance.ToString();
         }
-
-        private void Grid_KeyUp(object sender, KeyEventArgs e)
+        private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
-
+            NmBill.Items.Clear();
+            Updates();
         }
     }
 }

@@ -18,9 +18,9 @@
                 <TextBlock Grid.Row="0" Text="Баланс " FontSize="22" Foreground="Black" />
                 <TextBlock Grid.Row="0" x:Name="Balance" FontSize="22" Foreground="Black"/>
             </StackPanel>
-            <ComboBox Grid.Row="1" FontSize="22" x:Name="NmBill" DisplayMemberPath="NumberBill" SelectedItem="0" Foreground="Black" HorizontalAlignment="Center" Width="400" materialDesign:HintAssist.Hint="Ваши счета" HorizontalContentAlignment="Center" SelectionChanged="NmBill_SelectionChanged"/>
+            <ComboBox Grid.Row="1" FontSize="22" x:Name="NmBill" DisplayMemberPath="NumberBill" SelectedItem="0" Foreground="Black" HorizontalAlignment="Center" Width="400" materialDesign:HintAssist.Hint="У вас нет счетов" HorizontalContentAlignment="Center" SelectionChanged="NmBill_SelectionChanged"/>
         </Grid>
-        <Button HorizontalAlignment="Right" VerticalAlignment="Top"></Button>
+        <Button HorizontalAlignment="Right" Width="45" Height="45" VerticalAlignment="Top" Background="Transparent" BorderBrush="Transparent" Foreground="red" FontSize="35" Click="BtnUpdate_Click">↻</Button>
         <Border Padding="20" x:Name="brdrotate" Margin="0 40 0 0" Width="450" Height="230" CornerRadius="20" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
@@ -34,20 +34,29 @@
             <Border.Effect>
                 <DropShadowEffect BlurRadius="10" Color="Red" Direction="45" Opacity=".4" RenderingBias="Performance" ShadowDepth="30"/>
             </Border.Effect>
-            <StackPanel>
-                <Label Content="Ваш номер карты"  Foreground="White" FontFamily="Roboto" FontSize="20" Grid.Column="0"/>
-                <TextBlock x:Name="NmCard" Height="37" Foreground="White" FontFamily="Roboto" FontSize="25" Margin="0 0 0 10"/>
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="CVV" FontSize="25" Grid.Column="1" Foreground="White"/>
-                    <TextBlock x:Name="CVV" FontSize="30" Foreground="White"/>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock x:Name="NoDataCard" Visibility="Collapsed" HorizontalAlignment="Center" FontSize="24" VerticalAlignment="Center">У вас не привязана карта</TextBlock>
+                <StackPanel x:Name="DataCard" Width="410" Height="190" Visibility="Visible">
+                    <Label Content="Ваш номер карты"  Foreground="White" FontFamily="Roboto" FontSize="20" Grid.Column="0"/>
+                    <TextBlock x:Name="NmCard" Height="37" Foreground="White" FontFamily="Roboto" FontSize="25" Margin="0 0 0 10"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="CVV" FontSize="25" Grid.Column="1" Foreground="White"/>
+                        <TextBlock x:Name="CVV" FontSize="30" Foreground="White"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Orientation="Horizontal">
+                        <TextBlock x:Name="Validity" Text="ММ/ГГ" Padding="0 0 10 0" FontSize="25" Foreground="White"/>
+                    </StackPanel>
+                    <TextBlock x:Name="fullname" FontSize="20" Foreground="White"><Run Language="ru-ru"/></TextBlock>
                 </StackPanel>
-                <StackPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Orientation="Horizontal">
-                    <Label Content="ММ/ДД" FontSize="25" Foreground="White"/>
-                    <TextBlock x:Name="Validity"  FontSize="25" Foreground="White"/>
-                </StackPanel>
-                <TextBlock x:Name="fullname" FontSize="20" Foreground="White"><Run Language="ru-ru"/></TextBlock>
             </StackPanel>
         </Border>
-        <Button Content="Создать платежный счет" Click="BtnCreate_Click" VerticalAlignment="Bottom" Margin="0 0 0 30" HorizontalAlignment="Center" Background="Brown" Style="{StaticResource MaterialDesignRaisedButton}"/>
+        <Grid Margin="0 360 0 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Content="Создать платежный счет" Margin="70 0 0 0" Click="BtnCreateBill_Click" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Brown" Style="{StaticResource MaterialDesignRaisedButton}"/>
+            <Button Content="Привязать карту" x:Name="BtnLinkCard" Grid.Column="1" Click="BtnCreateCard_Click" VerticalAlignment="Center" Margin="0 0 70 0" HorizontalAlignment="Center" Background="Brown" Style="{StaticResource MaterialDesignRaisedButton}"/>
+        </Grid>
     </Grid>
 </Page>
