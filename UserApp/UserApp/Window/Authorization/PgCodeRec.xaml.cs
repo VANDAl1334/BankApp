@@ -23,22 +23,23 @@ namespace UserApp.Window.Authorization
         public PgCodeRec()
         {
             InitializeComponent();
+            Code.MaxLength = 9;
+            Code.Focus();
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e) => NavigationService.GoBack();
-        private void BtnRec_Click(object sender, RoutedEventArgs e)
+        private void BtnRec_Click(object sender, RoutedEventArgs e) => NavigationService.Navigate(new PgRecPass());
+        private void Code_TextChanged(object sender, TextChangedEventArgs e)
         {
+            if (Code.Text.Length == 4)
+                Code.Text += "-";
             if (Code.Text.Length == 9)
             {
                 TipCode.Visibility = Visibility.Collapsed;
                 BtnRec.IsEnabled = true;
             }
             else
-                TipCode.Visibility = Visibility.Visible;
-        }
-
-        private void Code_TextChanged(object sender, TextChangedEventArgs e)
-        {
+                TipCode.Visibility = Visibility.Visible;            
             Code.SelectionStart = Code.Text.Length;
             Code.Text = Code.Text.ToUpper();
         }

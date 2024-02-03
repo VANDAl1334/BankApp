@@ -25,6 +25,7 @@ namespace UserApp
         public PgRec()
         {
             InitializeComponent();
+            email.Focus();
         }        
         private void BtnBack_Click(object sender, RoutedEventArgs e) => NavigationService.GoBack();
         private void BtnRec_Click(object sender, RoutedEventArgs e) => NavigationService.Navigate(new PgCodeRec());

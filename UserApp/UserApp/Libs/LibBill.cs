@@ -25,7 +25,7 @@ namespace UserApp.Libs
             adapter.Fill(table);
         }
 
-        public static Bill GetBill(User user)
+        public static int? GetBill(User user)
         {
             DB.OpenConnection();
             DataTable table = new();
@@ -33,24 +33,12 @@ namespace UserApp.Libs
             DB.cmd = new("SELECT * FROM `bill` inner join `user` on user.id = bill.bill_owner WHERE `bill_owner` = @bo", DB.GetConnection());
             DB.cmd.Parameters.Add("@bo", MySqlDbType.VarChar).Value = user.id;
             adapter.SelectCommand = DB.cmd;
-            adapter.Fill(table);
-            DataRow[] rows = table.Select();
+            adapter.Fill(table);            
             if (table.Rows.Count > 0)
-            {
-                Bill bill = new()
-                {
-                    NumberBill = DB.ConvertFromDBVal<string>(rows[0].ItemArray[0]),
-                    Frozen = DB.ConvertFromDBVal<string>(rows[0].ItemArray[1]),
-                    Balance = DB.ConvertFromDBVal<float>(rows[0].ItemArray[2]),
-                    NumberCard = DB.ConvertFromDBVal<string>(rows[0].ItemArray[3]),
-                    bill_owner = DB.ConvertFromDBVal<uint>(rows[0].ItemArray[4])
-                };
-                Bill.CurrentBill = bill;
-                return bill;
-            }
+                return table.Rows.Count;
             return null;
         }
-        public static Bill UpdateBills(Bill bill)
+/*        public static Bill UpdateBills(Bill bill)
         {
             DB.OpenConnection();
             DataTable table = new();
@@ -60,7 +48,7 @@ namespace UserApp.Libs
             adapter.SelectCommand = DB.cmd;
             adapter.Fill(table);
             return bill;
-        }
+        }*/
         /*public static void UpdateBillsByCard()
         {
             DB.OpenConnection();
@@ -80,7 +68,6 @@ namespace UserApp.Libs
             DB.cmd.Parameters.Add("@bN", MySqlDbType.VarChar).Value = numbill;
             adapter.SelectCommand = DB.cmd;
             adapter.Fill(table);
-            DataRow[] rows = table.Select();
             if (table.Rows.Count > 0)            
                 GenBill();
         }
@@ -88,9 +75,9 @@ namespace UserApp.Libs
         {
             string numbill;
             Random rnd = new((int)DateTime.Now.Ticks);
-            string num1 = rnd.Next(000001, 999999).ToString();
-            string num2 = rnd.Next(0000001, 9999999).ToString();
-            string num3 = rnd.Next(0000001, 9999999).ToString();
+            string num1 = rnd.Next(100000, 999999).ToString();
+            string num2 = rnd.Next(1000000, 9999999).ToString();
+            string num3 = rnd.Next(1000000, 9999999).ToString();
             numbill = num1 + num2 + num3;
             GetBillByUser(numbill);
             return numbill;

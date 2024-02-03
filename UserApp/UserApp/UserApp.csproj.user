@@ -13,7 +13,7 @@
     <Compile Update="Window\Authorization\PgCodeRec.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Window\Authorization\RecPass.xaml.cs">
+    <Compile Update="Window\Authorization\PgRecPass.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Window\Authorization\PgRec.xaml.cs">
@@ -57,7 +57,7 @@
     <Page Update="Window\Authorization\PgCodeRec.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Window\Authorization\RecPass.xaml">
+    <Page Update="Window\Authorization\PgRecPass.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Window\Authorization\PgRec.xaml">

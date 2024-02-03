@@ -24,7 +24,7 @@
                             <RowDefinition Height="20"></RowDefinition>
                         </Grid.RowDefinitions>
                         <TextBlock FontSize="18" Margin="0 0 0 30" HorizontalAlignment="Center">Введите проверочный код</TextBlock>
-                        <TextBox x:Name="Code"  Width="250" FontFamily="Roboto" FontSize="24" Style="{StaticResource MaterialDesignOutlinedTextBox}" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" TextChanged="Code_TextChanged"/>
+                        <TextBox x:Name="Code"  Width="250" FontFamily="Roboto" FontSize="24" Style="{StaticResource MaterialDesignOutlinedTextBox}" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" TextChanged="Code_TextChanged" />
                         <TextBlock  HorizontalAlignment="Center" Name="TipCode" Foreground="red" FontSize="15" Margin="0 22 0 0" Visibility="Collapsed">Введите весь код!</TextBlock>
                     </Grid>
                     <Button Content="Восстановить" Width="130" Name="BtnRec" VerticalAlignment="Top" IsEnabled="False" Foreground="Black" Style="{StaticResource MaterialDesignOutlinedLightButton}" Click="BtnRec_Click"/>

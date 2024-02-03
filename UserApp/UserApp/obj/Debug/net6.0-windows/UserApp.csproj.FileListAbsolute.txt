@@ -20,7 +20,6 @@ C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Use
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Authorization\PgAut.g.cs
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Authorization\PgCodeRec.g.cs
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Authorization\PgRec.g.cs
-C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Authorization\RecPass.g.cs
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Authorization\WndAut.g.cs
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\MainWindow\MainWindow.g.cs
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Main\PgExit.g.cs
@@ -42,7 +41,6 @@ C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\App
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Authorization\PgAut.baml
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Authorization\PgCodeRec.baml
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Authorization\PgRec.baml
-C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Authorization\RecPass.baml
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Authorization\WndAut.baml
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\MainWindow\MainWindow.baml
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Main\PgExit.baml
@@ -69,3 +67,5 @@ C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Use
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\UserApp.genruntimeconfig.cache
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\bin\Debug\net6.0-windows\UserApp.pdb
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\ref\UserApp.dll
+C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Authorization\PgRecPass.g.cs
+C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Authorization\PgRecPass.baml

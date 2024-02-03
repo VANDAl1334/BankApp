@@ -37,11 +37,11 @@
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock x:Name="NoDataCard" Visibility="Collapsed" HorizontalAlignment="Center" FontSize="24" VerticalAlignment="Center">У вас не привязана карта</TextBlock>
                 <StackPanel x:Name="DataCard" Width="410" Height="190" Visibility="Visible">
-                    <Label Content="Ваш номер карты"  Foreground="White" FontFamily="Roboto" FontSize="20" Grid.Column="0"/>
-                    <TextBlock x:Name="NmCard" Height="37" Foreground="White" FontFamily="Roboto" FontSize="25" Margin="0 0 0 10"/>
+                    <Label Content="Номер карты" Foreground="White" FontFamily="Roboto" FontSize="25" Grid.Column="0"/>
+                    <TextBlock x:Name="NmCard" Height="37" Padding="5 5 0 0" Foreground="White" FontFamily="Roboto" FontSize="25" Margin="0 0 0 10"/>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="CVV" FontSize="25" Grid.Column="1" Foreground="White"/>
-                        <TextBlock x:Name="CVV" FontSize="30" Foreground="White"/>
+                        <TextBlock x:Name="CVV" FontSize="25" Padding="5 5 0 0" Text="312" Foreground="White"/>
                     </StackPanel>
                     <StackPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Orientation="Horizontal">
                         <TextBlock x:Name="Validity" Text="ММ/ГГ" Padding="0 0 10 0" FontSize="25" Foreground="White"/>

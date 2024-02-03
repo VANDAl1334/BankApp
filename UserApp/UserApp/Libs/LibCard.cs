@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace UserApp.Libs
 {
     public class LibCard
-    {                  
+    {
         public static void AddCard()
         {
             string numberCard = GenCard();
@@ -25,7 +25,7 @@ namespace UserApp.Libs
             adapter.SelectCommand = DB.cmd;
             adapter.Fill(table);
             Card.CurrentCard.Number = numberCard;
-        }        
+        }
         /*public static void GetCardByBill()
         {
             DB.OpenConnection();
@@ -74,7 +74,7 @@ namespace UserApp.Libs
         {
             UInt16 cvv;
             Random rnd = new();
-            cvv = (UInt16)rnd.Next(999);
+            cvv = (UInt16)rnd.Next(100, 999);
             return cvv;
         }
         public static string GetValidity()

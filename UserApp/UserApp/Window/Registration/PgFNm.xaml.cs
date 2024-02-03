@@ -25,6 +25,7 @@ namespace UserApp.Window.Registration
         public PgFNm(WndReg wndReg)
         {
             InitializeComponent();
+            SrNmUs.Focus();
         }
         private void BtnReg_Click(object sender, RoutedEventArgs e)
         {

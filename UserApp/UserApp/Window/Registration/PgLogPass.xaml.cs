@@ -34,6 +34,7 @@ namespace UserApp.Window.Registration
         public PgLogPass()
         {
             InitializeComponent();
+            LogIn.Focus();
         }
         private void BtnRegLPback_Click(object sender, RoutedEventArgs e)
         {
