@@ -26,6 +26,7 @@ namespace UserApp.Window.Authorization
         public PgAut(WndAut wndaut)
         {
             InitializeComponent();
+            LogAut.Focus();
             wndAut = wndaut;
         }
         private void LogAut_LostFocus(object sender, RoutedEventArgs e)

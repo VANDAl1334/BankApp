@@ -124,7 +124,6 @@ namespace UserApp.Window.Registration
                 passlen.Visibility = Visibility.Collapsed;
                 TipPass.Visibility = Visibility.Visible;
                 BtnReg.IsEnabled = false;
-
             }
             else if (Pass.Password != string.Empty)
             {

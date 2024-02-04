@@ -68,7 +68,8 @@ namespace UserApp.Window.Main
             }
             else
             {
-                User.CurrentUser.Bills?.Clear();
+                Balance.Text = null;
+                NmBill.Items.Clear();
                 BtnLinkCard.IsEnabled = false;
                 DataCard.Visibility = Visibility.Collapsed;
                 NoDataCard.Visibility = Visibility.Visible;
