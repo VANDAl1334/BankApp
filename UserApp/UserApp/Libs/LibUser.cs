@@ -62,7 +62,7 @@ namespace UserApp.Models
                     Bill bill = new()
                     {
                         NumberBill = DB.ConvertFromDBVal<string>(row.ItemArray[0]),
-                        Frozen = DB.ConvertFromDBVal<string>(row.ItemArray[1]),
+                        Frozen = DB.ConvertFromDBVal<Boolean>(row.ItemArray[1]),
                         Balance = DB.ConvertFromDBVal<float>(row.ItemArray[2]),
                         NumberCard = DB.ConvertFromDBVal<string>(row.ItemArray[3]),
                         bill_owner = DB.ConvertFromDBVal<uint>(row.ItemArray[4])
@@ -98,9 +98,7 @@ namespace UserApp.Models
             for (int i = 0; i < fullName.Length; i++)
             {
                 if (!Regex.Match(fullName, "^[а-яА-Яa-zA-Z]*$").Success)
-                {
                     return true;
-                }
             }
             return false;
         }
@@ -111,9 +109,7 @@ namespace UserApp.Models
             for (int i = 0; i < email.Length; i++)
             {
                 if (Regex.IsMatch(email, patternEmail, RegexOptions.IgnoreCase))
-                {
-                    return true;
-                }                
+                    return true;        
             }
             return false;
         }

@@ -18,9 +18,9 @@ namespace UserApp.Libs
             MySqlDataAdapter adapter = new();
             DB.cmd = new("INSERT INTO `bill` (`Number`, `Frozen`, `Balance`, bill_owner) VALUES (@N, @F, @B, @BO)", DB.GetConnection());
             DB.cmd.Parameters.Add("@N", MySqlDbType.VarChar).Value = numbill;
-            DB.cmd.Parameters.Add("@F", MySqlDbType.VarChar).Value = 0;
+            DB.cmd.Parameters.Add("@F", MySqlDbType.Byte).Value = 0;
             DB.cmd.Parameters.Add("@B", MySqlDbType.Float).Value = 0.0;
-            DB.cmd.Parameters.Add("@BO", MySqlDbType.Int32).Value = user.id;
+            DB.cmd.Parameters.Add("@BO", MySqlDbType.UInt32).Value = user.id;
             adapter.SelectCommand = DB.cmd;
             adapter.Fill(table);
         }

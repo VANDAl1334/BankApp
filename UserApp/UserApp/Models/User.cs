@@ -17,7 +17,7 @@ namespace UserApp
         public uint id { get; set; }
         public string name_user { get; set; }
         public string surname_user { get; set; }
-        public string patronymic_user { get; set; }
+        public string? patronymic_user { get; set; }
         public string login_user { get; set; }
         public string password_user { get; set; }
         public string Role_id { get; set; }

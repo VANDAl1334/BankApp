@@ -29,7 +29,7 @@ namespace UserApp.Window.Registration
         }
         private void BtnReg_Click(object sender, RoutedEventArgs e)
         {
-            if (NmUs.Text == string.Empty || SrNmUs.Text == string.Empty || PtNmUs.Text == string.Empty)
+            if (NmUs.Text == string.Empty || SrNmUs.Text == string.Empty)
             {
                 chkdata.Visibility = Visibility.Visible;
                 return;
@@ -100,29 +100,16 @@ namespace UserApp.Window.Registration
 
         private void PtNmUs_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (PtNmUs.Text != string.Empty)
+            if (LibUser.PatternFullName(PtNmUs.Text))
             {
-                TipPt.Visibility = Visibility.Collapsed;
-                chkPt.Visibility = Visibility.Collapsed;
+                chkPt.Visibility = Visibility.Visible;
                 BtnReg.IsEnabled = false;
-
-                if (LibUser.PatternFullName(PtNmUs.Text))
-                {
-                    chkPt.Visibility = Visibility.Visible;
-                    BtnReg.IsEnabled = false;
-                    return;
-                }
-                else
-                {
-                    chkPt.Visibility = Visibility.Collapsed;
-                    BtnReg.IsEnabled = true;
-                }
+                return;
             }
             else
             {
                 chkPt.Visibility = Visibility.Collapsed;
-                TipPt.Visibility = Visibility.Visible;
-                BtnReg.IsEnabled = false;
+                BtnReg.IsEnabled = true;
             }
         }
     }

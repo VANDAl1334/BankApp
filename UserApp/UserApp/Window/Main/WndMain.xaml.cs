@@ -40,7 +40,8 @@ namespace UserApp
             timer = new();
             timer.Interval = new TimeSpan(0, 0, 0, 0, 10);
             timer.Tick += Timer_Tick;
-            login.Text = User.CurrentUser.login_user;                        
+            login.Text = User.CurrentUser.login_user;
+            WndTitle.Text = "Главная";
         }
         private void BtnMin_Click(object sender, RoutedEventArgs e) => WindowState = WindowState.Minimized;
         private void BtnClose_Click(object sender, RoutedEventArgs e) => Close();
@@ -66,16 +67,43 @@ namespace UserApp
                 if (Menu.Width <= 47)
                 {
                     timer.Stop();
-                    hidden = true;
+                    hidden = true;                    
                 }
             }
         }        
-        private void BtnPanel_Click(object sender, RoutedEventArgs e) => timer.Start();       
-        private void ListView_Home(object sender, MouseButtonEventArgs e) => MainFrame.Navigate(new PgHome());
-        private void ListView_Transfer(object sender, RoutedEventArgs e) => MainFrame.Navigate(new Pgtranzact());
-        private void ListView_Support(object sender, RoutedEventArgs e) => MainFrame.Navigate(new PgSupport());
-        private void ListView_History(object sender, RoutedEventArgs e) => MainFrame.Navigate(new PgHistory());
-        private void ListView_Settings(object sender, RoutedEventArgs e) => MainFrame.Navigate(new PgOptions());
-        private void ListView_Exit(object sender, MouseButtonEventArgs e) => MainFrame.Navigate(new PgExit(this));
+        private void BtnPanel_Click(object sender, RoutedEventArgs e) => timer.Start();
+        private void ListView_Home(object sender, MouseButtonEventArgs e)
+        {
+            MainFrame.Navigate(new PgHome());
+            WndTitle.Text = "Главная";
+        }
+        private void ListView_Transfer(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new Pgtranzact());
+            WndTitle.Text = "Переводы";
+        }
+        private void ListView_Support(object sender, RoutedEventArgs e) 
+        {
+            MainFrame.Navigate(new PgSupport());
+            WndTitle.Text = "Поддержка";
+        }
+        private void ListView_History(object sender, RoutedEventArgs e) {
+            MainFrame.Navigate(new PgHistory());
+            WndTitle.Text = "Истории";
+        }
+        private void ListView_Settings(object sender, RoutedEventArgs e) {
+            MainFrame.Navigate(new PgOptions());
+            WndTitle.Text = "Настройки";
+        }
+        private void ListView_Exit(object sender, MouseButtonEventArgs e) 
+        {
+            MainFrame.Navigate(new PgExit(this));
+            WndTitle.Text = "Выход";
+        }
+        private void ListViewItem_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MainFrame.Navigate(new PgUser());
+            WndTitle.Text = "Профиль";
+        }
     }
 }

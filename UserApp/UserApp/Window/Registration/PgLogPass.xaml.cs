@@ -28,7 +28,11 @@ namespace UserApp.Window.Registration
         public static string PtNmUs;
         public string Password;
         public string PasswordPod;
-
+        bool LogInValid = false;
+        bool MailValid = false;
+        bool PassValid = false;
+        bool PodPassValid = false;
+        bool ContainVoid;
         char[] Spec = new[] { '!', '"', '#', '$', '%', '/', '&', '(', ')', '*', '+', ',', '-', '.', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~' };
         bool ContainChar = false;
         public PgLogPass()
@@ -44,7 +48,6 @@ namespace UserApp.Window.Registration
         }
         private void Checkpass_Click(object sender, RoutedEventArgs e)
         {
-
             if (checkpass.IsChecked == false)
             {
                 Pass.Password = text.Text;
@@ -57,15 +60,36 @@ namespace UserApp.Window.Registration
                 text.Visibility = Visibility.Visible;
                 Pass.Visibility = Visibility.Collapsed;
             }
-        }       
+        }
         public void BtnReg_Click(object sender, RoutedEventArgs e)
         {
-            if (Pass.Password == string.Empty || Email.Text == string.Empty || LogIn.Text == string.Empty)
+            if (!(Pass.Password == string.Empty || Email.Text == string.Empty || LogIn.Text == string.Empty))
             {
                 chkdata.Visibility = Visibility.Visible;
-                return;
+                chkdatalogmail.Visibility = Visibility.Collapsed;
+                if (LibUser.IsUserExistsLogin(LogIn.Text) == true)
+                {
+                    chkdatalogmail.Visibility = Visibility.Visible;
+                    chkdata.Visibility = Visibility.Collapsed;
+                    BtnReg.IsEnabled = false;
+                    LogInValid = false;
+                }
+                else if (LibUser.IsUserExistsEmail(Email.Text) == true)
+                {
+                    chkdatalogmail.Visibility = Visibility.Visible;
+                    chkdata.Visibility = Visibility.Collapsed;
+                    BtnReg.IsEnabled = false;
+                    MailValid = false;
+                }
+                else
+                {
+                    LogInValid = true;
+                    MailValid = true;
+                }
             }
             else
+                BtnReg.IsEnabled = true;
+            if (MailValid == true && ContainChar == true && LogInValid == true && PassValid == true && PodPassValid == true)
             {
                 Pass.Password = LibUser.Hash(Pass.Password);
                 User user = new()
@@ -91,6 +115,7 @@ namespace UserApp.Window.Registration
                 TipEmForm.Visibility = Visibility.Collapsed;
                 ChkEm.Visibility = Visibility.Visible;
                 BtnReg.IsEnabled = false;
+                MailValid = false;
             }
             else if (Email.Text != string.Empty)
             {
@@ -98,32 +123,30 @@ namespace UserApp.Window.Registration
                 {
                     TipEmForm.Visibility = Visibility.Collapsed;
                     ChkEm.Visibility = Visibility.Collapsed;
-                    if (LibUser.IsUserExistsEmail(Email.Text))
-                    {
-                        TipEmail.Visibility = Visibility.Visible;
-                        BtnReg.IsEnabled = false;
-                    }
-                    else
-                    {
-                        TipEmail.Visibility = Visibility.Collapsed;
-                        BtnReg.IsEnabled = true;
-                    }
+                    BtnReg.IsEnabled = true;
+                    MailValid = true;
                 }
                 else
                 {
                     ChkEm.Visibility = Visibility.Collapsed;
                     TipEmForm.Visibility = Visibility.Visible;
                     BtnReg.IsEnabled = false;
+                    MailValid = false;
                 }
             }
         }
         private void Pass_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            if (Pass.Password == string.Empty)
+            if (Pass.Password.Contains(' '))
+                ContainVoid = true;
+            if (Pass.Password == string.Empty || ContainVoid == true)
             {
                 passlen.Visibility = Visibility.Collapsed;
+                TipPassSpSim.Visibility = Visibility.Collapsed;
                 TipPass.Visibility = Visibility.Visible;
                 BtnReg.IsEnabled = false;
+                PassValid = false;
+                ContainVoid = false;
             }
             else if (Pass.Password != string.Empty)
             {
@@ -133,6 +156,7 @@ namespace UserApp.Window.Registration
                     TipPassSpSim.Visibility = Visibility.Collapsed;
                     passlen.Visibility = Visibility.Visible;
                     BtnReg.IsEnabled = false;
+                    PassValid = false;
                 }
                 else
                 {
@@ -145,17 +169,35 @@ namespace UserApp.Window.Registration
                             break;
                         }
                         ContainChar = false;
-                    }
+                        PassValid = false;
+                    }                    
                     if (ContainChar == false)
                     {
+                        TipPass.Visibility = Visibility.Collapsed;
                         passlen.Visibility = Visibility.Collapsed;
                         TipPassSpSim.Visibility = Visibility.Visible;
                         BtnReg.IsEnabled = false;
                     }
                     else
                     {
-                        BtnReg.IsEnabled = true;
                         TipPassSpSim.Visibility = Visibility.Collapsed;
+                        BtnReg.IsEnabled = true;
+                        PassValid = true;
+                    }
+                }
+                if (Passpod.Password != string.Empty)
+                {
+                    if (Pass.Password != Passpod.Password)
+                    {
+                        TipPassPod.Visibility = Visibility.Visible;
+                        BtnReg.IsEnabled = false;
+                        PodPassValid = false;
+                    }
+                    else
+                    {
+                        TipPassPod.Visibility = Visibility.Collapsed;
+                        BtnReg.IsEnabled = true;
+                        PodPassValid = true;
                     }
                 }
             }
@@ -165,47 +207,40 @@ namespace UserApp.Window.Registration
             if (Passpod.Password != string.Empty)
             {
                 TipPassChk.Visibility = Visibility.Collapsed;
-                BtnReg.IsEnabled = false;
                 if (Pass.Password != Passpod.Password)
                 {
                     TipPassPod.Visibility = Visibility.Visible;
                     BtnReg.IsEnabled = false;
+                    PodPassValid = false;
                 }
                 else
                 {
                     TipPassPod.Visibility = Visibility.Collapsed;
                     BtnReg.IsEnabled = true;
-
+                    PodPassValid = true;
                 }
             }
             else
             {
                 TipPassPod.Visibility = Visibility.Collapsed;
                 TipPassChk.Visibility = Visibility.Visible;
+                BtnReg.IsEnabled = false;
+                PodPassValid = false;
             }
         }
-
         private void LogIn_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (LogIn.Text != string.Empty)
             {
                 TipLogIn.Visibility = Visibility.Collapsed;
-                BtnReg.IsEnabled = false;
-                if (LibUser.IsUserExistsLogin(LogIn.Text))
-                {
-                    chkLog.Visibility = Visibility.Visible;
-                    BtnReg.IsEnabled = false;
-                }
-                else
-                {
-                    chkLog.Visibility = Visibility.Collapsed;
-                    BtnReg.IsEnabled = true;
-                }
+                BtnReg.IsEnabled = true;
+                LogInValid = true;
             }
             else
             {
-                chkLog.Visibility = Visibility.Collapsed;
                 TipLogIn.Visibility = Visibility.Visible;
+                BtnReg.IsEnabled = false;
+                LogInValid = false;
             }
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)

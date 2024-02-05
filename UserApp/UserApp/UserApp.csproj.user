@@ -37,6 +37,9 @@
     <Compile Update="Window\Main\Pgtranzact.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Window\Main\PgUser.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Window\Registration\PgFNm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -79,6 +82,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Window\Main\Pgtranzact.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Window\Main\PgUser.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Window\Registration\PgFNm.xaml">

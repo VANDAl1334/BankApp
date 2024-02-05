@@ -13,10 +13,10 @@ namespace UserApp
     {
         public static Bill CurrentBill = new();
         public string NumberBill { get; set; }
-        public string Frozen { get; set; }
+        public Boolean Frozen { get; set; }
         public float Balance { get; set; }
         public string? NumberCard { get; set; }
-        public uint bill_owner { get; set; }
+        public UInt32 bill_owner { get; set; }
         
     }
 }
