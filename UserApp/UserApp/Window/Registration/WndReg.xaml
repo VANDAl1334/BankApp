@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UserApp"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Регистрация" Height="420" Width="632"  ResizeMode="CanMinimize" WindowStyle="None" MouseDown="Window_MouseDown" Icon="/bank.ico" WindowStartupLocation="CenterScreen">
+        Title="Регистрация" Height="420" Width="632"  ResizeMode="CanMinimize" WindowStyle="None" MouseDown="Window_MouseDown" Icon="/bank.ico" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
         <Rectangle>
             <Rectangle.Fill>
@@ -35,10 +35,7 @@
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource MaterialDesignIconButton}" Height="50" Width="50" Click="BtnBack_Click">
                 <Image Height="41" Width="45" Source="/Window/Registration/back.png"/>
             </Button>
-            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" >
-                <Image Source="/Window/Registration/no-internet.png" Width="60" x:Name="StatusInternet" Height="50" />
-                <TextBlock FontSize="18"/>
-            </StackPanel>
+            <Image Width="60" x:Name="StatusInternet" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Source="/Window/Registration/no-internet.png"/>
             <TextBlock x:Name="chkdata" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22"  Visibility="Collapsed">*Введите все данные</TextBlock>
             <Frame Name="RegFrame" NavigationUIVisibility="Hidden"></Frame>
         </Grid>

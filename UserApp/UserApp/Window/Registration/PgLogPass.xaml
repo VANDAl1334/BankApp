@@ -19,7 +19,7 @@
             <Border.Effect>
                 <DropShadowEffect BlurRadius="100" Color="LightGray" ShadowDepth="0"/>
             </Border.Effect>
-            <StackPanel Orientation="Vertical" Height="265">
+            <StackPanel Orientation="Vertical" Height="265" Cursor="">
                 <Grid DockPanel.Dock="Top" Height="220" VerticalAlignment="Top">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"></RowDefinition>
@@ -48,7 +48,7 @@
                     <CheckBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Checkpass_Click" x:Name="checkpass" />
                     <TextBlock Foreground="red" x:Name="TipPassPod" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Visibility="Collapsed">Пароли не совпадают</TextBlock>
                 </Grid>
-                <Button x:Name="BtnReg" IsEnabled="False" Content="Зарегистрироваться" Foreground="Black" FontSize="16" FontFamily="Roboto" Style="{StaticResource MaterialDesignFlatButton}" Width="190" Click="BtnReg_Click"/>
+                <Button x:Name="BtnReg" Content="Зарегистрироваться" Foreground="Black" FontSize="16" FontFamily="Roboto" Style="{StaticResource MaterialDesignFlatButton}" Width="190" Click="BtnReg_Click"/>
             </StackPanel>
         </Border>
     </Grid>

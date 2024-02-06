@@ -30,6 +30,7 @@
     <None Remove="bank.png" />
     <None Remove="close.png" />
     <None Remove="hidden.png" />
+    <None Remove="icons8-no-internet-96.png" />
     <None Remove="icons8_Back_To_50px_1 — копия.png" />
     <None Remove="icons8_Back_To_50px_1.png" />
     <None Remove="icons8_bank.ico" />
@@ -71,6 +72,8 @@
     <None Remove="Window\Registration\Bank.ico" />
     <None Remove="Window\Registration\close.png" />
     <None Remove="Window\Registration\hidden.png" />
+    <None Remove="Window\Registration\icons8-no-internet-96.png" />
+    <None Remove="Window\Registration\icons8-интернет-67.png" />
     <None Remove="Window\Registration\internet.png" />
     <None Remove="Window\Registration\no-internet.png" />
   </ItemGroup>
@@ -112,6 +115,8 @@
     <Resource Include="Window\Registration\back.png" />
     <Resource Include="Window\Registration\close.png" />
     <Resource Include="Window\Registration\hidden.png" />
+    <Resource Include="Window\Registration\icons8-no-internet-96.png" />
+    <Resource Include="Window\Registration\icons8-интернет-67.png" />
     <Resource Include="Window\Registration\internet.png" />
     <Resource Include="Window\Registration\no-internet.png" />
   </ItemGroup>

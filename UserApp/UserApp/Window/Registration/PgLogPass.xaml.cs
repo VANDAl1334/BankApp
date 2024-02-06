@@ -65,14 +65,15 @@ namespace UserApp.Window.Registration
         {
             if (!(Pass.Password == string.Empty || Email.Text == string.Empty || LogIn.Text == string.Empty))
             {
-                chkdata.Visibility = Visibility.Visible;
+                chkdata.Visibility = Visibility.Collapsed;
                 chkdatalogmail.Visibility = Visibility.Collapsed;
-                if (LibUser.IsUserExistsLogin(LogIn.Text) == false || LibUser.IsUserExistsEmail(Email.Text) == false)
+                if (LibUser.IsUserExistsLogin(LogIn.Text) == true || LibUser.IsUserExistsEmail(Email.Text) == true)
                 {
                     chkdatalogmail.Visibility = Visibility.Visible;
                     chkdata.Visibility = Visibility.Collapsed;
-                    BtnReg.IsEnabled = false;
+                    MailValid = false;
                     LogInValid = false;
+                    WndReg.CheckConnection();
                 }
                 else
                 {
@@ -81,7 +82,7 @@ namespace UserApp.Window.Registration
                 }
             }
             else
-                BtnReg.IsEnabled = true;
+                chkdata.Visibility = Visibility.Visible;
             if (MailValid == true && ContainChar == true && LogInValid == true && PassValid == true && PodPassValid == true)
             {
                 PassHash = LibUser.Hash(Pass.Password);
@@ -107,7 +108,7 @@ namespace UserApp.Window.Registration
             {
                 TipEmForm.Visibility = Visibility.Collapsed;
                 ChkEm.Visibility = Visibility.Visible;
-                BtnReg.IsEnabled = false;
+                //BtnReg.IsEnabled = false;
                 MailValid = false;
             }
             else if (Email.Text != string.Empty)
@@ -116,14 +117,14 @@ namespace UserApp.Window.Registration
                 {
                     TipEmForm.Visibility = Visibility.Collapsed;
                     ChkEm.Visibility = Visibility.Collapsed;
-                    BtnReg.IsEnabled = true;
+                    //BtnReg.IsEnabled = true;
                     MailValid = true;
                 }
                 else
                 {
                     ChkEm.Visibility = Visibility.Collapsed;
                     TipEmForm.Visibility = Visibility.Visible;
-                    BtnReg.IsEnabled = false;
+                    //BtnReg.IsEnabled = false;
                     MailValid = false;
                 }
             }
@@ -137,7 +138,7 @@ namespace UserApp.Window.Registration
                 passlen.Visibility = Visibility.Collapsed;
                 TipPassSpSim.Visibility = Visibility.Collapsed;
                 TipPass.Visibility = Visibility.Visible;
-                BtnReg.IsEnabled = false;
+                //BtnReg.IsEnabled = false;
                 PassValid = false;
                 ContainVoid = false;
             }
@@ -148,7 +149,7 @@ namespace UserApp.Window.Registration
                 {
                     TipPassSpSim.Visibility = Visibility.Collapsed;
                     passlen.Visibility = Visibility.Visible;
-                    BtnReg.IsEnabled = false;
+                    //BtnReg.IsEnabled = false;
                     PassValid = false;
                 }
                 else
@@ -169,12 +170,12 @@ namespace UserApp.Window.Registration
                         TipPass.Visibility = Visibility.Collapsed;
                         passlen.Visibility = Visibility.Collapsed;
                         TipPassSpSim.Visibility = Visibility.Visible;
-                        BtnReg.IsEnabled = false;
+                        //BtnReg.IsEnabled = false;
                     }
                     else
                     {
                         TipPassSpSim.Visibility = Visibility.Collapsed;
-                        BtnReg.IsEnabled = true;
+                        //BtnReg.IsEnabled = true;
                         PassValid = true;
                     }
                 }
@@ -183,13 +184,13 @@ namespace UserApp.Window.Registration
                     if (Pass.Password != Passpod.Password)
                     {
                         TipPassPod.Visibility = Visibility.Visible;
-                        BtnReg.IsEnabled = false;
+                        //BtnReg.IsEnabled = false;
                         PodPassValid = false;
                     }
                     else
                     {
                         TipPassPod.Visibility = Visibility.Collapsed;
-                        BtnReg.IsEnabled = true;
+                        //BtnReg.IsEnabled = true;
                         PodPassValid = true;
                     }
                 }
@@ -203,13 +204,13 @@ namespace UserApp.Window.Registration
                 if (Pass.Password != Passpod.Password)
                 {
                     TipPassPod.Visibility = Visibility.Visible;
-                    BtnReg.IsEnabled = false;
+                    //BtnReg.IsEnabled = false;
                     PodPassValid = false;
                 }
                 else
                 {
                     TipPassPod.Visibility = Visibility.Collapsed;
-                    BtnReg.IsEnabled = true;
+                    //BtnReg.IsEnabled = true;
                     PodPassValid = true;
                 }
             }
@@ -217,7 +218,7 @@ namespace UserApp.Window.Registration
             {
                 TipPassPod.Visibility = Visibility.Collapsed;
                 TipPassChk.Visibility = Visibility.Visible;
-                BtnReg.IsEnabled = false;
+                //BtnReg.IsEnabled = false;
                 PodPassValid = false;
             }
         }
@@ -226,13 +227,13 @@ namespace UserApp.Window.Registration
             if (LogIn.Text != string.Empty)
             {
                 TipLogIn.Visibility = Visibility.Collapsed;
-                BtnReg.IsEnabled = true;
+                //BtnReg.IsEnabled = true;
                 LogInValid = true;
             }
             else
             {
                 TipLogIn.Visibility = Visibility.Visible;
-                BtnReg.IsEnabled = false;
+                //BtnReg.IsEnabled = false;
                 LogInValid = false;
             }
         }

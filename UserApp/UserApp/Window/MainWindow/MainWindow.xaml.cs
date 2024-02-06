@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UserApp.Window.Registration;
-
+using UserApp.Classes;
 namespace UserApp
 {
     /// <summary>
@@ -27,9 +27,13 @@ namespace UserApp
         }
         private void BtnReg_Click(object sender, RoutedEventArgs e)
         {
-            WndReg reg = new();
-            reg.Show();        
-            Close();            
+            DB.GetConnectionHosts();            
+            if (DB.stateConnection == true)
+            {
+                WndReg reg = new();
+                reg.Show();
+                Close();
+            }
         }
         private void BtnClose_Click(object sender, RoutedEventArgs e) => Close();
         private void BtnAut_Click(object sender, RoutedEventArgs e)

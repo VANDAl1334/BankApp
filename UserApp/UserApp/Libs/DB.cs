@@ -21,7 +21,7 @@ namespace UserApp
         static public void OpenConnection()
         {
             if (connection.State == System.Data.ConnectionState.Closed)
-                try { connection.Open(); } catch { MessageBox.Show("OpenConnection"); }
+                try { connection.Open(); } catch { MessageBox.Show("Нет соединения с хостом"); }
         }
         public static T ConvertFromDBVal<T>(object? obj)
         {
@@ -43,8 +43,17 @@ namespace UserApp
         }
         static public MySqlConnection GetConnection()
         {
-            try { return connection; } catch { MessageBox.Show("GetConnection"); }
-            return null;            
+            try { stateConnection = true; return connection; } catch { stateConnection = false; }
+            return null;
+        }
+        public static MySqlConnection GetConnectionHosts()
+        {
+            OpenConnection();
+            if (connection.State == System.Data.ConnectionState.Open)
+                try { stateConnection = true; CloseConnection(); return connection; } catch { stateConnection = false; }
+            stateConnection = false;
+            CloseConnection();
+            return null;
         }
     }
 }

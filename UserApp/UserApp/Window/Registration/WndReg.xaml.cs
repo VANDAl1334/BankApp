@@ -34,11 +34,14 @@ namespace UserApp
         {
             InitializeComponent();
             RegFrame.Navigate(new PgFNm(this));
-            ManagerPg.WndReg = this;
+            ManagerPg.WndReg = this;            
+        }
+        public static void CheckConnection()
+        {
             if (DB.stateConnection == false)
-                StatusInternet.Source = new BitmapImage(new Uri("/../../Window/Registration/no-internet.png"));
+                ManagerPg.WndReg.StatusInternet.Source = new BitmapImage(new Uri("pack://application:,,,/Window/Registration/no-internet.png"));
             else
-                StatusInternet.Source = new BitmapImage(new Uri("/../../Window/Registration/internet.png"));
+                ManagerPg.WndReg.StatusInternet.Source = new BitmapImage(new Uri("pack://application:,,,/Window/Registration/internet.png"));
         }
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
@@ -52,6 +55,8 @@ namespace UserApp
         {
             if (e.ChangedButton == MouseButton.Left)
                 DragMove();
-        }      
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e) => CheckConnection();
     }
 }
