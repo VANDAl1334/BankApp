@@ -35,6 +35,10 @@ namespace UserApp
             InitializeComponent();
             RegFrame.Navigate(new PgFNm(this));
             ManagerPg.WndReg = this;
+            if (DB.stateConnection == false)
+                StatusInternet.Source = new BitmapImage(new Uri("/../../Window/Registration/no-internet.png"));
+            else
+                StatusInternet.Source = new BitmapImage(new Uri("/../../Window/Registration/internet.png"));
         }
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {

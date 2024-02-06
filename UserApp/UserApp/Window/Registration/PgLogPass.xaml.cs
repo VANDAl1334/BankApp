@@ -15,7 +15,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UserApp.Classes;
 using UserApp.Models;
-using System.Text.RegularExpressions;
 namespace UserApp.Window.Registration
 {
     /// <summary>
@@ -33,6 +32,7 @@ namespace UserApp.Window.Registration
         bool PassValid = false;
         bool PodPassValid = false;
         bool ContainVoid;
+        string PassHash;
         char[] Spec = new[] { '!', '"', '#', '$', '%', '/', '&', '(', ')', '*', '+', ',', '-', '.', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~' };
         bool ContainChar = false;
         public PgLogPass()
@@ -67,19 +67,12 @@ namespace UserApp.Window.Registration
             {
                 chkdata.Visibility = Visibility.Visible;
                 chkdatalogmail.Visibility = Visibility.Collapsed;
-                if (LibUser.IsUserExistsLogin(LogIn.Text) == true)
+                if (LibUser.IsUserExistsLogin(LogIn.Text) == false || LibUser.IsUserExistsEmail(Email.Text) == false)
                 {
                     chkdatalogmail.Visibility = Visibility.Visible;
                     chkdata.Visibility = Visibility.Collapsed;
                     BtnReg.IsEnabled = false;
                     LogInValid = false;
-                }
-                else if (LibUser.IsUserExistsEmail(Email.Text) == true)
-                {
-                    chkdatalogmail.Visibility = Visibility.Visible;
-                    chkdata.Visibility = Visibility.Collapsed;
-                    BtnReg.IsEnabled = false;
-                    MailValid = false;
                 }
                 else
                 {
@@ -91,14 +84,14 @@ namespace UserApp.Window.Registration
                 BtnReg.IsEnabled = true;
             if (MailValid == true && ContainChar == true && LogInValid == true && PassValid == true && PodPassValid == true)
             {
-                Pass.Password = LibUser.Hash(Pass.Password);
+                PassHash = LibUser.Hash(Pass.Password);
                 User user = new()
                 {
                     name_user = NmUs,
                     surname_user = SrNmUs,
                     patronymic_user = PtNmUs,
                     login_user = LogIn.Text,
-                    password_user = Pass.Password.Trim(),
+                    password_user = PassHash.Trim(),
                     Role_id = "1",
                     Email = Email.Text
                 };

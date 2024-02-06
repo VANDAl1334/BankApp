@@ -71,6 +71,8 @@
     <None Remove="Window\Registration\Bank.ico" />
     <None Remove="Window\Registration\close.png" />
     <None Remove="Window\Registration\hidden.png" />
+    <None Remove="Window\Registration\internet.png" />
+    <None Remove="Window\Registration\no-internet.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -110,6 +112,8 @@
     <Resource Include="Window\Registration\back.png" />
     <Resource Include="Window\Registration\close.png" />
     <Resource Include="Window\Registration\hidden.png" />
+    <Resource Include="Window\Registration\internet.png" />
+    <Resource Include="Window\Registration\no-internet.png" />
   </ItemGroup>
 
 </Project>

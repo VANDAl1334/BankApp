@@ -35,6 +35,10 @@
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource MaterialDesignIconButton}" Height="50" Width="50" Click="BtnBack_Click">
                 <Image Height="41" Width="45" Source="/Window/Registration/back.png"/>
             </Button>
+            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" >
+                <Image Source="/Window/Registration/no-internet.png" Width="60" x:Name="StatusInternet" Height="50" />
+                <TextBlock FontSize="18"/>
+            </StackPanel>
             <TextBlock x:Name="chkdata" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22"  Visibility="Collapsed">*Введите все данные</TextBlock>
             <Frame Name="RegFrame" NavigationUIVisibility="Hidden"></Frame>
         </Grid>

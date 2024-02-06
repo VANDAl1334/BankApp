@@ -9,6 +9,7 @@ using System.Security.Cryptography;
 using UserApp.Window.Authorization;
 using System.Text.RegularExpressions;
 using Google.Protobuf.WellKnownTypes;
+using System.Windows;
 
 namespace UserApp.Models
 {
@@ -28,9 +29,8 @@ namespace UserApp.Models
             DB.cmd.Parameters.Add("@uR", MySqlDbType.VarChar).Value = user.Role_id;
             DB.cmd.Parameters.Add("@uE", MySqlDbType.VarChar).Value = user.Email;
             adapter.SelectCommand = DB.cmd;
-            adapter.Fill(table);
+            DB.TryConnection(adapter, table);
         }
-
         public static Boolean IsUserExistsEmail(string Email)
         {
             DataTable table = new();
@@ -38,12 +38,15 @@ namespace UserApp.Models
             DB.cmd = new("SELECT * FROM `user` WHERE `Email` = @cE", DB.GetConnection());
             DB.cmd.Parameters.Add("@cE", MySqlDbType.VarChar).Value = Email;
             adapter.SelectCommand = DB.cmd;
-            adapter.Fill(table);
-            if (table.Rows.Count > 0)
-                return true;
-            else
-                return false;
-        } 
+            if (DB.TryConnection(adapter, table))
+            {
+                if (table.Rows.Count > 0)
+                    return true;
+                else
+                    return false;
+            }
+            return false;
+        }
         public static List<Bill> GetBillsByUser(User user)
         {
             List<Bill> bills = new();
@@ -53,24 +56,26 @@ namespace UserApp.Models
             DB.cmd = new("SELECT * FROM `bill` inner join `user` on user.id = bill.bill_owner WHERE `bill_owner` = @bo", DB.GetConnection());
             DB.cmd.Parameters.Add("@bo", MySqlDbType.VarChar).Value = user.id;
             adapter.SelectCommand = DB.cmd;
-            adapter.Fill(table);
-            DataRow[] rows = table.Select();
-            if (table.Rows.Count > 0)
+            if (DB.TryConnection(adapter, table))
             {
-                foreach(DataRow row in rows) 
+                DataRow[] rows = table.Select();
+                if (table.Rows.Count > 0)
                 {
-                    Bill bill = new()
+                    foreach (DataRow row in rows)
                     {
-                        NumberBill = DB.ConvertFromDBVal<string>(row.ItemArray[0]),
-                        Frozen = DB.ConvertFromDBVal<Boolean>(row.ItemArray[1]),
-                        Balance = DB.ConvertFromDBVal<float>(row.ItemArray[2]),
-                        NumberCard = DB.ConvertFromDBVal<string>(row.ItemArray[3]),
-                        bill_owner = DB.ConvertFromDBVal<uint>(row.ItemArray[4])
-                    };
-                    bills.Add(bill);
-                    User.CurrentUser.Bills = bills;
+                        Bill bill = new()
+                        {
+                            NumberBill = DB.ConvertFromDBVal<string>(row.ItemArray[0]),
+                            Frozen = DB.ConvertFromDBVal<Boolean>(row.ItemArray[1]),
+                            Balance = DB.ConvertFromDBVal<float>(row.ItemArray[2]),
+                            NumberCard = DB.ConvertFromDBVal<string>(row.ItemArray[3]),
+                            bill_owner = DB.ConvertFromDBVal<uint>(row.ItemArray[4])
+                        };
+                        bills.Add(bill);
+                        User.CurrentUser.Bills = bills;
+                    }
+                    return bills;
                 }
-                return bills;
             }
             return null;
         }
@@ -81,11 +86,14 @@ namespace UserApp.Models
             DB.cmd = new("SELECT * FROM `user` WHERE `login_user` = @cL", DB.GetConnection());
             DB.cmd.Parameters.Add("@cL", MySqlDbType.VarChar).Value = Login;
             adapter.SelectCommand = DB.cmd;
-            adapter.Fill(table);
-            if (table.Rows.Count > 0)
-                return true;
-            else
-                return false;
+            if (DB.TryConnection(adapter, table))
+            {
+                if (table.Rows.Count > 0)
+                    return true;
+                else
+                    return false;
+            }
+            return false;
         }
         static public string Hash(string input)
         {
@@ -109,7 +117,7 @@ namespace UserApp.Models
             for (int i = 0; i < email.Length; i++)
             {
                 if (Regex.IsMatch(email, patternEmail, RegexOptions.IgnoreCase))
-                    return true;        
+                    return true;
             }
             return false;
         }
@@ -125,8 +133,8 @@ namespace UserApp.Models
             adapter.SelectCommand = DB.cmd;
             adapter.Fill(table);
             DataRow[] rows = table.Select();
-             if (table.Rows.Count > 0)
-             {
+            if (table.Rows.Count > 0)
+            {
                 User us = new()
                 {
                     id = DB.ConvertFromDBVal<uint>(rows[0].ItemArray[0]),
@@ -139,8 +147,8 @@ namespace UserApp.Models
                     Email = DB.ConvertFromDBVal<string>(rows[0].ItemArray[7])
                 };
                 return us;
-             }
-             return null;
+            }
+            return null;
         }
     }
 }
