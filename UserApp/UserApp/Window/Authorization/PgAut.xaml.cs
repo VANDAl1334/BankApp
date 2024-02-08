@@ -23,6 +23,8 @@ namespace UserApp.Window.Authorization
     public partial class PgAut : Page
     {
         private WndAut wndAut;
+        string log;
+        string pass;
         public PgAut(WndAut wndaut)
         {
             InitializeComponent();
@@ -43,21 +45,27 @@ namespace UserApp.Window.Authorization
             else
                 TipPass.Visibility = Visibility.Collapsed;
         }
-        private void BtnAut_Click(object sender, RoutedEventArgs e)
+        private void Authorization()
         {
-            string log = LogAut.Text;
-            string pass = PassAut.Password;
-            User user = LibUser.GetUserByLogIn(log, pass);   
-            if (user != null)
+            if (DB.stateConnection)
             {
-                User.CurrentUser = user;
-                WndMain main = new();
-                main.Show();
-                wndAut.Close();
+                log = LogAut.Text;
+                pass = PassAut.Password;
+                User user = LibUser.GetUserByLogIn(log, pass);
+                if (user != null)
+                {
+                    User.CurrentUser = user;
+                    WndMain main = new();
+                    main.Show();
+                    wndAut.Close();
+                }
+                else
+                    ErrLP.Visibility = Visibility.Visible;
             }
             else
-                ErrLP.Visibility = Visibility.Visible;
+                MessageBox.Show("Связи с Аллахам нет");
         }
+        private void BtnAut_Click(object sender, RoutedEventArgs e) => Authorization();
         private void ChkPass_Click(object sender, RoutedEventArgs e)
         {
             if (ChkPass.IsChecked == false)
@@ -75,24 +83,15 @@ namespace UserApp.Window.Authorization
         }
         private void BtnRec_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new PgRec());
+            if (DB.stateConnection)
+                NavigationService.Navigate(new PgRec());
+            else
+                MessageBox.Show("Связи с Аллахам нет");
         }
         private void Border_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key.ToString() == "Return")
-            {
-                string log = LogAut.Text;
-                string pass = PassAut.Password;
-                LibUser.GetUserByLogIn(log, pass);
-                if (User.CurrentUser != null)
-                {
-                    WndMain main = new();
-                    main.Show();
-                    wndAut.Close();
-                }
-                else
-                    ErrLP.Visibility = Visibility.Visible;
-            }
+                Authorization();
         }
     }
 }

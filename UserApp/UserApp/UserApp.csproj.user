@@ -46,12 +46,6 @@
     <Compile Update="Window\Registration\PgLogPass.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="WndYour.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="WndMy.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Window\Authorization\PgAut.xaml">
@@ -91,12 +85,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Window\Registration\PgLogPass.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="WndYour.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="WndMy.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

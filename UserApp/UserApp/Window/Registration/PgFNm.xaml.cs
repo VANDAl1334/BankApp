@@ -22,6 +22,9 @@ namespace UserApp.Window.Registration
     public partial class PgFNm : Page
     {
         private PgLogPass LogPass;
+        private bool NmValid = false;
+        private bool SrValid = false;
+        private bool PtValid = false;
         public PgFNm(WndReg wndReg)
         {
             InitializeComponent();
@@ -36,11 +39,14 @@ namespace UserApp.Window.Registration
             }
             else
             {
-                LogPass ??= new();
-                PgLogPass.NmUs = NmUs.Text;
-                PgLogPass.SrNmUs = SrNmUs.Text;
-                PgLogPass.PtNmUs = PtNmUs.Text;
-                NavigationService.Navigate(LogPass);
+                if (SrValid || NmValid || PtValid)
+                {
+                    LogPass ??= new();
+                    PgLogPass.NmUs = NmUs.Text;
+                    PgLogPass.SrNmUs = SrNmUs.Text;
+                    PgLogPass.PtNmUs = PtNmUs.Text;
+                    NavigationService.Navigate(LogPass);
+                }
             }
         }
         private void SrNmUs_TextChanged(object sender, TextChangedEventArgs e)
@@ -49,25 +55,25 @@ namespace UserApp.Window.Registration
             {
                 TipSr.Visibility = Visibility.Collapsed;
                 chkSr.Visibility = Visibility.Collapsed;
-                BtnReg.IsEnabled = false;
+                SrValid = false;
 
                 if (LibUser.PatternFullName(SrNmUs.Text))
                 {
                     chkSr.Visibility = Visibility.Visible;
-                    BtnReg.IsEnabled = false;
+                    SrValid = false;
                     return;
                 }
                 else
                 {
                     chkSr.Visibility = Visibility.Collapsed;
-                    BtnReg.IsEnabled = true;
+                    SrValid = true;
                 }
             }
             else
             {
                 chkSr.Visibility = Visibility.Collapsed;
                 TipSr.Visibility = Visibility.Visible;
-                BtnReg.IsEnabled = false;
+                SrValid = false;
             }
         }
         private void NmUs_TextChanged(object sender, TextChangedEventArgs e)
@@ -76,40 +82,39 @@ namespace UserApp.Window.Registration
             {
                 TipNm.Visibility = Visibility.Collapsed;
                 chkNm.Visibility = Visibility.Collapsed;
-                BtnReg.IsEnabled = false;
+                NmValid = false;
 
                 if (LibUser.PatternFullName(NmUs.Text))
                 {
                     chkNm.Visibility = Visibility.Visible;
-                    BtnReg.IsEnabled = false;
+                    NmValid = false;
                     return;
                 }
                 else
                 {
                     chkNm.Visibility = Visibility.Collapsed;
-                    BtnReg.IsEnabled = true;
+                    NmValid = true;
                 }
             }
             else
             {
                 chkNm.Visibility = Visibility.Collapsed;
                 TipNm.Visibility = Visibility.Visible;
-                BtnReg.IsEnabled = false;
+                NmValid = false;
             }
         }
-
         private void PtNmUs_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (LibUser.PatternFullName(PtNmUs.Text))
             {
                 chkPt.Visibility = Visibility.Visible;
-                BtnReg.IsEnabled = false;
+                PtValid = false;
                 return;
             }
             else
             {
                 chkPt.Visibility = Visibility.Collapsed;
-                BtnReg.IsEnabled = true;
+                PtValid = true;
             }
         }
     }

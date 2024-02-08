@@ -6,19 +6,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UserApp"
         mc:Ignorable="d"       
-        Height="450" Width="797" WindowStartupLocation="CenterScreen" WindowStyle="None" MouseDown="Window_MouseDown" ResizeMode="CanMinimize" Icon="/Window/Main/bank.ico">
+        Height="450" Width="797" WindowStartupLocation="CenterScreen" WindowStyle="None" MouseDown="Window_MouseDown" ResizeMode="CanMinimize" Icon="/Resources/bank.ico">
     <Grid x:Name="background">
         <Grid Height="35" Background="#FFBB0000"  VerticalAlignment="Top">
             <StackPanel Orientation="Horizontal" Cursor="Hand">
-                <Image Source="/bank.png"/>
+                <Image Source="/Resources/bank.png"/>
                 <TextBlock VerticalAlignment="Center" Text="" x:Name="WndTitle" HorizontalAlignment="Center" Margin="15 0 0 0" FontSize="18" Foreground="White"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button BorderBrush="Transparent" Background="Transparent" Click="BtnMin_Click">
-                    <Image Source="/hidden.png"/>
+                    <Image Source="/Resources/hidden.png"/>
                 </Button>
                 <Button BorderBrush="Transparent" Background="Transparent" Click="BtnClose_Click">
-                    <Image Source="/close.png"/>
+                    <Image Source="/Resources/close.png"/>
                 </Button>
             </StackPanel>
         </Grid>
@@ -34,13 +34,13 @@
             <StackPanel>
                 <Grid Height="40" VerticalAlignment="Top">
                     <Button Style="{StaticResource MaterialDesignIconButton}" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Center" Height="35" Width="46" Click="BtnPanel_Click">
-                        <Image Source="/Window/Main/list.png" Cursor="Hand"/>
+                        <Image Source="/Resources/list.png" Cursor="Hand"/>
                     </Button>
                 </Grid>
                 <ListView FontFamily="Roboto" FontSize="23" Foreground="White" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListViewItem Height="45" HorizontalAlignment="Left" MouseLeftButtonUp="ListViewItem_MouseLeftButtonUp" >
                         <StackPanel Orientation="Horizontal" >
-                            <Image Height="30" HorizontalAlignment="Left" Source="/Window/Main/user.png" />
+                            <Image Height="30" HorizontalAlignment="Left" Source="/Resources/user.png" />
                             <TextBlock x:Name="login" FontSize="16" Foreground="White" VerticalAlignment="Center" Margin="20 0 0 0" Width="155" FontFamily="Roboto"/>
                         </StackPanel>
                     </ListViewItem>
@@ -48,7 +48,7 @@
                 <ListView  FontFamily="Roboto" FontSize="23" Foreground="White" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListViewItem Height="45" HorizontalAlignment="Left" MouseLeftButtonUp="ListView_Home">
                         <StackPanel Orientation="Horizontal">
-                            <Image Height="30" VerticalAlignment="Center" Source="/Window/Main/home.png" />
+                            <Image Height="30" VerticalAlignment="Center" Source="/Resources/home.png" />
                             <TextBlock Text="Главная" Margin="20 0 0 0" VerticalAlignment="Center" Width="155"/>
                         </StackPanel>
                     </ListViewItem>
@@ -56,7 +56,7 @@
                 <ListView FontFamily="Roboto" FontSize="23" Foreground="White" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListViewItem Height="45" HorizontalAlignment="Left" MouseLeftButtonUp="ListView_Transfer">
                         <StackPanel Orientation="Horizontal" >
-                            <Image Height="30" VerticalAlignment="Center" Source="/Window/Main/transfer.png" />
+                            <Image Height="30" VerticalAlignment="Center" Source="/Resources/transfer.png" />
                             <TextBlock Text="Переводы" Margin="20 0 0 0" VerticalAlignment="Center" Width="155"/>
                         </StackPanel>
                     </ListViewItem>
@@ -64,7 +64,7 @@
                 <ListView FontFamily="Roboto" FontSize="23" Foreground="White" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListViewItem Height="45" HorizontalAlignment="Left" MouseLeftButtonUp="ListView_History">
                         <StackPanel Orientation="Horizontal" >
-                            <Image Height="30" VerticalAlignment="Center" Source="/Window/Main/history.png" />
+                            <Image Height="30" VerticalAlignment="Center" Source="/Resources/history.png" />
                             <TextBlock Text="История" Margin="20 0 0 0" VerticalAlignment="Center" Width="155"/>
                         </StackPanel>
                     </ListViewItem>
@@ -72,7 +72,7 @@
                 <ListView FontFamily="Roboto" FontSize="23" Foreground="White" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListViewItem Height="45" HorizontalAlignment="Left" MouseLeftButtonUp="ListView_Settings">
                         <StackPanel Orientation="Horizontal" >
-                            <Image Height="30" VerticalAlignment="Center" Source="/Window/Main/settings.png" />
+                            <Image Height="30" VerticalAlignment="Center" Source="/Resources/settings.png" />
                             <TextBlock Text="Параметры" Margin="20 0 0 0" VerticalAlignment="Center" Width="155"/>
                         </StackPanel>
                     </ListViewItem>
@@ -80,7 +80,7 @@
                 <ListView FontFamily="Roboto" FontSize="23" Foreground="White" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListViewItem Height="45" HorizontalAlignment="Left" MouseLeftButtonUp="ListView_Support">
                         <StackPanel Orientation="Horizontal" >
-                            <Image Height="30" VerticalAlignment="Center" Source="/Window/Main/support.png" />
+                            <Image Height="30" VerticalAlignment="Center" Source="/Resources/support.png" />
                             <TextBlock Text="Поддержка" Margin="20 0 0 0" VerticalAlignment="Center" Width="155"/>
                         </StackPanel>
                     </ListViewItem>
@@ -88,11 +88,12 @@
                 <ListView FontFamily="Roboto" FontSize="23" Foreground="White" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
                     <ListViewItem Height="45" HorizontalAlignment="Left" MouseLeftButtonUp="ListView_Exit">
                         <StackPanel Orientation="Horizontal" >
-                            <Image Height="30" VerticalAlignment="Center" Source="/Window/Main/exit.png" />
+                            <Image Height="30" VerticalAlignment="Center" Source="/Resources/exit.png" />
                             <TextBlock Text="Выход" Margin="20 0 0 0" VerticalAlignment="Center" Width="155"/>
                         </StackPanel>
                     </ListViewItem>
                 </ListView>
+                <Image Width="40" x:Name="StatusInternet" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Resources/no-internet.png"/>
             </StackPanel>
         </Grid>
     </Grid>

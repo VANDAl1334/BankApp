@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.IO;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Windows.Xps.Serialization;
 using System.Windows.Threading;
@@ -18,6 +18,7 @@ using Google.Protobuf.WellKnownTypes;
 using System.Windows.Media.Animation;
 using UserApp.Window.Authorization;
 using UserApp.Window.Main;
+using System.Threading;
 
 namespace UserApp
 {
@@ -42,6 +43,25 @@ namespace UserApp
             timer.Tick += Timer_Tick;
             login.Text = User.CurrentUser.login_user;
             WndTitle.Text = "Главная";
+            BackgroundWorker worker = new();
+            worker.DoWork += DoWork;
+            worker.RunWorkerAsync();
+        }
+        private void DoWork(object sender, DoWorkEventArgs e)
+        {
+            while (true)
+            {
+                DB.GetConnectionHosts();
+                UpdateStatus();
+                Thread.Sleep(2000);
+            }
+        }
+        public void UpdateStatus()
+        {
+            if (DB.stateConnection == false)
+                Dispatcher.Invoke(() => StatusInternet.Source = new BitmapImage(new Uri(Path.GetFullPath("../../../Resources/no-internet.png"))));
+            else
+                Dispatcher.Invoke(() => StatusInternet.Source = new BitmapImage(new Uri(Path.GetFullPath("../../../Resources/internet.png"))));
         }
         private void BtnMin_Click(object sender, RoutedEventArgs e) => WindowState = WindowState.Minimized;
         private void BtnClose_Click(object sender, RoutedEventArgs e) => Close();

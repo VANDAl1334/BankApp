@@ -32,7 +32,7 @@
                     <TextBox x:Name="NmUs" Grid.Row="1" FontSize="15" materialDesign:HintAssist.Hint="Введите свое Имя" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="11,0,11,10" TextChanged="NmUs_TextChanged" />
                     <TextBox x:Name="PtNmUs" Grid.Row="2" FontSize="15" materialDesign:HintAssist.Hint="Введите свое Отчество" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="11,0,11,10" TextChanged="PtNmUs_TextChanged"/>
                 </Grid>
-                <Button x:Name="BtnReg" IsEnabled="False" Content="Далее" Foreground="Black" FontSize="16" FontFamily="Roboto" Style="{StaticResource MaterialDesignFlatButton}" Width="120" Click="BtnReg_Click"/>
+                <Button x:Name="BtnReg" Content="Далее" Foreground="Black" FontSize="16" FontFamily="Roboto" Style="{StaticResource MaterialDesignFlatButton}" Width="120" Click="BtnReg_Click"/>
             </StackPanel>
         </Border>
     </Grid>

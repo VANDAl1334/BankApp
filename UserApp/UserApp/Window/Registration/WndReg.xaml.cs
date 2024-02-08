@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Asn1.X509;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -16,12 +17,11 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 using UserApp.Classes;
 using UserApp.Models;
 using UserApp.Window.Registration;
-
+using System.ComponentModel;
 
 namespace UserApp
 {
@@ -34,14 +34,26 @@ namespace UserApp
         {
             InitializeComponent();
             RegFrame.Navigate(new PgFNm(this));
-            ManagerPg.WndReg = this;            
+            ManagerPg.WndReg = this;
+            BackgroundWorker worker = new();
+            worker.DoWork += DoWork;
+            worker.RunWorkerAsync();
         }
-        public static void CheckConnection()
+        private void DoWork(object sender, DoWorkEventArgs e)
+        {
+            while (true)
+            {
+                DB.GetConnectionHosts();
+                UpdateStatus();
+                Thread.Sleep(2000);
+            }
+        }
+        public void UpdateStatus()
         {
             if (DB.stateConnection == false)
-                ManagerPg.WndReg.StatusInternet.Source = new BitmapImage(new Uri("pack://application:,,,/Window/Registration/no-internet.png"));
+                Dispatcher.Invoke(() => StatusInternet.Source = new BitmapImage(new Uri(Path.GetFullPath("../../../Resources/no-internet.png"))));
             else
-                ManagerPg.WndReg.StatusInternet.Source = new BitmapImage(new Uri("pack://application:,,,/Window/Registration/internet.png"));
+                Dispatcher.Invoke(() => StatusInternet.Source = new BitmapImage(new Uri(Path.GetFullPath("../../../Resources/internet.png"))));
         }
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
@@ -57,6 +69,6 @@ namespace UserApp
                 DragMove();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e) => CheckConnection();
+        private void Window_Loaded(object sender, RoutedEventArgs e) => UpdateStatus();
     }
 }

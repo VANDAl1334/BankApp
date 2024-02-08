@@ -93,7 +93,7 @@ namespace UserApp.Models
                 else
                     return false;
             }
-            return false;
+            return true;
         }
         static public string Hash(string input)
         {
@@ -131,7 +131,7 @@ namespace UserApp.Models
             DB.cmd.Parameters.Add("@uL", MySqlDbType.VarChar).Value = login;
             DB.cmd.Parameters.Add("@uP", MySqlDbType.VarChar).Value = password;
             adapter.SelectCommand = DB.cmd;
-            adapter.Fill(table);
+            DB.TryConnection(adapter, table);
             DataRow[] rows = table.Select();
             if (table.Rows.Count > 0)
             {

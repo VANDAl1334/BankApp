@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UserApp"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Вход" Height="387" Width="474" MouseDown="Window_MouseDown" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="CanMinimize" Icon="/Window/Authorization/bank.ico">
+        Title="Вход" Height="387" Width="474" MouseDown="Window_MouseDown" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="CanMinimize" Icon="/Resources/bank.ico" Loaded="Window_Loaded">
     <Grid>
         <Rectangle>
             <Rectangle.Fill>
@@ -17,26 +17,27 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Grid Height="30" VerticalAlignment="Top">
+        <Grid Height="35" VerticalAlignment="Top">
             <StackPanel Orientation="Horizontal">
-                <Image Source="/bank.png"/>
+                <Image Source="/Resources/bank.png"/>
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15 0 0 0" FontSize="18"  Foreground="White">Авторизация</TextBlock>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Cursor="Hand">
                 <Button BorderBrush="Transparent" Background="Transparent" Click="BtnMin_Click">
-                    <Image Source="/hidden.png"/>
+                    <Image Source="/Resources/hidden.png"/>
                 </Button>
                 <Button BorderBrush="Transparent" Background="Transparent" Click="BtnClose_Click">
-                    <Image Source="/close.png"/>
+                    <Image Source="/Resources/close.png"/>
                 </Button>
             </StackPanel>
         </Grid>
         <Grid Margin="0 40 0 0">
             <Button Style="{StaticResource MaterialDesignIconButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="45"  Click="BtnBack_Click">
-                <Image Source="/Window/Authorization/back.png" Height="35" Width="40"/>
+                <Image Source="/Resources/back.png" Height="35" Width="40"/>
             </Button>
         </Grid>
         <Grid  Margin="0 40 0 0">
+            <Image Width="60" x:Name="StatusInternet" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Source="/Resources/no-internet.png"/>
             <Frame Name="RecFrame" NavigationUIVisibility="Hidden"/>
         </Grid>
     </Grid>

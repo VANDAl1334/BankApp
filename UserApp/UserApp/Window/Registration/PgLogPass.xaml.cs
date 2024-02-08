@@ -63,17 +63,19 @@ namespace UserApp.Window.Registration
         }
         public void BtnReg_Click(object sender, RoutedEventArgs e)
         {
+            if (!DB.stateConnection)
+            { MessageBox.Show("Нет соединения с Аллахам"); return; }
             if (!(Pass.Password == string.Empty || Email.Text == string.Empty || LogIn.Text == string.Empty))
             {
                 chkdata.Visibility = Visibility.Collapsed;
                 chkdatalogmail.Visibility = Visibility.Collapsed;
-                if (LibUser.IsUserExistsLogin(LogIn.Text) == true || LibUser.IsUserExistsEmail(Email.Text) == true)
+                if (LibUser.IsUserExistsLogin(LogIn.Text) || LibUser.IsUserExistsEmail(Email.Text))
                 {
+
                     chkdatalogmail.Visibility = Visibility.Visible;
                     chkdata.Visibility = Visibility.Collapsed;
                     MailValid = false;
                     LogInValid = false;
-                    WndReg.CheckConnection();
                 }
                 else
                 {
@@ -108,7 +110,6 @@ namespace UserApp.Window.Registration
             {
                 TipEmForm.Visibility = Visibility.Collapsed;
                 ChkEm.Visibility = Visibility.Visible;
-                //BtnReg.IsEnabled = false;
                 MailValid = false;
             }
             else if (Email.Text != string.Empty)
@@ -117,14 +118,12 @@ namespace UserApp.Window.Registration
                 {
                     TipEmForm.Visibility = Visibility.Collapsed;
                     ChkEm.Visibility = Visibility.Collapsed;
-                    //BtnReg.IsEnabled = true;
                     MailValid = true;
                 }
                 else
                 {
                     ChkEm.Visibility = Visibility.Collapsed;
                     TipEmForm.Visibility = Visibility.Visible;
-                    //BtnReg.IsEnabled = false;
                     MailValid = false;
                 }
             }
@@ -138,7 +137,6 @@ namespace UserApp.Window.Registration
                 passlen.Visibility = Visibility.Collapsed;
                 TipPassSpSim.Visibility = Visibility.Collapsed;
                 TipPass.Visibility = Visibility.Visible;
-                //BtnReg.IsEnabled = false;
                 PassValid = false;
                 ContainVoid = false;
             }
@@ -149,7 +147,6 @@ namespace UserApp.Window.Registration
                 {
                     TipPassSpSim.Visibility = Visibility.Collapsed;
                     passlen.Visibility = Visibility.Visible;
-                    //BtnReg.IsEnabled = false;
                     PassValid = false;
                 }
                 else
@@ -164,18 +161,16 @@ namespace UserApp.Window.Registration
                         }
                         ContainChar = false;
                         PassValid = false;
-                    }                    
+                    }
                     if (ContainChar == false)
                     {
                         TipPass.Visibility = Visibility.Collapsed;
                         passlen.Visibility = Visibility.Collapsed;
                         TipPassSpSim.Visibility = Visibility.Visible;
-                        //BtnReg.IsEnabled = false;
                     }
                     else
                     {
                         TipPassSpSim.Visibility = Visibility.Collapsed;
-                        //BtnReg.IsEnabled = true;
                         PassValid = true;
                     }
                 }
@@ -184,13 +179,11 @@ namespace UserApp.Window.Registration
                     if (Pass.Password != Passpod.Password)
                     {
                         TipPassPod.Visibility = Visibility.Visible;
-                        //BtnReg.IsEnabled = false;
                         PodPassValid = false;
                     }
                     else
                     {
                         TipPassPod.Visibility = Visibility.Collapsed;
-                        //BtnReg.IsEnabled = true;
                         PodPassValid = true;
                     }
                 }
@@ -204,13 +197,11 @@ namespace UserApp.Window.Registration
                 if (Pass.Password != Passpod.Password)
                 {
                     TipPassPod.Visibility = Visibility.Visible;
-                    //BtnReg.IsEnabled = false;
                     PodPassValid = false;
                 }
                 else
                 {
                     TipPassPod.Visibility = Visibility.Collapsed;
-                    //BtnReg.IsEnabled = true;
                     PodPassValid = true;
                 }
             }
@@ -218,7 +209,6 @@ namespace UserApp.Window.Registration
             {
                 TipPassPod.Visibility = Visibility.Collapsed;
                 TipPassChk.Visibility = Visibility.Visible;
-                //BtnReg.IsEnabled = false;
                 PodPassValid = false;
             }
         }
@@ -227,13 +217,11 @@ namespace UserApp.Window.Registration
             if (LogIn.Text != string.Empty)
             {
                 TipLogIn.Visibility = Visibility.Collapsed;
-                //BtnReg.IsEnabled = true;
                 LogInValid = true;
             }
             else
             {
                 TipLogIn.Visibility = Visibility.Visible;
-                //BtnReg.IsEnabled = false;
                 LogInValid = false;
             }
         }

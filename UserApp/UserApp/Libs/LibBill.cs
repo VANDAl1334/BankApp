@@ -22,7 +22,7 @@ namespace UserApp.Libs
             DB.cmd.Parameters.Add("@B", MySqlDbType.Float).Value = 0.0;
             DB.cmd.Parameters.Add("@BO", MySqlDbType.UInt32).Value = user.id;
             adapter.SelectCommand = DB.cmd;
-            adapter.Fill(table);
+            DB.TryConnection(adapter, table);
         }
 
         public static int? GetBill(User user)
@@ -33,7 +33,7 @@ namespace UserApp.Libs
             DB.cmd = new("SELECT * FROM `bill` inner join `user` on user.id = bill.bill_owner WHERE `bill_owner` = @bo", DB.GetConnection());
             DB.cmd.Parameters.Add("@bo", MySqlDbType.VarChar).Value = user.id;
             adapter.SelectCommand = DB.cmd;
-            adapter.Fill(table);            
+            DB.TryConnection(adapter, table);          
             if (table.Rows.Count > 0)
                 return table.Rows.Count;
             return null;
@@ -67,7 +67,7 @@ namespace UserApp.Libs
             DB.cmd = new("SELECT `Number` FROM `bill` WHERE `Number` = @bN", DB.GetConnection());
             DB.cmd.Parameters.Add("@bN", MySqlDbType.VarChar).Value = numbill;
             adapter.SelectCommand = DB.cmd;
-            adapter.Fill(table);
+            DB.TryConnection(adapter, table);
             if (table.Rows.Count > 0)            
                 GenBill();
         }

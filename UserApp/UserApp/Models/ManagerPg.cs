@@ -11,5 +11,6 @@ namespace UserApp.Classes
         public static Frame RecFrame { get; set; }
         public static Frame RegFrame { get; set; }
         public static WndReg WndReg { get; set; }
+        public static MainWindow MainWindow { get; set; }
     }
 }

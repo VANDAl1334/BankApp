@@ -15,10 +15,12 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.IO;
 using UserApp.Classes;
 using UserApp.Window.Authorization;
 using static System.Net.Mime.MediaTypeNames;
+using System.ComponentModel;
+using System.Threading;
 
 namespace UserApp
 {
@@ -30,8 +32,27 @@ namespace UserApp
         public WndAut()
         {
             InitializeComponent();           
-            RecFrame.Navigate(new PgAut(this));            
-        }        
+            RecFrame.Navigate(new PgAut(this));
+            BackgroundWorker worker = new();
+            worker.DoWork += DoWork;
+            worker.RunWorkerAsync();
+        }
+        public void UpdateStatus()
+        {
+            if (DB.stateConnection == false)
+                Dispatcher.Invoke(() => StatusInternet.Source = new BitmapImage(new Uri(Path.GetFullPath("../../../Resources/no-internet.png"))));
+            else
+                Dispatcher.Invoke(() => StatusInternet.Source = new BitmapImage(new Uri(Path.GetFullPath("../../../Resources/internet.png"))));
+        }
+        private void DoWork(object sender, DoWorkEventArgs e)
+        {
+            while (true)
+            {
+                DB.GetConnectionHosts();
+                UpdateStatus();
+                Thread.Sleep(2000);
+            }
+        }
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             MainWindow back = new();
@@ -43,13 +64,8 @@ namespace UserApp
             if (e.ChangedButton == MouseButton.Left)
                 DragMove();
         }
-        private void BtnMin_Click(object sender, RoutedEventArgs e)
-        {
-            WindowState = WindowState.Minimized;
-        }
-        private void BtnClose_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
+        private void BtnMin_Click(object sender, RoutedEventArgs e) => WindowState = WindowState.Minimized;
+        private void BtnClose_Click(object sender, RoutedEventArgs e) => Close();
+        private void Window_Loaded(object sender, RoutedEventArgs e) => UpdateStatus();
     }
 }

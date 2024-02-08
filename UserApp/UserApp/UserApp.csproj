@@ -47,6 +47,22 @@
     <None Remove="icons8_subtract_40px.png" />
     <None Remove="icons8_user_50px_1.png" />
     <None Remove="png-clipart-free-banking-branch-financial-institution-bank-text-branch.png" />
+    <None Remove="Resources\back.png" />
+    <None Remove="Resources\bank.ico" />
+    <None Remove="Resources\bank.png" />
+    <None Remove="Resources\close.png" />
+    <None Remove="Resources\exit.png" />
+    <None Remove="Resources\hidden.png" />
+    <None Remove="Resources\history.png" />
+    <None Remove="Resources\home.png" />
+    <None Remove="Resources\internet.png" />
+    <None Remove="Resources\list.png" />
+    <None Remove="Resources\no-internet.png" />
+    <None Remove="Resources\Sent.ico" />
+    <None Remove="Resources\settings.png" />
+    <None Remove="Resources\support.png" />
+    <None Remove="Resources\transfer.png" />
+    <None Remove="Resources\user.png" />
     <None Remove="send.png" />
     <None Remove="support.png" />
     <None Remove="support1.png" />
@@ -79,6 +95,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\list.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MaterialDesignThemes" Version="4.6.0" />
     <PackageReference Include="MySql.Data" Version="8.0.32" />
     <PackageReference Include="System.Resources.ResourceManager" Version="4.3.0" />
@@ -91,34 +111,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="bank.ico" />
-    <Resource Include="bank.png" />
-    <Resource Include="close.png" />
-    <Resource Include="hidden.png" />
-    <Resource Include="Window\Authorization\back.png" />
-    <Resource Include="Window\Authorization\bank.ico" />
-    <Resource Include="Window\Authorization\close.png" />
-    <Resource Include="Window\Authorization\hidden.png" />
-    <Resource Include="Window\MainWindow\bank.png" />
-    <Resource Include="Window\MainWindow\close.png" />
-    <Resource Include="Window\MainWindow\hidden.png" />
-    <Resource Include="Window\Main\bank.ico" />
-    <Resource Include="Window\Main\exit.png" />
-    <Resource Include="Window\Main\history.png" />
-    <Resource Include="Window\Main\home.png" />
-    <Resource Include="Window\Main\list.png" />
-    <Resource Include="Window\Main\Sent.ico" />
-    <Resource Include="Window\Main\settings.png" />
-    <Resource Include="Window\Main\support.png" />
-    <Resource Include="Window\Main\transfer.png" />
-    <Resource Include="Window\Main\user.png" />
-    <Resource Include="Window\Registration\back.png" />
-    <Resource Include="Window\Registration\close.png" />
-    <Resource Include="Window\Registration\hidden.png" />
-    <Resource Include="Window\Registration\icons8-no-internet-96.png" />
-    <Resource Include="Window\Registration\icons8-интернет-67.png" />
-    <Resource Include="Window\Registration\internet.png" />
-    <Resource Include="Window\Registration\no-internet.png" />
+    <Resource Include="Resources\back.png" />
+    <Resource Include="Resources\bank.ico" />
+    <Resource Include="Resources\bank.png" />
+    <Resource Include="Resources\close.png" />
+    <Resource Include="Resources\exit.png" />
+    <Resource Include="Resources\hidden.png" />
+    <Resource Include="Resources\history.png" />
+    <Resource Include="Resources\home.png" />
+    <Resource Include="Resources\internet.png" />
+    <Resource Include="Resources\no-internet.png" />
+    <Resource Include="Resources\Sent.ico" />
+    <Resource Include="Resources\settings.png" />
+    <Resource Include="Resources\support.png" />
+    <Resource Include="Resources\transfer.png" />
+    <Resource Include="Resources\user.png" />
   </ItemGroup>
 
 </Project>

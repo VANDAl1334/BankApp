@@ -13,15 +13,15 @@ namespace UserApp
 {
     static class DB
     {
-        static MySqlConnection connection = new("server=localhost;port=3306;username=root;password=;database=bank");
-        static public DataTable table = new();
+        static MySqlConnection connection = new("server=localhost;port=3306;username=root;password=;database=bank;Connection Timeout=1;");
+        static public DataTable table = new();        
         static public MySqlDataAdapter adapter = new();
         static public MySqlCommand cmd = new();
         public static bool stateConnection;
         static public void OpenConnection()
         {
             if (connection.State == System.Data.ConnectionState.Closed)
-                try { connection.Open(); } catch { MessageBox.Show("Нет соединения с хостом"); }
+                try { connection.Open(); } catch {  }
         }
         public static T ConvertFromDBVal<T>(object? obj)
         {
@@ -37,8 +37,7 @@ namespace UserApp
         }
         public static Boolean TryConnection(MySqlDataAdapter adapter, DataTable table)
         {
-            try { adapter.Fill(table); } catch { stateConnection = false; return false; }
-            stateConnection = true;
+            try { adapter.Fill(table); stateConnection = true; } catch { stateConnection = false; return false; }            
             return true;
         }
         static public MySqlConnection GetConnection()
@@ -46,6 +45,7 @@ namespace UserApp
             try { stateConnection = true; return connection; } catch { stateConnection = false; }
             return null;
         }
+        
         public static MySqlConnection GetConnectionHosts()
         {
             OpenConnection();

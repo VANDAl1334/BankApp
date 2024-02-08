@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,9 +12,12 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using UserApp.Window.Registration;
 using UserApp.Classes;
+using System.ComponentModel;
+using System.Threading;
+using System.Windows.Threading;
+
 namespace UserApp
 {
     /// <summary>
@@ -24,21 +28,39 @@ namespace UserApp
         public MainWindow()
         {
             InitializeComponent();
+            DB.GetConnectionHosts();
+            ManagerPg.MainWindow = this;
+            BackgroundWorker worker = new();
+            worker.DoWork += DoWork;
+            worker.RunWorkerAsync();
         }
         private void BtnReg_Click(object sender, RoutedEventArgs e)
         {
-            DB.GetConnectionHosts();            
-            if (DB.stateConnection == true)
+            WndReg reg = new();
+            reg.Show();
+            Close();
+        }
+        private void DoWork(object sender, DoWorkEventArgs e)
+        {
+            while (true)
             {
-                WndReg reg = new();
-                reg.Show();
-                Close();
+                DB.GetConnectionHosts();
+                UpdateStatus();
+                Thread.Sleep(2000);
             }
         }
+        private void UpdateStatus()
+        {
+            if (DB.stateConnection == false)
+                Dispatcher.Invoke(() => StatusInternet.Source = new BitmapImage(new Uri(Path.GetFullPath("../../../Resources/no-internet.png"))));
+            else
+                Dispatcher.Invoke(() => StatusInternet.Source = new BitmapImage(new Uri(Path.GetFullPath("../../../Resources/internet.png"))));
+        }
+
         private void BtnClose_Click(object sender, RoutedEventArgs e) => Close();
         private void BtnAut_Click(object sender, RoutedEventArgs e)
         {
-            WndAut aut = new();            
+            WndAut aut = new();
             aut.Show();
             Close();
         }
@@ -48,5 +70,7 @@ namespace UserApp
             if (e.ChangedButton == MouseButton.Left)
                 DragMove();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e) => UpdateStatus();
     }
 }

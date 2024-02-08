@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UserApp"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Регистрация" Height="420" Width="632"  ResizeMode="CanMinimize" WindowStyle="None" MouseDown="Window_MouseDown" Icon="/bank.ico" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+        Title="Регистрация" Height="420" Width="632"  ResizeMode="CanMinimize" WindowStyle="None" MouseDown="Window_MouseDown" Icon="/Resources/bank.ico" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
         <Rectangle>
             <Rectangle.Fill>
@@ -19,23 +19,23 @@
         </Rectangle>
         <Grid Height="30" VerticalAlignment="Top">
             <StackPanel Orientation="Horizontal">
-                <Image  Source="/bank.ico" />
+                <Image  Source="/Resources/bank.ico" />
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15 0 0 0" FontSize="18"  Foreground="White">Регистрация</TextBlock>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Cursor="Hand">
                 <Button BorderBrush="Transparent" Background="Transparent"  Click="BtnMin_Click">
-                    <Image Source="/Window/Registration/hidden.png"/>
+                    <Image Source="/Resources/hidden.png"/>
                 </Button>
                 <Button  BorderBrush="Transparent" Background="Transparent" Click="BtnClose_Click">
-                    <Image Source="/Window/Registration/close.png"/>
+                    <Image Source="/Resources/close.png"/>
                 </Button>
             </StackPanel>
         </Grid>
         <Grid Margin="0 40 0 0">
             <Button HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource MaterialDesignIconButton}" Height="50" Width="50" Click="BtnBack_Click">
-                <Image Height="41" Width="45" Source="/Window/Registration/back.png"/>
+                <Image Height="41" Width="45" Source="/Resources/back.png"/>
             </Button>
-            <Image Width="60" x:Name="StatusInternet" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Source="/Window/Registration/no-internet.png"/>
+            <Image Width="60" x:Name="StatusInternet" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Source="/Resources/no-internet.png"/>
             <TextBlock x:Name="chkdata" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22"  Visibility="Collapsed">*Введите все данные</TextBlock>
             <Frame Name="RegFrame" NavigationUIVisibility="Hidden"></Frame>
         </Grid>
