@@ -13,25 +13,25 @@ namespace UserApp.Libs
     {
         public static void AddCard()
         {
-            string numberCard = GenCard();
+            string NumberSenderCard = GenCard();
             DB.OpenConnection();
             DataTable table = new();
             MySqlDataAdapter adapter = new();
-            DB.cmd = new("INSERT INTO `card` (`Number`, `CVV`, `Validity`) VALUES (@bN, @bC, @bV); UPDATE bill SET Card_number = @bN WHERE bill.Number = @bNb", DB.GetConnection());
-            DB.cmd.Parameters.Add("@bN", MySqlDbType.VarChar).Value = numberCard;
+            DB.cmd = new("INSERT INTO `card` (`NumberSender`, `CVV`, `Validity`) VALUES (@bN, @bC, @bV); UPDATE bill SET Card_NumberSender = @bN WHERE bill.NumberSender = @bNb", DB.GetConnection());
+            DB.cmd.Parameters.Add("@bN", MySqlDbType.VarChar).Value = NumberSenderCard;
             DB.cmd.Parameters.Add("@bC", MySqlDbType.UInt16).Value = GenCVV();
             DB.cmd.Parameters.Add("@bV", MySqlDbType.VarChar).Value = GetValidity();
             DB.cmd.Parameters.Add("@bNb", MySqlDbType.VarChar).Value = Bill.CurrentBill.NumberBill;
             adapter.SelectCommand = DB.cmd;
             adapter.Fill(table);
-            Card.CurrentCard.Number = numberCard;
+            Card.CurrentCard.NumberSender = NumberSenderCard;
         }
         /*public static void GetCardByBill()
         {
             DB.OpenConnection();
             DataTable table = new();
             MySqlDataAdapter adapter = new();
-            DB.cmd = new("SELECT `Number` FROM `bill` WHERE `Card_number` = @bN", DB.GetConnection());
+            DB.cmd = new("SELECT `NumberSender` FROM `bill` WHERE `Card_NumberSender` = @bN", DB.GetConnection());
             DB.cmd.Parameters.Add("@bN", MySqlDbType.VarChar).Value = ;
             adapter.SelectCommand = DB.cmd;
             adapter.Fill(table);
@@ -41,16 +41,16 @@ namespace UserApp.Libs
             DB.OpenConnection();
             DataTable table = new();
             MySqlDataAdapter adapter = new();
-            DB.cmd = new("SELECT * FROM `card` INNER JOIN `bill` on card.Number = bill.Card_number WHERE bill.Number = @bNb", DB.GetConnection());
+            DB.cmd = new("SELECT * FROM `card` INNER JOIN `bill` on card.NumberSender = bill.Card_NumberSender WHERE bill.NumberSender = @bNb", DB.GetConnection());
             DB.cmd.Parameters.Add("@bNb", MySqlDbType.VarChar).Value = Bill.CurrentBill.NumberBill;
             adapter.SelectCommand = DB.cmd;
-            adapter.Fill(table);
+            DB.TryConnection(adapter, table);
             DataRow[] rows = table.Select();
             if (table.Rows.Count > 0)
             {
                 Card card = new()
                 {
-                    Number = DB.ConvertFromDBVal<string>(rows[0].ItemArray[0]),
+                    NumberSender = DB.ConvertFromDBVal<string>(rows[0].ItemArray[0]),
                     CVV = DB.ConvertFromDBVal<UInt16>(rows[0].ItemArray[1]),
                     Validity = DB.ConvertFromDBVal<string>(rows[0].ItemArray[2])
                 };

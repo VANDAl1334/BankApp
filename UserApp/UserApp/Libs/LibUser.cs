@@ -72,7 +72,6 @@ namespace UserApp.Models
                             bill_owner = DB.ConvertFromDBVal<uint>(row.ItemArray[4])
                         };
                         bills.Add(bill);
-                        User.CurrentUser.Bills = bills;
                     }
                     return bills;
                 }
@@ -106,6 +105,15 @@ namespace UserApp.Models
             for (int i = 0; i < fullName.Length; i++)
             {
                 if (!Regex.Match(fullName, "^[а-яА-Яa-zA-Z]*$").Success)
+                    return true;
+            }
+            return false;
+        }
+        public static bool PatternNumber(string number)
+        {
+            for (int i = 0; i < number.Length; i++)
+            {
+                if (!Regex.Match(number, "^[0-9]*$").Success)
                     return true;
             }
             return false;

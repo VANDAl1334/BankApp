@@ -25,7 +25,7 @@ namespace UserApp
     /// <summary>
     /// Логика взаимодействия для Window1.xaml
     /// </summary>
-    
+
     public partial class WndMain : System.Windows.Window
     {
         DispatcherTimer timer;
@@ -33,7 +33,7 @@ namespace UserApp
         private string Frozen;
         private float Balance;
         private WndMain wndMain;
-
+        
         public WndMain()
         {
             InitializeComponent();

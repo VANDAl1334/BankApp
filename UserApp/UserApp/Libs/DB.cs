@@ -33,7 +33,7 @@ namespace UserApp
         static public void CloseConnection()
         {
             if (connection.State == System.Data.ConnectionState.Open)
-                connection.Close();
+                try { connection.Close(); } catch { }
         }
         public static Boolean TryConnection(MySqlDataAdapter adapter, DataTable table)
         {

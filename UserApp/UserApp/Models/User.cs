@@ -8,7 +8,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-
+using UserApp.Models;
 namespace UserApp
 {
     public class User
@@ -22,7 +22,10 @@ namespace UserApp
         public string password_user { get; set; }
         public string Role_id { get; set; }
         public string Email { get; set; }
-        public List<Bill> Bills;
+        public UInt64 transaction_owner { get; set; }
+        public List<Transaction> Transactions;
+        public List<Bill> Bills = new();
+        public int? Count;
         public string FullName
         {
             get

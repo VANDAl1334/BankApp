@@ -40,21 +40,25 @@ namespace UserApp.Window.Main
                     NmBill.Items.Clear();
                 try { NmBill.SelectedIndex = indexNumBill; }
                 catch { NmBill.SelectedIndex = 0; }
+                if (User.CurrentUser.Bills != null)
+                    User.CurrentUser.Bills.Clear();
                 foreach (Bill bill in LibUser.GetBillsByUser(User.CurrentUser))
                 {
                     blockUpdate = false;
                     NmBill.Items.Add(bill);
+                    User.CurrentUser.Bills.Add(bill);
                 }
                 Balance.Text = (NmBill.SelectedItem as Bill).Balance.ToString();
+                User.CurrentUser.Count = User.CurrentUser.Bills.Count;
                 if (Bill.CurrentBill.NumberCard != null)
                 {
                     DataCard.Visibility = Visibility.Visible;
                     NoDataCard.Visibility = Visibility.Collapsed;
                     LibCard.GetCard();
                     fullname.Text = User.CurrentUser.FullName;
-                    if (Card.CurrentCard?.Number != null && Bill.CurrentBill.NumberCard?.ToString() == Card.CurrentCard?.Number)
+                    if (Card.CurrentCard?.NumberSender != null && Bill.CurrentBill.NumberCard?.ToString() == Card.CurrentCard?.NumberSender)
                     {
-                        NmCard.Text = Card.CurrentCard.Number;
+                        NmCard.Text = Card.CurrentCard.NumberSender;
                         CVV.Text = Card.CurrentCard.CVV.ToString();
                         Validity.Text = Card.CurrentCard.Validity;
                         BtnLinkCard.IsEnabled = false;

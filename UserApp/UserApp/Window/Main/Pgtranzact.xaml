@@ -3,30 +3,35 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:UserApp.Window.Main"
       mc:Ignorable="d" 
       d:DesignHeight="400" d:DesignWidth="750"
       Title="Pgtranzact" Height="400" Width="750" >
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="109*"></RowDefinition>
-            <RowDefinition Height="41*"></RowDefinition>
+            <RowDefinition Height="119*"></RowDefinition>
+            <RowDefinition Height="31*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock Text="  Введите свой счет откуда переводить"  FontFamily="Times new Roman" FontSize="20" Width="330" Margin="0 0 0 15"/>
-                <TextBox Width="300" FontFamily="Times new Roman" FontSize="20" BorderThickness="1" TextChanged="TextBox_TextChanged" />
-                <TextBlock Text="Введите свой счет куда переводить"  FontFamily="Times New Roman" FontSize="20" Width="302" Margin="0 10 0 15"/>
-                <TextBox Width="300" FontFamily="Times new Roman" FontSize="20" BorderThickness="1"></TextBox>
+            <ComboBox x:Name="TypeTranz" FontSize="20" VerticalAlignment="Top" Margin="200 20 0 0" SelectedIndex="0" Width="200" HorizontalAlignment="Center" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Тип перевода" SelectionChanged="TypeTranz_SelectionChanged" />
+            <TextBlock Text="Баланс: " FontSize="20" VerticalAlignment="Top" Margin="0 25 300 0" HorizontalAlignment="Center" x:Name="BalanceSenderBill"/>
+            <StackPanel HorizontalAlignment="Center" Margin="0 50 0 0" VerticalAlignment="Center">
+                <TextBlock Text="Откуда переводить"  FontFamily="Times new Roman" FontSize="20"  HorizontalAlignment="Center"/>
+                <ComboBox Width="400" FontFamily="Times new Roman" FontSize="20" DisplayMemberPath="NumberBill"  HorizontalContentAlignment="Center" x:Name="NumberSender" SelectionChanged="NumberSender_SelectionChanged"/>
+                <TextBlock HorizontalAlignment="Center" FontSize="20" Margin="0 10">Сумма перевода</TextBlock>
+                <TextBlock x:Name="TipAmount" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Foreground="Red" Visibility="Collapsed">Только числа</TextBlock>
+                <TextBlock Text="Обязательное поле" Foreground="red" FontSize="18" HorizontalAlignment="Center" x:Name="TipReqAmount" Visibility="Collapsed"/>
+                <TextBox FontSize="22" Height="30" HorizontalContentAlignment="Center" x:Name="amount" Width="350" TextChanged="Amount_TextChanged"/>
+                <TextBlock Text="Куда переводить" HorizontalAlignment="Center" FontFamily="Times New Roman" FontSize="20" Margin="0 10 0 5"/>
+                <TextBlock x:Name="TipBill" HorizontalAlignment="Center" FontSize="18" Foreground="Red" Visibility="Collapsed">Только номер счета или карты</TextBlock>
+                <TextBlock Text="Обязательное поле" Foreground="Red" FontSize="18" HorizontalAlignment="Center" x:Name="TipReqNmRecipient" Visibility="Collapsed"/>
+                <TextBox Width="400" FontFamily="Times new Roman" HorizontalContentAlignment="Center" FontSize="20" x:Name="NmRecipient" Visibility="Collapsed" TextChanged="NmRecipient_TextChanged"></TextBox>
+                <ComboBox Width="400" FontFamily="Times new Roman"  FontSize="20" DisplayMemberPath="NumberBill" x:Name="NumberRecipient" HorizontalContentAlignment="Center" SelectionChanged="NumberRecipient_SelectionChanged"/>
             </StackPanel>
         </Grid>
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="220"  Background="Gray" Grid.Column="1" BorderBrush="Transparent" Foreground="Black" FontFamily="Times New Roman" FontSize="19" Content="Совершить перевод" Style="{StaticResource MaterialDesignRaisedButton}"></Button>
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="160" Background="gray" Grid.Column="0" BorderBrush="Transparent" Foreground="Black" FontFamily="Times New Roman" FontSize="19" Content="Отмена" Style="{StaticResource MaterialDesignRaisedButton}"></Button>
+        <Grid Grid.Row="1" Height="60">
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="BtnComplete" Height="40" Width="220"  Background="Gray" Grid.Column="1" BorderBrush="Transparent" Foreground="Black" FontFamily="Times New Roman" FontSize="19" Content="Совершить перевод" Style="{StaticResource MaterialDesignRaisedButton}" Click="BtnComplete_Click"></Button>
         </Grid>
     </Grid>
 </Page>
