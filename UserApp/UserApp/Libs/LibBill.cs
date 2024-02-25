@@ -78,12 +78,12 @@ namespace UserApp.Libs
                     Transaction transaction = new()
                     {
                         Id = DB.ConvertFromDBVal<UInt64>(row.ItemArray[0]),
-                        Type_transaction = DB.ConvertFromDBVal<string>(row.ItemArray[3]),
-                        Sender = DB.ConvertFromDBVal<string>(row.ItemArray[8]),
-                        Recipient = DB.ConvertFromDBVal<string>(row.ItemArray[7]),
-                        Status = DB.ConvertFromDBVal<string>(row.ItemArray[6]),
-                        Amount = DB.ConvertFromDBVal<float>(row.ItemArray[2]),
-                        Date = DB.ConvertFromDBVal<DateTime>(row.ItemArray[9])
+                        Type_transaction = DB.ConvertFromDBVal<string>(row.ItemArray[4]),
+                        Sender = DB.ConvertFromDBVal<string>(row.ItemArray[6]),
+                        Recipient = DB.ConvertFromDBVal<string>(row.ItemArray[5]),
+                        Status = DB.ConvertFromDBVal<string>(row.ItemArray[7]),
+                        Amount = DB.ConvertFromDBVal<float>(row.ItemArray[3]),
+                        Date = DB.ConvertFromDBVal<DateTime>(row.ItemArray[10])
                     };
                     transactions.Add(transaction);
                 }
@@ -114,7 +114,7 @@ namespace UserApp.Libs
             DB.cmd.Parameters.Add("@bS", MySqlDbType.TinyBlob).Value = 1;
             DB.cmd.Parameters.Add("@bNR", MySqlDbType.VarChar).Value = nmBillRecipient;
             DB.cmd.Parameters.Add("@bNa", MySqlDbType.Float).Value = float.Parse(amount);
-            DB.cmd.Parameters.Add("@bD", MySqlDbType.Date).Value = DateTime.Now;
+            DB.cmd.Parameters.Add("@bD", MySqlDbType.DateTime).Value = DateTime.Now;
             adapter.SelectCommand = DB.cmd;
             DB.TryConnection(adapter, table);
         }

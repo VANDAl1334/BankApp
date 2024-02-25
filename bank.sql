@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 02 2024 г., 17:47
+-- Время создания: Фев 14 2024 г., 15:42
 -- Версия сервера: 8.0.31
 -- Версия PHP: 8.0.26
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `bill`;
 CREATE TABLE IF NOT EXISTS `bill` (
   `Number` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `Frozen` varchar(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Frozen` tinyint(1) NOT NULL,
   `Balance` float NOT NULL,
   `Card_number` varchar(19) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `bill_owner` int UNSIGNED NOT NULL,
@@ -44,7 +44,8 @@ CREATE TABLE IF NOT EXISTS `bill` (
 --
 
 INSERT INTO `bill` (`Number`, `Frozen`, `Balance`, `Card_number`, `bill_owner`) VALUES
-('4114508825592669335', '0', 0, '1033 3593 6801 6668', 18);
+('31063587124772876927', 0, 18000, NULL, 18),
+('86751043112319142340', 0, 2000, NULL, 18);
 
 -- --------------------------------------------------------
 
@@ -65,11 +66,9 @@ CREATE TABLE IF NOT EXISTS `card` (
 --
 
 INSERT INTO `card` (`Number`, `CVV`, `Validity`) VALUES
-('1033 3593 6801 6668', 743, '2/2024'),
-('2251 2709 8603 7461', 338, '2/2024'),
-('3981 6666 8647 5732', 659, '2/2024'),
-('8174 5820 6813 3945', 615, '2/2024'),
-('8530 7218 6926 1542', 247, '2/2024');
+('4808 7327 6366 4416', 540, '2/2024'),
+('4937 3071 1490 1765', 173, '2/2024'),
+('8787 7702 8585 9878', 883, '2/2024');
 
 -- --------------------------------------------------------
 
@@ -107,6 +106,15 @@ CREATE TABLE IF NOT EXISTS `status_transfer` (
   KEY `Status` (`Status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Дамп данных таблицы `status_transfer`
+--
+
+INSERT INTO `status_transfer` (`id`, `Status`) VALUES
+(1, 'Выполнен'),
+(2, 'Отменен'),
+(3, 'Отправлен');
+
 -- --------------------------------------------------------
 
 --
@@ -115,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `status_transfer` (
 
 DROP TABLE IF EXISTS `transaction`;
 CREATE TABLE IF NOT EXISTS `transaction` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
   `Type_transfer` tinyint(1) NOT NULL,
   `transfer_recipient` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `transfer_sender` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
@@ -127,7 +135,28 @@ CREATE TABLE IF NOT EXISTS `transaction` (
   KEY `status_id` (`status_id`),
   KEY `transfer_sender` (`transfer_sender`),
   KEY `transfer_recipient` (`transfer_recipient`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Дамп данных таблицы `transaction`
+--
+
+INSERT INTO `transaction` (`id`, `Type_transfer`, `transfer_recipient`, `transfer_sender`, `status_id`, `amount`, `Date`) VALUES
+(1, 2, '86751043112319142340', '31063587124772876927', 1, 2000, '2024-02-13');
+
+--
+-- Триггеры `transaction`
+--
+DROP TRIGGER IF EXISTS `update_trigger_transaction`;
+DELIMITER $$
+CREATE TRIGGER `update_trigger_transaction` AFTER INSERT ON `transaction` FOR EACH ROW BEGIN
+UPDATE bill
+SET `Balance` = `Balance` + NEW.amount WHERE Number = NEW.transfer_recipient AND (NEW.Type_transfer = 1 OR NEW.Type_transfer = 2);
+UPDATE bill
+SET `Balance` = `Balance` - NEW.amount WHERE Number = NEW.transfer_sender AND (NEW.Type_transfer = 1 OR NEW.Type_transfer = 2);
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -170,7 +199,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `Email` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `Role_id` (`Role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `user`
@@ -186,7 +215,12 @@ INSERT INTO `user` (`id`, `name_user`, `surname_user`, `patronymic_user`, `login
 (15, 'qwe', 'efwqe', 'qwe', 'qwe', 'cQjqrMov0Q4jCOPcbrM/hfWr2b1slgGEYSS/znk9kRE=', '1', 'wqw'),
 (16, 'Генацвали', 'Абубэба', 'Пюрэнович', 'ПажылаяПаста', 'aKUVCICVY8pE+hNpKr7Ol75vLy6eoHIhmUF9qSxVBB4=', '1', 'wamp@gmail.com'),
 (17, 'wefwerg', 'qwewfe', 'wergwerfgewr', 'qweqwe', 'lY/rXGksRbThh+WeLl3ROrw56B+YjP9peQxkBLrAt08=', '1', 'v@gm.co'),
-(18, 'qweqwe', 'qweqwe', 'qweqwe', 'qwerty', 'lY/rXGksRbThh+WeLl3ROrw56B+YjP9peQxkBLrAt08=', '1', 'ja@co.com');
+(18, 'qweqwe', 'qweqwe', 'qweqwe', 'qwerty', 'lY/rXGksRbThh+WeLl3ROrw56B+YjP9peQxkBLrAt08=', '1', 'ja@co.com'),
+(19, 'ввв', 'Пупкин', 'вв', 'тест', 'qVC/36e7ZNnA6MUR09BwFqHLSazU29Mj2bwOnrUh2ZE=', '1', 'a@tu.ru'),
+(20, 'qqerqw', 'qwr', 'qwr', 'qwerty12', '9wykuAfIGX+mZn9WzSadRAxWvlVcL33DjQVkt3PS5EU=', '1', '123@123.com'),
+(21, 'ef', 'wef', '', 'qwerty1231212', 'lY/rXGksRbThh+WeLl3ROrw56B+YjP9peQxkBLrAt08=', '1', 'vjd@gs.co'),
+(22, 'qwfe', 'qw', '', 'qwerty123', 'lY/rXGksRbThh+WeLl3ROrw56B+YjP9peQxkBLrAt08=', '1', 'va@co.co'),
+(23, 'qw', 'qwerty', '', 'qwerty4', 'lY/rXGksRbThh+WeLl3ROrw56B+YjP9peQxkBLrAt08=', '1', 'va@v.co');
 
 -- --------------------------------------------------------
 
@@ -199,6 +233,37 @@ CREATE TABLE IF NOT EXISTS `v_role` (
   `id` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `name_role` varchar(13) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Дублирующая структура для представления `v_transaction`
+-- (См. Ниже фактическое представление)
+--
+DROP VIEW IF EXISTS `v_transaction`;
+CREATE TABLE IF NOT EXISTS `v_transaction` (
+`id` bigint unsigned
+,`recipient_id` int unsigned
+,`sender_id` int unsigned
+,`amount` float unsigned
+,`Type` varchar(20)
+,`transfer_recipient` varchar(20)
+,`transfer_sender` varchar(20)
+,`Status` varchar(20)
+,`recipient_name` varchar(92)
+,`sender_name` varchar(92)
+,`Date` date
+);
+
+-- --------------------------------------------------------
+
+--
+-- Структура для представления `v_transaction`
+--
+DROP TABLE IF EXISTS `v_transaction`;
+
+DROP VIEW IF EXISTS `v_transaction`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_transaction`  AS SELECT `tranz`.`id` AS `id`, `u1`.`id` AS `recipient_id`, `u2`.`id` AS `sender_id`, `tranz`.`amount` AS `amount`, `type_transfer`.`Type` AS `Type`, `tranz`.`transfer_recipient` AS `transfer_recipient`, `tranz`.`transfer_sender` AS `transfer_sender`, `st`.`Status` AS `Status`, concat(`u1`.`surname_user`,' ',`u1`.`name_user`,' ',`u1`.`patronymic_user`) AS `recipient_name`, concat(`u2`.`surname_user`,' ',`u2`.`name_user`,' ',`u2`.`patronymic_user`) AS `sender_name`, `tranz`.`Date` AS `Date` FROM ((((((`transaction` `tranz` join `type_transfer` on((`tranz`.`Type_transfer` = `type_transfer`.`id`))) join `status_transfer` `st` on((`tranz`.`status_id` = `st`.`id`))) join `bill` `b1` on((`b1`.`Number` = `tranz`.`transfer_recipient`))) join `bill` `b2` on((`b2`.`Number` = `tranz`.`transfer_sender`))) join `user` `u1` on((`u1`.`id` = `b1`.`bill_owner`))) join `user` `u2` on((`u2`.`id` = `b2`.`bill_owner`)))  ;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц

@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="UserApp.Window.UC.UCTransaction"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UserApp.Window.UC"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Margin="0 10 0 30">
+    <Grid Background="White">
+        <Border CornerRadius="25" Width="600" Height="350" BorderBrush="red" BorderThickness="2" >
+            <StackPanel x:Name="Transaction" HorizontalAlignment="Center" VerticalAlignment="Center" Width="545">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="ID" Text="ID"  FontSize="20" Margin="0 0 10 5" />
+                    <TextBlock Text="{Binding Id}" FontSize="20"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock Text="{Binding Date, StringFormat=H:mm:ss \dd/MM/yyyy }" FontSize="22" />
+                    <TextBlock x:Name="Date" Text="Дата" Margin="10 0 0 10"  FontSize="22" />
+                </StackPanel>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="Type_tranz" Margin="0 0 0 15" Text="Тип транзакции" FontSize="22" />
+                    <TextBlock x:Name="Sender" Grid.Row="1" Text="Отправитель" FontSize="22" Margin="0 0 0 15"/>
+                    <TextBlock x:Name="Recipient" Grid.Row="2" Text="Получатель" FontSize="22" Margin="0 0 0 15"/>
+                    <TextBlock x:Name="Amount" Grid.Row="3" Text="Сумма" FontSize="22" Margin="0 0 0 15"/>
+                    <TextBlock x:Name="Status" Grid.Row="4" Text="Статус" FontSize="22" Margin="0 0 0 15"/>
+                    <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Type_transaction}" HorizontalAlignment="Center" FontSize="22"/>
+                    <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Sender}" HorizontalAlignment="Center" FontSize="22"/>
+                    <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding Recipient}" HorizontalAlignment="Center" FontSize="22"/>
+                    <TextBlock Grid.Column="1" Grid.Row="3" Text="{Binding Amount}" HorizontalAlignment="Center" FontSize="22"/>
+                    <TextBlock Grid.Column="1" Grid.Row="4" Text="{Binding Status}" HorizontalAlignment="Center" FontSize="22"/>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

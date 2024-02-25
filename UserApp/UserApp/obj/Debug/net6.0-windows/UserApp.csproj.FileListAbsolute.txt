@@ -67,3 +67,5 @@ C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\ref
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\UserApp.pdb
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\UserApp.genruntimeconfig.cache
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\ref\UserApp.dll
+C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\UC\UCTransaction.g.cs
+C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\UC\UCTransaction.baml

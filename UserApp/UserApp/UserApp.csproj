@@ -10,16 +10,12 @@
   <ItemGroup>
     <Compile Remove="other image\**" />
     <Compile Remove="Sourse\**" />
-    <Compile Remove="Window\Новая папка\**" />
     <EmbeddedResource Remove="other image\**" />
     <EmbeddedResource Remove="Sourse\**" />
-    <EmbeddedResource Remove="Window\Новая папка\**" />
     <None Remove="other image\**" />
     <None Remove="Sourse\**" />
-    <None Remove="Window\Новая папка\**" />
     <Page Remove="other image\**" />
     <Page Remove="Sourse\**" />
-    <Page Remove="Window\Новая папка\**" />
   </ItemGroup>
 
   <ItemGroup>
