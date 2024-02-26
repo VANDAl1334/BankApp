@@ -22,7 +22,8 @@ namespace UserApp.Window.Main
     /// </summary>
     public partial class Pgtranzact : Page
     {
-        int indexNumBill;
+        int indexNumBillRecipient;
+        int indexNumBillSender;
         byte typeTranz;
         private Bill bill;
         bool amountValid = false;
@@ -31,7 +32,7 @@ namespace UserApp.Window.Main
         {
             InitializeComponent();
             TypeTranz.Items.Add("  Между своими");
-            TypeTranz.Items.Add("     Перевод");
+            TypeTranz.Items.Add("   Перевод");
             if (NumberSender.Items.Count != 0 || NumberRecipient.Items.Count != 0)
             {
                 NumberSender.Items.Clear();
@@ -45,8 +46,8 @@ namespace UserApp.Window.Main
                 NumberRecipient.Items.Add(bill);
             }
             if (NumberSender.SelectedIndex != -1)
-                indexNumBill = NumberSender.SelectedIndex;
-            try { NumberSender.SelectedIndex = indexNumBill; }
+                indexNumBillSender = NumberSender.SelectedIndex;
+            try { NumberSender.SelectedIndex = indexNumBillSender; }
             catch { NumberSender.SelectedIndex = 0; }
             BalanceSenderBill.Text = "Баланс: " + (NumberSender.SelectedItem as Bill).Balance.ToString();
             bill = (Bill)NumberSender.SelectedItem;
@@ -79,7 +80,7 @@ namespace UserApp.Window.Main
                 NumberRecipient.Items.Remove(NumberSender.SelectedItem);
                 NumberRecipient.Items.Add(bill);
                 bill = (Bill)NumberSender.SelectedItem;
-                BalanceSenderBill.Text = "Баланс: " + (NumberSender.SelectedItem as Bill).Balance.ToString();
+                BalanceSenderBill.Text = "Баланс: " + (NumberSender.SelectedItem as Bill)?.Balance.ToString();
             }
         }
 
@@ -92,20 +93,36 @@ namespace UserApp.Window.Main
         {
             if (!((NumberSender.SelectedItem as Bill)?.NumberBill != (NumberRecipient.SelectedItem as Bill)?.NumberBill || NmRecipient.Text != (NumberRecipient.SelectedItem as Bill)?.NumberBill))
             { MessageBox.Show("Указаны одиннаковые счета"); return; }
-            if (amountValid || billRecipientValid)
-                if ((NumberSender.SelectedItem as Bill).Balance > float.Parse(amount.Text))
-                {
-                    if (TypeTranz.SelectedIndex == 0)
-                        typeTranz = 2;
-                    else
-                        typeTranz = 1;
-                    if (typeTranz == 2)
-                        LibBill.BillTransaction(typeTranz, (NumberSender.SelectedItem as Bill).NumberBill, (NumberRecipient.SelectedItem as Bill).NumberBill, amount.Text);
-                    else
-                        LibBill.BillTransaction(typeTranz, (NumberSender.SelectedItem as Bill).NumberBill, NmRecipient.Text, amount.Text);
-                }
+            if (!(amountValid && billRecipientValid))
+            { MessageBox.Show("Введите данные"); return; }
+            if ((NumberSender.SelectedItem as Bill).Balance > float.Parse(amount.Text))
+            {
+                if (TypeTranz.SelectedIndex == 0)
+                    typeTranz = 2;
                 else
-                    MessageBox.Show("Недостаточно средств");
+                    typeTranz = 1;
+                if (typeTranz == 2)
+                    LibBill.BillTransaction(typeTranz, (NumberSender.SelectedItem as Bill).NumberBill, (NumberRecipient.SelectedItem as Bill).NumberBill, amount.Text);
+                else
+                    LibBill.BillTransaction(typeTranz, (NumberSender.SelectedItem as Bill).NumberBill, NmRecipient.Text, amount.Text);
+            }
+            else
+                MessageBox.Show("Недостаточно средств");
+            indexNumBillSender = NumberSender.SelectedIndex;
+            indexNumBillRecipient = NumberRecipient.SelectedIndex;
+            User.CurrentUser.Bills.Clear();
+            NumberSender.Items.Clear();
+            NumberRecipient.Items.Clear();
+            foreach (Bill bill in LibUser.GetBillsByUser(User.CurrentUser))
+            {
+                NumberSender.Items.Add(bill);
+                NumberRecipient.Items.Add(bill);
+                User.CurrentUser.Bills.Add(bill);
+            }
+            NumberSender.SelectedIndex = indexNumBillSender;
+            NumberRecipient.SelectedIndex = indexNumBillRecipient;
+            BalanceSenderBill.Text = "Баланс: " + (NumberSender.SelectedItem as Bill).Balance.ToString();
+            User.CurrentUser.Count = User.CurrentUser.Bills.Count;
         }
 
         private void Amount_TextChanged(object sender, TextChangedEventArgs e)
