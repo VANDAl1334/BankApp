@@ -13,5 +13,6 @@
                 
             </StackPanel>
         </ScrollViewer>
+        <TextBlock x:Name="NonHistory" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" FontSize="26">У вас еще нет историй</TextBlock>
     </Grid>
 </Page>

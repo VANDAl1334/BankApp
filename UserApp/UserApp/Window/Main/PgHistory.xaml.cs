@@ -29,9 +29,17 @@ namespace UserApp.Window.Main
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
-        {            
+        {
+            if (LibBill.GetListTransactionByUser(User.CurrentUser) == null)
+            {
+                NonHistory.Visibility = Visibility.Visible;
+                return;
+            }
+            else
+                NonHistory.Visibility = Visibility.Collapsed;
             foreach (Transaction? transaction in LibBill.GetListTransactionByUser(User.CurrentUser))
             {
+
                 UCTransaction uCTransaction = new(transaction);
                 listPanel.Children.Add(uCTransaction);
             }
