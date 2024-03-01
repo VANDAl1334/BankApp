@@ -56,9 +56,9 @@ namespace UserApp.Window.Main
                     NoDataCard.Visibility = Visibility.Collapsed;
                     LibCard.GetCard();
                     fullname.Text = User.CurrentUser.FullName;
-                    if (Card.CurrentCard?.NumberSender != null && Bill.CurrentBill.NumberCard?.ToString() == Card.CurrentCard?.NumberSender)
-                    {
-                        NmCard.Text = Card.CurrentCard.NumberSender;
+                    if (Card.CurrentCard?.Number != null && Bill.CurrentBill.NumberCard?.ToString() == Card.CurrentCard?.Number)
+                    {                        
+                        NmCard.Text = Card.CurrentCard.Number;
                         CVV.Text = Card.CurrentCard.CVV.ToString();
                         Validity.Text = Card.CurrentCard.Validity;
                         BtnLinkCard.IsEnabled = false;

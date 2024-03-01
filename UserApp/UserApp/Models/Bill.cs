@@ -16,6 +16,6 @@ namespace UserApp
         public Boolean Frozen { get; set; }
         public float Balance { get; set; }
         public string? NumberCard { get; set; }
-        public UInt32 bill_owner { get; set; }        
+        public UInt32 bill_owner { get; set; }
     }
 }

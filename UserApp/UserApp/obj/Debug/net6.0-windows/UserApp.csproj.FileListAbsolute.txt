@@ -2,7 +2,6 @@ C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\bin\Debug\net6.0-windows\Use
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\bin\Debug\net6.0-windows\UserApp.deps.json
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\bin\Debug\net6.0-windows\UserApp.runtimeconfig.json
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\bin\Debug\net6.0-windows\UserApp.dll
-C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\bin\Debug\net6.0-windows\UserApp.pdb
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\bin\Debug\net6.0-windows\Google.Protobuf.dll
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\bin\Debug\net6.0-windows\K4os.Compression.LZ4.dll
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\bin\Debug\net6.0-windows\K4os.Compression.LZ4.Streams.dll
@@ -35,6 +34,7 @@ C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Win
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Registration\PgFNm.g.cs
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Registration\PgLogPass.g.cs
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Registration\WndReg.g.cs
+C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\UC\UCTransaction.g.cs
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\UserApp_MarkupCompile.cache
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\UserApp_MarkupCompile.lref
@@ -56,6 +56,7 @@ C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Win
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Registration\PgFNm.baml
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Registration\PgLogPass.baml
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\Registration\WndReg.baml
+C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\UC\UCTransaction.baml
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\UserApp.g.resources
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\UserApp.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\UserApp.AssemblyInfoInputs.cache
@@ -66,6 +67,5 @@ C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Use
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\refint\UserApp.dll
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\UserApp.pdb
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\UserApp.genruntimeconfig.cache
+C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\bin\Debug\net6.0-windows\UserApp.pdb
 C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\ref\UserApp.dll
-C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\UC\UCTransaction.g.cs
-C:\Users\vanda\Desktop\GitHub\Plain\UserApp\UserApp\obj\Debug\net6.0-windows\Window\UC\UCTransaction.baml

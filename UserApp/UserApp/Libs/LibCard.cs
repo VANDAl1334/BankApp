@@ -13,18 +13,18 @@ namespace UserApp.Libs
     {
         public static void AddCard()
         {
-            string NumberSenderCard = GenCard();
+            string NumberCard = GenCard();
             DB.OpenConnection();
             DataTable table = new();
             MySqlDataAdapter adapter = new();
-            DB.cmd = new("INSERT INTO `card` (`NumberSender`, `CVV`, `Validity`) VALUES (@bN, @bC, @bV); UPDATE bill SET Card_NumberSender = @bN WHERE bill.NumberSender = @bNb", DB.GetConnection());
-            DB.cmd.Parameters.Add("@bN", MySqlDbType.VarChar).Value = NumberSenderCard;
+            DB.cmd = new("INSERT INTO `card` (`Number`, `CVV`, `Validity`) VALUES (@bN, @bC, @bV); UPDATE bill SET Card_Number = @bN WHERE bill.Number = @bNb", DB.GetConnection());
+            DB.cmd.Parameters.Add("@bN", MySqlDbType.VarChar).Value = NumberCard;
             DB.cmd.Parameters.Add("@bC", MySqlDbType.UInt16).Value = GenCVV();
             DB.cmd.Parameters.Add("@bV", MySqlDbType.VarChar).Value = GetValidity();
             DB.cmd.Parameters.Add("@bNb", MySqlDbType.VarChar).Value = Bill.CurrentBill.NumberBill;
             adapter.SelectCommand = DB.cmd;
             adapter.Fill(table);
-            Card.CurrentCard.NumberSender = NumberSenderCard;
+            Card.CurrentCard.Number = NumberCard;
         }
         /*public static void GetCardByBill()
         {
@@ -38,10 +38,11 @@ namespace UserApp.Libs
         }*/
         public static Card GetCard()
         {
+            List<Card> cards = new();
             DB.OpenConnection();
             DataTable table = new();
             MySqlDataAdapter adapter = new();
-            DB.cmd = new("SELECT * FROM `card` INNER JOIN `bill` on card.NumberSender = bill.Card_NumberSender WHERE bill.NumberSender = @bNb", DB.GetConnection());
+            DB.cmd = new("SELECT * FROM `card` INNER JOIN `bill` on card.Number = bill.Card_Number WHERE bill.Number = @bNb", DB.GetConnection());
             DB.cmd.Parameters.Add("@bNb", MySqlDbType.VarChar).Value = Bill.CurrentBill.NumberBill;
             adapter.SelectCommand = DB.cmd;
             DB.TryConnection(adapter, table);
@@ -50,12 +51,12 @@ namespace UserApp.Libs
             {
                 Card card = new()
                 {
-                    NumberSender = DB.ConvertFromDBVal<string>(rows[0].ItemArray[0]),
+                    Number = DB.ConvertFromDBVal<string>(rows[0].ItemArray[0]),
                     CVV = DB.ConvertFromDBVal<UInt16>(rows[0].ItemArray[1]),
                     Validity = DB.ConvertFromDBVal<string>(rows[0].ItemArray[2])
                 };
                 Card.CurrentCard = card;
-                return card;
+                return card;                
             }
             return null;
         }

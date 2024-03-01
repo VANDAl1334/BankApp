@@ -10,7 +10,7 @@ namespace UserApp
     public class Card
     {
         public static Card CurrentCard = new();
-        public string? NumberSender {  get; set; }
+        public string? Number{  get; set; }
         public UInt16 CVV { get; set; }
         public string Validity { get; set; }
     }

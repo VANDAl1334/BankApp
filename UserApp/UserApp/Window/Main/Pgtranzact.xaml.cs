@@ -78,17 +78,13 @@ namespace UserApp.Window.Main
             if (IsLoaded)
             {
                 NumberRecipient.Items.Remove(NumberSender.SelectedItem);
-                NumberRecipient.Items.Add(bill);
+                if (bill != null)
+                    NumberRecipient.Items.Add(bill);
                 bill = (Bill)NumberSender.SelectedItem;
                 BalanceSenderBill.Text = "Баланс: " + (NumberSender.SelectedItem as Bill)?.Balance.ToString();
+                billRecipientValid = false;
             }
         }
-
-        private void NumberRecipient_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
         private void BtnComplete_Click(object sender, RoutedEventArgs e)
         {
             if (!((NumberSender.SelectedItem as Bill)?.NumberBill != (NumberRecipient.SelectedItem as Bill)?.NumberBill || NmRecipient.Text != (NumberRecipient.SelectedItem as Bill)?.NumberBill))
@@ -138,7 +134,17 @@ namespace UserApp.Window.Main
                 { TipAmount.Visibility = Visibility.Collapsed; amountValid = true; }
             }
         }
-
+        private void NumberRecipient_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (NumberRecipient.SelectedIndex == -1)
+            {
+                TipReqNmRecipient.Visibility = Visibility.Visible; TipBill.Visibility = Visibility.Collapsed; billRecipientValid = false;
+            }
+            else
+            {
+                TipReqNmRecipient.Visibility = Visibility.Collapsed; billRecipientValid = true;
+            }
+        }
         private void NmRecipient_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (NumberRecipient.SelectedIndex == -1)

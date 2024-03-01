@@ -63,7 +63,7 @@ namespace UserApp.Window.Authorization
                     ErrLP.Visibility = Visibility.Visible;
             }
             else
-                MessageBox.Show("Связи с Аллахам нет");
+                MessageBox.Show("Связи с сервером нет");
         }
         private void BtnAut_Click(object sender, RoutedEventArgs e) => Authorization();
         private void ChkPass_Click(object sender, RoutedEventArgs e)
@@ -86,7 +86,7 @@ namespace UserApp.Window.Authorization
             if (DB.stateConnection)
                 NavigationService.Navigate(new PgRec());
             else
-                MessageBox.Show("Связи с Аллахам нет");
+                MessageBox.Show("Связи с сервером нет");
         }
         private void Border_KeyUp(object sender, KeyEventArgs e)
         {
