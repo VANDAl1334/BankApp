@@ -34,7 +34,7 @@ namespace UserApp.Libs
             DB.cmd = new("SELECT * FROM `bill` inner join `user` on user.id = bill.bill_owner WHERE `bill_owner` = @bo", DB.GetConnection());
             DB.cmd.Parameters.Add("@bo", MySqlDbType.VarChar).Value = user.id;
             adapter.SelectCommand = DB.cmd;
-            DB.TryConnection(adapter, table);          
+            DB.TryConnection(adapter, table);
             if (table.Rows.Count > 0)
                 return table.Rows.Count;
             return null;
@@ -87,6 +87,8 @@ namespace UserApp.Libs
                     };
                     transactions.Add(transaction);
                 }
+                transactions.Reverse();
+                Transaction.Transactions = transactions;
                 return transactions;
             }
             return null;
@@ -100,11 +102,13 @@ namespace UserApp.Libs
             DB.cmd.Parameters.Add("@bN", MySqlDbType.VarChar).Value = numbill;
             adapter.SelectCommand = DB.cmd;
             DB.TryConnection(adapter, table);
-            if (table.Rows.Count > 0)            
+            if (table.Rows.Count > 0)
                 GenBill();
         }
         public static void BillTransaction(byte typeTransaction, string nmBillSender, string nmBillRecipient, string amount)
         {
+            string allah = DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy");
+            //DateTime allh = string.Format("HH:mm:ss dd/MM/yyyy", DateTime.Now);
             DB.OpenConnection();
             DataTable table = new();
             MySqlDataAdapter adapter = new();
@@ -114,7 +118,7 @@ namespace UserApp.Libs
             DB.cmd.Parameters.Add("@bS", MySqlDbType.TinyBlob).Value = 1;
             DB.cmd.Parameters.Add("@bNR", MySqlDbType.VarChar).Value = nmBillRecipient;
             DB.cmd.Parameters.Add("@bNa", MySqlDbType.Float).Value = float.Parse(amount);
-            DB.cmd.Parameters.Add("@bD", MySqlDbType.DateTime).Value = DateTime.Now;
+            DB.cmd.Parameters.Add("@bD", MySqlDbType.DateTime).Value = DateTime.Now.ToUniversalTime();
             adapter.SelectCommand = DB.cmd;
             DB.TryConnection(adapter, table);
         }

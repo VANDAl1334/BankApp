@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 14 2024 г., 15:42
+-- Время создания: Мар 01 2024 г., 22:58
 -- Версия сервера: 8.0.31
 -- Версия PHP: 8.0.26
 
@@ -44,8 +44,9 @@ CREATE TABLE IF NOT EXISTS `bill` (
 --
 
 INSERT INTO `bill` (`Number`, `Frozen`, `Balance`, `Card_number`, `bill_owner`) VALUES
-('31063587124772876927', 0, 18000, NULL, 18),
-('86751043112319142340', 0, 2000, NULL, 18);
+('31063587124772876927', 0, 5574, NULL, 18),
+('59864871948951720427', 0, 9100, '1739 1564 1434 7057', 24),
+('86751043112319142340', 0, 5326, NULL, 18);
 
 -- --------------------------------------------------------
 
@@ -66,6 +67,7 @@ CREATE TABLE IF NOT EXISTS `card` (
 --
 
 INSERT INTO `card` (`Number`, `CVV`, `Validity`) VALUES
+('1739 1564 1434 7057', 354, '3/2024'),
 ('4808 7327 6366 4416', 540, '2/2024'),
 ('4937 3071 1490 1765', 173, '2/2024'),
 ('8787 7702 8585 9878', 883, '2/2024');
@@ -129,20 +131,20 @@ CREATE TABLE IF NOT EXISTS `transaction` (
   `transfer_sender` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `status_id` tinyint(1) NOT NULL,
   `amount` float UNSIGNED NOT NULL,
-  `Date` date NOT NULL,
+  `Date` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `Type_transfer` (`Type_transfer`,`transfer_recipient`,`transfer_sender`,`status_id`),
   KEY `status_id` (`status_id`),
   KEY `transfer_sender` (`transfer_sender`),
   KEY `transfer_recipient` (`transfer_recipient`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `transaction`
 --
 
 INSERT INTO `transaction` (`id`, `Type_transfer`, `transfer_recipient`, `transfer_sender`, `status_id`, `amount`, `Date`) VALUES
-(1, 2, '86751043112319142340', '31063587124772876927', 1, 2000, '2024-02-13');
+(2, 2, '86751043112319142340', '31063587124772876927', 1, 1, '2024-03-01 22:49:35');
 
 --
 -- Триггеры `transaction`
@@ -199,7 +201,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `Email` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `Role_id` (`Role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `user`
@@ -220,7 +222,8 @@ INSERT INTO `user` (`id`, `name_user`, `surname_user`, `patronymic_user`, `login
 (20, 'qqerqw', 'qwr', 'qwr', 'qwerty12', '9wykuAfIGX+mZn9WzSadRAxWvlVcL33DjQVkt3PS5EU=', '1', '123@123.com'),
 (21, 'ef', 'wef', '', 'qwerty1231212', 'lY/rXGksRbThh+WeLl3ROrw56B+YjP9peQxkBLrAt08=', '1', 'vjd@gs.co'),
 (22, 'qwfe', 'qw', '', 'qwerty123', 'lY/rXGksRbThh+WeLl3ROrw56B+YjP9peQxkBLrAt08=', '1', 'va@co.co'),
-(23, 'qw', 'qwerty', '', 'qwerty4', 'lY/rXGksRbThh+WeLl3ROrw56B+YjP9peQxkBLrAt08=', '1', 'va@v.co');
+(23, 'qw', 'qwerty', '', 'qwerty4', 'lY/rXGksRbThh+WeLl3ROrw56B+YjP9peQxkBLrAt08=', '1', 'va@v.co'),
+(24, 'aboba', 'abobav', '', '1', 'lY/rXGksRbThh+WeLl3ROrw56B+YjP9peQxkBLrAt08=', '1', 'va1@co.co');
 
 -- --------------------------------------------------------
 
@@ -230,8 +233,8 @@ INSERT INTO `user` (`id`, `name_user`, `surname_user`, `patronymic_user`, `login
 
 DROP TABLE IF EXISTS `v_role`;
 CREATE TABLE IF NOT EXISTS `v_role` (
-  `id` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `name_role` varchar(13) COLLATE utf8mb4_general_ci DEFAULT NULL
+  `id` varchar(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `name_role` varchar(13) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -242,17 +245,17 @@ CREATE TABLE IF NOT EXISTS `v_role` (
 --
 DROP VIEW IF EXISTS `v_transaction`;
 CREATE TABLE IF NOT EXISTS `v_transaction` (
-`id` bigint unsigned
+`amount` float unsigned
+,`Date` datetime
+,`id` bigint unsigned
 ,`recipient_id` int unsigned
+,`recipient_name` varchar(92)
 ,`sender_id` int unsigned
-,`amount` float unsigned
-,`Type` varchar(20)
+,`sender_name` varchar(92)
+,`Status` varchar(20)
 ,`transfer_recipient` varchar(20)
 ,`transfer_sender` varchar(20)
-,`Status` varchar(20)
-,`recipient_name` varchar(92)
-,`sender_name` varchar(92)
-,`Date` date
+,`Type` varchar(20)
 );
 
 -- --------------------------------------------------------

@@ -47,9 +47,9 @@ namespace UserApp.Models
             }
             return false;
         }
-        public static List<Bill> GetBillsByUser(User user)
+        public static List<Bill?> GetBillsByUser(User user)
         {
-            List<Bill> bills = new();
+            List<Bill?> bills = new();
             DB.OpenConnection();
             DataTable table = new();
             MySqlDataAdapter adapter = new();

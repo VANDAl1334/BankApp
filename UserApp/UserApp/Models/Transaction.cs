@@ -15,5 +15,6 @@ namespace UserApp.Models
         public string Status { get; set; }
         public float Amount { get; set; }
         public DateTime Date { get; set; }
+        public static List<Transaction> Transactions = new();
     }
 }

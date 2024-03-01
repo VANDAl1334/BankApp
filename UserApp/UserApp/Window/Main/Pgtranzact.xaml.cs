@@ -54,10 +54,6 @@ namespace UserApp.Window.Main
             try { NumberRecipient.Items.RemoveAt(0); }
             catch { }
         }
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
         private void TypeTranz_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (TypeTranz.SelectedIndex == 0)
@@ -82,12 +78,13 @@ namespace UserApp.Window.Main
                     NumberRecipient.Items.Add(bill);
                 bill = (Bill)NumberSender.SelectedItem;
                 BalanceSenderBill.Text = "Баланс: " + (NumberSender.SelectedItem as Bill)?.Balance.ToString();
-                billRecipientValid = false;
+                if (typeTranz == 2)
+                    billRecipientValid = false;
             }
         }
         private void BtnComplete_Click(object sender, RoutedEventArgs e)
         {
-            if (!((NumberSender.SelectedItem as Bill)?.NumberBill != (NumberRecipient.SelectedItem as Bill)?.NumberBill || NmRecipient.Text != (NumberRecipient.SelectedItem as Bill)?.NumberBill))
+            if ((NumberSender.SelectedItem as Bill)?.NumberBill == (NumberRecipient.SelectedItem as Bill)?.NumberBill || NmRecipient.Text == (NumberSender.SelectedItem as Bill)?.NumberBill)
             { MessageBox.Show("Указаны одиннаковые счета"); return; }
             if (!(amountValid && billRecipientValid))
             { MessageBox.Show("Введите данные"); return; }
@@ -98,7 +95,7 @@ namespace UserApp.Window.Main
                 else
                     typeTranz = 1;
                 if (typeTranz == 2)
-                    LibBill.BillTransaction(typeTranz, (NumberSender.SelectedItem as Bill).NumberBill, (NumberRecipient.SelectedItem as Bill).NumberBill, amount.Text);
+                    LibBill.BillTransaction(typeTranz, (NumberSender.SelectedItem as Bill)?.NumberBill, (NumberRecipient.SelectedItem as Bill).NumberBill, amount.Text);
                 else
                     LibBill.BillTransaction(typeTranz, (NumberSender.SelectedItem as Bill).NumberBill, NmRecipient.Text, amount.Text);
             }
@@ -137,17 +134,14 @@ namespace UserApp.Window.Main
         private void NumberRecipient_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (NumberRecipient.SelectedIndex == -1)
-            {
-                TipReqNmRecipient.Visibility = Visibility.Visible; TipBill.Visibility = Visibility.Collapsed; billRecipientValid = false;
-            }
+            { TipReqNmRecipient.Visibility = Visibility.Visible; TipBill.Visibility = Visibility.Collapsed; billRecipientValid = false; }
             else
-            {
-                TipReqNmRecipient.Visibility = Visibility.Collapsed; billRecipientValid = true;
-            }
+            { TipReqNmRecipient.Visibility = Visibility.Collapsed; billRecipientValid = true; }
         }
         private void NmRecipient_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (NumberRecipient.SelectedIndex == -1)
+
+            if (NmRecipient.Text == string.Empty)
             { TipReqNmRecipient.Visibility = Visibility.Visible; TipBill.Visibility = Visibility.Collapsed; billRecipientValid = false; }
             else
             {
