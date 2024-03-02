@@ -9,13 +9,12 @@
       Title="History" Loaded="Page_Loaded">
     <Grid>
         <ScrollViewer>
-            <StackPanel>
-                <ComboBox x:Name="countTranz" HorizontalAlignment="Right" FontSize="20" SelectionChanged="countTranz_SelectionChanged"/>
-                <StackPanel x:Name="listPanel">
+            
+            <StackPanel x:Name="listPanel">
 
-                </StackPanel>
             </StackPanel>
         </ScrollViewer>
         <TextBlock x:Name="NonHistory" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" FontSize="26">У вас еще нет историй</TextBlock>
+        <ComboBox x:Name="countTranz" Margin="0 0 17 0" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="20" SelectionChanged="countTranz_SelectionChanged"/>
     </Grid>
 </Page>

@@ -107,7 +107,7 @@ namespace UserApp.Libs
         }
         public static void BillTransaction(byte typeTransaction, string nmBillSender, string nmBillRecipient, string amount)
         {
-            string allah = DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy");
+            string allah = DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy"); 
             //DateTime allh = string.Format("HH:mm:ss dd/MM/yyyy", DateTime.Now);
             DB.OpenConnection();
             DataTable table = new();
@@ -118,7 +118,7 @@ namespace UserApp.Libs
             DB.cmd.Parameters.Add("@bS", MySqlDbType.TinyBlob).Value = 1;
             DB.cmd.Parameters.Add("@bNR", MySqlDbType.VarChar).Value = nmBillRecipient;
             DB.cmd.Parameters.Add("@bNa", MySqlDbType.Float).Value = float.Parse(amount);
-            DB.cmd.Parameters.Add("@bD", MySqlDbType.DateTime).Value = DateTime.Now.ToUniversalTime();
+            DB.cmd.Parameters.Add("@bD", MySqlDbType.DateTime).Value = DateTime.Now.ToLocalTime();
             adapter.SelectCommand = DB.cmd;
             DB.TryConnection(adapter, table);
         }

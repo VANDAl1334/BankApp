@@ -44,6 +44,7 @@ namespace UserApp.Window.Main
             {
                 NonHistory.Visibility = Visibility.Collapsed;
                 countTranz.Visibility = Visibility.Visible;
+                listPanel.Children.Clear();
                 countTranz.SelectedIndex = 0;
             }
         }
@@ -52,6 +53,7 @@ namespace UserApp.Window.Main
         {
             if (countTranz.SelectedIndex == 0)
             {
+                listPanel.Children.Clear();
                 if (Transaction.Transactions.Count < 24)
                     foreach (Transaction transaction in Transaction.Transactions)
                     {
@@ -68,24 +70,41 @@ namespace UserApp.Window.Main
             }
             else if (countTranz.SelectedIndex == 1)
             {
-                for (int i = 0; i <= 49; i++)
-                {
-                    Transaction? transaction = Transaction.Transactions?[i];
-                    UCTransaction uCTransaction = new(transaction);
-                    listPanel.Children.Add(uCTransaction);
-                }
+                listPanel.Children.Clear();
+                if (Transaction.Transactions.Count < 49)
+                    foreach (Transaction transaction in Transaction.Transactions)
+                    {
+                        UCTransaction uCTransaction = new(transaction);
+                        listPanel.Children.Add(uCTransaction);
+                    }
+                else
+                    for (int i = 0; i <= 49; i++)
+                    {
+                        Transaction? transaction = Transaction.Transactions?[i];
+                        UCTransaction uCTransaction = new(transaction);
+                        listPanel.Children.Add(uCTransaction);
+                    }
             }
             else if (countTranz.SelectedIndex == 2)
             {
-                for (int i = 0; i <= 99; i++)
-                {
-                    Transaction? transaction = Transaction.Transactions?[i];
-                    UCTransaction uCTransaction = new(transaction);
-                    listPanel.Children.Add(uCTransaction);
-                }
+                listPanel.Children.Clear();
+                if (Transaction.Transactions.Count < 99)
+                    foreach (Transaction transaction in Transaction.Transactions)
+                    {
+                        UCTransaction uCTransaction = new(transaction);
+                        listPanel.Children.Add(uCTransaction);
+                    }
+                else
+                    for (int i = 0; i <= 99; i++)
+                    {
+                        Transaction? transaction = Transaction.Transactions?[i];
+                        UCTransaction uCTransaction = new(transaction);
+                        listPanel.Children.Add(uCTransaction);
+                    }
             }
             else
             {
+                listPanel.Children.Clear();
                 foreach (Transaction transaction in Transaction.Transactions)
                 {
                     UCTransaction uCTransaction = new(transaction);
