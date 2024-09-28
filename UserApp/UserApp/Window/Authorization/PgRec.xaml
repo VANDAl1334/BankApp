@@ -1,0 +1,39 @@
+﻿<Page x:Class="UserApp.PgRec"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:UserApp"
+      mc:Ignorable="d" 
+      d:DesignHeight="387" d:DesignWidth="474"
+      Title="Recovery">
+    <Grid>
+        <Grid>
+            <Border CornerRadius="20" Background="White" Width="380" Padding="40 40 40 0" Height="253" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="100" Color="LightGray" ShadowDepth="3"/>
+                </Border.Effect>
+                <DockPanel>
+                    <Grid DockPanel.Dock="Top" Height="120" >
+                        <Grid.RowDefinitions >
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="46.2"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock FontFamily="Roboto" FontSize="16" Margin="0 0 0 10" Grid.Row="0" TextWrapping="Wrap" Foreground="red" Text="После ввода вашей почты привязанной к вашему аккаунту. Будет отправлено письмо для восстановления."></TextBlock>
+                        <TextBox x:Name="email" FontFamily="Roboto"  FontSize="16" materialDesign:HintAssist.Hint="Введите почту" Grid.Row="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="" TextChanged="email_TextChanged"/>
+                    </Grid>
+                    <StackPanel>
+                        <TextBlock x:Name="TipEmail" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="red" FontFamily="Roboto" FontSize="14" Visibility="Collapsed">Обязательное поле</TextBlock>
+                        <TextBlock x:Name="TipEmailPattern" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="red" FontFamily="Roboto" FontSize="14" Visibility="Collapsed">Неверный формат почты</TextBlock>
+                        <Button Content="Восстановить" Width="130" Margin="0 10 0 0" VerticalAlignment="Top" Foreground="black" Style="{StaticResource MaterialDesignOutlinedLightButton}" Click="BtnRec_Click"/>
+                    </StackPanel>
+                </DockPanel>
+            </Border>
+            <Button Style="{StaticResource MaterialDesignIconButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="45"  Click="BtnBack_Click">
+                <Image Source="/Window/Authorization/back.png" Height="35" Width="40"/>
+            </Button>
+        </Grid>
+    </Grid>
+</Page>

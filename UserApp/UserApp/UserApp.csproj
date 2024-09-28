@@ -8,11 +8,98 @@
   </PropertyGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
     <None Remove="4.jpg" />
     <None Remove="arrow.png" />
     <None Remove="send.png" />
     <None Remove="support.png" />
     <None Remove="support1.png" />
+=======
+    <Compile Remove="other image\**" />
+    <Compile Remove="Sourse\**" />
+    <EmbeddedResource Remove="other image\**" />
+    <EmbeddedResource Remove="Sourse\**" />
+    <None Remove="other image\**" />
+    <None Remove="Sourse\**" />
+    <Page Remove="other image\**" />
+    <Page Remove="Sourse\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="1Безымянный.png" />
+    <None Remove="4.jpg" />
+    <None Remove="arrow.png" />
+    <None Remove="bank.ico" />
+    <None Remove="bank.png" />
+    <None Remove="close.png" />
+    <None Remove="hidden.png" />
+    <None Remove="icons8-no-internet-96.png" />
+    <None Remove="icons8_Back_To_50px_1 — копия.png" />
+    <None Remove="icons8_Back_To_50px_1.png" />
+    <None Remove="icons8_bank.ico" />
+    <None Remove="icons8_bank_125px.png" />
+    <None Remove="icons8_close_40px.png" />
+    <None Remove="icons8_close_40px_1.png" />
+    <None Remove="icons8_data_transfer_50px.png" />
+    <None Remove="icons8_home_50px.png" />
+    <None Remove="icons8_list_30px.png" />
+    <None Remove="icons8_list_50px.png" />
+    <None Remove="icons8_logout_50px.png" />
+    <None Remove="icons8_Medical_History_50px.png" />
+    <None Remove="icons8_settings_50px.png" />
+    <None Remove="icons8_subtract_40px.png" />
+    <None Remove="icons8_user_50px_1.png" />
+    <None Remove="png-clipart-free-banking-branch-financial-institution-bank-text-branch.png" />
+    <None Remove="Resources\back.png" />
+    <None Remove="Resources\bank.ico" />
+    <None Remove="Resources\bank.png" />
+    <None Remove="Resources\close.png" />
+    <None Remove="Resources\exit.png" />
+    <None Remove="Resources\hidden.png" />
+    <None Remove="Resources\history.png" />
+    <None Remove="Resources\home.png" />
+    <None Remove="Resources\internet.png" />
+    <None Remove="Resources\list.png" />
+    <None Remove="Resources\no-internet.png" />
+    <None Remove="Resources\Sent.ico" />
+    <None Remove="Resources\settings.png" />
+    <None Remove="Resources\support.png" />
+    <None Remove="Resources\transfer.png" />
+    <None Remove="Resources\user.png" />
+    <None Remove="send.png" />
+    <None Remove="support.png" />
+    <None Remove="support1.png" />
+    <None Remove="Window\Authorization\back.png" />
+    <None Remove="Window\Authorization\bank.ico" />
+    <None Remove="Window\Authorization\close.png" />
+    <None Remove="Window\Authorization\hidden.png" />
+    <None Remove="Window\MainWindow\bank.png" />
+    <None Remove="Window\MainWindow\close.png" />
+    <None Remove="Window\MainWindow\hidden.png" />
+    <None Remove="Window\Main\bank.ico" />
+    <None Remove="Window\Main\exit.png" />
+    <None Remove="Window\Main\history.png" />
+    <None Remove="Window\Main\home.png" />
+    <None Remove="Window\Main\icons8_user_50px_1.png" />
+    <None Remove="Window\Main\list.png" />
+    <None Remove="Window\Main\Sent.ico" />
+    <None Remove="Window\Main\settings.png" />
+    <None Remove="Window\Main\support.png" />
+    <None Remove="Window\Main\transfer.png" />
+    <None Remove="Window\Main\user.png" />
+    <None Remove="Window\Registration\back.png" />
+    <None Remove="Window\Registration\Bank.ico" />
+    <None Remove="Window\Registration\close.png" />
+    <None Remove="Window\Registration\hidden.png" />
+    <None Remove="Window\Registration\icons8-no-internet-96.png" />
+    <None Remove="Window\Registration\icons8-интернет-67.png" />
+    <None Remove="Window\Registration\internet.png" />
+    <None Remove="Window\Registration\no-internet.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\list.png" />
+>>>>>>> origin/VANDAL
   </ItemGroup>
 
   <ItemGroup>
@@ -28,9 +115,27 @@
   </ItemGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
     <Resource Include="arrow.png" />
     <Resource Include="send.png" />
     <Resource Include="support.png" />
+=======
+    <Resource Include="Resources\back.png" />
+    <Resource Include="Resources\bank.ico" />
+    <Resource Include="Resources\bank.png" />
+    <Resource Include="Resources\close.png" />
+    <Resource Include="Resources\exit.png" />
+    <Resource Include="Resources\hidden.png" />
+    <Resource Include="Resources\history.png" />
+    <Resource Include="Resources\home.png" />
+    <Resource Include="Resources\internet.png" />
+    <Resource Include="Resources\no-internet.png" />
+    <Resource Include="Resources\Sent.ico" />
+    <Resource Include="Resources\settings.png" />
+    <Resource Include="Resources\support.png" />
+    <Resource Include="Resources\transfer.png" />
+    <Resource Include="Resources\user.png" />
+>>>>>>> origin/VANDAL
   </ItemGroup>
 
 </Project>

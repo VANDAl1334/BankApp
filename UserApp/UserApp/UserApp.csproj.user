@@ -7,6 +7,7 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Update="WndYour.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -26,10 +27,53 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="WndAut.xaml.cs">
+=======
+    <Compile Update="Window\Authorization\PgAut.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Window\Authorization\PgCodeRec.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Window\Authorization\PgRecPass.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Window\Authorization\PgRec.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Window\Main\PgExit.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Window\Main\PgOptions.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Window\Main\PgSupport.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Window\Main\PgHistory.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Window\Main\PgHome.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Window\Main\Pgtranzact.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Window\Main\PgUser.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Window\Registration\PgFNm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Window\Registration\PgLogPass.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Window\UC\UCTransaction.xaml.cs">
+>>>>>>> origin/VANDAL
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -52,6 +96,48 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="WndAut.xaml">
+=======
+    <Page Update="Window\Authorization\PgAut.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Window\Authorization\PgCodeRec.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Window\Authorization\PgRecPass.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Window\Authorization\PgRec.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Window\Main\PgExit.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Window\Main\PgOptions.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Window\Main\PgSupport.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Window\Main\PgHistory.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Window\Main\PgHome.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Window\Main\Pgtranzact.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Window\Main\PgUser.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Window\Registration\PgFNm.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Window\Registration\PgLogPass.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Window\UC\UCTransaction.xaml">
+>>>>>>> origin/VANDAL
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

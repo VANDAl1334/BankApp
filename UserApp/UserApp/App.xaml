@@ -2,8 +2,14 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:UserApp"
+<<<<<<< HEAD
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+=======
+             StartupUri="Window/MainWindow/MainWindow.xaml">
+    <Application.Resources>
+        
+>>>>>>> origin/VANDAL
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
@@ -13,9 +19,27 @@
                 <!--ResourceDictionary Source="pack://application:,,,/SampleEventTask;component/Resources.xaml" /-->
 
             </ResourceDictionary.MergedDictionaries>
+<<<<<<< HEAD
             
         </ResourceDictionary>
         
+=======
+            <Style TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="Roboto"/>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="Roboto"/>
+            </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="FontFamily" Value="Roboto"/>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="FontFamily" Value="Roboto"/>
+                <Setter Property="Background" Value="Brown"/>
+            </Style>
+        </ResourceDictionary>
+
+>>>>>>> origin/VANDAL
     </Application.Resources>
 
 </Application>
