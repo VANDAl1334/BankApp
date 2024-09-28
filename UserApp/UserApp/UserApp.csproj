@@ -8,13 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-<<<<<<< HEAD
-    <None Remove="4.jpg" />
-    <None Remove="arrow.png" />
-    <None Remove="send.png" />
-    <None Remove="support.png" />
-    <None Remove="support1.png" />
-=======
     <Compile Remove="other image\**" />
     <Compile Remove="Sourse\**" />
     <EmbeddedResource Remove="other image\**" />
@@ -99,7 +92,6 @@
 
   <ItemGroup>
     <Resource Include="Resources\list.png" />
->>>>>>> origin/VANDAL
   </ItemGroup>
 
   <ItemGroup>
@@ -115,11 +107,6 @@
   </ItemGroup>
 
   <ItemGroup>
-<<<<<<< HEAD
-    <Resource Include="arrow.png" />
-    <Resource Include="send.png" />
-    <Resource Include="support.png" />
-=======
     <Resource Include="Resources\back.png" />
     <Resource Include="Resources\bank.ico" />
     <Resource Include="Resources\bank.png" />
@@ -135,7 +122,6 @@
     <Resource Include="Resources\support.png" />
     <Resource Include="Resources\transfer.png" />
     <Resource Include="Resources\user.png" />
->>>>>>> origin/VANDAL
   </ItemGroup>
 
 </Project>
